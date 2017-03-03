@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Just another blog"
+title                    : ">_ Get-Blog"
 title_separator          : "-"
 name                     : "Victor Silva"
 description              : "PowerShell, Azure, System Center, Skype for Business y más..."
