@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en"
-title                    : ">_ Get-Blog"
+title                    : "Get-Blog"
 title_separator          : "-"
 name                     : "Victor Silva"
 description              : "PowerShell, Azure, System Center, Skype for Business y más..."
@@ -79,7 +79,7 @@ analytics:
 author:
   name             : "Victor Silva"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Microsoft MVP"
+  bio              : #"Microsoft MVP"
   location         : "Montevideo, Uruguay"
   email            : "vmsilvamolina@hotmail.com"
   uri              :
