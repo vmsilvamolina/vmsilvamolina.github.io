@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Get-Blog"
+title                    : "My Azure Adventures..."
 title_separator          : "-"
 name                     : "Victor Silva"
-description              : "PowerShell, Azure, System Center, Skype for Business y más..."
+description              : "Microsoft Azure and PowerShell..."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
