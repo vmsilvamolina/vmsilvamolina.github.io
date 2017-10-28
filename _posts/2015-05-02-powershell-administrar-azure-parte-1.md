@@ -3,7 +3,7 @@ id: 777
 title: 'PowerShell &#8211; Administrar Azure: Parte 1'
 date: 2015-05-02T10:46:49+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=777
 permalink: /powershell-administrar-azure-parte-1/
 dsq_thread_id:

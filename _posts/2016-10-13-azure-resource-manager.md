@@ -3,7 +3,7 @@ id: 1336
 title: Azure Resource Manager desde PowerShell
 date: 2016-10-13T15:33:49+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1336
 permalink: /azure-resource-manager/
 medium_post:

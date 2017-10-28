@@ -3,7 +3,7 @@ id: 403
 title: 'System Center Data Protection Manager &#8211; Borrar una cinta'
 date: 2014-05-30T17:09:02+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=403
 permalink: /system-center-data-protection-manager-borrar-una-cinta/
 dsq_thread_id:

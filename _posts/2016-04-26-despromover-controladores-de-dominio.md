@@ -3,7 +3,7 @@ id: 1140
 title: Despromover Controladores de Dominio
 date: 2016-04-26T16:39:38+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1140
 permalink: /despromover-controladores-de-dominio/
 medium_post:

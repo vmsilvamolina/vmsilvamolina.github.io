@@ -3,7 +3,7 @@ id: 187
 title: 'PowerShell &#8211; Hyper-V: Tareas básicas'
 date: 2014-05-03T12:44:15+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://victormsilva.wordpress.com/?p=187
 permalink: /powershell-hyper-v-tareas-basicas/
 geo_public:

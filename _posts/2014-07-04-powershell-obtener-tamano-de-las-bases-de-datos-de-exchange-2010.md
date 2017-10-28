@@ -3,7 +3,7 @@ id: 460
 title: 'PowerShell &#8211; Obtener tamaño de las bases de datos de Exchange 2010'
 date: 2014-07-04T11:15:50+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=460
 permalink: /powershell-obtener-tamano-de-las-bases-de-datos-de-exchange-2010/
 dsq_thread_id:

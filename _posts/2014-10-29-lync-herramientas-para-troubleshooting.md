@@ -3,7 +3,7 @@ id: 629
 title: 'Lync &#8211; Herramientas para troubleshooting'
 date: 2014-10-29T14:04:26+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=629
 permalink: /lync-herramientas-para-troubleshooting/
 dsq_thread_id:

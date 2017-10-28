@@ -3,7 +3,7 @@ id: 1117
 title: Azure Virtual Network
 date: 2015-05-15T23:16:02+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1117
 permalink: /azure-virtual-network/
 medium_post:

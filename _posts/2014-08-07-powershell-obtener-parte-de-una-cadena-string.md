@@ -3,7 +3,7 @@ id: 518
 title: 'PowerShell: Obtener parte de una cadena (string)'
 date: 2014-08-07T20:28:45+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=518
 permalink: /powershell-obtener-parte-de-una-cadena-string/
 dsq_thread_id:

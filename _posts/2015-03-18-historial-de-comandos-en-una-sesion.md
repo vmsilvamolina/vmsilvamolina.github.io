@@ -3,7 +3,7 @@ id: 729
 title: Historial de comandos en una sesión
 date: 2015-03-18T17:43:16+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=729
 permalink: /historial-de-comandos-en-una-sesion/
 dsq_thread_id:

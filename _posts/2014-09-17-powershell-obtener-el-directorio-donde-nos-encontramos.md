@@ -3,7 +3,7 @@ id: 510
 title: 'PowerShell: Obtener el directorio donde nos encontramos'
 date: 2014-09-17T19:54:47+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=510
 permalink: /powershell-obtener-el-directorio-donde-nos-encontramos/
 dsq_thread_id:

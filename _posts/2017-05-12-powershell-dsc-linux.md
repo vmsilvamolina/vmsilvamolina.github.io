@@ -3,7 +3,7 @@ id: 1407
 title: PowerShell DSC en Linux (Primeros pasos)
 date: 2017-05-12T20:45:04+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1407
 permalink: /powershell-dsc-linux/
 medium_post:

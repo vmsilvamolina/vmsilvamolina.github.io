@@ -3,7 +3,7 @@ id: 512
 title: 'PowerShell: Como borrar las carpetas vacías de una unidad?'
 date: 2014-09-04T20:02:35+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=512
 permalink: /powershell-como-borrar-las-carpetas-vacias-de-una-unidad/
 dsq_thread_id:

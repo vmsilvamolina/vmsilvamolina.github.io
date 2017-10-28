@@ -3,7 +3,7 @@ id: 615
 title: 'PowerShell &#8211; Ocultar parametros para IntelliSense'
 date: 2014-12-05T20:03:25+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=615
 permalink: /powershell-ocultar-parametros-para-intellisense/
 dsq_thread_id:

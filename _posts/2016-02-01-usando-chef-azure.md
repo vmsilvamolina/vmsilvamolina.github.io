@@ -3,7 +3,7 @@ id: 1059
 title: Usando Chef en Azure
 date: 2016-02-01T20:05:48+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1059
 permalink: /usando-chef-azure/
 medium_post:

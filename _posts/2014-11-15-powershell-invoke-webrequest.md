@@ -3,7 +3,7 @@ id: 658
 title: 'PowerShell &#8211; Invoke-WebRequest'
 date: 2014-11-15T20:25:09+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=658
 permalink: /powershell-invoke-webrequest/
 dsq_thread_id:

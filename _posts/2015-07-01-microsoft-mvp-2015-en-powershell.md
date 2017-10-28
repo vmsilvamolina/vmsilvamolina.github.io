@@ -3,7 +3,7 @@ id: 812
 title: Microsoft MVP 2015 en PowerShell
 date: 2015-07-01T22:14:48+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=812
 permalink: /microsoft-mvp-2015-en-powershell/
 dsq_thread_id:

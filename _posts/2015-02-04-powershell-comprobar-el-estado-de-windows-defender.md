@@ -3,7 +3,7 @@ id: 678
 title: 'PowerShell &#8211; Comprobar el estado de Windows Defender'
 date: 2015-02-04T23:37:17+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=678
 permalink: /powershell-comprobar-el-estado-de-windows-defender/
 dsq_thread_id:
