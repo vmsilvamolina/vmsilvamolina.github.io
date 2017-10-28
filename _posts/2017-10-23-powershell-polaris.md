@@ -35,22 +35,22 @@ La instalación de PowerShell Polaris es bastante sencilla, simplemente hay cump
 
 Y los pasos a seguir son:
 
-```powershell
+{% highlight posh %}
 git clone https://github.com/PowerShell/Polaris.git
 cd Polaris/PolarisCore
-```
+{% endhighlight %}
     
 
 <img src="https://pbpqow-ch3302.files.1drv.com/y4mHz7FcoDTLCznij008e8Olj_CWed4v3Td8wrwJId6oLb4ZPId_XWEQqQ5Vg87VoYisaJWJEIMxHEfkUnyZxkmUEqfrpz11jeEPI-Ff3gwMsOIxIw7mDIzvOtcOIdaA9Zgsk9HP0-RjwPlcRFLtTh9bgy4llZMRqDCx4Jwoce-Fh_KliS10gJySaE5p4d4WzzJ4fP3Y2_Fl2frGT0DcaanyQ?width=979&#038;height=485&#038;cropmode=none" width="979" height="485" alt="Parte del proceso de instalación de PowerShell Polaris" class="alignnone size-full" />
 
 Posteriormente ejecutar para finalizar la instalación:
 
-```powershell
+{% highlight posh %}
 dotnet restore
 dotnet build
 cd ..
 Import-Module ./Polaris.psm1
-```
+{% endhighlight %}
 
 Finalmente luego del arduo trabajo tenemos Polaris instalado en el equipo!
 
@@ -60,9 +60,9 @@ Al momento de comenzar a utilizar este framework no comprendía realmente el alc
 
 Lo primero que vamos a hacer es ver los cmdlets que vienen en el módulo ejecutando:
 
-```powershell
+{% highlight posh %}
 Get-Command -Module Polaris
-```
+{% endhighlight %}
 
 <img src="https://pbppow-ch3302.files.1drv.com/y4mFB_R2YIvtw0JnsksjNwsXboL5_YVth3WQSRW79y1umkEzD7Lf2fI3OYT7mmDa-Y65uxl297oLb4_OubK04YmQt77aGo12foPzNkBN8lif1433xAohd7ImZfbRbL8m4RC0rztev5PwS4Qyl2AHpD4er9IIr_P-NGW9aKJa8ToK5gX13i-YhdwnV7aHYEPDD2E3__-lkAdeIOORFawfs3edQ?width=979&#038;height=433&#038;cropmode=none" width="979" height="433" alt="Cmdlets de PowerShell Polaris" class="alignnone size-full" />
 
@@ -72,14 +72,14 @@ Como parte del ejemplo, nos resta comentar que commando tenemos para iniciar el 
 
 Así que vamos a crear el &#8220;Hola Mundo!&#8221; en nuestro flameante servidor de la siguiente manera:
 
-```powershell
+{% highlight posh %}
 #Primero definimos la ruta con el método
 New-GetRoute -Path "/helloworld" -ScriptBlock {
     $response.Send('Hello World!');
 }
 #Iniciamos el server en el puerto 8081
 $app = Start-Polaris -Port 8081
-```
+{% endhighlight %}
 
 Para comprobar lo que realizamos, accedemos desde un navegador a la siguiente dirección: <http://localhost:8081/helloworld> y vamos a poder ver lo siguiente:
 
@@ -87,8 +87,8 @@ Para comprobar lo que realizamos, accedemos desde un navegador a la siguiente di
 
 En caso de querer finalizar el servidor, debemos ejecutar:
 
-```powershell
+{% highlight posh %}
 Stop-Polaris -ServerContext $app
-```
+{% endhighlight %}
 
 Saludos,
