@@ -3,7 +3,7 @@ id: 1051
 title: Just Enough Administration
 date: 2016-04-01T01:54:52+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1051
 permalink: /just-enough-administration/
 medium_post:

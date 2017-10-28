@@ -3,7 +3,7 @@ id: 823
 title: 'Exchange &#8211; Como cambiar el banner SMTP'
 date: 2015-07-12T22:12:37+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=823
 permalink: /exchange-como-cambiar-el-banner-smtp/
 dsq_thread_id:

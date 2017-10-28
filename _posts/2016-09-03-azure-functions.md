@@ -3,7 +3,7 @@ id: 1288
 title: Azure Functions
 date: 2016-09-03T00:51:48+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1288
 permalink: /azure-functions/
 medium_post:

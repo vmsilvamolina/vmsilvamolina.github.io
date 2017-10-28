@@ -3,7 +3,7 @@ id: 907
 title: 'PowerShell &#8211; Tip: Cómo cambiar la configuración del OWA en Exchange?'
 date: 2015-10-13T01:37:54+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=907
 permalink: /powershell-tip-como-cambiar-la-configuracion-del-owa-en-exchange/
 dsq_thread_id:

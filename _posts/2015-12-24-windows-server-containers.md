@@ -3,7 +3,7 @@ id: 933
 title: Windows Server Containers
 date: 2015-12-24T09:16:32+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=933
 permalink: /windows-server-containers/
 dsq_thread_id:

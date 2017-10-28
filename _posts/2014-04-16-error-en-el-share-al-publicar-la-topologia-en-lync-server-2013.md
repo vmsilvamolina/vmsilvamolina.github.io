@@ -3,7 +3,7 @@ id: 11
 title: 'Error en el &#8220;Share&#8221; al publicar la topología en Lync Server 2013'
 date: 2014-04-16T18:08:10+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://vmsilvamolina.wordpress.com/?p=11
 permalink: /error-en-el-share-al-publicar-la-topologia-en-lync-server-2013/
 dsq_thread_id:

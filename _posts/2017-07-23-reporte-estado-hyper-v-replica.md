@@ -3,7 +3,7 @@ id: 1481
 title: Reporte de estado de Hyper-V Replica
 date: 2017-07-23T15:02:24+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1481
 permalink: /reporte-estado-hyper-v-replica/
 medium_post:

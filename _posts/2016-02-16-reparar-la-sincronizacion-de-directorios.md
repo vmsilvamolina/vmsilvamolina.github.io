@@ -3,7 +3,7 @@ id: 1073
 title: Reparar la sincronización de directorios
 date: 2016-02-16T15:54:08+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1073
 permalink: /reparar-la-sincronizacion-de-directorios/
 medium_post:

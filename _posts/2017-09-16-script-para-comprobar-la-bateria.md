@@ -3,7 +3,7 @@ id: 1508
 title: Script para comprobar la batería
 date: 2017-09-16T14:30:06+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1508
 permalink: /script-para-comprobar-la-bateria/
 medium_post:

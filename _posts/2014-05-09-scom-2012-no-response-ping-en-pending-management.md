@@ -3,7 +3,7 @@ id: 279
 title: 'SCOM 2012: No response ping en Pending Management'
 date: 2014-05-09T19:44:21+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://victormsilva.wordpress.com/?p=279
 permalink: /scom-2012-no-response-ping-en-pending-management/
 twitter_cards_summary_img_size:

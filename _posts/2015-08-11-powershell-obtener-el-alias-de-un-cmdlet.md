@@ -3,7 +3,7 @@ id: 859
 title: 'PowerShell: Obtener el alias de un cmdlet'
 date: 2015-08-11T02:10:10+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=859
 permalink: /powershell-obtener-el-alias-de-un-cmdlet/
 dsq_thread_id:

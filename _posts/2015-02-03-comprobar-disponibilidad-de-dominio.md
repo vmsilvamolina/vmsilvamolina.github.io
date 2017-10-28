@@ -3,7 +3,7 @@ id: 665
 title: 'PowerShell y Office 365- Script para comprobar disponibilidad de dominio'
 date: 2015-02-03T19:46:16+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=665
 permalink: /comprobar-disponibilidad-de-dominio/
 dsq_thread_id:

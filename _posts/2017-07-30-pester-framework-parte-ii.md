@@ -3,7 +3,7 @@ id: 1463
 title: Pester Framework parte II
 date: 2017-07-30T10:41:40+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1463
 permalink: /pester-framework-parte-ii/
 medium_post:

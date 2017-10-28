@@ -3,7 +3,7 @@ id: 767
 title: 'PowerShell &#8211; Cómo descomprimir archivos?'
 date: 2015-04-13T16:50:36+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=767
 permalink: /powershell-como-descomprimir-archivos/
 dsq_thread_id:

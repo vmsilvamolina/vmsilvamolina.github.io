@@ -3,7 +3,7 @@ id: 470
 title: 'Powershell &#8211; Como crear un certificado SelfSigned?'
 date: 2014-07-15T13:41:52+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=470
 permalink: /powershell-como-crear-un-certificado-selfsigned/
 dsq_thread_id:

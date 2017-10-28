@@ -3,7 +3,7 @@ id: 1276
 title: Publicar en Microsoft Teams desde PowerShell
 date: 2016-11-06T00:28:39+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1276
 permalink: /publicar-en-microsoft-teams-desde-powershell/
 medium_post:

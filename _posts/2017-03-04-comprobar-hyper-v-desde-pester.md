@@ -3,7 +3,7 @@ id: 1419
 title: Comprobar Hyper-V desde Pester
 date: 2017-03-04T00:17:39+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1419
 permalink: /comprobar-hyper-v-desde-pester/
 medium_post:

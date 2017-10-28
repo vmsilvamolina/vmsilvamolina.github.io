@@ -3,7 +3,7 @@ id: 411
 title: 'PowerShell &#8211; Formularios'
 date: 2014-06-06T16:01:02+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=411
 permalink: /powershell-formularios/
 dsq_thread_id:

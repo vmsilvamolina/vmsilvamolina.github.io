@@ -3,7 +3,7 @@ id: 401
 title: PowerShell eBooks
 date: 2014-05-26T17:56:43+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=401
 permalink: /powershell-ebooks/
 dsq_thread_id:

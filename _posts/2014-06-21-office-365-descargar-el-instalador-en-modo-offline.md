@@ -3,7 +3,7 @@ id: 444
 title: 'Office 365 &#8211; Descargar el instalador en modo offline'
 date: 2014-06-21T23:14:44+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=444
 permalink: /office-365-descargar-el-instalador-en-modo-offline/
 dsq_thread_id:

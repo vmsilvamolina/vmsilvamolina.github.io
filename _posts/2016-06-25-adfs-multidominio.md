@@ -3,7 +3,7 @@ id: 1219
 title: ADFS Multidominio
 date: 2016-06-25T15:34:32+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1219
 permalink: /adfs-multidominio/
 medium_post:

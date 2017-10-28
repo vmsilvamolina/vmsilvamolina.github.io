@@ -3,7 +3,7 @@ id: 508
 title: 'Lync 2013 &#8211; &#8220;Hubo un problema al comprobar el certificado del servidor&#8221;'
 date: 2014-08-03T14:41:56+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=508
 permalink: /lync-2013-hubo-un-problema-al-comprobar-el-certificado-del-servidor/
 dsq_thread_id:

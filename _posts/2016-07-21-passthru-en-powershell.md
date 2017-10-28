@@ -3,7 +3,7 @@ id: 1210
 title: El parámetro passthru en PowerShell
 date: 2016-07-21T15:51:00+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1210
 permalink: /passthru-en-powershell/
 medium_post:
