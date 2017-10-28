@@ -3,7 +3,7 @@ id: 1516
 title: PowerShell Polaris
 date: 2017-10-23T23:35:53+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1516
 permalink: /powershell-polaris/
 medium_post:

@@ -3,7 +3,7 @@ id: 1361
 title: Usando PowerShell con Azure Automation
 date: 2017-03-31T17:44:18+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1361
 permalink: /azure-automation/
 medium_post:

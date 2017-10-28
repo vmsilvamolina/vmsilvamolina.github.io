@@ -3,7 +3,7 @@ id: 1423
 title: Libro de PowerShell en español
 date: 2017-06-28T10:58:04+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1423
 permalink: /libro-de-powershell-en-espanol/
 medium_post:

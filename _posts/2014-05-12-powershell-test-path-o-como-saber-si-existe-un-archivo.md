@@ -3,7 +3,7 @@ id: 388
 title: 'PowerShell: Test-Path o como saber si existe un archivo'
 date: 2014-05-12T20:24:54+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=388
 permalink: /powershell-test-path-o-como-saber-si-existe-un-archivo/
 dsq_thread_id:

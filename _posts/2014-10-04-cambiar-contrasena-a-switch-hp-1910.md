@@ -3,7 +3,7 @@ id: 530
 title: Cambiar contraseña a Switch HP 1910
 date: 2014-10-04T01:45:09+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=530
 permalink: /cambiar-contrasena-a-switch-hp-1910/
 dsq_thread_id:

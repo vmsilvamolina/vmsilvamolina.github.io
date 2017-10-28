@@ -3,7 +3,7 @@ id: 845
 title: Charla en la .Net MeetUp UY
 date: 2015-07-23T12:22:30+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=845
 permalink: /charla-la-net-meetup-uy/
 dsq_thread_id:

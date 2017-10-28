@@ -3,7 +3,7 @@ id: 1437
 title: Skype for Business Online con PowerShell
 date: 2017-05-27T22:44:46+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1437
 permalink: /sfb-online-con-powershell/
 medium_post:

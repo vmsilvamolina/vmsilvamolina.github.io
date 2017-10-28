@@ -3,7 +3,7 @@ id: 328
 title: 'PowerShell: Consultar espacio en discos locales'
 date: 2014-04-27T14:25:11+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://vmsilvamolina.wordpress.com/?p=328
 permalink: /powershell-consultar-espacio-en-discos-locales/
 dsq_thread_id:

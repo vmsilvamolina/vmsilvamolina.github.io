@@ -3,7 +3,7 @@ id: 1099
 title: Usando objetos WMI
 date: 2016-03-11T00:25:18+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1099
 permalink: /usando-objetos-wmi/
 medium_post:

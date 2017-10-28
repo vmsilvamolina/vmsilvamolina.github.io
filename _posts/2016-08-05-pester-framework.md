@@ -3,7 +3,7 @@ id: 1227
 title: Pester framework
 date: 2016-08-05T19:26:47+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1227
 permalink: /pester-framework/
 medium_post:

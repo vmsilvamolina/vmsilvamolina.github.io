@@ -3,7 +3,7 @@ id: 1503
 title: Comprobar archivos usando MD5 y PowerShell
 date: 2017-08-06T15:00:03+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1503
 permalink: /comprobar-archivos-md5-y-powershell/
 medium_post:

@@ -3,7 +3,7 @@ id: 592
 title: Instalar SO desde memoria SD
 date: 2014-10-09T11:34:46+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=592
 permalink: /instalar-so-desde-memoria-sd/
 dsq_thread_id:

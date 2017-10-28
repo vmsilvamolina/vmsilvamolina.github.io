@@ -3,7 +3,7 @@ id: 795
 title: Timeout al ejecutar comandos remotamente
 date: 2015-06-12T23:49:02+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=795
 permalink: /powershell-timeout-al-ejecutar-comandos-remotamente/
 dsq_thread_id:

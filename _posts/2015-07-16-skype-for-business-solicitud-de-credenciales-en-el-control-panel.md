@@ -3,7 +3,7 @@ id: 827
 title: 'Skype for Business &#8211; Solicitud de credenciales en el Control Panel'
 date: 2015-07-16T16:18:44+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=827
 permalink: /skype-for-business-solicitud-de-credenciales-en-el-control-panel/
 dsq_thread_id:

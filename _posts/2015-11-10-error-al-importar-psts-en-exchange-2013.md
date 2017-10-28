@@ -3,7 +3,7 @@ id: 949
 title: Error al importar PSTs en Exchange 2013
 date: 2015-11-10T22:05:53+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=949
 permalink: /error-al-importar-psts-en-exchange-2013/
 dsq_thread_id:

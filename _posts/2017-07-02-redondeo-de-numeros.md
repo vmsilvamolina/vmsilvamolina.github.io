@@ -3,7 +3,7 @@ id: 1443
 title: Redondeo de números y aritmética con PowerShell
 date: 2017-07-02T20:39:09+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1443
 permalink: /redondeo-de-numeros/
 medium_post:

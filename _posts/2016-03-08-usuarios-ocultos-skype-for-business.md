@@ -3,7 +3,7 @@ id: 1097
 title: Usuarios ocultos en Skype for Business
 date: 2016-03-08T19:43:29+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1097
 permalink: /usuarios-ocultos-skype-for-business/
 medium_post:

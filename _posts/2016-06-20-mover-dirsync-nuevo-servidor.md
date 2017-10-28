@@ -3,7 +3,7 @@ id: 1213
 title: Mover DirSync a un nuevo servidor
 date: 2016-06-20T14:08:41+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1213
 permalink: /mover-dirsync-nuevo-servidor/
 medium_post:

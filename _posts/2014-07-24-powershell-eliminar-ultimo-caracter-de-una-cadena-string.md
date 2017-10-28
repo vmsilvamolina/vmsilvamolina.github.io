@@ -3,7 +3,7 @@ id: 482
 title: 'PowerShell &#8211; Eliminar último caracter de una cadena (String)'
 date: 2014-07-24T19:40:57+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=482
 permalink: /powershell-eliminar-ultimo-caracter-de-una-cadena-string/
 dsq_thread_id:

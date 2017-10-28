@@ -3,7 +3,7 @@ id: 1203
 title: Expresiones regulares en PowerShell
 date: 2016-07-09T20:03:08+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1203
 permalink: /expresiones-regulares-en-powershell/
 medium_post:
