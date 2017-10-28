@@ -3,7 +3,7 @@ id: 1427
 title: Accediendo a MySQL desde PowerShell
 date: 2017-04-05T13:38:34+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1427
 permalink: /mysql-desde-powershell/
 medium_post:

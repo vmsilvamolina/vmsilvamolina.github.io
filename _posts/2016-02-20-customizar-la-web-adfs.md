@@ -3,7 +3,7 @@ id: 1080
 title: 'Customizar la web de ADFS &#8211; Parte 1'
 date: 2016-02-20T21:45:22+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1080
 permalink: /customizar-la-web-adfs/
 medium_post:

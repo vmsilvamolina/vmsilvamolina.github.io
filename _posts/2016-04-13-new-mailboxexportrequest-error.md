@@ -3,7 +3,7 @@ id: 1124
 title: New-MailboxExportRequest error
 date: 2016-04-13T23:03:30+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1124
 permalink: /new-mailboxexportrequest-error/
 medium_post:

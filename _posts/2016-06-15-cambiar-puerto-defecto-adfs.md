@@ -3,7 +3,7 @@ id: 1211
 title: Cambiar puerto por defecto en ADFS
 date: 2016-06-15T09:49:52+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1211
 permalink: /cambiar-puerto-defecto-adfs/
 medium_post:

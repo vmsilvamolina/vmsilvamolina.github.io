@@ -3,7 +3,7 @@ id: 975
 title: Mapear un usuario de AD con Office 365
 date: 2015-12-21T01:31:44+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=975
 permalink: /mapear-un-usuario-de-ad-con-office-365/
 dsq_thread_id:

@@ -3,7 +3,7 @@ id: 250
 title: Hyper-V Replica para todos!!!
 date: 2014-07-01T21:43:55+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://victormsilva.wordpress.com/?p=250
 permalink: /hyper-v-replica-para-todos/
 original_post_id:

@@ -3,7 +3,7 @@ id: 332
 title: 'Creando usuarios en Active Directory&#8230;'
 date: 2014-04-30T18:34:33+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://vmsilvamolina.wordpress.com/?p=332
 permalink: /creando-usuarios-en-active-directory-2/
 dsq_thread_id:

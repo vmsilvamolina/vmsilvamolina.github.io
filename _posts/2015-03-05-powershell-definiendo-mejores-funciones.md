@@ -3,7 +3,7 @@ id: 703
 title: 'PowerShell &#8211; Definiendo mejores funciones!'
 date: 2015-03-05T11:58:16+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=703
 permalink: /powershell-definiendo-mejores-funciones/
 dsq_thread_id:

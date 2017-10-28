@@ -3,7 +3,7 @@ id: 488
 title: 'Lync 2013 &#8211; Error del cliente (vdpsrc.dll)'
 date: 2014-08-15T14:39:48+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=488
 permalink: /lync-2013-error-del-cliente-vdpsrc-dll/
 dsq_thread_id:

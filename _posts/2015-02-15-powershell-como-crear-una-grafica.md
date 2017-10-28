@@ -3,7 +3,7 @@ id: 684
 title: 'PowerShell &#8211; Como crear una gráfica con .Net Framework'
 date: 2015-02-15T09:21:46+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=684
 permalink: /powershell-como-crear-una-grafica/
 dsq_thread_id:

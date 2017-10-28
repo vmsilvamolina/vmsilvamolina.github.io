@@ -3,7 +3,7 @@ id: 779
 title: 'PowerShell: Show-Command'
 date: 2015-04-24T10:29:46+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=779
 permalink: /powershell-show-command/
 dsq_thread_id:

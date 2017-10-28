@@ -3,7 +3,7 @@ id: 36
 title: Error al acceder a los informes desde una consola remota en SCCM 2012
 date: 2014-04-10T17:59:21+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://vmsilvamolina.wordpress.com/?p=15
 permalink: /error-al-acceder-a-los-informes-desde-una-consola-remota-en-sccm-2012/
 dsq_thread_id:

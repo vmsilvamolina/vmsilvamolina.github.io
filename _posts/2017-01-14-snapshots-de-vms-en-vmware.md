@@ -3,7 +3,7 @@ id: 1405
 title: Reporte de Snapshots de VMs en VMware
 date: 2017-01-14T23:34:11+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1405
 permalink: /snapshots-de-vms-en-vmware/
 medium_post:
