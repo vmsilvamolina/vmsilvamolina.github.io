@@ -3,7 +3,7 @@ id: 1344
 title: Primeros pasos en Azure Storage con PowerShell
 date: 2016-07-29T00:05:41+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1344
 permalink: /azure-storage/
 medium_post:

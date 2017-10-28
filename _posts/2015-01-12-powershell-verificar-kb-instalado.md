@@ -3,7 +3,7 @@ id: 749
 title: 'PowerShell &#8211; Verificar KB instalado'
 date: 2015-01-12T10:22:05+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=749
 permalink: /powershell-verificar-kb-instalado/
 dsq_thread_id:

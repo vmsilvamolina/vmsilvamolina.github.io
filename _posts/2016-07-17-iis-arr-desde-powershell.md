@@ -3,7 +3,7 @@ id: 1238
 title: IIS ARR desde PowerShell para Skype for Business
 date: 2016-07-17T22:47:25+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1238
 permalink: /iis-arr-desde-powershell/
 medium_post:

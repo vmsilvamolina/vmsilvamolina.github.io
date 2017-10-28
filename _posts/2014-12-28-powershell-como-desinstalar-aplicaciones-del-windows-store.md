@@ -3,7 +3,7 @@ id: 604
 title: 'PowerShell &#8211; Como desinstalar aplicaciones del Windows Store'
 date: 2014-12-28T23:53:57+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=604
 permalink: /powershell-como-desinstalar-aplicaciones-del-windows-store/
 dsq_thread_id:

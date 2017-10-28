@@ -3,7 +3,7 @@ id: 753
 title: 'PowerShell &#8211; RunOnce'
 date: 2015-04-01T16:20:37+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=753
 permalink: /powershell-runonce/
 dsq_thread_id:

@@ -3,7 +3,7 @@ id: 35
 title: 'Office 365 y Powershell&#8230; son amigos!'
 date: 2014-04-06T18:25:33+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://vmsilvamolina.wordpress.com/?p=3
 permalink: /office-365-y-powershell-son-amigos/
 dsq_thread_id:

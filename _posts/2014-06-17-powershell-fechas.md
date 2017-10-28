@@ -3,7 +3,7 @@ id: 409
 title: 'PowerShell &#8211; Fechas'
 date: 2014-06-17T10:04:48+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=409
 permalink: /powershell-fechas/
 dsq_thread_id:

@@ -3,7 +3,7 @@ id: 1133
 title: Excel desde PowerShell
 date: 2016-04-17T20:35:15+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1133
 permalink: /excel-desde-powershell/
 medium_post:

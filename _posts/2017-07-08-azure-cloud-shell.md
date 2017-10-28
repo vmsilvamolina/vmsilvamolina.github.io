@@ -3,7 +3,7 @@ id: 1448
 title: 'Azure Cloud Shell: Bash o PowerShell?'
 date: 2017-07-08T11:09:41+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1448
 permalink: /azure-cloud-shell/
 medium_post:

@@ -3,7 +3,7 @@ id: 1185
 title: Windows 10 IoT usando PowerShell
 date: 2016-05-19T16:26:45+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1185
 permalink: /windows-10-iot-usando-powershell/
 medium_post:

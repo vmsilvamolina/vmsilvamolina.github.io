@@ -3,7 +3,7 @@ id: 1159
 title: Temas en Windows PowerShell ISE
 date: 2016-05-07T13:09:18+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1159
 permalink: /temas-en-windows-powershell-ise/
 medium_post:

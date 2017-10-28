@@ -3,7 +3,7 @@ id: 1231
 title: 'AADSTS50008: SAML token is invalid'
 date: 2016-07-01T13:13:56+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1231
 permalink: /aadsts50008-saml-token-is-invalid/
 medium_post:

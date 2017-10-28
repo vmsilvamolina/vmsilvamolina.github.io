@@ -3,7 +3,7 @@ id: 463
 title: 'Lync &#8211; Como saber en que Front End estamos logueados?'
 date: 2014-07-07T19:46:46+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=463
 permalink: /lync-como-saber-en-que-front-end-estamos-logueados/
 dsq_thread_id:

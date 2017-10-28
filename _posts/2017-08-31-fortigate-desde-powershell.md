@@ -3,7 +3,7 @@ id: 1491
 title: Administración de FortiGate desde PowerShell
 date: 2017-08-31T14:22:45+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1491
 permalink: /fortigate-desde-powershell/
 medium_post:

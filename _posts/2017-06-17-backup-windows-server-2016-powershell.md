@@ -3,7 +3,7 @@ id: 1417
 title: Backup en Windows Server 2016 con PowerShell
 date: 2017-06-17T21:59:46+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1417
 permalink: /backup-windows-server-2016-powershell/
 medium_post:

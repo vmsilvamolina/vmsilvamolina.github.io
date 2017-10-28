@@ -3,7 +3,7 @@ id: 525
 title: 'PowerShell &#8211; Server Backup en Windows Server 2012 R2'
 date: 2015-03-25T15:41:21+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=525
 permalink: /powershell-server-backup-en-windows-server-2012-r2/
 dsq_thread_id:

@@ -3,7 +3,7 @@ id: 871
 title: PowerShell DSC
 date: 2016-01-05T00:52:27+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=871
 permalink: /desired-state-configuration/
 dsq_thread_id:

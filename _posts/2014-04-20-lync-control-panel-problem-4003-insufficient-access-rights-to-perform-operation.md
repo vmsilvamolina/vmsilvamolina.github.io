@@ -3,7 +3,7 @@ id: 12
 title: 'Lync Control Panel: Problem 4003 Insufficient access rights to perform operation'
 date: 2014-04-20T12:48:26+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://vmsilvamolina.wordpress.com/?p=12
 permalink: /lync-control-panel-problem-4003-insufficient-access-rights-to-perform-operation/
 dsq_thread_id:

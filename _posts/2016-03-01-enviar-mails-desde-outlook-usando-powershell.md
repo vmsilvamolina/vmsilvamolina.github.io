@@ -3,7 +3,7 @@ id: 1092
 title: Enviar mails desde Outlook usando PowerShell
 date: 2016-03-01T12:30:36+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1092
 permalink: /enviar-mails-desde-outlook-usando-powershell/
 medium_post:

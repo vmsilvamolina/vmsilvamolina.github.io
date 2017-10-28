@@ -3,7 +3,7 @@ id: 622
 title: 'PowerShell &#8211; Cómo redondear números decimales'
 date: 2014-10-23T19:09:16+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=622
 permalink: /powershell-como-redondear-numeros-decimales/
 dsq_thread_id:

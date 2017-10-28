@@ -3,7 +3,7 @@ id: 947
 title: 'PowerShell &#8211; Customizar el prompt'
 date: 2015-12-04T22:09:26+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=947
 permalink: /powershell-customizar-prompt/
 dsq_thread_id:

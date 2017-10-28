@@ -3,7 +3,7 @@ id: 611
 title: 'PowerShell &#8211; Obtener los roles FSMO'
 date: 2014-10-20T18:59:49+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=611
 permalink: /powershell-obtener-los-roles-fsmo/
 dsq_thread_id:

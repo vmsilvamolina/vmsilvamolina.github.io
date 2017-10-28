@@ -3,7 +3,7 @@ id: 668
 title: 'Lync Server 2013 &#8211; SIP/2.0 504 Server time-out'
 date: 2015-01-29T17:21:17+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=668
 permalink: /lync-server-2013-sip2-0-504-server-time-out/
 dsq_thread_id:

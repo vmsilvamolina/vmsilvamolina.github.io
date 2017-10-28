@@ -3,7 +3,7 @@ id: 601
 title: 'PowerShell  &#8211; Reemplazar el cmd en el menú secundario del botón inicio (Windows 8.1 / Server 2012 R2)'
 date: 2014-10-15T12:21:59+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=601
 permalink: /powershell-reemplazar-el-cmd-en-el-menu-secundario-del-boton-inicio-windows-8-1-server-2012-r2/
 dsq_thread_id:

@@ -3,7 +3,7 @@ id: 1400
 title: Disponer de PowerShell en Linux
 date: 2017-02-11T15:55:15+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1400
 permalink: /powershell-en-linux/
 medium_post:

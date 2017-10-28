@@ -3,7 +3,7 @@ id: 1330
 title: Chocolatey, el gestor de paquetes en Windows
 date: 2016-12-14T19:22:23+00:00
 author: Victor Silva
-layout: simple
+layout: single
 guid: http://blog.victorsilva.com.uy/?p=1330
 permalink: /chocolatey/
 medium_post:
