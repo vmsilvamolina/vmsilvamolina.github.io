@@ -3,7 +3,7 @@ id: 7
 title: Lync Server 2013 Front End en Windows Server 2012 R2
 date: 2014-04-01T14:28:47+00:00
 author: Victor Silva
-layout: post
+layout: single
 guid: http://vmsilvamolina.wordpress.com/?p=7
 permalink: /lync-server-2013-front-end-windows-server-2012-r2/
 dsq_thread_id:
