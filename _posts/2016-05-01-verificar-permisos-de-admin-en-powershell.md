@@ -3,7 +3,7 @@ id: 1148
 title: Verificar permisos de admin en PowerShell
 date: 2016-05-01T19:09:46+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1148
 permalink: /verificar-permisos-de-admin-en-powershell/
 medium_post:

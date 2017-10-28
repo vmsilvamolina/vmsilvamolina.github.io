@@ -3,7 +3,7 @@ id: 406
 title: 'Lync Server 2013 &#8211; Certificate chain is invalid'
 date: 2014-06-03T20:09:17+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=406
 permalink: /lync-server-2013-certificate-chain-is-invalid/
 dsq_thread_id:

@@ -3,7 +3,7 @@ id: 1150
 title: Credenciales con PowerShell
 date: 2016-05-13T15:29:53+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1150
 permalink: /credenciales-con-powershell/
 medium_post:

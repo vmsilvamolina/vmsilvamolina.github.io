@@ -3,7 +3,7 @@ id: 1199
 title: Modificar una imagen con PowerShell
 date: 2016-06-07T10:09:38+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1199
 permalink: /modificar-una-imagen-powershell/
 medium_post:

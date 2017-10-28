@@ -3,7 +3,7 @@ id: 1264
 title: Windows 10 Anniversary Update en WSUS
 date: 2016-08-21T15:00:29+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1264
 permalink: /windows-10-anniversary-update/
 medium_post:

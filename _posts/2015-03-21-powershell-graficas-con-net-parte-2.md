@@ -3,7 +3,7 @@ id: 687
 title: 'PowerShell &#8211; Gráficas con .Net (Parte 2)'
 date: 2015-03-21T11:08:35+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=687
 permalink: /powershell-graficas-con-net-parte-2/
 dsq_thread_id:

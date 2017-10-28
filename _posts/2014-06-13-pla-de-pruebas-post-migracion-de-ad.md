@@ -3,7 +3,7 @@ id: 430
 title: 'Pla de pruebas &#8211; Post migración de AD'
 date: 2014-06-13T10:23:37+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=430
 permalink: /pla-de-pruebas-post-migracion-de-ad/
 dsq_thread_id:

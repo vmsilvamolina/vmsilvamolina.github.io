@@ -3,7 +3,7 @@ id: 1119
 title: Habilitar Bash en Windows
 date: 2016-04-11T17:37:50+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1119
 permalink: /habilitar-bash-windows/
 medium_post:

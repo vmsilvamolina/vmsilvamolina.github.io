@@ -3,7 +3,7 @@ id: 708
 title: 'PowerShell &#8211; Montar imagen ISO'
 date: 2015-03-12T21:02:46+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=708
 permalink: /powershell-montar-imagen-iso/
 dsq_thread_id:

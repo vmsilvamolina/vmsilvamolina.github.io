@@ -3,7 +3,7 @@ id: 504
 title: 'PowerShell &#8211; Excel 2013: &#8220;Old format or invalid type library&#8221;'
 date: 2014-07-29T17:51:44+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=504
 permalink: /powershell-excel-2013-old-format-or-invalid-type-library/
 dsq_thread_id:

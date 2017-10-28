@@ -3,7 +3,7 @@ id: 1341
 title: Utilizar Docker en Azure
 date: 2016-11-24T12:27:50+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1341
 permalink: /docker-en-azure/
 medium_post:

@@ -3,7 +3,7 @@ id: 787
 title: 'SCCM &#8211; Reportes: No se encontraron elementos'
 date: 2015-06-04T12:54:19+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=787
 permalink: /sccm-reportes-no-se-encontraron-elementos/
 dsq_thread_id:

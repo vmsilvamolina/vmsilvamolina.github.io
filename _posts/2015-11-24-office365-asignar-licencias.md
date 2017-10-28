@@ -3,7 +3,7 @@ id: 902
 title: 'PowerShell &#8211; Office365 asignar licencias'
 date: 2015-11-24T22:47:37+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=902
 permalink: /office365-asignar-licencias/
 dsq_thread_id:

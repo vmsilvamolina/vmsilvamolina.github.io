@@ -3,7 +3,7 @@ id: 37
 title: 'DPM 2012 SP1: Error al instalar agente'
 date: 2014-04-23T21:22:20+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://vmsilvamolina.wordpress.com/?p=26
 permalink: /dpm-2012-sp1-error-al-instalar-agente/
 dsq_thread_id:

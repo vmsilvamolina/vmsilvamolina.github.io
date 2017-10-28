@@ -3,7 +3,7 @@ id: 1486
 title: PowerShell DSC en Linux parte II
 date: 2017-07-16T18:13:06+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1486
 permalink: /dsc-en-linux-parte-ii/
 medium_post:

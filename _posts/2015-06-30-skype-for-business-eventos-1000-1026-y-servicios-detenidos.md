@@ -3,7 +3,7 @@ id: 802
 title: 'Skype for Business &#8211; Eventos: 1000, 1026 y servicios detenidos'
 date: 2015-06-30T23:31:32+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=802
 permalink: /skype-for-business-eventos-1000-1026-y-servicios-detenidos/
 dsq_thread_id:

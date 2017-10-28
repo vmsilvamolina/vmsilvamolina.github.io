@@ -3,7 +3,7 @@ id: 1494
 title: SSH en PowerShell
 date: 2017-08-13T12:05:31+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=1494
 permalink: /ssh-en-powershell/
 medium_post:

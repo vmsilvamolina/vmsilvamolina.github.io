@@ -3,7 +3,7 @@ id: 465
 title: 'Lync &#8211; Como saber las versiones de Lync Server instaladas?'
 date: 2014-07-10T10:39:39+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=465
 permalink: /lync-como-saber-las-versiones-de-lync-server-instaladas/
 dsq_thread_id:

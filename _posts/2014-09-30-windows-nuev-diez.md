@@ -3,7 +3,7 @@ id: 523
 title: 'Windows nuev&#8230; diez!'
 date: 2014-09-30T22:50:04+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=523
 permalink: /windows-nuev-diez/
 dsq_thread_id:

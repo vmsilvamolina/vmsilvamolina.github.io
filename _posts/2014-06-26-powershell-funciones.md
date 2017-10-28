@@ -3,7 +3,7 @@ id: 420
 title: 'PowerShell &#8211; Funciones'
 date: 2014-06-26T18:27:45+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=420
 permalink: /powershell-funciones/
 dsq_thread_id:

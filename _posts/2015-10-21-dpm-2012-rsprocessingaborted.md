@@ -3,7 +3,7 @@ id: 911
 title: 'DPM 2012 R2: Error al procesar el informe. (rsProcessingAborted)'
 date: 2015-10-21T21:32:53+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=911
 permalink: /dpm-2012-rsprocessingaborted/
 dsq_thread_id:

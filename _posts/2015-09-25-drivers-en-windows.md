@@ -3,7 +3,7 @@ id: 883
 title: 'PowerShell &#8211; Drivers en Windows'
 date: 2015-09-25T21:42:01+00:00
 author: Victor Silva
-layout: post
+layout: simple
 guid: http://blog.victorsilva.com.uy/?p=883
 permalink: /drivers-en-windows/
 dsq_thread_id:
