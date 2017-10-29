@@ -29,14 +29,17 @@ La instalación la vamos a realizar utilizando _Chocolatey_, si no lo tienen ins
 
 Para instalar Open-SSH, debemos ejecutar en nuestra consola de PowerShell:
 
-    choco install openssh -y
-    
+{% highlight posh %}
+choco install openssh -y
+{% endhighlight %}
 
 <img src="https://cu2uww-ch3302.files.1drv.com/y4mbfWGVLezj5iq_LnTx2031plu5_-K0byrhNDp-nRaJmVjvTWVpQqp41k4aF1DY-eH5ZEQ5q9D36B_pUWwHwOKabskd0uMeJBc3GVIZewoOXusrf7TyFeB8Q8iHHUF9TTRNfDWZ86m_ur3abQE49iLB4EMddSafOr8pZycP0yzCmH59LZfLbhbGeGTN9slXq5u8aO9k8a0HXSGY5rNd4WcVQ?width=859&#038;height=632&#038;cropmode=none" width="859" height="632" alt="SSH en PowerShell" class="alignnone size-full" />
 
 Luego:
 
-    RefreshEnv
+{% highlight posh %}
+RefreshEnv
+{% endhighlight %}
     
 
 Para recargar las variables de entorno definidas.
@@ -45,14 +48,17 @@ Para recargar las variables de entorno definidas.
 
 A pesar de que debe quedar la variable de entorno lista, en lo personal recomiendo revisarlas de la siguiente manera:
 
-    $env:path
-    
+{% highlight posh %}
+$env:path
+{% endhighlight %}
 
 Y buscar si se encuentra **_C:\Program Files\OpenSSH-Win64_**, en caso que no se encuentre, hay que agregarla a mano:
 
-    $new_path = "$env:PATH;C:\Program Files\OpenSSH-Win64"
-    $env:PATH=$new_path
-    [Environment]::SetEnvironmentVariable("path", $new_path, "Machine")
+{% highlight posh %}
+$new_path = "$env:PATH;C:\Program Files\OpenSSH-Win64"
+$env:PATH=$new_path
+[Environment]::SetEnvironmentVariable("path", $new_path, "Machine")
+{% endhighlight %}
     
 
 Y verificamos:
@@ -65,12 +71,14 @@ Ahora que tenemos instalado Open-SSH en nuestro sistema y, otro dato no menor, p
 
 En primer lugar debemos definir como conectarnos a un servidor:
 
-    ssh remoteServer
-    
+{% highlight posh %}
+ssh remoteServer
+{% endhighlight %}
 
 En caso de contar con una clave _.pem_ para utilizar en la conexión:
 
-    ssh remoteServer -i "C:\Key.pem"
-    
+{% highlight posh %}
+ssh remoteServer -i "C:\Key.pem"
+{% endhighlight %}
 
 Saludos,
