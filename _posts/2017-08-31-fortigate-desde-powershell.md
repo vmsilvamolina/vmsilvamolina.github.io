@@ -12,7 +12,6 @@ dsq_thread_id:
   - "6184136723"
 categories:
   - PowerShell
-  - Sin categoría
 tags:
   - FortiGate
   - Fortinet
@@ -32,28 +31,32 @@ Luego contar con el requerimiento anterior vamos a hacer una simple prueba: Desd
 
 Así que lo primero ejecutamos:
 
-    ping 192.168.200.1 -n 1
-    
+{% highlight posh %}
+ping 192.168.200.1 -n 1
+{% endhighlight %}
 
 Con el parámetro **_-n_** indicamos la cantidad de paquetes que vamos a utilizar. Luego nos conectamos por SSH, ejecutando e ingresando la contraseña correspondiente:
 
-    ssh superadmin@192.168.200.1 -p 2223
-    
+{% highlight posh %}
+ssh superadmin@192.168.200.1 -p 2223
+{% endhighlight %}    
 
 La estructura anterior indica que al host _192&#46;168.200.1_ nos vamos a conectar con el usuario _superadmin_ utilizando el _puerto 2223_ como habíamos definido anteriormente.
 
 Ya conectados a nuestro equipo Fortigate vamos a ejecutar el siguiente bloque de código para habilitar el ping en la interface que estamos utilizando para conectarnos:
 
-    config system interface
-    edit port1
-    set allowaccess ping https ssh
-    end
-    
+{% highlight posh %}
+config system interface
+edit port1
+set allowaccess ping https ssh
+end
+{% endhighlight %}
 
 Y por último vamos a comprobar que ahora tenemos respuesta al ping, ejecutando nuevamente:
 
-    ping 192.168.200.1 -n 1
-    
+{% highlight posh %}
+ping 192.168.200.1 -n 1
+{% endhighlight %}
 
 <img src="https://cu2sww-ch3302.files.1drv.com/y4mHkQVgMjDhWRkfNQ246iwgsQKnyZRpgZE6XgDusv9C1a723G-PZbzwpcBLl9bD21Y5i2_JXHBl0tliZh0jPRR9OJ6ip7g1YO471ZCwwzc87j89s70-gPkjBcrmQjptvv530bDHkxxBftosdUM2K1DaKWT4Je1erqx4VQXad5xyJBw2gIKmSUkW6zNMMqdnX-kQDQJOu74liprPaZLqzMfHw?width=859&#038;height=632&#038;cropmode=none" width="859" height="632" alt="Fortigate desde PowerShell" class="alignnone size-full" />
 
@@ -61,35 +64,37 @@ Y por último vamos a comprobar que ahora tenemos respuesta al ping, ejecutando 
 
 Ahora que tenemos un poco más claro como conectarnos a nuestro FortiGate, vamos a definir una función para definir acciones sobre el equipo. Una acción que es necesaria al momento de comenzar a configurar el dispositivo es habilitar los diferentes accesos en las interfaces. Para ello definimos la siguiente función:
 
-    function Set-FortigateAccess {
-        [OutputType([String])]
-        param
-        (
-            [Parameter(Mandatory=$true)]
-            [String]$HostAddress,
-            [Parameter(Mandatory=$false)]
-            [Int]$HostPort = 22,
-            [Parameter(Mandatory=$true)]
-            [String]$Credential,
-            [Parameter(Mandatory=$false)]
-            [String]$Interface,
-            [Parameter(Mandatory=$false)]
-            [String]$AllowAccessOptions
-        )
-    
-    $Command = @"
-    config system interface
-    edit $Interface
-    set allowaccess $AllowAccessOptions
-    end
-    "@
-    
-    try {
-        ssh $HostAddress -p $HostPort -l $Credential $Command | Out-Null
-    } catch {
-        Write-Warning -Message $error[0].exception.message
-    }
-    }
+{% highlight posh %}
+function Set-FortigateAccess {
+    [OutputType([String])]
+    param
+    (
+        [Parameter(Mandatory=$true)]
+        [String]$HostAddress,
+        [Parameter(Mandatory=$false)]
+        [Int]$HostPort = 22,
+        [Parameter(Mandatory=$true)]
+        [String]$Credential,
+        [Parameter(Mandatory=$false)]
+        [String]$Interface,
+        [Parameter(Mandatory=$false)]
+        [String]$AllowAccessOptions
+    )
+
+$Command = @"
+config system interface
+edit $Interface
+set allowaccess $AllowAccessOptions
+end
+"@
+
+try {
+    ssh $HostAddress -p $HostPort -l $Credential $Command | Out-Null
+} catch {
+    Write-Warning -Message $error[0].exception.message
+}
+}
+{% endhighlight %}
     
 
 En la que básicamente armamos un bloque con los comandos para habilitar las opciones por medio de **_allowaccess_**para permitir el acceso desde SSH, HTTPS o HTTP, por ejemplo.
