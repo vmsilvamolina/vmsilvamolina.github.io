@@ -100,20 +100,20 @@ La demostración más sencilla que se me ocurrió es consultar la hora, ya que e
 {% highlight posh %}
 New-GetRoute -Path "/time" -ScriptBlock {
     $time = Get-Date -DisplayHint Time
-    $response.Send("What time is it?: $time");
+    $response.Send("Que hora es?: $time");
 }
 {% endhighlight %}
  
 Posteriormente iniciamos la instancia:
 
 {% highlight posh %}
-$app = Start-Polaris -Port 8090
+$app = Start-Polaris -Port 8088
 {% endhighlight %}
 
 Y luego consultamos el resultado, ya sea desde la web (accediendo a la URL con el puerto y la ruta) o utilizando el cmdlet Invoke-RestMethod, de la siguiente manera:
 
 {% highlight posh %}
-Invoke-RestMethod -Uri http://localhost:8080/helloworld -Method GET
+Invoke-RestMethod -Uri http://localhost:8088/time -Method GET
 {% endhighlight %}
 
 <img src="https://fo1cxg-ch3302.files.1drv.com/y4mIEWgXZAETvWwRd-JDjWqjci-HjgZKQMQnjH6D6dtdUBwyyFzas9IpLcsTxOvwajQbagFj238Q5m_i10-yiGkGkajqCzQtjB3ZqkygwKOJZNrp96N124K998NVXZdyyntAy0dp5FH086Qvp7j6udV5zbtokIUNF7I0ZhLqHM8zim26XR8-LUD8hy6-rAvdzkP7f3W4WeeYePz7ujabi61PA?width=861&height=223&cropmode=none" width="861" height="223" alt="Invoke-RestMethod" class="alignnone size-full" />
