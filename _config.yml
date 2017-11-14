@@ -9,7 +9,7 @@ minimal_mistakes_skin    : "contrast" # "air", "contrast", "dark", "dirt", "mint
 
 # Site Settings
 locale                   : "es-UY"
-title                    : "Blog"
+title                    : "$blogTopics | % { write $_ }"
 title_separator          : "-"
 name                     : "Victor Silva"
 description              : "PowerShell, Azure and the Microsoft ecosystem"
@@ -17,7 +17,7 @@ url                      : "http://blog.victorsilva.com.uy"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : vmsilvamolina/vmsilvamolina.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-# breadcrumbs            : false # true, false (default)
+breadcrumbs              : false # true, false (default)
 words_per_minute         : 200
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "staticman_v2" "custom"
@@ -84,7 +84,7 @@ analytics:
 # Site Author
 author:
   name             : "Victor Silva"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/bio-photo.jpg"
   bio              : "I'll try to automate everything with PowerShell..."
   location         : "Montevideo, Uruguay"
   email            : "vmsilvamolina@hotmail.com"
