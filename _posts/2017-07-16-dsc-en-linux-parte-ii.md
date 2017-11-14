@@ -26,23 +26,24 @@ Continuando con el tema en cuestión, vamos a definir nuestro objetivo de hoy: i
 
 ### Archivo de configuración MOF
 
-Como vimos anteriormente es necesario invocar en la configuración el módulo **nx**, responsable de poder realizar la interacción con nuestro servidor Ubuntu. Básicamente vamos a definir la receta de configuración que permite instalar el servidor web y generar un simple archivo _index.html_ como sitio estático:
+Como vimos anteriormente es necesario invocar en la configuración el módulo **nx**, responsable de poder realizar la interacción con nuestro servidor CentOS. Básicamente vamos a definir la receta de configuración que permite instalar el servidor web y generar un simple archivo _index.html_ como sitio estático:
 
     Configuration DSCLinuxWeb {
         Import-DSCResource -Module nx
     
         Node "40.121.221.115" {
-            nxPackage apache2Install {
-                Name = "apache2"
+            nxPackage httpd {
+                Name = "httpd"
                 Ensure = "Present"
-                PackageManager = "Apt"
+                PackageManager = "Yum"
             }
     
-            nxService apache2Service {
-                Name = "apache2"
-                Controller = "init"
-                Enabled = $true
+            nxService ApacheService {
+                Name = "httpd"
                 State = "Running"
+                Enabled = $true
+                Controller = "systemd"
+                DependsOn = "[nxPackage]httpd"
             }    
     
             nxFile apache2File {
