@@ -18,7 +18,7 @@ tags:
   - Pester Framework avanzado
   - Pester keywords
 ---
-En oportunidad vamos a profundizar sobre los conceptos que se presentaron en el post anterior sobre [Pester](http://blog.victorsilva.com.uy/pester-framework/). Luego de ver de forma introductoria lo que es Pester, vamos a detallar conceptos más avanzados para profundizar el conocimiento sobre este framework.
+En esta oportunidad vamos a profundizar sobre los conceptos que se presentaron en el post anterior sobre [Pester](http://blog.victorsilva.com.uy/pester-framework/). Luego de ver de forma introductoria lo que es Pester, vamos a detallar conceptos más avanzados para profundizar el conocimiento sobre este framework.
 
 Pester permite utilizar un montón de palabras clave, pero no todas son necesarias para dominar este framework. Realmente solo hay unas pocas que se necesitan (y se utilizan diariamente) dentro del mundo Pester. Al final, las palabras clave más utilizadas de powershell pester son las siguientes:
 
@@ -28,7 +28,7 @@ Pester permite utilizar un montón de palabras clave, pero no todas son necesari
 
 En la imagen anterior, la estructura de palabras clave es &#8220;jerárquica&#8221; simplemente porque estas palabras clave son en realidad bloques de secuencias de comandos, y deben estar ubicadas una dentro de la otra. Vemos que un _PowerShell Pester script_ comienza con un bloque **_Describe_**, y que todo está ubicado en ese bloque de descripción.
 
-## Función para la demostración
+## Una función para la demostración
 
 Para entender mejor las estructura de palabras clave y como se deben utilizar, primero vamos a compartir primero un script, que contiene una función en particular:
 
