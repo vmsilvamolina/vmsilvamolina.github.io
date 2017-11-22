@@ -50,7 +50,7 @@ reCaptcha:
   siteKey                :
   secret                 :
 atom_feed:
-  path                   : # blank (default) uses feed.xml
+  path                   : http://feeds.feedburner.com/vmsilvamolina # blank (default) uses feed.xml
 
 # SEO Related
 google_site_verification :
@@ -181,7 +181,7 @@ sass:
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: UY # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: #'America/Montevideo' # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins (previously gems:)

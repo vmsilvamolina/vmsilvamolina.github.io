@@ -6,7 +6,10 @@ main:
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
   #   url: /year-archive/
-  - title: "Contacto"
-    url: /contacto/
   # - title: "Sitemap"
   #   url: /sitemap/
+  
+  # - title: "Contacto"
+  #   url: /contacto/
+  - title: Search
+    url: /search/
