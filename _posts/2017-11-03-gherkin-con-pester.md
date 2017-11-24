@@ -26,7 +26,7 @@ Vamos a comenzar definiendo nuestra primer especificación que por obvias razone
 
 Para el ejemplo, vamos a considerar como *feature* la copia de un archivo:
 
-{% highlight %}
+{% highlight plaintext %}
 Feature: You can copy one file
 
 Scenario: The file exists, and the target folder exists
