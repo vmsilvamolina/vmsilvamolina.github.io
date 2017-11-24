@@ -1,11 +1,11 @@
 ---
 id: 430
-title: 'Pla de pruebas &#8211; Post migración de AD'
+title: 'Plan de pruebas &#8211; Post migración de AD'
 date: 2014-06-13T10:23:37+00:00
 author: Victor Silva
 layout: single
 guid: http://blog.victorsilva.com.uy/?p=430
-permalink: /pla-de-pruebas-post-migracion-de-ad/
+permalink: /plan-de-pruebas-post-migracion-de-ad/
 dsq_thread_id:
   - "4490825219"
 categories:
