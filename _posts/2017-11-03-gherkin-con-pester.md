@@ -45,15 +45,19 @@ Ahora para tener un resultado de lo que generamos, a pesar de que faltan definir
 Invoke-Gherkin
 {% endhighlight %}
 
-> NOTA: Comprobar que se encuentre instalada la última versión de Pester, ya que la compatibilidad con Gherkin no estaba presente en todas las versiones. Para actualizar el módulo basta con ejecutar 'Update-Module -Name Pester'.
+> Comprobar que se encuentre instalada la última versión de Pester, ya que la compatibilidad con Gherkin no estaba presente en todas las versiones. Para actualizar el módulo basta con ejecutar 'Update-Module -Name Pester'.
 
 Y obtendríamos como resultado:
 
-<imagen>
+<img src="https://o4qgrq.ch.files.1drv.com/y4mKPs0Z2aUNTdh4UQehZ3BPqqxOT88RTNII_nFKQ-4X4swxxMBZoogeGcLLggJEItKiNpBiCxpq2KjwaUFSetc8b2HHx5wxr3EAcKbLd4tJTlYswYk-kNT9cZYZuM7T-gXBlbB1TvT_SKb1K9xpHF_ZXClB7XNpIoGGP8-ErrUVuEwnUou8CskshKizCMyYsYUVGNHgXo8dYtAVidPS3aJWA?width=568&height=375&cropmode=none" width="568" height="375" alt="Invoke-Gherkin" class="alignnone size-full" />
 
-Como queda demostrado con la imagen anterior, resta definir cierta información para completar las comprobaciones definidas. Estas comprobaciones son llamadas **steps**.
+Con lo anterior obtendríamos enumeradas todas las especificaciones de las funciones que tenemos definidas, y luego, ejecuta las pruebas correspondientes. Como todavía no hemos creado ninguna prueba, ninguna pasó de forma satisfactoria.
+
+Todas las comprobaciones que se definen para una función de Gherkin se llaman pasos. Para ello es necesario generar un archivo con un nombre con extensión *.Steps.ps1*.
 
 ### Definiendo los Steps
+
+Ahora que tenemos definido el concepto de "steps", vamos a definirlos como indica el siguiente archivo, guardándolo bajo el nombre ***CopyItem.Steps.ps1***:
 
 {% highlight posh %}
 Given 'we have a source file' {
@@ -75,9 +79,18 @@ Then 'we have a new file in the destination' {
     'C:\target\something.txt' | Should Exist
 }
 
-Then 'the new file is the same as the original file' {
+And 'the new file is the same as the original file' {
     $primary = Get-FileHash C:\target\something.txt
     $secondary = Get-FileHash C:\source\something.txt
     $secondary.Hash | Should Be $primary.Hash
 }
 {% endhighlight %}
+
+Si se presta atención a lo declaradon anteriormente, queda visiblemente que se creó una prueba al estilo Pester para las líneas en la especificación definida. Cada una de las líenas anteriores comienza con una palabra clave: *Given*, *And*, *When* o *Then* (*But* también es una palabra clave válida para utilizar). La descripción se extrae directamente de la especificación, ya que *Invoke-Gherkin* usa esa descripción para hacer la coincidencia.
+
+También quiero señalar que las palabras clave de paso (Given, And, When, Then, But) son intercambiables dentro del código.
+
+* Given - Configurar o preparar una acción
+* When  - Para las acciones
+* Then  - Para la validación
+* And y But - Permiten que la especificación fluya mejor y coincida con cualquier prueba de Given, When y Then
