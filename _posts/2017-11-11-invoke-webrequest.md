@@ -25,7 +25,7 @@ Por ejemplo uno de los usos de este comando es descargar elementos de una web. S
 
 {% highlight posh %}
 Invoke-WebRequest -Uri http://dominio.com/ -OutFile C:\ImagenDescargada.jpg
-{% endhighlight %}    
+{% endhighlight %}
 
 Descargando la imagen en la raíz del disco _C:_ con el nombre de _ImagenDescargada.jpg_
 
