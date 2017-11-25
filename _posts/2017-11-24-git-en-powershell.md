@@ -1,6 +1,6 @@
 ---
 title: Git en PowerShell
-date: 2017-11-24T17:24:21+00:00
+date: 2017-11-24T7:24:21+00:00
 author: Victor Silva
 layout: single
 permalink: /git-en-powershell/
