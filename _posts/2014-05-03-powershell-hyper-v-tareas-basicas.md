@@ -1,6 +1,5 @@
 ---
-id: 187
-title: 'PowerShell &#8211; Hyper-V: Tareas básicas'
+title: 'Hyper-V: Tareas básicas con PowerShell'
 date: 2014-05-03T12:44:15+00:00
 author: Victor Silva
 layout: single
@@ -24,8 +23,6 @@ tags:
 ---
 El módulo de Hyper-V para Windows PowerShell en Windows Server 2012 incluye más de 160 cmdlets para automatizar las tareas de administración de Hyper-V.
 
-<!--more-->
-
 A continuación se presentan algunas operaciones básicas que realizamos con frecuencia con Hyper-V y como se podrían recrear por medio de PowerShell.
 
 El uso de estos comandos es el punto de partida, sabiendo que se puede construir una serie de secuencias de comandos complejas utilizando varios cmdlets en diferentes escenarios.
@@ -34,13 +31,17 @@ El uso de estos comandos es el punto de partida, sabiendo que se puede construir
 
 Lo primero que podemos verificar es si esta instalado el rol, para ello:
 
-<pre class="lang:ps decode:true">Get-WindowsFeature Hyper-V*</pre>
+{% highlight posh %}
+Get-WindowsFeature Hyper-V*
+{% endhighlight %}
 
 Y habilitamos el rol de la siguiente manera:
 
-<pre class="lang:ps decode:true">Install-WindowsFeature –Name Hyper-V –Restart –IncludeAllSubFeature –IncludeManagementTools</pre>
+{% highlight posh %}
+Install-WindowsFeature –Name Hyper-V –Restart –IncludeAllSubFeature –IncludeManagementTools
+{% endhighlight %}
 
-**Nota:** Este comando reiniciará el servidor, se recomienda guardar los datos antes de ejecutarlo.
+>Este comando reiniciará el servidor, se recomienda guardar los datos antes de ejecutarlo.
 
 ### Crear una Maquina Virtual
 
@@ -52,7 +53,9 @@ Vamos a ver que tan facil es crear uan VM desde PowerShell, con el siguiente com
 
 Aca tenemos un ejemplo para crear una VM :
 
-<pre class="lang:ps decode:true " >New-VM -Name Server01 –MemoryStartupBytes 1GB -NewVHDPath c:Server01.vhd -NewVHDSizeBytes 60GB</pre>
+{% highlight posh %}
+New-VM -Name Server01 –MemoryStartupBytes 1GB -NewVHDPath c:Server01.vhd -NewVHDSizeBytes 60GB
+{% endhighlight %}
 
 De la misma manera podemos crear un Switch Virtual mediante una sola línea de codigo, con el siguiente comando:
 
@@ -60,7 +63,9 @@ De la misma manera podemos crear un Switch Virtual mediante una sola línea de c
 
 Este sería un ejemplo para crear un Switch Virtual:
 
-<pre class="lang:ps decode:true " >New-VMSwitch –Name VSWITCH -NetAdapterName “Ethernet 2”</pre>
+{% highlight posh %}
+New-VMSwitch –Name VSWITCH -NetAdapterName "Ethernet 2"
+{% endhighlight %}
 
 ### Hyper-V Live Migration:
 
@@ -68,7 +73,9 @@ La migración en vivo con Hyper-V es posible con o sin storage, del mismo modo q
 
 Para habilitar Live Migration, simplemente debemos ejecutar:
 
-<pre class="lang:ps decode:true " >Enable-VMMigration</pre>
+{% highlight posh %}
+Enable-VMMigration
+{% endhighlight %}
 
 Para iniciar una migracion de una VM, debemos de ejecutar este comando:
 
@@ -76,10 +83,14 @@ Para iniciar una migracion de una VM, debemos de ejecutar este comando:
 
 Un ejemplo de uso:
 
-<pre class="lang:ps decode:true " >Move-VM –Name Server01 –DestinationHost Host01 –DestinationStoragePath ‘C:VMS’</pre>
+{% highlight posh %}
+Move-VM –Name Server01 –DestinationHost Host01 –DestinationStoragePath 'C:VMS'
+{% endhighlight %}
 
 Además, dependiendo del ancho de banda, se pueden realizar múltiples migraciones en vivo. Esto puede ser controlado ajustando la cantidad de migraciones utilizando la siguiente linea de PowerShell:
 
-<pre class="lang:ps decode:true " >Set-VMHost –MaximumVirtualMachineMigrations [number]</pre>
+{% highlight posh %}
+Set-VMHost –MaximumVirtualMachineMigrations [number]
+{% endhighlight %}
 
-Saludos.
+Happy scripting!

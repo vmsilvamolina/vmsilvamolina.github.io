@@ -1,10 +1,9 @@
 ---
-id: 629
-title: 'Lync &#8211; Herramientas para troubleshooting'
-date: 2014-10-29T14:04:26+00:00
+
+title: 'Herramientas para troubleshooting en Lync'
+date: 2014-11-15T14:04:26+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=629
 permalink: /lync-herramientas-para-troubleshooting/
 dsq_thread_id:
   - "4527671441"
@@ -33,4 +32,4 @@ Otra herramienta indispensable es el kit para el administrador [Microsoft Lync S
 
 Basicamente este grupo de herramientas nos permite generar logs, visualizarlos y analizarlos, facilitando la implementación de Lync Server.
 
-Saludos,
+Hasta la próxima!

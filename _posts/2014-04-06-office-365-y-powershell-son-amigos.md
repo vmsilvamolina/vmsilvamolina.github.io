@@ -1,10 +1,8 @@
 ---
-id: 35
-title: 'Office 365 y Powershell&#8230; son amigos!'
+title: 'Office 365 y Powershell... son amigos!'
 date: 2014-04-06T18:25:33+00:00
 author: Victor Silva
 layout: single
-guid: http://vmsilvamolina.wordpress.com/?p=3
 permalink: /office-365-y-powershell-son-amigos/
 dsq_thread_id:
   - "4471578414"
@@ -20,17 +18,18 @@ tags:
 ---
 **Editado: 13/4/2015**
 
-A la persona que le ha tocado administrar Office 365 alguna vez, de seguro tuvo que hacer alguna tarea desde PowerShell. También estoy seguro que las primeras veces, nos parece bastante incomodo, mas que nada la manera de iniciar sesión. <!--more--> Hoy voy a tratar de demostrar que Office 365 y PowerShell son amigos, trantando de automatizar y simplificar algunas tareas.
+A la persona que le ha tocado administrar Office 365 alguna vez, de seguro tuvo que hacer alguna tarea desde PowerShell. También estoy seguro que las primeras veces, nos parece bastante incomodo, mas que nada la manera de iniciar sesión. Hoy voy a tratar de demostrar que Office 365 y PowerShell son amigos, trantando de automatizar y simplificar algunas tareas.
 
 ### Inicio de sesión
 
-La primer tarea y creo la mas engorrosa, si no se tiene algo mas &#8220;automatico&#8221;, es la de iniciar sesión.
+La primer tarea y creo la mas engorrosa, si no se tiene algo mas "automatico", es la de iniciar sesión.
 
 Necesitamos descargar: [Microsoft Online Services Sign-In Assistant](http://www.microsoft.com/en-us/download/details.aspx?id=41950)
 
 Luego vamos a abrir la Windows PowerShell ISE o el bloc de notas y vamos a pegar el siguiente codigo:
 
-<pre>#Importar el módulo
+{% highlight posh %}
+#Importar el módulo
 Import-Module MSOnline
 
 #Declarar las credenciales del admin
@@ -48,11 +47,16 @@ $msoExchangeURL = “https://ps.outlook.com/powershell/”
 #Importa la sesion de Powershell localmente
 $session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri $msoExchangeURL -Credential $cred -Authentication Basic -AllowRedirection
 
-Import-PSSession $session</pre>
+Import-PSSession $session
+{% endhighlight %}
 
-Guardamos el archivo con el nombre, por ejemplo, **Login365.ps1**.En mi caso el **Login365.ps1** lo guarde en la carpeta **c:powershellLogin365.ps1** Inicamos la consola en modo administrador y ejecutamos lo siguiente (cada línea es un comando a ejecutar):
+Guardamos el archivo con el nombre, por ejemplo, **Login365.ps1**.En mi caso el **Login365.ps1** lo guarde en la carpeta **c:\powershell\Login365.ps1** Inicamos la consola en modo administrador y ejecutamos lo siguiente (cada línea es un comando a ejecutar):
 
-<pre>cd / cd .powershell .Login365.ps1</pre>
+{% highlight posh %}
+cd / 
+cd .powershell
+.\Login365.ps1
+{% endhighlight %}
 
 Nos va a aparecer una ventana, ya con el correo que escribimos antes, solo resta agregar la contraseña y aceptamos. A partir de este momento estamos conectados a Office 365 por medio de powershell.
 
@@ -60,40 +64,56 @@ Nos va a aparecer una ventana, ya con el correo que escribimos antes, solo resta
 
 Una de las cosas que mas nos molestan es la falta de información al tratar de realizar tareas, por lo que la segunda tarea en la administración va a ser conocer los comandos disponibles que tenemos. El comando que nos hace este favor es:
 
-<pre>Get-Command -module MSonline</pre>
+{% highlight posh %}
+Get-Command -module MSonline
+{% endhighlight %}
 
 Para obtener mas ayuda sobre un comando en particular ejecutar:
 
-<pre>Get-Help &lt;nombre del comando> -detailed</pre>
+{% highlight posh %}
+Get-Help <nombre del comando> -detailed
+{% endhighlight %}
 
 ### Ver suscripciones disponibles
 
 Existe un comando que permite ver las suscripciones existentes en la organizacion y las cantidad de licencias que posee. El comando en concreto es:
 
-<pre>Get-MsolSubscription</pre>
+{% highlight posh %}
+Get-MsolSubscription
+{% endhighlight %}
 
 ### Usuarios con Licencias asignadas
 
 Otra información necesaria es poder ver los usuarios de la organización que cuentan con una licencia asignada. Para poder comprobar el estado, basta con ejecutar el siguiente comando:
 
-<pre>Get-MsolUser *| Where-Object {$_.isLicensed - eq "TRUE"}</pre>
+{% highlight posh %}
+Get-MsolUser *| Where-Object {$_.isLicensed - eq "TRUE"}
+{% endhighlight %}
 
-Y si queremos ver dentro de muchos usuarios los que no tengan licencia asignada? Muy parecido&#8230; Basta con cambiar el valor &#8220;TRUE&#8221; a &#8220;FALSE&#8221;, quedando de la siguiente manera:
+Y si queremos ver dentro de muchos usuarios los que no tengan licencia asignada? Muy parecido&#8230; Basta con cambiar el valor "TRUE" a "FALSE", quedando de la siguiente manera:
 
-<pre>Get-MsolUser *| Where-Object {$_.isLicensed - eq "FALSE"}</pre>
+{% highlight posh %}
+Get-MsolUser *| Where-Object {$_.isLicensed - eq "FALSE"}
+{% endhighlight %}
 
 ### Contraseña nunca expira
 
 La contraseña de los usuarios siempre es un tema a tratar. Una de las cosas que podemos ver con Office 365 es la posibilidad de que la contraseña nunca expire, si bien no es del todo recomendable por temas de seguridad, no esta mal tener en cuenta cual es el procedimiento correcto para realizarlo. SI queremos hacer este cambio para todos los usuarios de la organización, deberemos ejecutar lo siguiente:
 
-<pre>Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true</pre>
+{% highlight posh %}
+Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true
+{% endhighlight %}
 
 Para el caso de que solamente querramos hacer este cambio en algunos usuarios en particular, basta con ejecutar:
 
-<pre>Set-MsolUser -UserPrincipalName vsilva@dominio.com -PasswordNeverExpires $true</pre>
+{% highlight posh %}
+Set-MsolUser -UserPrincipalName vsilva@dominio.com -PasswordNeverExpires $true
+{% endhighlight %}
 
-Y que pasa si quiero ver que usuarios tienen como caracteristica habilitada la contraseña nunca expira? Fácil:
+¿Y que pasa si quiero ver que usuarios tienen como caracteristica habilitada la contraseña nunca expira? Fácil:
 
-<pre>Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires</pre>
+{% highlight posh %}
+Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires
+{% endhighlight %}
 
-Saludos,
+Happy scripting!

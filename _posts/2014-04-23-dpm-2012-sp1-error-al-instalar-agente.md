@@ -1,24 +1,22 @@
 ---
-id: 37
 title: 'DPM 2012 SP1: Error al instalar agente'
 date: 2014-04-23T21:22:20+00:00
 author: Victor Silva
 layout: single
-guid: http://vmsilvamolina.wordpress.com/?p=26
-permalink: /dpm-2012-sp1-error-al-instalar-agente/
+redirect_from: /dpm-2012-sp1-error-al-instalar-agente/
+permalink: /dpm2012sp1-error-agente/
 dsq_thread_id:
   - "4473421333"
 categories:
   - Data Protection Manager
 tags:
-  - Error al instalar agente
   - Error ID 270
   - Error ID 308
-  - Event 10016
+  - Event ID 10016
+  - DPM
 ---
 Al intentar realizar la instalación del agente de DPM 2012 SP1 en un servidor, nos encontramos con un evento que indica un error a la hora de actualizar el estado del agente.
 
-<!--more-->
 
 El siguiente error en la consola de Data Protection Manager es el que aparece en este escenario:
 
@@ -50,4 +48,4 @@ Para solucionar el anterior error, debemos desisntalar el agente desde el panel 
 
 Ahora si volver a ejecutar la instalación y todo debería de funcionar correctamente.
 
-Saludos,
+Hasta la próxima!

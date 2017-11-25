@@ -39,3 +39,5 @@ Install-Module -Name posh-git -Force
 {% endhighlight %}
 
 Saludos,
+
+http://mikefrobbins.com/2016/02/09/configuring-the-powershell-ise-for-use-with-git-and-github/
