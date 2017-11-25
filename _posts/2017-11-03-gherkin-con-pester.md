@@ -37,7 +37,7 @@ Scenario: The file exists, and the target folder exists
     And the new file is the same as the original file
 {% endhighlight %}
 
-El bloque anterior lo vamos a guardar como ***CopyItem.feature***. Ya con este archivo en cuestión tenemos nuestra primer especificación al estilo Gherkin.
+El bloque anterior lo vamos a guardar como ***CopyItem.feature***. Ya con este archivo en cuestión tenemos nuestra primer especificación al estilo Gherkin. Creo que es una buena aclaración el destacar que se pueden tener múltiples escenarios para una función en el mismo archivo. 
 
 Ahora para tener un resultado de lo que generamos, a pesar de que faltan definir componetes, podemos ubicarnos en la ruta donde se encuentra el archivo que acabamos de generar y ejecutamos:
 
@@ -49,7 +49,7 @@ Invoke-Gherkin
 
 Y obtendríamos como resultado:
 
-<img src="https://o4qgrq.ch.files.1drv.com/y4mKPs0Z2aUNTdh4UQehZ3BPqqxOT88RTNII_nFKQ-4X4swxxMBZoogeGcLLggJEItKiNpBiCxpq2KjwaUFSetc8b2HHx5wxr3EAcKbLd4tJTlYswYk-kNT9cZYZuM7T-gXBlbB1TvT_SKb1K9xpHF_ZXClB7XNpIoGGP8-ErrUVuEwnUou8CskshKizCMyYsYUVGNHgXo8dYtAVidPS3aJWA?width=568&height=375&cropmode=none" width="568" height="375" alt="Invoke-Gherkin" class="alignnone size-full" />
+<img src="https://o4qgrq.ch.files.1drv.com/y4mKPs0Z2aUNTdh4UQehZ3BPqqxOT88RTNII_nFKQ-4X4swxxMBZoogeGcLLggJEItKiNpBiCxpq2KjwaUFSetc8b2HHx5wxr3EAcKbLd4tJTlYswYk-kNT9cZYZuM7T-gXBlbB1TvT_SKb1K9xpHF_ZXClB7XNpIoGGP8-ErrUVuEwnUou8CskshKizCMyYsYUVGNHgXo8dYtAVidPS3aJWA?width=568&height=375&cropmode=none" width="568" height="375" alt="Invoke-Gherkin sin steps definidos" class="alignnone size-full" />
 
 Con lo anterior obtendríamos enumeradas todas las especificaciones de las funciones que tenemos definidas, y luego, ejecuta las pruebas correspondientes. Como todavía no hemos creado ninguna prueba, ninguna pasó de forma satisfactoria.
 
@@ -80,17 +80,27 @@ Then 'we have a new file in the destination' {
 }
 
 And 'the new file is the same as the original file' {
-    $primary = Get-FileHash C:\target\something.txt
-    $secondary = Get-FileHash C:\source\something.txt
-    $secondary.Hash | Should Be $primary.Hash
+    $first = Get-FileHash C:\target\something.txt
+    $second = Get-FileHash C:\source\something.txt
+    $second.Hash | Should Be $first.Hash
 }
 {% endhighlight %}
 
 Si se presta atención a lo declaradon anteriormente, queda visiblemente que se creó una prueba al estilo Pester para las líneas en la especificación definida. Cada una de las líenas anteriores comienza con una palabra clave: *Given*, *And*, *When* o *Then* (*But* también es una palabra clave válida para utilizar). La descripción se extrae directamente de la especificación, ya que *Invoke-Gherkin* usa esa descripción para hacer la coincidencia.
 
-También quiero señalar que las palabras clave de paso (Given, And, When, Then, But) son intercambiables dentro del código.
+También quiero puntualizar que las palabras *step keywords* (Given, And, When, Then, But) son intercambiables dentro del código y tienen los siguientes usos:
 
 * Given - Configurar o preparar una acción
 * When  - Para las acciones
 * Then  - Para la validación
 * And y But - Permiten que la especificación fluya mejor y coincida con cualquier prueba de Given, When y Then
+
+Ahora que tenemos todas las partes involucradas, vamos a ejecutar nuevamente Invoke-Gherkin y así obtener:
+
+<img src="https://oyqbrq.ch.files.1drv.com/y4m-kphYDX7JKN16bz-ZXLTdBPEQLqroMH6YUBdO7Uwt38MsN3w1D4MMniaxmFRmXU8ofJ39WETJ6MINiMm8mSO9NSayQQO2M_zZMXC7f24SWkVNMb44RqpqPBgTk0yqJzgQq4R3y53wempCSrpfVX6G010nHenSQbHoBv-xWSX1T8P4Mgg1Achc7THgTX7KFQW9L0seLlExMCHlbrC1cSF9A?width=485&height=245&cropmode=none" width="485" height="245" alt="Invoke-Gherkin con steps definidos" class="alignnone size-full" />
+
+Aquí vemos pasar todas las pruebas de forma satisfactoria, porque tenemos todas estas características implementadas correctamente.
+
+Espero haber sido claro en la explicación y que de aquí en más se empiece a utilizar esta característica en nuestros scripts de testing.
+
+Happy scripting!
