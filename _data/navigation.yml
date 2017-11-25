@@ -8,8 +8,9 @@ main:
   #   url: /year-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
-  
-  # - title: "Contacto"
-  #   url: /contacto/
-  - title: Search
-    url: /search/
+  - title: "PowerShell"
+    url: /powershell/  
+  - title: "Azure"
+    url: /azure/
+#  - title: Search
+#    url: /search/
