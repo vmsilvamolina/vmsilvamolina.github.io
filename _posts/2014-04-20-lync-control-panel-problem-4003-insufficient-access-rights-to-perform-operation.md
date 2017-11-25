@@ -5,36 +5,33 @@ date: 2014-04-20T12:48:26+00:00
 author: Victor Silva
 layout: single
 guid: http://vmsilvamolina.wordpress.com/?p=12
-permalink: /lync-control-panel-problem-4003-insufficient-access-rights-to-perform-operation/
+redirect_from: /lync-control-panel-problem-4003-insufficient-access-rights-to-perform-operation/
+permalink: /lync-4003-error/
 dsq_thread_id:
   - "4491978451"
 categories:
   - Skype for Business Server
 tags:
-  - Error
-  - Habilitar usuarios
   - Insufficient access rights
-  - Lync 2013
-  - Lync Server
+  - Lync Server 
+  - Problem 4003
 ---
-Active Directory operations failed on “Front End FQDN”. You cannot retry this operation: “Insufficient access rights to perform
-  
-the operation 00002098: SecErr: DSID-03150E8A, problem 4003 (INSUFF\_ACCESS\_RIGHTS)
+Al momento de habilitar usuarios en Lync Server, en algunas ocasiones me he encontrado con el siguiente error:
 
-<!--more-->
+>Active Directory operations failed on “Front End FQDN”. You cannot retry this operation: “Insufficient access rights to perform the operation 00002098: SecErr: DSID-03150E8A, problem 4003 (INSUFF\_ACCESS\_RIGHTS)
 
-Este error aparece al intentar dar de alta un usuario en Lync Server (2010 y 2013)
+Este error aparece al intentar dar de alta un usuario en Lync Server (2010 y 2013) con privilegios elevados en Active Directory.
 
 <img class="alignnone" src="https://lh5.googleusercontent.com/-c3V6s0Fhbwk/U2hJdVlSarI/AAAAAAAAEX8/kVF4sxVZrBc/w765-h172-no/ADerror_Lync.jpg" alt="" width="765" height="172" />
 
-Para solucionar esto simplemente abrir la consola Usuarios y equipos de Active Directory (ejecutar dsa.msc),  ir al menú **View** y seleccionar la opción **Advanced Features**.
+Para solucionar esto simplemente abrir la consola Usuarios y equipos de Active Directory (ejecutar dsa.msc), ir al menú **View** y seleccionar la opción **Advanced Features**.
 
-Luego seleccionar con el botón derecho sobre el dominio en **Find&#8230;**
+Luego seleccionar con el botón derecho sobre el dominio en **Find...**
 
 En el cuadro de busqueda, insertar el nombre del usuario que se quiere habilitar en Lync Server.
 
 Abrir las propiedades de ese usuario y en la solapa **Security**, click en **Advanced** y luego en el botón **Enable Inheritance**.
 
-Despues de este procedimiento realizar el proceso de habilitación nuevamente.
+Despues de este procedimiento realizar el proceso de habilitación nuevamente de los usuarios en cuestión para poder aprovechar esta gran solución de comunicaciones unificadas.
 
-Saludos,
+Hasta la próxima!

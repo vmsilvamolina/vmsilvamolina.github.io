@@ -5,7 +5,8 @@ date: 2014-04-27T14:25:11+00:00
 author: Victor Silva
 layout: single
 guid: http://vmsilvamolina.wordpress.com/?p=328
-permalink: /powershell-consultar-espacio-en-discos-locales/
+redirect_from: /powershell-consultar-espacio-en-discos-locales/
+permalink: /powershell-espacio-en-discos/
 dsq_thread_id:
   - "4472137083"
 categories:
@@ -15,28 +16,38 @@ tags:
   - Cmdlets
   - Espacio en disco
   - PowerShell
+  - Get-WMIObject
 ---
-Lo que vamos a ver en esta oportunidad es como sacer un pequeño reporte del estado de nuestros discos. <!--more--> Primero vamos a habrir la Windows Powershell ISE, para armar nuestro script. Y escribimos:
+Lo que vamos a ver en esta oportunidad es como sacer un pequeño reporte del estado de nuestros discos. Una de las tareas más tediosas de los administradores de sistemas es comprobar los estados de los discos, debido a que es una de las causas de los problemas que ocurren en algunas oportunidades. Primero vamos a habrir la Windows Powershell ISE, para armar nuestro script. Y escribimos:
 
-    Get-WMIObject  -Class Win32_LogicalDisk | Where-Object {$\_.DriveType -eq 3}  `
-     | Select-Object @{n="Unidad";e={($\_.Name)}}, 
-                    @{n="Etiqueta";e={($\_.VolumeName)}}, 
-                    @{n='Tamaño (GB)';e={"{0:n2}" -f ($\_.size/1gb)}}, 
-                    @{n='Libre (GB)';e={"{0:n2}" -f ($\_.freespace/1gb)}}, 
-                    @{n='% Libre';e={"{0:n2}" -f ($\_.freespace/$_.size*100)}}
+{% highlight posh %}
+Get-WMIObject  -Class Win32_LogicalDisk | Where-Object {$\_.DriveType -eq 3}  `
+  | Select-Object @{n="Unidad";e={($\_.Name)}}, 
+                @{n="Etiqueta";e={($\_.VolumeName)}}, 
+                @{n='Tamaño (GB)';e={"{0:n2}" -f ($\_.size/1gb)}}, 
+                @{n='Libre (GB)';e={"{0:n2}" -f ($\_.freespace/1gb)}}, 
+                @{n='% Libre';e={"{0:n2}" -f ($\_.freespace/$_.size*100)}}
+{% endhighlight %}
+
+Lo que hacemos con estas lineas es desde el comando **Get-WMIObject** buscar en la clase **Win32_LogicalDisk** los datos. En este caso seleccionamos los objetos (Discos) que son del tipo local:
+
+{% highlight posh %}
+Where-Object {$_.DriveType -eq 3}
+{% endhighlight %}
+
+Vamos a guardar este archivo con el nombre, por ejemplo, de *DiskInfo.ps1*.
+
+Ahora ejecutamos una consola de PowerShell, vamos a la ruta donde guardamos el archivo (en caso de guardarlo en la raiz del disco **C:\** sería:
+
+{% highlight posh %}
+cd C:\ 
+{% endhighlight %}
     
-
-Lo que hacemos con estas lineas es desde el comando **Get-WMIObject** buscar en la clase **Win32_LogicalDisk** los datos. En este caso seleccionamos los objetos (Discos) que son del tipo local (**Where-Object {$_.DriveType -eq 3}**). Vamos a guardar este archivo con el nombre, por ejemplo, de DiskInfo.ps1.
-
-Ahora ejecutamos una consola de PowerShell, vamos a la ruta donde guardamos el archivo (en caso de guardarlo en la raiz del disco **C:** sería:
-
-    cd C: 
-    
-
 Y escribimos:
 
-    .DiskInfo.ps1 
-    
+{% highlight posh %}
+.\DiskInfo.ps1
+{% endhighlight %}
 
 Y tendriamos como resultado obtenemos lo siguiente:
 
@@ -44,4 +55,4 @@ Y tendriamos como resultado obtenemos lo siguiente:
 
 En mi caso, tengo solamente una unidad con sus respectivos datos.
 
-Saludos,
+Happy scripting!
