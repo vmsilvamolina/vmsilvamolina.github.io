@@ -50,5 +50,5 @@ Lo primero que hay que hacer es empezar a definir la función:
 function New-JekyllPost {
 
 }
-{% highlight posh %}
+{% endhighlight %}
 
