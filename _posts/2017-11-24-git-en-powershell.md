@@ -46,7 +46,7 @@ Antes de ver que es lo que vamos a agregar en el perfil, es necesario saber si y
 
 {% highlight posh %}
 Test-Path $profile
-{% highlight posh %}
+{% endhighlight %}
 
 Si la salida en consola es "False", entonces debemos crear el archivo, en vez de editarlo. 
 
@@ -56,7 +56,7 @@ En caso de contar con visual studio code instalado en el equipo, ejecutamos lo s
 
 {% highlight posh %}
 code profile
-{% highlight posh %}
+{% endhighlight %}
 
 Así podemos editar el archivo existente o comenzar a trabajar sobre él en caso que no exista aún.
 Ahora sí, debemos agregar lo siguiente para poder importar el módulo en cada nueva ejecución de la consola:
@@ -64,7 +64,7 @@ Ahora sí, debemos agregar lo siguiente para poder importar el módulo en cada n
 {% highlight posh %}
 cd $home
 Import-Module -Name posh-git -ErrorAction SilentlyContinue
-{% highlight posh %}
+{% endhighlight %}
 
 Y cada vez que nos ubiquemos en una carpeta que sea un repositorio de git, el prompt va a cambiar de la siguiente manera:
 
