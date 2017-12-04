@@ -36,31 +36,34 @@ Posterior a la instalación hay que integrar en el script (o en el bloque de có
 
 Y lo siguiente es realizar la conexión y la estructura de información necesaria antes de pasar a detallar el query a ejecutar:
 
-    $MySQLAdminUserName = 'root'
-    $MySQLAdminPassword = 'Ultr@P@ssw0rd'
-    $MySQLDatabase = 'databaseName'
-    $MySQLHost = 'MySQLServer'
-    $ConnectionString = "server=" + $MySQLHost + ";port=3306;uid=" + $MySQLAdminUserName + ";pwd=" + $MySQLAdminPassword + ";database="+$MySQLDatabase
-    
+{% highlight posh %}
+$MySQLAdminUserName = 'root'
+$MySQLAdminPassword = 'Ultr@P@ssw0rd'
+$MySQLDatabase = 'databaseName'
+$MySQLHost = 'MySQLServer'
+$ConnectionString = "server=" + $MySQLHost + ";port=3306;uid=" + $MySQLAdminUserName + ";pwd=" + $MySQLAdminPassword + ";database="+$MySQLDatabase
+{% endhighlight %}
 
 Hasta ahora nada raro, simplemente definimos las variables que van a contener nuestra información de conexión, en donde detallamos usuario admin, passsword, servidor, base de datos y el connection string.
 
 Definimos la query a ejecutar:
 
-    $Query = "SHOW tables"
-    
+{% highlight posh %}
+$Query = "SHOW tables"
+{% endhighlight %}
 
 Lo siguiente es armar una estructura de conexión, que es requerida para poder ejecutar nuestra query (que también vamos a definir) utilizando el conector ya invocado:
 
-    $Connection = New-Object MySql.Data.MySqlClient.MySqlConnection
-    $Connection.ConnectionString = $ConnectionString
-    $Connection.Open()
-    $Command = New-Object MySql.Data.MySqlClient.MySqlCommand($Query, $Connection)
-    $DataAdapter = New-Object MySql.Data.MySqlClient.MySqlDataAdapter($Command)
-    $DataSet = New-Object System.Data.DataSet
-    $RecordCount = $dataAdapter.Fill($dataSet, "data")
-    $DataSet.Tables[0]
-    
+{% highlight posh %}
+$Connection = New-Object MySql.Data.MySqlClient.MySqlConnection
+$Connection.ConnectionString = $ConnectionString
+$Connection.Open()
+$Command = New-Object MySql.Data.MySqlClient.MySqlCommand($Query, $Connection)
+$DataAdapter = New-Object MySql.Data.MySqlClient.MySqlDataAdapter($Command)
+$DataSet = New-Object System.Data.DataSet
+$RecordCount = $dataAdapter.Fill($dataSet, "data")
+$DataSet.Tables[0]
+{% endhighlight %}
 
 Y listo! Nuestra primer consulta a MySQL desde PowerShell.
 
@@ -70,80 +73,85 @@ Ahora que tenemos claro el procedimiento para realizar consultas a nuestra base 
 
 La primera función que vamos a armar es un Cmdlet para realizar la conexión con el servidor:
 
-    function Connect-MySqlServer {
-    
-        [OutputType('MySql.Data.MySqlClient.MySqlConnection')]
-        [CmdletBinding()]
-        Param
-        (
-            [Parameter(Mandatory)]
-            [ValidateNotNullOrEmpty()]
-            [pscredential]$Credential,
-    
-            [Parameter(Mandatory)]
-            [ValidateNotNullOrEmpty()]
-            [string]$MySQLHost,
-    
-            [Parameter()]
-            [ValidateNotNullOrEmpty()]
-            [int]$Port = 3306,
-    
-            [Parameter()]
-            [ValidateNotNullOrEmpty()]
-            [string]$MySQLDatabase
-        )
-    
-    
-        $MySQLAdminUserName = $Credential.UserName
-        $MySQLAdminPassword = $Credential.GetNetworkCredential().Password
-    
-        if ($PSBoundParameters.ContainsKey('Database')) {
-            $ConnectionString = "server=" + $MySQLHost + ";port=" + $Port + ";uid=" + $MySQLAdminUserName + ";pwd=" + $MySQLAdminPassword + ";database="+$MySQLDatabase
-        } else {
-            "server=" + $MySQLHost + ";port=" + $Port + ";uid=" + $MySQLAdminUserName + ";pwd=" + $MySQLAdminPassword
-        }
-    
-        try {
-            [MySql.Data.MySqlClient.MySqlConnection]$conn = New-Object MySql.Data.MySqlClient.MySqlConnection($connectionString)
-            $conn.Open()
-            $Global:MySQLConnection = $conn
-            if ($PSBoundParameters.ContainsKey('Database')) {
-                $null =  New-Object MySql.Data.MySqlClient.MySqlCommand("USE $MySQLDatabase", $conn)
-            }
-            $conn
-        } catch {
-            Write-Error -Message $_.Exception.Message
-        }
+{% highlight posh %}
+function Connect-MySqlServer {
+
+    [OutputType('MySql.Data.MySqlClient.MySqlConnection')]
+    [CmdletBinding()]
+    Param
+    (
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [pscredential]$Credential,
+
+        [Parameter(Mandatory)]
+        [ValidateNotNullOrEmpty()]
+        [string]$MySQLHost,
+
+        [Parameter()]
+        [ValidateNotNullOrEmpty()]
+        [int]$Port = 3306,
+
+        [Parameter()]
+        [ValidateNotNullOrEmpty()]
+        [string]$MySQLDatabase
+    )
+
+
+    $MySQLAdminUserName = $Credential.UserName
+    $MySQLAdminPassword = $Credential.GetNetworkCredential().Password
+
+    if ($PSBoundParameters.ContainsKey('Database')) {
+        $ConnectionString = "server=" + $MySQLHost + ";port=" + $Port + ";uid=" + $MySQLAdminUserName + ";pwd=" + $MySQLAdminPassword + ";database="+$MySQLDatabase
+    } else {
+        "server=" + $MySQLHost + ";port=" + $Port + ";uid=" + $MySQLAdminUserName + ";pwd=" + $MySQLAdminPassword
     }
-    
+
+    try {
+        [MySql.Data.MySqlClient.MySqlConnection]$conn = New-Object MySql.Data.MySqlClient.MySqlConnection($connectionString)
+        $conn.Open()
+        $Global:MySQLConnection = $conn
+        if ($PSBoundParameters.ContainsKey('Database')) {
+            $null =  New-Object MySql.Data.MySqlClient.MySqlCommand("USE $MySQLDatabase", $conn)
+        }
+        $conn
+    } catch {
+        Write-Error -Message $_.Exception.Message
+    }
+}
+{% endhighlight %}
 
 Perfecto! Tenemos nuestra primer función para conectarnos a nuestro servidor, ahora necesitamos una función que nos permita cerrar la sesión que generamos en el servidor. Para ello vamos a escribir lo siguiente:
 
-    function Disconnect-MySqlServer {
-    
-        [OutputType('MySql.Data.MySqlClient.MySqlConnection')]
-        [CmdletBinding()]
-        Param
-        (
-            [Parameter(ValueFromPipeline)]
-            [ValidateNotNullOrEmpty()]
-            [MySql.Data.MySqlClient.MySqlConnection]$Connection = $MySQLConnection
-        )
-    
-        try {
-            $Connection.Close()
-            $Connection
-        } catch {
-            Write-Error -Message $_.Exception.Message
-        }
+{% highlight posh %}
+function Disconnect-MySqlServer {
+
+    [OutputType('MySql.Data.MySqlClient.MySqlConnection')]
+    [CmdletBinding()]
+    Param
+    (
+        [Parameter(ValueFromPipeline)]
+        [ValidateNotNullOrEmpty()]
+        [MySql.Data.MySqlClient.MySqlConnection]$Connection = $MySQLConnection
+    )
+
+    try {
+        $Connection.Close()
+        $Connection
+    } catch {
+        Write-Error -Message $_.Exception.Message
     }
-    
+}
+{% endhighlight %}
 
 Ya que al definir en la primer función una variable global, podemos invocarla como valor predeterminado del parámetro de nuestra función para desconectarnos y así simplemente ejecutar:
 
-    Disconnect-MySqlServer -Connection
-    
+{% highlight posh %}
+Disconnect-MySqlServer -Connection
+{% endhighlight %}
 
 <img src="https://cu0r0a-ch3302.files.1drv.com/y4mTjuCejvJMHZLvxfoS-4fplwU2TWpBEofIpbVVYJd46j9kJUG_4UlpUaR23l8Y-HprsU9mEDBdCjwfVrVv6feDDEIANIw0tgy_6xgeJQyYowhDKFkjTxAVAzRhVMaKTGsj7Rcq6yzUoC98Hym68GdC-lJaAHMG-dlDWJvygJSeWhLYdKNsZFFP_8dO_O5hkOq4H8PaRwhK1k4K-mw4LPVKQ?width=779&#038;height=281&#038;cropmode=none" width="779" height="281" alt="Cerrando una sesión de MySQL desde PowerShell" class="alignnone size-medium" />
 
 Y listo! Estamos fuera del servidor de MySQL desde PowerShell.
+
+Happy scripting!
