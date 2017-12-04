@@ -31,8 +31,9 @@ Simplemente hay que descargarlo e instalarlo, siguiendo los pasos del asistente 
 
 Posterior a la instalación hay que integrar en el script (o en el bloque de código a ejecutar) lo siguiente:
 
-    [void][System.Reflection.Assembly]::LoadWithPartialName("MySql.Data")
-    
+{% highlight posh %}
+[void][System.Reflection.Assembly]::LoadWithPartialName("MySql.Data")
+{% endhighlight %}
 
 Y lo siguiente es realizar la conexión y la estructura de información necesaria antes de pasar a detallar el query a ejecutar:
 
