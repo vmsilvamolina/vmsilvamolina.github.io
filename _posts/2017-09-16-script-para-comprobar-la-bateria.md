@@ -87,4 +87,4 @@ function Check-BatteryPercentage {
 
 En conclusión resta programar para que se ejecute según el tiempo que consideremos necesario. Si no saben como hacerlo, hace un tiempo escribí sobre ello: [Ejecutar script de manera programada](http://blog.victorsilva.com.uy/powershell-ejecutar-script-de-manera-programada/).
 
-Saludos,
+Happy scripting!

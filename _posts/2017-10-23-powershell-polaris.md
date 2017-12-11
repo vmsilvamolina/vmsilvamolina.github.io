@@ -120,4 +120,4 @@ Invoke-RestMethod -Uri http://localhost:8088/time -Method GET
 
 En donde vamos a obtener resultados actualizados, en función de lo definido en la ruta.
 
-Saludos,
+Happy scripting!

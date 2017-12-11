@@ -81,4 +81,4 @@ En caso de contar con una clave _.pem_ para utilizar en la conexión:
 ssh remoteServer -i "C:\Key.pem"
 {% endhighlight %}
 
-Saludos,
+Happy scripting!
