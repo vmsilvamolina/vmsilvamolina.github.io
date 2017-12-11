@@ -1,10 +1,8 @@
 ---
-id: 1463
 title: Pester Framework parte II
 date: 2017-07-30T10:41:40+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1463
 permalink: /pester-framework-parte-ii/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*Sz3Js055VwE6KyPu.jpg";s:10:"author_url";s:33:"https://medium.com/@vmsilvamolina";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:11:"8bb98f52800";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:71:"https://medium.com/@vmsilvamolina/pester-framework-parte-ii-8bb98f52800";}'
@@ -32,30 +30,32 @@ En la imagen anterior, la estructura de palabras clave es &#8220;jerárquica&#82
 
 Para entender mejor las estructura de palabras clave y como se deben utilizar, primero vamos a compartir primero un script, que contiene una función en particular:
 
-    function Get-Pizza {
-        [cmdletbinding()]
-        Param(
-            [ValidateNotNullOrEmpty ()]
-            [parameter(Mandatory=$false,ValueFromPipeline=$True,ValueFromPipelinebyPropertyName=$True)] 
-            [string[]]$Toppings= "Muzzarella"
-        )
-        begin {
-            $Objects = @()
-        }
-        process {
-            Foreach ($Topping in $Toppings) {
-                Write-Verbose "Pizza: adding $Topping"
-                $Properties = @{}
-                $Properties.Add("PizzaTopping",$Topping)
-    
-                $Object = New-object -TypeName psobject -Property $Properties
-                $Objects += $Object
-            }
-        }
-        end {
-            return $Objects
+{% highlight posh %}
+function Get-Pizza {
+    [cmdletbinding()]
+    Param(
+        [ValidateNotNullOrEmpty ()]
+        [parameter(Mandatory=$false,ValueFromPipeline=$True,ValueFromPipelinebyPropertyName=$True)] 
+        [string[]]$Toppings= "Muzzarella"
+    )
+    begin {
+        $Objects = @()
+    }
+    process {
+        Foreach ($Topping in $Toppings) {
+            Write-Verbose "Pizza: adding $Topping"
+            $Properties = @{}
+            $Properties.Add("PizzaTopping",$Topping)
+
+            $Object = New-object -TypeName psobject -Property $Properties
+            $Objects += $Object
         }
     }
+    end {
+        return $Objects
+    }
+}
+{% endhighlight %}
     
 
 La función anterior simplemente genera un objeto con el &#8220;sabor&#8221; de nuestra pizza (el sabor es la propiedad PizzaTopping).
@@ -64,38 +64,40 @@ La función anterior simplemente genera un objeto con el &#8220;sabor&#8221; de 
 
 Ahora que tenemos un script, vamos a generar el test para comprobar que funcione correctamente en Pester! Primero voy a compartir el test para luego ir desglosando las **keyword** utilizadas:
 
-    Describe 'Testing the Get-Pizza function' {
-        Context 'Testing Input validation' {
-            $ToppingsArray = @('Mozzarella';'Pepperoni')
-            $SingleTopping = 'Ham'
-            it 'Should run when no parameter is provided'{
-                $Pizza = Get-Pizza
-                $Pizza | should not beNullOrEmpty
-            }
-            it 'Should Accept PipeLine input'{
-                $Pizza = $ToppingsArray | Get-Pizza
-                $Pizza | should not beNullOrEmpty
-                $Pizza[0].PizzaTopping | should be 'Mozzarella'
-                $Pizza.count -gt 1 | should be $true
-            }
-            it 'Should not accept null values'{
-                {Get-Pizza -Size ''} | should throw
-            }
-            it 'Should Accept Array of toppings'{
-                $Pizza = Get-Pizza -Toppings $ToppingsArray
-                $Pizza | should not beNullOrEmpty
-                $Pizza.count -gt 1 | should be $true
-            }
+{% highlight posh %}
+Describe 'Testing the Get-Pizza function' {
+    Context 'Testing Input validation' {
+        $ToppingsArray = @('Mozzarella';'Pepperoni')
+        $SingleTopping = 'Ham'
+        it 'Should run when no parameter is provided'{
+            $Pizza = Get-Pizza
+            $Pizza | should not beNullOrEmpty
         }
-        Context 'Testing returned object contents' {
-            $ToppingsArray = @('Pineapple';'Anchovies')
-            $SingleTopping = 'Parmesan'
-            $Pizza = Get-Pizza -Toppings $SingleTopping
-            it 'Should Have a Topping' {
-                $Pizza.PizzaTopping | should be 'Parmesan'
-            }
+        it 'Should Accept PipeLine input'{
+            $Pizza = $ToppingsArray | Get-Pizza
+            $Pizza | should not beNullOrEmpty
+            $Pizza[0].PizzaTopping | should be 'Mozzarella'
+            $Pizza.count -gt 1 | should be $true
+        }
+        it 'Should not accept null values'{
+            {Get-Pizza -Size ''} | should throw
+        }
+        it 'Should Accept Array of toppings'{
+            $Pizza = Get-Pizza -Toppings $ToppingsArray
+            $Pizza | should not beNullOrEmpty
+            $Pizza.count -gt 1 | should be $true
         }
     }
+    Context 'Testing returned object contents' {
+        $ToppingsArray = @('Pineapple';'Anchovies')
+        $SingleTopping = 'Parmesan'
+        $Pizza = Get-Pizza -Toppings $SingleTopping
+        it 'Should Have a Topping' {
+            $Pizza.PizzaTopping | should be 'Parmesan'
+        }
+    }
+}
+{% endhighlight %}
     
 
 Antes de continuar, comparto el resultado de ejecutar los dos fragmentos de código anterior. La salida en consola sería la siguiente:
@@ -120,10 +122,12 @@ El bloque _It_ es el corazón de los PowerShell Pester tests. Contiene el elemen
 
 Aquí un ejemplo de un bloque _It_:
 
-    It 'Should run when no parameter is provided'{
-        $Pizza = Get-Pizza
-        $Pizza | should not beNullOrEmpty
-    }
+{% highlight posh %}
+It 'Should run when no parameter is provided'{
+    $Pizza = Get-Pizza
+    $Pizza | should not beNullOrEmpty
+}
+{% endhighlight %}
     
 
 La primera línea es nuestra función principal Get-Pizza (que a la función que realmente queremos hacerle testing) e ingresamos los datos en la variable $Pizza.
@@ -136,15 +140,17 @@ Si se cumple la condición, la prueba se mostrará en verde en la consola (compr
 
 Ya tuvimos una introducción poco formal de _Should_, pero vamos a destacar nuevamente que esta keyword pertenece al bloque _It_ y ejemplificaremos con un par de ejemplos:
 
-    It 'Should Accept Array of toppings'{
-        $Pizza = Get-Pizza -Toppings $ToppingsArray
-        $Pizza | should not beNullOrEmpty
-        $Pizza.count -gt 1 | should be $true
-    }
+{% highlight posh %}
+It 'Should Accept Array of toppings'{
+    $Pizza = Get-Pizza -Toppings $ToppingsArray
+    $Pizza | should not beNullOrEmpty
+    $Pizza.count -gt 1 | should be $true
+}
+{% endhighlight %}
     
 
 El ejemplo anterior se extrajo del test que definimos anteriormente y tiene varias sentencias con _Should_, aunque vamos a centrarnos en la última: _$Pizza.count -gt 1 | should be $true_. Ésta sentencia define que la prueba será correcta en el caso que retorne un valor mayor a uno en la cuenta de los objetos resultantes de la función.
 
 Ahora que avanzamos en este framework es momento de comenzar a armar tests más complejos y esperar a la siguiente entrega sobre Pester Framework!
 
-Saludos,
+Happy scripting!

@@ -74,4 +74,4 @@ Y como resultado obtenemos:
 
 <img src="https://lh5.googleusercontent.com/-aQYzAcPz2WI/VM1KDURNEpI/AAAAAAAAGyA/L29ya4qU_ck/w407-h140-no/PS_CURL_2.png" width="407" height="140" class="alignnone" />
 
-Saludos,
+Happy scripting!
