@@ -30,20 +30,23 @@ Para entender mejor que es lo que estamos haciendo vamos ir desarrollando el inf
 
 Vamos a comenzar el script ordenando la información requerida: en nuestro caso es necesario conocer cuáles son los servidores con el rol de Hyper-V que participan en la implementación de la solución. Considerando el diseño de la infraestructura de la herramienta tenemos 2 roles fundamentales: el **servidor primario**, que contiene las VMs en ejecución (o no) y el **servidor secundario**, que se encarga de alojar la transferencia de información y permanece en una postura pasiva hasta que se realice el _Failover_. Con lo anterior vamos a definir los parámetros de nuestra función:
 
-    [CmdletBinding()]
-    param (
-        [Parameter(Position = 0, HelpMessage = 'Servidor de Hyper-V Replica primario')]
-        [String]$PrimaryHyperV,
-    
-        [Parameter(HelpMessage = 'Servidor de Hyper-V Replica secundario')]
-        [String]$SecondaryHyperV
-    
-    )
-    
+{% highlight posh %}
+[CmdletBinding()]
+param (
+    [Parameter(Position = 0, HelpMessage = 'Servidor de Hyper-V Replica primario')]
+    [String]$PrimaryHyperV,
+
+    [Parameter(HelpMessage = 'Servidor de Hyper-V Replica secundario')]
+    [String]$SecondaryHyperV
+
+)
+{% endhighlight %}
 
 Perfecto! Tenemos los servidores, ahora necesitamos saber cómo comprobar la salud de la implementación. Para ello vamos usar el cmdlet **_Get-VM_**, de la siguiente forma:
 
-    Get-VM -computername $PrimaryHyperV, $SecondaryHyperV | select Name,State,ReplicationHealth
+{% highlight posh %}
+Get-VM -computername $PrimaryHyperV, $SecondaryHyperV | select Name,State,ReplicationHealth
+{% endhighlight %}
     
 
 En donde seleccionamos el nombre de la VM, el estado (si está apagada o corriendo) y la salud de la replicación. En consola obtenemos la siguiente salida:
@@ -52,19 +55,21 @@ En donde seleccionamos el nombre de la VM, el estado (si está apagada o corrien
 
 Con lo que desarrollamos anteriormente, es posible agregar un poco más de lógica y discriminar para que nos avise _solamente_ cuando las VMs no se encuentran en estado normal:
 
-    Get-VM -computername $PrimaryHyperV, $SecondaryHyperV `
-    | ? { $_.ReplicationHealth -eq "Warning" -or $_.ReplicationHealth -eq "Critical" } `
-    | select Name,State,ReplicationHealth
-    
+{% highlight posh %}
+Get-VM -computername $PrimaryHyperV, $SecondaryHyperV `
+| ? { $_.ReplicationHealth -eq "Warning" -or $_.ReplicationHealth -eq "Critical" } `
+| select Name,State,ReplicationHealth
+{% endhighlight %}
 
 Otra opción es utilizar el cmdlet **_Get-VMReplication_** para obtener el status de la replicación, puediendo armar algo así:
 
-    $VmReplication = Get-VMReplication -ComputerName $PrimaryHyperV, $SecondaryHyperV  `
-    | Select-Object @{Name="Maquinas Virtuales";Expression={($_.Name)}},
-                    @{Name="Estado de la replica";Expression={($_.State)}},
-                    @{Name="Estado";Expression={($_.Health)}},
-                    @{Name="Host";Expression={($_.PrimaryServer)}} | ConvertTo-HTML -fragment
-    
+{% highlight posh %}
+$VmReplication = Get-VMReplication -ComputerName $PrimaryHyperV, $SecondaryHyperV  `
+| Select-Object @{Name="Maquinas Virtuales";Expression={($_.Name)}},
+                @{Name="Estado de la replica";Expression={($_.State)}},
+                @{Name="Estado";Expression={($_.Health)}},
+                @{Name="Host";Expression={($_.PrimaryServer)}} | ConvertTo-HTML -fragment
+{% endhighlight %}
 
 Como se muestra en el bloque anterior de código, se genera como salida un bloque HTML (tabla) que define los encabezados: Maquinas Virtuales, Estado de la replica, Estado, Host&#8221; para desplegar más información al respecto.
 
@@ -72,21 +77,26 @@ Como se muestra en el bloque anterior de código, se genera como salida un bloqu
 
 Ya con este resultado podemos generar un mail que nos envíe esta tabla y así no estar revisando cada día la infraestructura de forma manual. Para ello agregamos la tabla resultante del cmdlet anterior como HTML al cuerpo del mail a enviar:
 
-    $Report = Get-VM -computername $PrimaryHyperV, $SecondaryHyperV | select Name,State,ReplicationHealth
-    
-    $SMTPServer = "smtp.domain.com"
-    $SMTPCredentials = new-object Net.NetworkCredential("username", "PassW0rd")
-    $SMTP = new-object Net.Mail.SmtpClient($SMTPServer)
-    $SMTP.UseDefaultCredentials = $false
-    $SMTP.Credentials = $SMTPCredentials
-    
-    $email.Subject = "Reporte de replicas"
-    $email.body = $Report
-    $smtp.Send($email)
-    
+{% highlight posh %}
+$Report = Get-VM -computername $PrimaryHyperV, $SecondaryHyperV | select Name,State,ReplicationHealth
+
+$SMTPServer = "smtp.domain.com"
+$SMTPCredentials = new-object Net.NetworkCredential("username", "PassW0rd")
+$SMTP = new-object Net.Mail.SmtpClient($SMTPServer)
+$SMTP.UseDefaultCredentials = $false
+$SMTP.Credentials = $SMTPCredentials
+
+$email.Subject = "Reporte de replicas"
+$email.body = $Report
+$smtp.Send($email)
+{% endhighlight %}
 
 > También podemos usar la función Send-MailMessage.
 
 En estos momentos tenemos un informe funcional, que podemos programar para que se ejecute, por ejemplo, una vez al día.
 
 Con todo lo que vimos anteriormente podemos armar un reporte, sumando cambios visuales con CSS, de la siguiente manera:
+
+<script src="https://gist.github.com/vmsilvamolina/c683332a535f652570eb758d64f41364.js"></script>
+
+Happy scripting!

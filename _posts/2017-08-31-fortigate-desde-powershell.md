@@ -101,4 +101,4 @@ En la que básicamente armamos un bloque con los comandos para habilitar las opc
 
 Y listo! con lo anterior tenemos nuestra primer función para comenzar a trabajar sobre nuestro módulo de FortiGate desde PowerShell.
 
-Saludos,
+Happy scripting!
