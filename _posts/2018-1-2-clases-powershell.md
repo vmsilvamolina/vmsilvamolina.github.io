@@ -49,3 +49,54 @@ $greenMan = [Alien]::New()
 
 ### Describiendo las clases
 
+#### Propiedades
+
+Las propiedades son cosas sobre un objeto, cosas que lo representan y definen. Si describiéramos un alien como el ejemplo, las propiedades podrían ser altura y peso. Agregamos propiedades a una clase agregando variables dentro de la clase. Si bien no es obligatorio, es una buena idea definir el tipo de variable para determinar el tipo de dato a ingresar:
+
+{% highlight posh %}
+class Alien {
+    [string]$Nombre
+    
+    [int]$Altura
+
+    [int]$Peso
+}
+{% endhighlight %}
+
+#### Validación de las propiedades
+
+Como indica el título, PowerShell permite la validación de las propiedades. Esto permite que los datos que se ingresan cumplan con lo que se requiere para cada propiedad:
+
+{% highlight posh %}
+class Alien {
+    [ValidatePattern('^[a-z]')][ValidateLength(3,15)][string]$Nombre
+    
+    [ValidateRange(0,200)][int]$Altura
+
+    [ValidateRange(0,300)][int]$Peso
+}
+{% endhighlight %}
+
+#### Propiedades ocultas
+
+Las clases de PowerShell también admiten propiedades ocultas. Para ocultar una propiedad, se debe usar la keyword *hidden* justo antes del nombre de la propiedad. Para el siguiente ejemplo vamos a ocultar la propiedad ID sea del tipo GUID y esté oculta para el usuario.
+
+{% highlight posh %}
+class Alien {
+    [Guid]hidden $ID
+
+    [ValidatePattern('^[a-z]')][ValidateLength(3,15)][string]$Nombre
+    
+    [ValidateRange(0,200)][int]$Altura
+
+    [ValidateRange(0,300)][int]$Peso
+}
+{% endhighlight %}
+
+Y para comprobar esto vamos a ejecutar el código que genera la clase, junto una instancia de la misma llamada $greenMan:
+
+<img src="https://pbpy0w.ch.files.1drv.com/y4ma1uWSE_pLhFfQ7KO40I-jEAourdIH-UwQvSeHUtT5GNmvWvJZa0COe93rCKJLKhxP2BNuWhxG56WNWWlKbHntd97rkjr17-5Uh-mUUD2CsuD_WzDeFZEi3awmhFb-xVKfwMl7LMfbEY7KPCX4ZtCL3_ODpM_nBJvCpZboF1ONKggiWZlbAOziwZCc1bTaONkqYafm5Z_cA6P-S6aAwPfnQ?width=557&height=459&cropmode=none" width="557" height="459" alt="Generar una instancia de la clase 'Alien'" class="alignnone size-full" />
+
+En donde se utilizó *$greenMan | Get-Member -MemberType Properties* para ver las propiedades disponibles dentro del objeto generado.
+
+Happy scripting!
