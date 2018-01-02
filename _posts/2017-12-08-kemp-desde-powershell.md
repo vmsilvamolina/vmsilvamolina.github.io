@@ -54,7 +54,13 @@ Nos va a indicar si confiamos en el publisher y listo!
 
 <img src="https://pbqkdq-ch3302.files.1drv.com/y4mkRAj9I67pfUsempQu8bxX-fwNEdVjP7-yDqW9uMaTxd2RbYU6XrHlZOTCauSSjHRHlIuwjkpd48dcEW0URG1uB4ygaWJ7FoQ8R0-gX4uTyqpeDyxrhiX3LnI2QRN5a7x-wCmFkeh2Fe2uqJYiT5RXvRvNy1kMcyERcy_GObHyPEV4iBbW0Obsg37ramMRaREYMVWvRLkk_a36FCYwVvw2w?width=1366&height=394&cropmode=none" width="1366" height="374" alt="Importar módulo de Kemp" class="alignnone size-full" />
 
-Como se ve en la imagen, al finalizar lo expuesto anteriormente, utilicé el comando *Get-Module* a modo de comprobar la correcta importación del módulo. 
+Como se ve en la imagen, al finalizar lo expuesto anteriormente, utilicé el comando *Get-Module* a modo de comprobar la correcta importación del módulo.
+
+¿Y qué comandos trae el módulo? Para responder la pregunta anterior vamos a ejecutar:
+
+{% highlight posh %}
+Get-command -Module Kemp.LoadMaster.PowerShell
+{% endhighlight %}
 
 Para comprobar la conectividad con nuestro balanceador existe un cmdlet llamado *Test-LmServerConnection*:
 
