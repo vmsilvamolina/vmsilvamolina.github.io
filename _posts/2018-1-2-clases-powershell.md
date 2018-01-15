@@ -97,6 +97,12 @@ Y para comprobar esto vamos a ejecutar el código que genera la clase, junto una
 
 <img src="https://pbpy0w.ch.files.1drv.com/y4ma1uWSE_pLhFfQ7KO40I-jEAourdIH-UwQvSeHUtT5GNmvWvJZa0COe93rCKJLKhxP2BNuWhxG56WNWWlKbHntd97rkjr17-5Uh-mUUD2CsuD_WzDeFZEi3awmhFb-xVKfwMl7LMfbEY7KPCX4ZtCL3_ODpM_nBJvCpZboF1ONKggiWZlbAOziwZCc1bTaONkqYafm5Z_cA6P-S6aAwPfnQ?width=557&height=459&cropmode=none" width="557" height="459" alt="Generar una instancia de la clase 'Alien'" class="alignnone size-full" />
 
-En donde se utilizó *$greenMan | Get-Member -MemberType Properties* para ver las propiedades disponibles dentro del objeto generado.
+En donde se utilizó:
+
+{% highlight posh %}
+$greenMan | Get-Member -MemberType Properties
+{% endhighlight %}
+
+Para ver las propiedades disponibles dentro del objeto generado.
 
 Happy scripting!
