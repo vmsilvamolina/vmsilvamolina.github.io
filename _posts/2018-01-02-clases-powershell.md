@@ -1,6 +1,6 @@
 ---
 title: Clases en PowerShell
-date: 2018-1-2T19:30:46
+date: 2018-01-02T19:30:46
 author: Victor Silva
 layout: single
 permalink: /clases-powershell/
