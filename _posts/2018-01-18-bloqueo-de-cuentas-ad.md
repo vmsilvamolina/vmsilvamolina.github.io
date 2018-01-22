@@ -64,7 +64,7 @@ Como vimos anteriormente, el ID que indica que una cuenta se encuentra bloqueada
 
 {% highlight posh %}
 $eventos = Get-WinEvent -FilterHashtable @{logname='Security'; ID=4740; }
-{% highlight posh %}
+{% endhighlight %}
 
 También agregamos el tipo de log, *Security* en este caso, ya que los eventos de auditoría se registran en esa categoría.
 
