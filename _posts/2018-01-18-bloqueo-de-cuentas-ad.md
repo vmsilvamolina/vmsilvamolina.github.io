@@ -1,6 +1,6 @@
 ---
 title: Bloqueo de cuentas en Active Directory
-date: 2018-1-18T19:30:46
+date: 2018-01-18T19:30:46
 author: Victor Silva
 layout: single
 permalink: /bloqueo-cuentas-ad/
