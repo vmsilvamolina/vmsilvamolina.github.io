@@ -34,7 +34,7 @@ Install-Module -Name PSMarvel
 
 There are a couple of things you will need to setup before you can use the module:
 
-First, setup a Marvel API key (create an account). [Link]()https://developer.marvel.com/account. After complete the registration process you'll have this data:
+First, setup a Marvel API key (create an account). [Link](https://developer.marvel.com/account). After complete the registration process you'll have this data:
 
 <img src="https://b6amog.ch.files.1drv.com/y4mqq_JCyRKwrKAjg_5t1P79Q6z3WGUSffQYh3CcboOQjVbMnF59dEvWcKWMuJg8RDTkYqT2veKM24JkdnJa3USU08qeZOjdp0nh-XnfWN4583Q5G90KTs1xIYh3DsDMULtCCPDljO5k_XZdGo4w1FH0nXgULXv_w_JH1I2xKjPx8nMV3ZN3GCheItBA6lExLOq61BwL0Ov_xWCboj2Ntz3uA?width=780&height=480&cropmode=none" alt="API keys" class="alignnone size-full">
 
