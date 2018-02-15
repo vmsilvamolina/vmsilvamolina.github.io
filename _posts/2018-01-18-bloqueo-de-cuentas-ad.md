@@ -14,6 +14,8 @@ tags:
   - scripting
   - Desbloqueo de cuentas
   - Bloqueo de cuentas
+header:
+  image: "/assets/images/Teaser/code.jpg"
 ---
 La gestión de identidades es uno de los pilares de los administradores de sistemas. Ya sea por lo tedioso que se tornan algunos temas, como dar de alta usuarios nuevos, algunas tareas son automatizadas o se resuelven por medio de software de terceros. Otras, en cambio, son tareas que dependen de la capacidad de investigación del administrador para poder ser resueltas. Es por ello que hoy quiero conversar sobre el bloqueo de las cuentas y el desbloqueo de las mismas.
 
