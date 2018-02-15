@@ -26,11 +26,11 @@ Marvel had publish a REST API which allows you gather data regarding the entire 
 The module can be installed from the PowerShell Gallery using the following complex command:
 
 {% highlight posh %}
-Install-Module Marvel-Power
+Install-Module -Name PSMarvel
 {% endhighlight %}
 
 
-### How to work?
+## How to work?
 
 There are a couple of things you will need to setup before you can use the module:
 
@@ -77,18 +77,18 @@ The result:
 
 <img src="https://dkahog.ch.files.1drv.com/y4m_lXkn_v8kMkL3LU1ax8ndP_dG8YHjkyeSJ50A7hjwMrAYstgE1yb29eO56nREqH9bPrGa4QLUFvG-hPWFMJwCgk6CFDyziqL-gmo_fsKOnBPFuXnppWDQHne3sCq8SKDFNJ3IXg6EyDNP5d-a-Y3BH6lF6Vrgstabvnepw3p4C4kT9h1e1UWXvVJGCZ0bS5FUdfS3zJgDEh92FgJx05ktg?width=460&height=318&cropmode=none" alt="Display only the name list" class="alignnone size-full">
 
-### What contain the module?
+## What contain the module?
 
 The module has the following commands:
 
 {% highlight posh %}
-Get-Command -Module Marvel-Power
+Get-Command -Module PSMarvel
 {% endhighlight %}
 
 <!-- <imagen con los comandos> -->
 
 
-### Contributing
+## Contributing
 The module is available on github, feel free to contribute via issues or pull requests.
 
 Hope you enjoyed this module and article! 💪
