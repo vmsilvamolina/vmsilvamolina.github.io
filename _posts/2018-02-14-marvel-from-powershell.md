@@ -4,6 +4,7 @@ date: 2018-02-14T22:30:46
 author: Victor Silva
 layout: single
 permalink: /marvel-from-powershell/
+excerpt: "After watched the last movie of Marvel, Black Panther, I was starting search about the world of comics and wrote a small PowerShell module to interact with the Marvel Comics REST API."
 categories:
   - PowerShell
   - APIs
@@ -22,7 +23,7 @@ After watched the last movie of Marvel, Black Panther, I was starting search abo
 
 Marvel had publish a REST API which allows you gather data regarding the entire Marvel Comics Universe and create amazing websites and apps with that free data. For example, you can access to the characters info, comics, comics stories and much more. And you might be wondering what does this have to do with PowerShell?  Well, I love read and search about everything. I knew I had to find a way to add this into the console. So, I created a module to access to all the information from PowerShell console. 😎
 
-### Install the module
+## Install the module
 The module can be installed from the PowerShell Gallery using the following complex command:
 
 {% highlight posh %}
