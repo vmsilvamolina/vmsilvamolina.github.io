@@ -92,7 +92,7 @@ CommandType     Name                                               Version    So
 Function        Find-MarvelCharacter                               1.0        PSMarvel
 Function        Get-MarvelCharacter                                1.0        PSMarvel
 Function        Get-MarvelRandomCharacter                          1.0        PSMarvel
-{% highlight text %}
+{% endhighlight %}
 
 
 ## Contributing
