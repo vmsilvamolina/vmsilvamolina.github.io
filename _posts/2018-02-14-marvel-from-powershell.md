@@ -85,7 +85,13 @@ The module has the following commands:
 Get-Command -Module PSMarvel
 {% endhighlight %}
 
-<!-- <imagen con los comandos> -->
+{% highlight text %}
+CommandType     Name                                               Version    Source
+-----------     ----                                               -------    ------
+Function        Find-MarvelCharacter                               1.0        PSMarvel
+Function        Get-MarvelCharacter                                1.0        PSMarvel
+Function        Get-MarvelRandomCharacter                          1.0        PSMarvel
+{% highlight text %}
 
 
 ## Contributing
