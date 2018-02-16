@@ -125,7 +125,7 @@ SABRETOOTH: ROUND TWO PART 5! CHOSHIN’S crew is wreaking havoc in the heavenly
      Vc Travis Lanham / letterer
      Mike Perkins / inker
      Andy Troy / colorist
-{% highlight text %}
+{% endhighlight %}
 
 ## Contributing
 The module is available on github [here](https://github.com/vmsilvamolina/PSMarvel), feel free to contribute via issues or pull requests.
