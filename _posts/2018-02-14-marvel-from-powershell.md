@@ -4,7 +4,7 @@ date: 2018-02-14T22:30:46
 author: Victor Silva
 layout: single
 permalink: /marvel-from-powershell/
-excerpt: "After watched the last movie of Marvel, Black Panther, I was starting search about the world of comics and wrote a small PowerShell module to interact with the Marvel Comics REST API."
+excerpt: "After watching the last movie of Marvel, Black Panther, I was starting to search about the world of comics and wrote a small PowerShell module to interact with the Marvel Comics REST API."
 categories:
   - PowerShell
   - APIs
