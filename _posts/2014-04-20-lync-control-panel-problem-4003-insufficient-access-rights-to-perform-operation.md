@@ -34,4 +34,4 @@ Abrir las propiedades de ese usuario y en la solapa **Security**, click en **Adv
 
 Despues de este procedimiento realizar el proceso de habilitación nuevamente de los usuarios en cuestión para poder aprovechar esta gran solución de comunicaciones unificadas.
 
-Hasta la próxima!
+Happy scripting!

@@ -42,4 +42,4 @@ A continuación les adjunto las reglas correspondientes que se deben habilitar:
 
 &nbsp;
 
-Saludos,
+Happy scripting!
