@@ -27,7 +27,7 @@ A continuación se presentan algunas operaciones básicas que realizamos con fre
 
 El uso de estos comandos es el punto de partida, sabiendo que se puede construir una serie de secuencias de comandos complejas utilizando varios cmdlets en diferentes escenarios.
 
-### Habilitar rol de Hyper-V
+## Habilitar rol de Hyper-V
 
 Lo primero que podemos verificar es si esta instalado el rol, para ello:
 
@@ -43,7 +43,7 @@ Install-WindowsFeature –Name Hyper-V –Restart –IncludeAllSubFeature –Inc
 
 >Este comando reiniciará el servidor, se recomienda guardar los datos antes de ejecutarlo.
 
-### Crear una Maquina Virtual
+## Crear una Maquina Virtual
 
 Lo primero que pensamos cuando hablamos de automatizar tareas en Hyper-V es crear maquinas virtuales.
 
@@ -67,7 +67,7 @@ Este sería un ejemplo para crear un Switch Virtual:
 New-VMSwitch –Name VSWITCH -NetAdapterName "Ethernet 2"
 {% endhighlight %}
 
-### Hyper-V Live Migration:
+## Hyper-V Live Migration:
 
 La migración en vivo con Hyper-V es posible con o sin storage, del mismo modo que si se encuentra en un clúster o no. Se pueden especificar direcciones IP para utilizar exclusivamente en la migración, como tambien se pueden establecer varias migraciones de maquinas virtuales al mismo tiempo permitiendo una mayor flexibilidad.
 

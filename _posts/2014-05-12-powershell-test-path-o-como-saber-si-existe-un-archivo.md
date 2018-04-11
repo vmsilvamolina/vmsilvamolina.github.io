@@ -46,4 +46,4 @@ If ($ExisteISO -eq $True) {
    Write-Host "No se encuentra la .ISO"
 }</pre>
 
-Saludos,
+Happy scripting!

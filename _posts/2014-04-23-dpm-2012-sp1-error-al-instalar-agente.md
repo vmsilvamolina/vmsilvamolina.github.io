@@ -48,4 +48,4 @@ Para solucionar el anterior error, debemos desisntalar el agente desde el panel 
 
 Ahora si volver a ejecutar la instalación y todo debería de funcionar correctamente.
 
-Hasta la próxima!
+Happy scripting!

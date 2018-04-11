@@ -21,8 +21,7 @@ Ahora, que es una plantilla de usuario (template)? Es una cuenta de usuario gen√
   
 >No se debe iniciar sesi√≥n con las plantillas. Por lo que se recomienda que se deshabilite el usuario.
 
-### USANDO COMANDOS DE AD Y EXCEL
-
+## Usando comandos de AD y Excel
 Lo primero que vamos a hacer es abrir un notepad y escribir:
 
 {% highlight posh %}

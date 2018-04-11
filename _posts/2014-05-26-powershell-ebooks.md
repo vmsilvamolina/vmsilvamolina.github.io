@@ -24,4 +24,4 @@ El acceso a su post original es el siguiente:
 
 Vamos a encontrar varios libros para poder mejorar nuestros scripts, así como recursos para aprender y compartir.
 
-Saludos,
+Happy scripting!

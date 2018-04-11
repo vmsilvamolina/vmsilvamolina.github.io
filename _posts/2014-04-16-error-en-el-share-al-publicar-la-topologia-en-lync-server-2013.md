@@ -33,4 +33,4 @@ En el asistente "File Sharing", desde el botón **Add** y luego **Find People**,
 
 Luego de realizado lo anterior, volver a publicar la topología y continuar con la instalación de forma normal.
 
-Hasta la próxima!
+Happy scripting!

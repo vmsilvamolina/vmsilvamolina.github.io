@@ -20,7 +20,7 @@ tags:
 
 A la persona que le ha tocado administrar Office 365 alguna vez, de seguro tuvo que hacer alguna tarea desde PowerShell. También estoy seguro que las primeras veces, nos parece bastante incomodo, mas que nada la manera de iniciar sesión. Hoy voy a tratar de demostrar que Office 365 y PowerShell son amigos, trantando de automatizar y simplificar algunas tareas.
 
-### Inicio de sesión
+## Inicio de sesión
 
 La primer tarea y creo la mas engorrosa, si no se tiene algo mas "automatico", es la de iniciar sesión.
 
@@ -60,7 +60,7 @@ cd .powershell
 
 Nos va a aparecer una ventana, ya con el correo que escribimos antes, solo resta agregar la contraseña y aceptamos. A partir de este momento estamos conectados a Office 365 por medio de powershell.
 
-### Comandos disponibles
+## Comandos disponibles
 
 Una de las cosas que mas nos molestan es la falta de información al tratar de realizar tareas, por lo que la segunda tarea en la administración va a ser conocer los comandos disponibles que tenemos. El comando que nos hace este favor es:
 
@@ -74,7 +74,7 @@ Para obtener mas ayuda sobre un comando en particular ejecutar:
 Get-Help <nombre del comando> -detailed
 {% endhighlight %}
 
-### Ver suscripciones disponibles
+## Ver suscripciones disponibles
 
 Existe un comando que permite ver las suscripciones existentes en la organizacion y las cantidad de licencias que posee. El comando en concreto es:
 
@@ -82,7 +82,7 @@ Existe un comando que permite ver las suscripciones existentes en la organizacio
 Get-MsolSubscription
 {% endhighlight %}
 
-### Usuarios con Licencias asignadas
+## Usuarios con Licencias asignadas
 
 Otra información necesaria es poder ver los usuarios de la organización que cuentan con una licencia asignada. Para poder comprobar el estado, basta con ejecutar el siguiente comando:
 
@@ -96,7 +96,7 @@ Y si queremos ver dentro de muchos usuarios los que no tengan licencia asignada?
 Get-MsolUser *| Where-Object {$_.isLicensed - eq "FALSE"}
 {% endhighlight %}
 
-### Contraseña nunca expira
+## Contraseña nunca expira
 
 La contraseña de los usuarios siempre es un tema a tratar. Una de las cosas que podemos ver con Office 365 es la posibilidad de que la contraseña nunca expire, si bien no es del todo recomendable por temas de seguridad, no esta mal tener en cuenta cual es el procedimiento correcto para realizarlo. SI queremos hacer este cambio para todos los usuarios de la organización, deberemos ejecutar lo siguiente:
 
