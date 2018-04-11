@@ -26,6 +26,4 @@ También voy a agregar un enlace a un documento que facilita la transición  de
 
 <a href="http://officeimg.vo.msecnd.net/en-us/files/632/184/AF104331648.pdf" target="_blank">Google Apps to Office 365 for bussiness</a>
 
-Saludos,
-
-&nbsp;
+Happy scripting!

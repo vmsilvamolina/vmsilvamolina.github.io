@@ -1,10 +1,8 @@
 ---
-id: 411
-title: 'PowerShell &#8211; Formularios'
+title: 'Formularios en PowerShell'
 date: 2014-06-06T16:01:02+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=411
 permalink: /powershell-formularios/
 dsq_thread_id:
   - "4478591231"
@@ -16,25 +14,24 @@ tags:
   - Windows Forms
   - WinForms
 ---
-A la hora de crear nuestros scripts, por necesidad o por tratar de agregar una capa de interacción con el usuario, podemos crear formularios de Windows, por medio de .Net Framework, permitiendo agregar una **GUI** (Graphical User Interface) a nuestros scripts.<!--more-->
+A la hora de crear nuestros scripts, por necesidad o por tratar de agregar una capa de interacción con el usuario, podemos crear formularios de Windows, por medio de .Net Framework, permitiendo agregar una **GUI** (Graphical User Interface) a nuestros scripts.
 
 Para los que han usado PowerShell en varias oportunidades, estarán acostumbrados a trabajar con objetos. Pues bien, los elementos WinForms también son objetos. Y también se sabe, que cada objeto contiene un conjunto de propiedades y métodos.
 
 Un botón, por ejemplo, tiene propiedades que definen su tamaño, posición, ubicación, texto y muchas más. Todas ellas definibles.
 
-En cambio dentro de los métodos (mucho menos utilizados) se detacan por su uso constante: los eventos. Los formularios de Windows Forms son event driven. Esto significa que, después de haber creado la ventana, colocado los botones, etiquetas y demás, simplemente espera a que algo suceda. Espera a que nosotros hagamos clic en un botón, ingresemos algún texto, o lo que sea que nos haga reaccionar nuestro formulario. Y para configurar estas reacciones a las acciones, es que tenemos los eventos.<span id="result_box" lang="es"></span>
+En cambio dentro de los métodos (mucho menos utilizados) se detacan por su uso constante: los eventos. Los formularios de Windows Forms son event driven. Esto significa que, después de haber creado la ventana, colocado los botones, etiquetas y demás, simplemente espera a que algo suceda. Espera a que nosotros hagamos clic en un botón, ingresemos algún texto, o lo que sea que nos haga reaccionar nuestro formulario. Y para configurar estas reacciones a las acciones, es que tenemos los eventos.
 
-<span id="result_box" lang="es"><span title="Each element has a lot of events for all kinds of things.">Cada elemento tiene una gran cantidad de eventos para todo tipo de cosas. </span><span title="Obvious ones, like a left mouse click on a button or a text was entered in a textbox, but also some not so obvious ones.">Los obvios, como el botón izquierdo del ratón sobre un botón o un texto ingresado en un cuadro de texto, pero también algunos no tan obvios. </span></span>
+Cada elemento tiene una gran cantidad de eventos para todo tipo de cosas. Los obvios, como el botón izquierdo del ratón sobre un botón o un texto ingresado en un cuadro de texto, pero también algunos no tan obvios.
 
-&nbsp;
-
-### Creando nuestro primer formulario
+## Creando nuestro primer formulario
 
 Para este primer ejemplo, vamos a describir los pasos para poder crear un formulario que nos muestre un botón (con el texto: salir) que al realizarle un clic con el botón izquierdo nos cierre el formulario.
 
 A continuación dejo el código comentado para que pueda entener cada paso y cada línea de comandos:
 
-<pre class="lang:ps decode:true">#Cargo los Assemblies (necesario para definir el form)
+{% highlight posh %}
+#Cargo los Assemblies (necesario para definir el form)
 [void][reflection.assembly]::loadwithpartialname("System.Windows.Forms")
 [void][reflection.assembly]::loadwithpartialname("System.Drawing")
 #Creo el objeto Form
@@ -59,7 +56,7 @@ $Form.Controls.Add($Button)
 
 #Ejecuto el formulario
 [void]$Form.ShowDialog()
-</pre>
+{% endhighlight %}
 
 Fácil no? Bien, ahora podemos seguir agregando elementos y otro tipo de eventos a nuestro formulario.
 
@@ -69,7 +66,8 @@ Otro elemento muy usado aparte del botón, son las etiquetas (labels) que permit
 
 El codigo actualizado con la etiqueta agregada es:
 
-<pre class="lang:ps decode:true">#Cargo los Assemblies (necesario para definir el form)
+{% highlight posh %}
+#Cargo los Assemblies (necesario para definir el form)
 [void][reflection.assembly]::loadwithpartialname("System.Windows.Forms")
 [void][reflection.assembly]::loadwithpartialname("System.Drawing")
 #Creo el objeto Form
@@ -105,45 +103,48 @@ $Button.Add_Click({$Form.Close()})
 $Form.Controls.Add($Button)
 
 #Ejecuto el formulario
-[void]$Form.ShowDialog()</pre>
+[void]$Form.ShowDialog()
+{% endhighlight %}
 
 Si prestan atención se creó un nuevo párrafo que define a nuestro nuevo elemento: **Label**
 
-Creo que no es necesario explicar que se realizó para crear la etiqueta, por lo que vamos a pasar a ver otro elemento muy útil a la hora de crear nuestras interfaces graficas para los scripts Este elemento es el : _**TextBox
-  
-**_ 
+Creo que no es necesario explicar que se realizó para crear la etiqueta, por lo que vamos a pasar a ver otro elemento muy útil a la hora de crear nuestras interfaces graficas para los scripts Este elemento es el: _**TextBox**_ 
 
 El cuadro de texto es un elemento grafico que nos permite insertar texto para poder utilizarlo dentro de nuestros scripts.
 
 Vamos a ver como se crea un cuadro de texto, las propiedades son muy parecidas a las de las etiquetas:
 
-<pre class="lang:ps decode:true">#Defino la caja de texto
+{% highlight posh %}
+#Defino la caja de texto
 $TextBox = New-Object System.Windows.Forms.TextBox
 #Defino la posición
 $TextBox.Location = New-Object System.Drawing.Size(135,70)
 #Defino el texto que viene por defecto
 $TextBox.Text = ""
 #Cargo en el formulario
-$Form.Controls.Add($TextBox)</pre>
+$Form.Controls.Add($TextBox)
+{% endhighlight %}
 
 Ok, ya tenemos varios elementos de un formulario. Vamos a modificar algunas propiedades y metodos para que cuando hagamos clic con el boton izquierdo sobre el botón, en vez de cerrar el form, nos actualice la etiqueta con el texto ingresado en el cuadro de texto.
 
 Lo primero que vamos a modificar es la etiqueta, para que no nos muestre texto ninguno, para ello vamos a la propiedad Text y modificamos el valor de la siguiente manera:
 
-<pre class="lang:ps decode:true">#Defino el texto de la etiqueta
-$Label.Text = ""</pre>
+{% highlight posh %}
+#Defino el texto de la etiqueta
+$Label.Text = ""
+{% endhighlight %}
 
 Esto hará que nuestra etiqueta no muestre texto alguno.
 
-Luego deberemos de modificar el evento del botón, para ello ingresamos las siguientes líneas de código correspondientes al evento _Add_Click_:
+Luego deberemos de modificar el evento del botón, para ello ingresamos las siguientes líneas de código correspondientes al evento *Add_Click*:
 
-<pre class="lang:ps decode:true">#Defino el evento al hacer el clic
-$Button.Add_Click({$Label.Text = $TextBox.Text})</pre>
+{% highlight posh %}
+#Defino el evento al hacer el clic
+$Button.Add_Click({$Label.Text = $TextBox.Text})
+{% endhighlight %}
 
 Con estos ejemplos tenemos muchas posibilidades y cosas para poder probar.
 
 En proximos post vamos a ver mas objetos que podemos agregar a nuestros formularios.
 
-Saludos,
-
-&nbsp;
+Happy scripting!

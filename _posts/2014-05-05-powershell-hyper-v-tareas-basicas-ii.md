@@ -31,7 +31,7 @@ Siguiendo con el post anterior, en esta oportunidad vamos a crear un script que 
 
 Lo primero que vamos a ver es como comprobar los recursos necesarios, como es el caso de la memoria, si no tengo memoria para poder asignar a la maquina que se va a hospedar en el host destino, no voy a poder realizar Live Migration.
 
-### Memoria:
+## Memoria:
 
 Antes de comenzar el live migration, necesitamos asegurarnos de que el host destino tiene la memoria suficiente para poder alojar la maquina virtual, con el siguiente comando:
 
@@ -43,7 +43,7 @@ Un ejemplo del mismo:
 
 Donde HOST2 es el nombre del host destino.
 
-### Procesador:
+## Procesador:
 
 Que pasa si nuestros hosts tienen procesadores de diferente proveedor? No se puede hacer Live Migration por defecto. Lo que debemos hacer es habilitar una opción llamada &#8220;Processor Compatibility &#8211; Migrate to a Physical computer with a different processor versión&#8221; en la configuración de la VM. Es tan simple como ejecutar los siguientes comandos:
 
@@ -84,4 +84,4 @@ Lo primero que vamos a hacer es abrir la consola Windows PowerShell ISE y escrib
 
 Lo vamos a guardar y al ejecutarlo nos va a desplegar una ventana interactiva que nos permite elegir entre la lista de VMs dentro del Host1 y a su vez de esas maquinas seleccionadas, si tienen algo montado, lo va a desmontar o extraer.
 
-Saludos,
+Happy scripting!

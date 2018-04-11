@@ -1,10 +1,8 @@
 ---
-id: 406
-title: 'Lync Server 2013 &#8211; Certificate chain is invalid'
+title: 'Lync Server 2013: Certificate chain is invalid'
 date: 2014-06-03T20:09:17+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=406
 permalink: /lync-server-2013-certificate-chain-is-invalid/
 dsq_thread_id:
   - "4472517512"
@@ -16,8 +14,6 @@ tags:
   - Chain is invalid
 ---
 Durante la instalación de Lync Server 2013, puede que nos aparezca el siguiente mensaje de error: **Warning: The chain of the certificate XXXX is invalid** durante la solicitud de certificados. A continuación una imagen de ejemplo del error:
-
-<!--more-->
 
 <img class="alignnone" src="https://lh5.googleusercontent.com/-srrkZbhEUPw/U54pZzxHOBI/AAAAAAAAFB8/HRKHdRqeLno/w406-h306-no/Lync_Cert_error_chain.png" alt="" width="406" height="306" />
 
@@ -32,4 +28,4 @@ Por lo que para solucionar este inconveniente basta con agregar nuestra Entidad 
 
 Luego de realizado los pasos anteriores, resta volver a ejecutar la solicitud de certificados para corroborar de que funciona todo correctamente.
 
-Saludos,
+Happy scripting!
