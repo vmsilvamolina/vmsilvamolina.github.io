@@ -1,15 +1,10 @@
 ---
-id: 204
 title: 'PowerShell – Hyper-V: Tareas básicas II'
 date: 2014-05-05T21:54:05+00:00
 author: Victor Silva
 layout: single
-guid: http://victormsilva.wordpress.com/?p=204
 permalink: /powershell-hyper-v-tareas-basicas-ii/
-geo_public:
-  - "0"
-original_post_id:
-  - "204"
+
 dsq_thread_id:
   - "4548487095"
 categories:
@@ -27,8 +22,6 @@ tags:
 ---
 Siguiendo con el post anterior, en esta oportunidad vamos a crear un script que nos permita realizar comprobaciones antes de hacer Live Migration para que no se generen errores.
 
-<!--more-->
-
 Lo primero que vamos a ver es como comprobar los recursos necesarios, como es el caso de la memoria, si no tengo memoria para poder asignar a la maquina que se va a hospedar en el host destino, no voy a poder realizar Live Migration.
 
 ## Memoria:
@@ -39,7 +32,9 @@ Antes de comenzar el live migration, necesitamos asegurarnos de que el host dest
 
 Un ejemplo del mismo:
 
-<pre class="lang:ps decode:true">Get-VMMemory -VMName Server01 -ComputerName HOST2</pre>
+{% highlight posh %}
+Get-VMMemory -VMName Server01 -ComputerName HOST2
+{% endhighlight %}
 
 Donde HOST2 es el nombre del host destino.
 
@@ -49,13 +44,17 @@ Que pasa si nuestros hosts tienen procesadores de diferente proveedor? No se pue
 
 Lo primero, detener la maquina virtual para aplicar los cambios:
 
-<pre class="lang:ps decode:true">Stop-VM –Name VM1</pre>
+{% highlight posh %}
+Stop-VM –Name VM1
+{% endhighlight %}
 
 Ahora, habilitar el modo de compatibilidad:
 
-<pre class="lang:ps decode:true">Set-VMProcessor VM1 -CompatibilityForMigrationEnabled $true</pre>
+{% highlight posh %}
+Set-VMProcessor VM1 -CompatibilityForMigrationEnabled $true
+{% endhighlight %}
 
-### Lectora:
+## Lectora:
 
 Parece muy básico, pero muchas veces trabajando con nuestras maquinas virtuales, dejamos isos montadas, que a la hora de hacer la migración nos hacen saltar errores. Esto sucede, porque la ISO no se encuentra en el host destino. Para no perder tiempo con estas cosas, lo mejor es añadir una simple línea de código que nos permita revisar este pre-requisito por nosotros.
 
@@ -69,9 +68,11 @@ Ahora debemos ejecutar el siguiente comando para remover la ISO o DVD de la VM:
 
 Un ejemplo de como sería:
 
-<pre class="lang:ps decode:true">Set-VMDvdDrive -VMName VM1 -ControllerNumber 1 -ControllerLocation 0 -Path $null</pre>
+{% highlight posh %}
+Set-VMDvdDrive -VMName VM1 -ControllerNumber 1 -ControllerLocation 0 -Path $null
+{% endhighlight %}
 
-### Todo junto!
+## Todo junto!
 
 Ahora con lo que pudimos ver vamos a crear un script simple para poder migrar nuestras maquinas!
   
@@ -79,7 +80,8 @@ Partimos de la base que la memoria es suficiente para poder migrar las maquinas.
 
 Lo primero que vamos a hacer es abrir la consola Windows PowerShell ISE y escribir:
 
-<pre class="lang:ps decode:true">Get-VM -ComputerName Host1 | Out-GridView -Title "Seleccionar una o mas VMs para migrar" -PassThru | Get-VMDvdDrive | where DVDMediaType -ne None | Set-VMDvdDrive -Path $null | Move-VM -DestinationHost Host2 -DestinationStoragePath C:VHDs
+
+Get-VM -ComputerName Host1 | Out-GridView -Title "Seleccionar una o mas VMs para migrar" -PassThru | Get-VMDvdDrive | where DVDMediaType -ne None | Set-VMDvdDrive -Path $null | Move-VM -DestinationHost Host2 -DestinationStoragePath C:VHDs
 </pre>
 
 Lo vamos a guardar y al ejecutarlo nos va a desplegar una ventana interactiva que nos permite elegir entre la lista de VMs dentro del Host1 y a su vez de esas maquinas seleccionadas, si tienen algo montado, lo va a desmontar o extraer.
