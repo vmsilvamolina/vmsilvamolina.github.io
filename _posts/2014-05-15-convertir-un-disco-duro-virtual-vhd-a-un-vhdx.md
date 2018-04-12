@@ -1,15 +1,9 @@
 ---
-id: 61
 title: Convertir un disco duro virtual VHD a un VHDX
 date: 2014-05-15T22:08:48+00:00
 author: Victor Silva
 layout: single
-guid: http://victormsilva.wordpress.com/?p=61
 permalink: /convertir-un-disco-duro-virtual-vhd-a-un-vhdx/
-twitter_cards_summary_img_size:
-  - 'a:6:{i:0;i:235;i:1;i:297;i:2;i:3;i:3;s:24:"width="235" height="297"";s:4:"bits";i:8;s:4:"mime";s:9:"image/png";}'
-original_post_id:
-  - "61"
 dsq_thread_id:
   - "4471578415"
 categories:
@@ -91,4 +85,4 @@ Convert-vhd -Path C:VMSTest.vhd -DestinationPath C:VMSTest-final.vhdx -VHDType D
 
 Espero que les sea de utilidad.
 
-Saludos,
+Happy scripting!

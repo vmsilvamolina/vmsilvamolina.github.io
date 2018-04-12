@@ -40,6 +40,4 @@ A continuación les adjunto las reglas correspondientes que se deben habilitar:
 
 <img class="alignnone" src="https://lh4.googleusercontent.com/-Frhum_zdzfU/U2hAjn7Es0I/AAAAAAAAEXM/u2WjkJ2dfLI/w755-h335-no/outbound_scom_firewall_rules.PNG" alt="" width="755" height="335" />
 
-&nbsp;
-
 Happy scripting!
