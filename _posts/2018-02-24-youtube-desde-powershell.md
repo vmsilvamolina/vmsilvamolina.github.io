@@ -3,8 +3,8 @@ title:  [English]
 date: 2018-02-24T22:30:46
 author: Victor Silva
 layout: single
-permalink: /marvel-from-powershell/
-excerpt: "After watching the last movie of Marvel, Black Panther, I was starting to search about the world of comics and wrote a small PowerShell module to interact with the Marvel Comics REST API."
+permalink: /youtube-desde-powershell/
+excerpt: "Hoy en es.stackoverflow.com, dentro del tag PowerShell encontré una consulta sobre la posibilidad de realizar búsquedas en Youtube desde la consola y allí poder comenzar a mirar videos relacionados a lo que interesaba buscar, simplemente ejecutando una única función desde la consola."
 categories:
   - PowerShell
 tags:
