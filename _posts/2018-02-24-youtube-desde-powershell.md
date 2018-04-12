@@ -1,6 +1,6 @@
 ---
-title:  [English]
-date: 2018-02-24T22:30:46
+title: Youtube desde PowerShell
+date: 2018-02-24T12:30:46
 author: Victor Silva
 layout: single
 permalink: /youtube-desde-powershell/
@@ -42,7 +42,7 @@ Ahora que tenemos este gran avance, debemos conocer como hay que hacer para inte
 
 Usando las Dev Tools vamos a poder encontrar la información que necesitamos sobre los elementos con los que debemos interactuar. Para ello vamos a seleccionar la barra de búsqueda y hacemos clic derecho sobre ella para seleccionar la opción **Inspect element**. Como resultado de lo anterior, dentro de las Dev Tools vamos a ver resaltado un bloque de código, que corresponde al elemento de la web (barra de búsqueda). En la siguiente imagen se resalta con verde el valor que nos interesa para trabajar:
 
-<img src="https://q16qpq.ch.files.1drv.com/y4m70jm0oxA7iETWQ-THaZYag_qNERjIyL_xaP-1YC046495ZwYxVKVeF-XZ_lGhEi9SQX24xhiM6vRTX-mxh5SLiSMyg0oX_Oka8cBFcaxQaKVXCmfDOKOOB5Tx7ikWRhYIDLFMlgVP9XNGJQMJtRvVyFmLGsmX_s7w7A4d3VtrjEFksUpuSnZcipCNe4I-HM5fJWKzIuZmMJWkGsKt8k_Ng?width=839&height=593&cropmode=none" alt="" class="alignnone size-full">
+<img src="https://q16qpq.ch.files.1drv.com/y4m70jm0oxA7iETWQ-THaZYag_qNERjIyL_xaP-1YC046495ZwYxVKVeF-XZ_lGhEi9SQX24xhiM6vRTX-mxh5SLiSMyg0oX_Oka8cBFcaxQaKVXCmfDOKOOB5Tx7ikWRhYIDLFMlgVP9XNGJQMJtRvVyFmLGsmX_s7w7A4d3VtrjEFksUpuSnZcipCNe4I-HM5fJWKzIuZmMJWkGsKt8k_Ng?width=839&height=593&cropmode=none" alt="Inspect element" class="alignnone size-full">
 
 Ese valor resaltado en verde es el **Id** del elemento, el cuál es único. Nos sirve para poder identificarlo dentro de la página web, de la siguiente manera:
 
