@@ -22,7 +22,7 @@ Como recordatorio quiero compartir el [enlace](http://blog.victorsilva.com.uy/po
 
 Continuando con el tema en cuestión, vamos a definir nuestro objetivo de hoy: implementar un servidor web junto a una página HTML básica solamente con PowerShell.
 
-### Archivo de configuración MOF
+## Archivo de configuración MOF
 
 Como vimos anteriormente es necesario invocar en la configuración el módulo **nx**, responsable de poder realizar la interacción con nuestro servidor CentOS. Básicamente vamos a definir la receta de configuración que permite instalar el servidor web y generar un simple archivo _index.html_ como sitio estático:
 
@@ -83,7 +83,7 @@ Después de definir el bloque de código anterior, debemos ejecutar el siguiente
 DSCLinuxWeb -OutputPath:"C:\DSCLinux"
 {% endhighlight %}
 
-### Aplicar la configuración al servidor Linux
+## Aplicar la configuración al servidor Linux
 
 Para poder aplicar la configuración al servidor debemos ejecutar en el equipo Windows (cliente en esta oportunidad) lo siguiente:
 

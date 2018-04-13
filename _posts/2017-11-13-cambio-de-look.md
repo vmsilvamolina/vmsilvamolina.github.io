@@ -24,7 +24,7 @@ En Wordpress utilizaba Markdown para escribir mis posts, ya que facilita la escr
 
 Gracias a que GitHub Pages está montado sobre GitHub también tenemos a disposición el uso de git para el control de versiones, simplificando el backup, control del sitio y las publicaciones del mismo.
 
-### No todo es color rosa...
+## No todo es color rosa...
 
 Después de algunos años con WordPress hay cosas que uno ya las considera automáticas y se pueden extrañar un poquito, un ejemplo de ello es la capacidad de tener todo controlado desde el punto de vista SEO (utilizando Yoast). Continuando con los ejemplos, las categorías y etiquetas también tenían lo suyo, y la gestión integrada de los archivos multimedia ni que hablar.
 

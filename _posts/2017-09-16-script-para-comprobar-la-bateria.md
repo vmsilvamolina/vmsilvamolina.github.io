@@ -1,10 +1,8 @@
 ---
-id: 1508
 title: Script para comprobar la batería
 date: 2017-09-16T14:30:06+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1508
 permalink: /script-para-comprobar-la-bateria/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*Sz3Js055VwE6KyPu.jpg";s:10:"author_url";s:33:"https://medium.com/@vmsilvamolina";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"eaebb029c11e";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:84:"https://medium.com/@vmsilvamolina/script-para-comprobar-la-bater%C3%ADa-eaebb029c11e";}'
@@ -24,7 +22,7 @@ Charlando con un compañero llegamos a una conclusión inicial sobre el cuidado 
 
 Así que, sin tener mayor fundamento que lo expuesto anteriormente me dispuse a armar un script para monitorear el proceso de carga. Como consecuencia de lo anterior, al momento de llegar a los extremos definidos, genere un pop up indicando que debo tomar acciones.
 
-### ¿Dónde consulto la información de la batería?
+## ¿Dónde consulto la información de la batería?
 
 Tomando en cuenta mi acotado conocimiento sobre WMI, es posible que exista alguna clase que pueda ser mi punto de partida para empezar a recolectar datos. Efectivamente existe una clase que se llama **[Win32_Battery](https://msdn.microsoft.com/en-us/library/aa394074%28v=vs.85%29.aspx)** que nos comparte información sobre la batería. Ejecutando _Get-WmiObjet_ obtenemos lo siguiente:
 
@@ -39,7 +37,7 @@ En donde la propiedad **EstimatedChargeRemaining**, representa el valor que se i
 
 Tener en cuenta que el otro indicador que tenemos que prestar atención es **BatteryStatus** que indica, según la documentación, el estado en que se encuentra la batería (si se encuentra descargándose y otras condiciones que no vienen al caso). Por tanto recomiendo que ejecuten lo siguiente, conectados a la corriente o solamente usando la batería:
 
-### Script para comprobar la batería
+## Script para comprobar la batería
 
 Frente a la información anterior, podemos armar un simple script para comprobar la batería:
 

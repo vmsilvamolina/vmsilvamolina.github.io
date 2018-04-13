@@ -19,7 +19,7 @@ tags:
 ---
 Hace un tiempo se presentó la _public preview_ de una de las features de Azure que más me ha llamado la atención. No por el hecho de que Azure no tenga buenas features, si no porque es una que considero clave a la hora de lograr una mejor adopción de la plataforma. Esta feature es **_Azure Cloud Shell_**.
 
-### Qué es Azure Cloud Shell?
+## Qué es Azure Cloud Shell?
 
 Según Microsoft:
 
@@ -67,8 +67,9 @@ Una gran opción que tenemos en Azure Cloud Shell es la posibilidad de utilizar 
 
 Por último, recordar que se encuentran disponibles los comandos de Azure CLI, como por ejemplo:
 
-    az vm list -d -o table
-    
+{% highlight %}
+az vm list -d -o table
+{% endhighlight %}    
 
 Que despliega en la consola las VMs que se encuentran desplegadas en nuestra suscripción en forma de tabla. Al comando anterior podríamos adicionarle el parámetro **-g**, que permite definir el _Resource Group_ al que queremos consultar.
 

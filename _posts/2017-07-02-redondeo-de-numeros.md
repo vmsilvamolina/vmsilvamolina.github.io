@@ -56,7 +56,7 @@ Podemos armar algo más avanzado como se expresa a continuación:
 
 Logrando una hazaña inimaginable: Llegar a los límites del lenguaje! Bah, eso sería una realidad si no consideramos la facilidad que tiene PowerShell para poder expandir los operadores matemáticos que trae incorporados por defecto. Aunque parezca extraño, no se han añadido cálculos complejos en el lenguaje, pero podemos vivir tranquilos ya que siempre tenemos a mano .Net de forma casi nativa dentro de PowerShell.
 
-### Matemática con PowerShell
+## Matemática con PowerShell
 
 Es por lo anterior que vamos a ver una _System class_ llamada **_[Math]_** que contiene unos 30 métodos para poder hacer matemática con ellos!
 
@@ -82,7 +82,7 @@ Con el resultado de lo anterior podemos observar que existen algunas palabras qu
 
 > Para poder invocar un método en la sentencia a ejecutar, es necesario usar el nombre de la clase y el nombre del método separados por dos puntos dobles (::).
 
-### Redondeo de números con el método ::round()
+## Redondeo de números con el método ::round()
 
 Como se ha indicado en el título de la sección, el método **::round()** nos permite redondear números decimales definiendo la cantidad de cifras posteriores al punto que deseamos mantener:
 
@@ -110,7 +110,7 @@ Como dato adicional se recomienda usar el tipo de conversión dinámica que ofre
 #más recomendado que usar [math]::round(123.456)
 {% endhighlight %}
 
-### Método adicional
+## Método adicional
 
 A su vez existe un parámetro adicional que puede ser utilizado dentro del método ::round() y es un tipo de redondeo llamado &#8220;Away from zero&#8221;. Consiste en agregar el tipo de enumeración [system.midpointrounding] como tercer parámetro de la siguiente forma:
 

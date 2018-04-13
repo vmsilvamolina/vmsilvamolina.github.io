@@ -1,10 +1,8 @@
 ---
-id: 1481
 title: Reporte de estado de Hyper-V Replica
 date: 2017-07-23T15:02:24+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1481
 permalink: /reporte-estado-hyper-v-replica/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*Sz3Js055VwE6KyPu.jpg";s:10:"author_url";s:33:"https://medium.com/@vmsilvamolina";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"3971085843e0";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:83:"https://medium.com/@vmsilvamolina/reporte-de-estado-de-hyper-v-replica-3971085843e0";}'
@@ -26,7 +24,7 @@ En el blog anteriormente ya he hablado algo sobre Hyper-V Replica, aunque apunta
 
 Para entender mejor que es lo que estamos haciendo vamos ir desarrollando el informe, de forma que podamos ir observando con detalle los puntos tratados.
 
-### Manos a la obra
+## Manos a la obra
 
 Vamos a comenzar el script ordenando la información requerida: en nuestro caso es necesario conocer cuáles son los servidores con el rol de Hyper-V que participan en la implementación de la solución. Considerando el diseño de la infraestructura de la herramienta tenemos 2 roles fundamentales: el **servidor primario**, que contiene las VMs en ejecución (o no) y el **servidor secundario**, que se encarga de alojar la transferencia de información y permanece en una postura pasiva hasta que se realice el _Failover_. Con lo anterior vamos a definir los parámetros de nuestra función:
 
@@ -71,9 +69,9 @@ $VmReplication = Get-VMReplication -ComputerName $PrimaryHyperV, $SecondaryHyper
                 @{Name="Host";Expression={($_.PrimaryServer)}} | ConvertTo-HTML -fragment
 {% endhighlight %}
 
-Como se muestra en el bloque anterior de código, se genera como salida un bloque HTML (tabla) que define los encabezados: Maquinas Virtuales, Estado de la replica, Estado, Host&#8221; para desplegar más información al respecto.
+Como se muestra en el bloque anterior de código, se genera como salida un bloque HTML (tabla) que define los encabezados: Maquinas Virtuales, Estado de la replica, Estado, Host para desplegar más información al respecto.
 
-### Recta final
+## Recta final
 
 Ya con este resultado podemos generar un mail que nos envíe esta tabla y así no estar revisando cada día la infraestructura de forma manual. Para ello agregamos la tabla resultante del cmdlet anterior como HTML al cuerpo del mail a enviar:
 
