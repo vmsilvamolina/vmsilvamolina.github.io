@@ -1,10 +1,8 @@
 ---
-id: 1407
 title: PowerShell DSC en Linux (Primeros pasos)
 date: 2017-05-12T20:45:04+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1407
 permalink: /powershell-dsc-linux/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*Sz3Js055VwE6KyPu.jpg";s:10:"author_url";s:33:"https://medium.com/@vmsilvamolina";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"da66d1a412fb";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:85:"https://medium.com/@vmsilvamolina/powershell-dsc-en-linux-primeros-pasos-da66d1a412fb";}'
@@ -22,11 +20,11 @@ tags:
 ---
 PowerShell DSC en Linux es algo que todos los administradores que usamos PowerShell y que trabajamos sobre ambientes heterogéneos aparece como una luz en la oscuridad. Las posibilidades que aparecen a la hora de generar plantillas de configuración para Linux, permiten seguir optimizando recursos a la hora de realizar las tareas del día a día.
 
-### Administrar Linux con PowerShell DSC
+## Administrar Linux con PowerShell DSC
 
 Para la demostración que vamos a presentar, usaremos CentOS 7, y vamos a configurar aspectos básicos de la instalación como son el nombre y la IP para demostrar el potencial que ofrece PowerShell DSC no sólo en ambientes Microsoft puros.
 
-### Versiones soportadas
+## Versiones soportadas
 
 Comparto una lista donde se muestran las versiones soportadas de Linux para poder ser administradas desde PowerShell DSC:
 
@@ -37,7 +35,7 @@ Comparto una lista donde se muestran las versiones soportadas de Linux para pode
   * SUSE Linux Enterprise Server 10, 11 and 12 (x86/x64)
   * Ubuntu Server 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 
-### Instalación de OMI y DSC
+## Instalación de OMI y DSC
 
 Dentro de los requerimientos necesarios para la instalación de DSC se encuentra OMI ([Open Management Infraestructure](https://collaboration.opengroup.org/omi/)). A su vez existen algunas dependencias requeridas para su correcto funcionamiento:
 
@@ -69,7 +67,7 @@ sudo rpm -Uvh omi-1.1.0.ssl_100.x64.rpm dsc-1.1.1-294.ssl_100.x64.rpm
 openssl version
 {% endhighlight %}    
 
-### Generando el archivo de configuración MOF
+## Generando el archivo de configuración MOF
 
 Ya con todo instalado y listo, es necesario generar los archivos de configuración que permitan modificar nuestro servidor CentOS.
 
@@ -117,7 +115,7 @@ firewall-cmd --add-port=5986/tcp --permanent
 firewall-cmd --reload
 {% endhighlight %}
 
-### Aplicar la configuración al servidor Linux
+## Aplicar la configuración al servidor Linux
 
 Continuado a lo anterior debemos ejecutar en el quipo Windows lo siguiente:
 

@@ -21,13 +21,13 @@ tags:
 ---
 Hace un tiempo tuve un requerimiento para resolver una situación particular: Comprobar archivos diariamente a modo de identificar si tuvo cambios o no durante el día. Siempre que esucho este tipo de solicitudes pienso casi que naturalmente en PowerShell, no se me pasa por la cabeza contemplar otra herramienta. Por ello es escribo esta entrada, para hablar de MD5 y PowerShell.
 
-### Introducción a MD5
+## Introducción a MD5
 
 Obviamente que antes de comenzar a escribir nuestro script vamos a hacer una pequeña introducción a MD5. MD5 es un algoritmo que proporciona un código. Este código está asociado a un archivo o un texto concreto. De esta forma, a la hora de descargar un archivo en particular el código generado por el algoritmo, también llamado hash, viene “unido” al archivo en cuestión.
 
 Un ejemplo de uso es el mundo de las descargas de software; para comprobar que el archivo no ha sido alterado, los desarrolladores (en la mayoría de los casos) adjuntan los códigos de los archivos para que las personas puedan comprobar que el archivo no fue alterado.
 
-### MD5 y PowerShell
+## MD5 y PowerShell
 
 En PowerShell tenemos una cmdlet que nos permite obtener el hash y se llama _Get-FileHash_.Para utilizarla basta con ejecutarla indicando el nombre del archivo y el tipo de algoritmo, por ejemplo:
 
@@ -53,7 +53,7 @@ if ($oldHash -ne $newHash) {Write-Host "Cambiaron!!" -ForegroundColor Cyan}
 
 Y ahí vemos el cambio del valor! Por ahora todo resulta según lo planeado. Ahora tenemos que agarrar lo que hemos aprendido y armar un script.
 
-### Reuniendo todo
+## Reuniendo todo
 
 Lo primero que tenemos que hacer es generar un archivo auxiliar para poder guardar los valores que necesitamos comparar luego. El archivo va a funcionar como una base de datos. Posteriormente debemos ejecutar la comprobación de los archivos a auditar, para luego ir revisando cada valor correspondiente a cada archivo, si tuvo alguna modificación o no. Luego de esta comprobación, es necesario que se genere una base auxiliar (por ejemplo un array) para poder enviar esa información por mail.
 
