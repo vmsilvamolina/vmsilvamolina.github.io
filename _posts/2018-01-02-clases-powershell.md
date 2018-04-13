@@ -18,14 +18,14 @@ Es recomendable tener en cuenta la siguiente afirmación:
 
 >Un objeto no es una clase, ni una clase es un objeto. Un objeto es una instancia de una clase.
 
-### Por qué usar clases?
+## Por qué usar clases?
 
 En repetidas ocasiones nos encontramos escribiendo módulos y funciones por ahí tratando de automatizar el mundo que nos rodea. Es ahí uno de los grandes usos de las clases en PowerShell. Con las clases vamos a poder representar estructuras de datos complejas y más aún al utilizar múltiples funciones que necesitan pasar los mismos datos.
 
 El otro gran punto para usar clases es al momento de trabajar con DSC. Ya en el blog hemos tenido varias entradas hablando sobre DSC ([aquí](https://blog.victorsilva.com.uy/desired-state-configuration/) y [aquí](https://blog.victorsilva.com.uy/powershell-dsc-linux/)). DSC está ganando más y más tracción todos los días y con esta adpoción, hay una brecha aún mayor para los nuevos recursos. Los recursos *DSC Class-based* son simplemente más fáciles de desarrollar y mantener.
 
 
-### Creando nuestra primer clase
+## Creando nuestra primer clase
 
 Para definir una clase es necesario utilizar la keyword ***class***:
 
@@ -47,9 +47,9 @@ La segunda manera de instanciar una clase es llamar al constructor estático de 
 $greenMan = [Alien]::New()
 {% endhighlight %}
 
-### Describiendo las clases
+## Describiendo las clases
 
-#### Propiedades
+### Propiedades
 
 Las propiedades son cosas sobre un objeto, cosas que lo representan y definen. Si describiéramos un alien como el ejemplo, las propiedades podrían ser altura y peso. Agregamos propiedades a una clase agregando variables dentro de la clase. Si bien no es obligatorio, es una buena idea definir el tipo de variable para determinar el tipo de dato a ingresar:
 
@@ -63,7 +63,7 @@ class Alien {
 }
 {% endhighlight %}
 
-#### Validación de las propiedades
+### Validación de las propiedades
 
 Como indica el título, PowerShell permite la validación de las propiedades. Esto permite que los datos que se ingresan cumplan con lo que se requiere para cada propiedad:
 
@@ -77,7 +77,7 @@ class Alien {
 }
 {% endhighlight %}
 
-#### Propiedades ocultas
+### Propiedades ocultas
 
 Las clases de PowerShell también admiten propiedades ocultas. Para ocultar una propiedad, se debe usar la keyword *hidden* justo antes del nombre de la propiedad. Para el siguiente ejemplo vamos a ocultar la propiedad ID sea del tipo GUID y esté oculta para el usuario.
 

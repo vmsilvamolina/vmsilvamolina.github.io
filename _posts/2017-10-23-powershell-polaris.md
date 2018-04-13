@@ -25,7 +25,7 @@ PowerShell Polaris es un framework web, multi plataforma, que se ejecuta sobre P
 
 O sea que vamos a tener a partir de nuestro querido PowerShell un web server reducido, pero que nos va a permitir hacer cosas muy divertidas.
 
-### Instalación
+## Instalación
 
 La instalación de PowerShell Polaris es bastante sencilla, simplemente hay cumplir con 2 requerimientos:
 
@@ -54,7 +54,7 @@ Import-Module ./Polaris.psm1
 
 Finalmente luego del arduo trabajo tenemos Polaris instalado en el equipo!
 
-### Primeros pasos
+## Primeros pasos
 
 Al momento de comenzar a utilizar este framework no comprendía realmente el alcance del proyecto, por ello es que quiero mostrarles un ejemplo de uso para que puedan entenderlo mejor y sacarle provecho.
 
@@ -91,7 +91,7 @@ En caso de querer finalizar el servidor, debemos ejecutar:
 Stop-Polaris -ServerContext $app
 {% endhighlight %}
 
-### Un ejemplo más funcional…
+## Un ejemplo más funcional…
 
 Ahora vamos a ver un ejemplo un poco más divertido, que nos demuestra el potencial de este proyecto. Al ser un webserver montado sobre PowerShell, tenemos a disposición para utilizar comandos que impacten sobre el resultado de la consulta (por ejemplo un GET), por lo que cada vez que realicemos la consulta obtendremos un valor actualizado.
 

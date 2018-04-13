@@ -19,7 +19,7 @@ En este post, voy a tomar como requisito puntualmente lo siguiente:
 * Git for Windows
 * Posh-Git
 
-### Git for Windows
+## Git for Windows
 Para descargar Git for Windows es necesario acceder al siguiente enlace: [Git for Windows](https://git-for-windows.github.io/) y seguir el asistente de instalación.
 
 Luego de la instalación, vamos a ejecutar lo siguiente:
@@ -31,14 +31,14 @@ git config --global user.email 'email address'
 
 Con lo anterior definimos el usuario y mail que vamos a utilizar en nuestros repositorios. En el caso de GitHub es necesario para poder hacer commits y que aparezca en la gráfica de contribuciones de nuestro perfil.
 
-### Posh-Git
+## Posh-Git
 En el caso de Posh-Git, debemos considerar que es un módulo de PowerShell, por lo que podemos descargarlo e instalarlo desde la gallery. Para ello vamos a ejecutar:
 
 {% highlight posh %}
 Install-Module -Name posh-git -Force
 {% endhighlight %}
 
-### PowerShell profile
+## PowerShell profile
 
 Ya tenemos todos los requisitos para utilizar Git desde PowerShell, aunque resta modificar el perfil nuestro de PowerShell. ¿Por qué? Porque si bien el módulo se encuentra instalado, cada vez que abrimos una consola de PowerShell vamos a tener que importarlo para poder hacer uso del mismo.
 

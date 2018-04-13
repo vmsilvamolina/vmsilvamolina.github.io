@@ -1,10 +1,10 @@
 ---
-title: Youtube desde PowerShell
+title: YouTube desde PowerShell
 date: 2018-02-24T12:30:46
 author: Victor Silva
 layout: single
 permalink: /youtube-desde-powershell/
-excerpt: "Hoy en es.stackoverflow.com, dentro del tag PowerShell encontré una consulta sobre la posibilidad de realizar búsquedas en Youtube desde la consola y allí poder comenzar a mirar videos relacionados a lo que interesaba buscar, simplemente ejecutando una única función desde la consola."
+excerpt: "Hoy en es.stackoverflow.com, dentro del tag PowerShell encontré una consulta sobre la posibilidad de realizar búsquedas en YouTube desde la consola y allí poder comenzar a mirar videos relacionados a lo que interesaba buscar, simplemente ejecutando una única función desde la consola."
 categories:
   - PowerShell
 tags:
@@ -14,7 +14,7 @@ tags:
 
 <p><b>Actualizado:</b> 11 de Abril de 2018</p>{: .notice--success}
 
-Hoy en [es.stackoverflow.com](https://es.stackoverflow.com), dentro del tag PowerShell encontré una consulta sobre la posibilidad de realizar búsquedas en Youtube desde la consola y allí poder comenzar a mirar videos relacionados a lo que interesaba buscar, simplemente ejecutando una única función desde la consola.
+Hoy en [es.stackoverflow.com](https://es.stackoverflow.com), dentro del tag PowerShell encontré una consulta sobre la posibilidad de realizar búsquedas en YouTube desde la consola y allí poder comenzar a mirar videos relacionados a lo que interesaba buscar, simplemente ejecutando una única función desde la consola.
 
 De lo anterior surgió este post para compartirlo con más detalles y cómo llegué a la función final (que por cierto va a estar al final del post).
 

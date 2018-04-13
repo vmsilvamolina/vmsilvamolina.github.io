@@ -21,7 +21,7 @@ La gestión de identidades es uno de los pilares de los administradores de siste
 
 Un administrador que se respete debe contar con herramientas que solucionen los problemas que van surgiendo día a día y como nosotros siempre damos un paso más, gracias al scripting, vamos a generar nuestras propias herramientas.
 
-### Eventos, nuestros aliados de batalla
+## Eventos, nuestros aliados de batalla
 
 En el ecosistema Microsoft, los eventos y más puntualmente el visor de eventos deben ser nuestra información de referencia sobre lo que sucede en los sistemas. Es por ello, que debemos tener bien claro que se nos ofrece para poder sacar el mayor provecho. Voy a compartir una lista con los principales IDs y títulos de eventos relacionados a los estados que podría tener un usuario de dominio que nos van a servir a lo largo del post. Éstos eventos los vamos a encontrar en la sección **Security** del visor de eventos:
 
@@ -54,7 +54,7 @@ En donde el valor de la etiqueta *"Nombre de equipo del autor de la llamada"* es
 
 Como dato adicional antes de comenzar a ver con PowerShell ésta información, vale la pena recordar que estos eventos se registran en los controladores de dominio.
 
-### Manos a la obra
+## Manos a la obra
 
 No vamos a necesitar más herramientas que nuestra consola de PowerShell para poder llevar a cabo lo que necesitamos: deplegar información detallada sobre el bloqueo de un usuario en particular.
 

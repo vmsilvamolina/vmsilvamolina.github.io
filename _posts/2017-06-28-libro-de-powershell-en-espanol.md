@@ -24,7 +24,7 @@ Este post es para compartir un poco de lo que se viene y que es lo que podremos 
 
 Adjunto parte de lo que va a ser el índice de los temas y los 2 primeros capítulos para que me dejen sus comentarios y feedback al respecto:
 
-### 1 -Introducción
+### 1-Introducción
 
   * ¿Por qué PowerShell?
   * A quién va dirigido
@@ -32,7 +32,7 @@ Adjunto parte de lo que va a ser el índice de los temas y los 2 primeros capít
   * Notas y tips
   * Traducción
 
-### 2 &#8211; Conceptos generales
+### 2- Conceptos generales
 
   * Historia
   * La consola y el ISE
@@ -45,7 +45,7 @@ Adjunto parte de lo que va a ser el índice de los temas y los 2 primeros capít
   * Actualizar la base de ayuda
   * Manipular los archivos de ayuda
 
-### 4 &#8211; Sintaxis I
+### 4- Sintaxis I
 
   * Variables, Arrays y Hash tables
   * Operadores y estructuras de control

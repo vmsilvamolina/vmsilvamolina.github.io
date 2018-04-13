@@ -40,7 +40,7 @@ En donde queda bien explícito la definición de la información al respecto, co
 
 Ahora bien ¿estamos frente a una situación en la que podemos hacer uso de PowerShell para agilizar nuestra implementación y/o optimizar tiempos? Creo que la respuesta es un sí con mayúsculas, por lo que vamos a pasar a ver como podemos acelerar el proceso...
 
-### New-JekyllPost
+## New-JekyllPost
 
 Para optimizar tiempos de edición y escritura vamos a generar una función que nos permita crear el archivo necesario para publicar en Jekyll, generando el contenido que requiere la estructura de modo que con escribir una línea simple de código, ya nos encontremos editando el archivo.
 

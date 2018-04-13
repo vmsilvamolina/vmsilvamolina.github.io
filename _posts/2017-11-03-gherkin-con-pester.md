@@ -14,13 +14,13 @@ tags:
 
 Hace un tiempo leí por ahí que Pester tenía una característica secreta, muy interesante, de la que tenía que hablar en mi blog. Para los que no recuerdan que es Pester, les comparto un enlace a un post en el blog del que hablamos sobre [Pester](https://blog.victorsilva.com.uy/pester-framework/). De lo que quiero hablar es sobre la compatibilidad con las especificaciones de características al estilo Gherkin. Para ser sinceros no tenía mucha idea sobre lo que era Gherkin, pero luego de leer un poco entendí que podría ser muy útil.
 
-### Gherkin
+## Gherkin
 
 Gherkin básicamente es un **Business Readable Domain Specific Language** que permite describir el comportamiento del software sin detallar cómo se implementa dicho comportamiento. Por más información sobre lo que es DSL o Domain Specific Language les recomiendo revisar la entrada en Wikipedia sobre el tema [aquí](https://en.wikipedia.org/wiki/Domain-specific_language). Adicional a lo anterior, su gran propósito es servir para dos pilares fundamentales hoy por hoy en desarrollo de software (y en nuestro caso, scripting): documentación de lo desarrollado y pruebas automatizadas. Es aquí donde entra en relación con PowerShell gracias a Pester.
 
 Esta característica permite definir sus *features* y especificaciones en una sintaxis simple y legible. Entonces vamos a ver que lo primero que va a pasar es que se crea un script de validación que se ejecuta con esa especificación definida. Luego, generará resultados de pass/fail en cada elemento como Pester. Ahora que tenemos una idea general de lo que nos proporciona, vamos a definir nuestra primer especificación.
 
-### Primer especificación
+## Primer especificación
 
 Vamos a comenzar definiendo nuestra primer especificación que por obvias razones va a ser bastante simple. Para ello debemos generar un archivo de texto plano que deben guardarse con la extensión *.feature*, que nos va a permitir procesarla de forma correcta.
 
