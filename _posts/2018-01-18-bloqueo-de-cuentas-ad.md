@@ -15,6 +15,7 @@ tags:
   - Desbloqueo de cuentas
   - Bloqueo de cuentas
 ---
+
 La gestión de identidades es uno de los pilares de los administradores de sistemas. Ya sea por lo tedioso que se tornan algunos temas, como dar de alta usuarios nuevos, algunas tareas son automatizadas o se resuelven por medio de software de terceros. Otras, en cambio, son tareas que dependen de la capacidad de investigación del administrador para poder ser resueltas. Es por ello que hoy quiero conversar sobre el bloqueo de las cuentas y el desbloqueo de las mismas.
 
 ¿Quién no ha pasado por la situación de tener un usuario al que se le bloquea la cuenta más de 20 veces en el día sin motivo aparente? Ahí salimos a buscar pistas, ver en que puesto trabaja, que software usa, etc. Para determinar si por alguna casualidad dejó tildada la opción de recordar la contraseña y ahora, con una diferente, a cada momento aparece el pop-up de ingreso de credenciales.
