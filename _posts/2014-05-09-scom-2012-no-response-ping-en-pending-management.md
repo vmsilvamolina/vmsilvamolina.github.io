@@ -1,15 +1,11 @@
 ---
-id: 279
 title: 'SCOM 2012: No response ping en Pending Management'
 date: 2014-05-09T19:44:21+00:00
 author: Victor Silva
 layout: single
-guid: http://victormsilva.wordpress.com/?p=279
 permalink: /scom-2012-no-response-ping-en-pending-management/
 twitter_cards_summary_img_size:
   - 'a:6:{i:0;i:773;i:1;i:467;i:2;i:3;i:3;s:24:"width="773" height="467"";s:4:"bits";i:8;s:4:"mime";s:9:"image/png";}'
-original_post_id:
-  - "279"
 dsq_thread_id:
   - "4483696638"
 categories:
@@ -23,8 +19,6 @@ tags:
   - SCOM
 ---
 Tuvimos un caso en el que al utilizar las reglas de detección de dispositivos de red en SCOM 2012 nos encontró una serie de dispositivos con el estado Pending Management, con la notificación No response ping.
-
-<!--more-->
 
 Estos mismos dispositivos que aparecían con la notificación de que no respondían el ping, respondían perfectamente la solicitud de ping ejecutada desde la consola (ejecutada en el mismo servidor de administración).
 

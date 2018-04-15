@@ -1,10 +1,8 @@
 ---
-id: 1361
 title: Usando PowerShell con Azure Automation
 date: 2017-03-31T17:44:18+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1361
 permalink: /azure-automation/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";N;s:10:"author_url";N;s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";N;s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:4:"none";s:3:"url";N;}'
@@ -18,7 +16,7 @@ tags:
   - PowerShell
   - Runbooks
 ---
-### ¿Qué es Azure Automation?
+## ¿Qué es Azure Automation?
 
 Azure Automation permite automatizar tareas de administración en la nube que son realizadas con frecuencia (y que requieren demasiado tiempo), ya sean locales o en la nube. Esto genera un valor adicional ya que se enfoca el esfuerzo en agregar valor al servicio y no a realizar tareas monótonas.
 
@@ -26,15 +24,15 @@ Azure Automation permite automatizar tareas de administración en la nube que so
 
 A su vez, los Runbooks funcionan con Web Apps en el servicio Azure App Service, con maquinas virtuales, Azure Storage y Azure SQL Database, por nombrar algunos de los servicios de Azure. También se pueden utilizar con servicios externos de APIs públicos. Y por si todo lo anterior fuese poco, los Runbooks pueden integrarse con deploys de **_PowerShell DSC_**, por lo que las posibilidades se extienden de manera exponencial!
 
-### ¿Qué pueden automatizar los runbooks?
+## ¿Qué pueden automatizar los runbooks?
 
 Los Runbooks de Azure Automation se basan en Windows PowerShell o en el flujo de trabajo de PowerShell, o sea que hacen todo lo que puede hacer PowerShell básicamente. Si una aplicación o servicio tiene una API, un Runbook puede trabajar con ella. Si tiene un módulo de PowerShell para la aplicación, puede cargarlo en Azure Automation e incluir estos cmdlets en un Runbook. Los runbooks se ejecutan en Azure y pueden acceder a los recursos en la nube o los recursos externos a los que se puede acceder desde la nube. Con **Hybrid Runbook Worker**, los Runbooks pueden ejecutarse de forma local para poder administrar los recursos locales.
 
-### Galería de Runbooks
+## Galería de Runbooks
 
 Existe un repositorio de Runbooks generado por la comunidad que se encuentra disponible en la _Centro de scripts de Technet_, en el siguiente enlace: [Galería de Runbooks](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation).
 
-### Primer Runbook
+## Primer Runbook
 
 Desde el portal de Azure, vamos a **New**, buscamos **_automation_**, luego seleccionamos **_Automation_** y **Create**:
 
@@ -54,9 +52,11 @@ Para este primer ejemplo vamos a crear un Runbook muy simple. Básicamente lo qu
 
 Posteriormente ingresamos el siguiente código, para que retorne el string definido:
 
-    workflow HelloWorld {
-        Write-Output "Hello world!"
-    }
+{% highlight posh %}
+  workflow HelloWorld {
+      Write-Output "Hello world!"
+  }
+{% endhighlight %}
     
 
 Y con lo anterior, vamos a guardar nuestro Runbook y como último seleccionamos **Start** para iniciar la ejecución del mismo. Seleccionando el tile Output podemos observar lo devuelto por el script, el famoso &#8220;Hola mundo&#8221;:
