@@ -1,10 +1,8 @@
 ---
-id: 396
 title: Migrar desde Gmail a Office 365, en solo 7 pasos!!!
 date: 2014-05-19T10:59:52+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=396
 permalink: /migrar-desde-gmail-a-office-365-en-solo-7-pasos/
 dsq_thread_id:
   - "4502393691"

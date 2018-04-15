@@ -1,10 +1,8 @@
 ---
-id: 420
 title: 'PowerShell &#8211; Funciones'
 date: 2014-06-26T18:27:45+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=420
 permalink: /powershell-funciones/
 dsq_thread_id:
   - "4482550947"
@@ -15,8 +13,6 @@ tags:
   - PowerShell
 ---
 En PowerShell podemos hacer uso de las llamadas funciones. _Definición:_ Una función es un bloque de código con un nombre definido, que permite &#8220;llamar&#8221; por este nombre a ese bloque de código, una o varias veces en nuestro script, para evitar la repetición de un conjunto de instrucciones continuamente.
-
-<!--more-->
 
 Una de las razones por las que se usan mucho las funciones, es la capacidad de poder organizar la escritura del código. Permite la capacidad de llamar bloques de script varias veces, reduciendo la cantidad de codigo escrito para llevar a cabo la tarea final. Esto sin mencionar la mejora de la lectura del código, sea para entenderlo facilmente o para poder encontrar un posible eror.
 
@@ -64,8 +60,5 @@ Write-Host “La respuesta es $sumar”
 
 De esta manera se expresan los parametros dentro del bloque del script, pero siempre en primer lugar dentro de todo el codigo de la función.
 
-&nbsp;
 
 Saludos,
-
-&nbsp;

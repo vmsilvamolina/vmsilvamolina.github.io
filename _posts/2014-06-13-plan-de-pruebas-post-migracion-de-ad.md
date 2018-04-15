@@ -1,10 +1,8 @@
 ---
-id: 430
-title: 'Plan de pruebas &#8211; Post migración de AD'
+title: 'Plan de pruebas post migración de AD'
 date: 2014-06-13T10:23:37+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=430
 permalink: /plan-de-pruebas-post-migracion-de-ad/
 dsq_thread_id:
   - "4490825219"
@@ -19,33 +17,23 @@ tags:
 ---
 Se pretende establecer y describir el procedimiento a realizar luego de completada la migración de dominio de Active Directory en la infraestructura, para así verificar la integridad de la implementación así como el correcto funcionamiento de los componentes de la misma.
 
-<!--more-->
-
-### Alcance
+## Alcance
 
 El alcance de este documento se limita a comprobar el funcionamiento de la implementación de Active Directory, luego de realizada la migración de dominio.
 
-&nbsp;
-
-### Etapas del procedimiento
+## Etapas del procedimiento
 
 Este procedimiento está dividido en 3 etapas que comprenden la totalidad de las pruebas a realizar para corroborar el correcto funcionamiento. Las etapas son las siguientes:
 
-Etapa 1 _ Apagado/Inicio de servicios
+**Etapa 1 _** Apagado/Inicio de servicios
 
-Etapa 2 _ Replica de controladores
+**Etapa 2 _** Replica de controladores
 
-Etapa 3 _ Sincronización de cambios
-
-&nbsp;
-
-&nbsp;
+**Etapa 3 _** Sincronización de cambios
 
 ## Etapa 1: Apagado / Inicio de servicios
 
 Esta etapa pretende realizar el testing de todos los servicios de Active Directory, realizando varios reinicios de la implementación.
-
-&nbsp;
 
 ### Acciones de prueba
 
@@ -57,13 +45,10 @@ Esta etapa pretende realizar el testing de todos los servicios de Active Directo
   4. Prender el servidor recién apagado.
   5. Luego de iniciar sesión con un usuario administrador, pulsar **WinKey + r** y escribir **services.msc**
 
-&nbsp;
 
 ### Resultados esperados
 
 Se pretende obtener todos los servicios con inicio automático estén correctamente iniciados.
-
-&nbsp;
 
 ## Etapa 2: Replica de controladores
 
@@ -75,7 +60,6 @@ Para ello vamos a trabajar con los siguientes comandos:
   * Repadmin
   * Nslookup
 
-&nbsp;
 
 ### Acciones de prueba
 
@@ -86,8 +70,7 @@ Para ello vamos a trabajar con los siguientes comandos:
   3. Desde la consola, escribir:
 
 > **dcdiag /s:<nombredelservidor> /u:<nombredeusuario> /p:<password>** y pulsar enter.
-> 
-> &nbsp;
+
 
 **_Para corroborar el estado de la replicación_**
 
@@ -95,7 +78,6 @@ Para ello vamos a trabajar con los siguientes comandos:
   2. Luego ejecutar y escribir **cmd**, pulsar enter para ejecutar una consola.
   3. Desde la consola, escribir **repadmin /showrepl** y pulsar enter.
 
-&nbsp;
 
 **_Para corroborar el estado de la resolución de nombres_**
 
@@ -105,9 +87,7 @@ Para ello vamos a trabajar con los siguientes comandos:
   4. Escribir **set q=SRV** y pulsar enter.
   5. Escribir _**\_ldap.\_tcp.dc._msdcs.ActiveDirectoryDomainName**_ _y pulsar enter._
 
-&nbsp;
-
-## Resultados esperados
+### Resultados esperados
 
 **_Para corroborar el estado de los Domain Controllers_**
 
@@ -232,7 +212,6 @@ Starting test: FsmoCheck
 ......................... RESKIT-DOM.reskit.com passed test FsmoCheck
 </pre>
 
-&nbsp;
 
 **_Para corroborar el estado de la replicación_**
 
@@ -266,8 +245,6 @@ Building7bserver2 via RPC
 objectGuid: e55c6c75-75bb-485a-a0d3-020a44c3afe7
 last attempt @ 2001-09-09 12:25.11 was successful</pre>
 
-&nbsp;
-
 **_Para corroborar el estado de la resolución de nombres_**
 
 Debemos obtener como resultados de los test ejecutados por la herramienta **nslookup** valores equivalentes al siguiente ejemplo:
@@ -291,19 +268,14 @@ svr hostname   = dc2.example.microsoft.com
 dc1.example.microsoft.com     internet address = 10.0.0.14
 dc2.example.microsoft.com     internet address = 10.0.0.15</pre>
 
-# 
-
 ## Etapa 3: Sincronización de cambios
 
 Al ejecutar el procedimiento correspondiente se procura realizar cambios sobre los objetos de Active Directory y que los mismos sean sincronizados entre el resto de los controladores de dominios denotando el correcto funcionamiento de la sincronización de la base de datos de la aplicación.
 
-&nbsp;
 
 ### Acciones de prueba
 
 Crear una OU (unidad organizativa) en Active Directory desde un controlador de dominio, forzar la replicación y consultar en los otros controladores de dominio que el cambió realizado se haya efectuado correctamente.
-
-&nbsp;
 
 **_Para corroborar el estado de la sincronización de cambios_**
 
@@ -319,14 +291,12 @@ Crear una OU (unidad organizativa) en Active Directory desde un controlador de d
  10. Hacer click en inicio y luego escribir dsa.msc.
  11. Dentro de la consola, desplegar el nodo del dominio
 
-&nbsp;
 
 ### Resultados esperados
 
 Dentro del nodo del dominio, debería de encontrarse la OU creada en el anterior controlador de dominio siguiendo los pasos detallados.
 
-&nbsp;
 
 Eso fue todo por ahora.
 
-Saludos,
+Happy scripting!

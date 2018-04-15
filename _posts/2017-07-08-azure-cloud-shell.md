@@ -67,7 +67,7 @@ Una gran opción que tenemos en Azure Cloud Shell es la posibilidad de utilizar 
 
 Por último, recordar que se encuentran disponibles los comandos de Azure CLI, como por ejemplo:
 
-{% highlight %}
+{% highlight posh s%}
 az vm list -d -o table
 {% endhighlight %}    
 

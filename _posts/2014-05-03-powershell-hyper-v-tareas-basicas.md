@@ -3,12 +3,7 @@ title: 'Hyper-V: Tareas básicas con PowerShell'
 date: 2014-05-03T12:44:15+00:00
 author: Victor Silva
 layout: single
-guid: http://victormsilva.wordpress.com/?p=187
 permalink: /powershell-hyper-v-tareas-basicas/
-geo_public:
-  - "0"
-original_post_id:
-  - "187"
 dsq_thread_id:
   - "4484897179"
 categories:
