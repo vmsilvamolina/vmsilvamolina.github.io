@@ -1,10 +1,8 @@
 ---
-id: 444
 title: 'Office 365 &#8211; Descargar el instalador en modo offline'
 date: 2014-06-21T23:14:44+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=444
 permalink: /office-365-descargar-el-instalador-en-modo-offline/
 dsq_thread_id:
   - "4471578479"
@@ -18,7 +16,7 @@ tags:
   - Offline Installer
   - Pro Plus
 ---
-<span id="myAccountSubscriptionsSubscriberDetailsSubsNumber">Al intentar buscar una manera de poder realizar este procedimiento no encontré nada especifico por lo que prentendo compartir la manera en que me funcionó a mi en lo personal.<br /> </span><!--more-->
+Al intentar buscar una manera de poder realizar este procedimiento no encontré nada especifico por lo que prentendo compartir la manera en que me funcionó a mi en lo personal.
 
 Lo primero que debemos saber es que no vamos a poder descargar el instalador de Office desde el portal de Office 365, por lo que vamos a tener que descargar la herramienta de Microsoft: <a title="Descargar Office Deployment Tool for Click-to-Run " href="http://www.microsoft.com/en-us/download/details.aspx?id=36778" target="_blank">Office Deployment Tool for Click-to-Run</a>
 
@@ -28,7 +26,7 @@ Así que resumiendo los pasos, serían los siguientes:
 
   * Descargar la herramienta del enlace anterior
 
-  * <span class="notranslate">Modificar el archivo <em><strong>configuration.xml</strong></em>, sustituir el SourcePath y UpdatePath según corresponda en su caso:</span>
+  * Modificar el archivo ***configuration.xml***, sustituir el SourcePath y UpdatePath según corresponda en su caso:
 
 <pre class="lang:xhtml decode:true">&lt;Configuration&gt;
 	&lt;Add SourcePath="PATH_TO_YOUR_DOWNLOAD_FOLDER, e.g. E:Downloads" OfficeClientEdition="32" &gt;
@@ -56,8 +54,6 @@ Así que resumiendo los pasos, serían los siguientes:
 
 <pre class="lang:xhtml decode:true ">setup.exe /configure configuration.xml</pre>
 
-&nbsp;
-
 Espero les sirva (lo van a utilizar cuando no tengan buena conexión a internet)
 
-Saludos,
+Happy scripting!

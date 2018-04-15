@@ -1,10 +1,8 @@
 ---
-id: 1427
 title: Accediendo a MySQL desde PowerShell
 date: 2017-04-05T13:38:34+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1427
 permalink: /mysql-desde-powershell/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";N;s:10:"author_url";N;s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";N;s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:4:"none";s:3:"url";N;}'
@@ -21,7 +19,7 @@ Hace unos días me surgió la necesidad de trabajar con una base de datos con **
 
 Para los administradores de sistemas que trabajan en estos tiempos modernos no es nuevo el tener que tomar el control de plataformas heterogéneas. Hoy es común tener ambientes con Windows y Linux conviviendo en el mismo datacenter, así como soluciones que se interconectan entre sí. Por ello es necesario conocer como interactuar con cada sistema en particular.
 
-### Primer paso
+## Primer paso
 
 A modo de requisito es necesario contar con el [MySQL .NET Connector](http://dev.mysql.com/downloads/connector/net/) en el equipo que va a ejecutar PowerShell:
 
@@ -68,7 +66,7 @@ $DataSet.Tables[0]
 
 Y listo! Nuestra primer consulta a MySQL desde PowerShell.
 
-### Organizando el trabajo&#8230;
+## Organizando el trabajo&#8230;
 
 Ahora que tenemos claro el procedimiento para realizar consultas a nuestra base de datos, vamos a generar algunas funciones para que nos facilite el trabajo a la hora de realizar tareas un poco más complejas con MySQL.
 
