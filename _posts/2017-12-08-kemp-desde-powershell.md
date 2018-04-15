@@ -70,7 +70,7 @@ Test-LmServerConnection -ComputerName 10.100.10.50 -Port 443 -Verbose
 
 <img src="https://pbqmdq-ch3302.files.1drv.com/y4mi5ln63eB1J_1rg9aVAR_NC-Fx7HzJD7RjFf1yiwbMuRDb_WHgVX2fGI0HrhY6aVP1Tr6pkxx7jrW-K6yzLBI45uxRZ0ROM14FUihheNSfe4XBc3HF0jPWcyFqur-wq8FANJcqR_BTC7C21YVXIpE0cDaqh6xZ-NU6i-QgyeakLcdehtFmF6v32iFVYzjBvEkZmlOZu6iMhsr5sLhyJrq6w?width=750&height=220&cropmode=none" width="750" height="220" alt="Test-LmServerConnection" class="alignnone size-full" />
 
-#### Crear un Virtual Service
+### Crear un Virtual Service
 
 El comando para crear un Virtual Service es *New-AdcVirtualService* y vamos a agregarlo usando los siguientes valores:
 
@@ -83,7 +83,7 @@ Para ello ejecutaremos:
 New-AdcVirtualService -Port 443 -Protocol tcp -VirtualService 10.100.10.80
 {% endhighlight %}
 
-#### Agregar un Real Server
+### Agregar un Real Server
 
 Ya con nuestro Virtual Service creado, el siguiente paso es agregar nuestros servidores que brindan la aplicación que queremos balancear. Estos servidores son llamados Real Servers y para agregarlos al Virtual Service es necesario ejecutar el comando 
 
