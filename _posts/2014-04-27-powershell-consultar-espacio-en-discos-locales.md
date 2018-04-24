@@ -16,7 +16,7 @@ tags:
   - PowerShell
   - Get-WMIObject
 ---
-Lo que vamos a ver en esta oportunidad es como sacer un pequeño reporte del estado de nuestros discos. Una de las tareas más tediosas de los administradores de sistemas es comprobar los estados de los discos, debido a que es una de las causas de los problemas que ocurren en algunas oportunidades. Primero vamos a habrir la Windows Powershell ISE, para armar nuestro script. Y escribimos:
+Lo que vamos a ver en esta oportunidad es como hacer un pequeño reporte del estado de nuestros discos. Una de las tareas más tediosas de los administradores de sistemas es comprobar los estados de los discos, debido a que es una de las causas de los problemas que ocurren en algunas oportunidades. Primero vamos a abrir la Windows Powershell ISE, para armar nuestro script. Y escribimos:
 
 {% highlight posh %}
 Get-WMIObject  -Class Win32_LogicalDisk | Where-Object {$\_.DriveType -eq 3}  `
@@ -27,7 +27,7 @@ Get-WMIObject  -Class Win32_LogicalDisk | Where-Object {$\_.DriveType -eq 3}  
                 @{n='% Libre';e={"{0:n2}" -f ($\_.freespace/$_.size*100)}}
 {% endhighlight %}
 
-Lo que hacemos con estas lineas es desde el comando **Get-WMIObject** buscar en la clase **Win32_LogicalDisk** los datos. En este caso seleccionamos los objetos (Discos) que son del tipo local:
+Lo que hacemos con estas líneas es, desde el comando **Get-WMIObject**, buscar en la clase **Win32_LogicalDisk** los datos. En este caso seleccionamos los objetos (Discos) que son del tipo local:
 
 {% highlight posh %}
 Where-Object {$_.DriveType -eq 3}
@@ -35,7 +35,7 @@ Where-Object {$_.DriveType -eq 3}
 
 Vamos a guardar este archivo con el nombre, por ejemplo, de *DiskInfo.ps1*.
 
-Ahora ejecutamos una consola de PowerShell, vamos a la ruta donde guardamos el archivo (en caso de guardarlo en la raiz del disco **C:\** sería:
+Ahora ejecutamos una consola de PowerShell, vamos a la ruta donde guardamos el archivo (en caso de guardarlo en la raiz del disco <b>C:\</b> sería:
 
 {% highlight posh %}
 cd C:\ 
@@ -47,7 +47,7 @@ Y escribimos:
 .\DiskInfo.ps1
 {% endhighlight %}
 
-Y tendriamos como resultado obtenemos lo siguiente:
+Y tendriamos como resultado lo siguiente:
 
 <img class="alignnone" src="https://lh4.googleusercontent.com/-vF7ksa2i5aM/U2hGhIe-naI/AAAAAAAAEXg/TBWlv2o9ZqU/w270-h184-no/DiskInfo.png" alt="" width="270" height="184" />
 
