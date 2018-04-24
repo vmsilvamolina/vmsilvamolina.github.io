@@ -18,15 +18,15 @@ tags:
 ---
 **Editado: 13/4/2015**
 
-A la persona que le ha tocado administrar Office 365 alguna vez, de seguro tuvo que hacer alguna tarea desde PowerShell. También estoy seguro que las primeras veces, nos parece bastante incomodo, mas que nada la manera de iniciar sesión. Hoy voy a tratar de demostrar que Office 365 y PowerShell son amigos, trantando de automatizar y simplificar algunas tareas.
+A la persona que le ha tocado administrar Office 365 alguna vez, de seguro tuvo que hacer alguna tarea desde PowerShell. También estoy seguro que las primeras veces, nos parece bastante incomodo, mas que nada la manera de iniciar sesión. Hoy voy a tratar de demostrar que Office 365 y PowerShell son amigos, tratando de automatizar y simplificar algunas tareas.
 
 ## Inicio de sesión
 
-La primer tarea y creo la mas engorrosa, si no se tiene algo mas "automatico", es la de iniciar sesión.
+La primer tarea y creo la mas engorrosa, si no se tiene algo mas "automático", es la de iniciar sesión.
 
 Necesitamos descargar: [Microsoft Online Services Sign-In Assistant](http://www.microsoft.com/en-us/download/details.aspx?id=41950)
 
-Luego vamos a abrir la Windows PowerShell ISE o el bloc de notas y vamos a pegar el siguiente codigo:
+Luego vamos a abrir la Windows PowerShell ISE o el bloc de notas y vamos a pegar el siguiente código:
 
 {% highlight posh %}
 #Importar el módulo
@@ -44,13 +44,13 @@ Connect-MsolService -Credential $cred
 #Establece una sesión remota de PowerShell para intercambio en línea
 $msoExchangeURL = “https://ps.outlook.com/powershell/”
 
-#Importa la sesion de Powershell localmente
+#Importa la sesión de Powershell localmente
 $session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri $msoExchangeURL -Credential $cred -Authentication Basic -AllowRedirection
 
 Import-PSSession $session
 {% endhighlight %}
 
-Guardamos el archivo con el nombre, por ejemplo, **Login365.ps1**.En mi caso el **Login365.ps1** lo guarde en la carpeta **c:\powershell\Login365.ps1** Inicamos la consola en modo administrador y ejecutamos lo siguiente (cada línea es un comando a ejecutar):
+Guardamos el archivo con el nombre, por ejemplo, **Login365.ps1**.En mi caso el **Login365.ps1** lo guarde en la carpeta **c:\powershell\Login365.ps1** Iniciamos la consola en modo administrador y ejecutamos lo siguiente (cada línea es un comando a ejecutar):
 
 {% highlight posh %}
 cd / 
@@ -76,7 +76,7 @@ Get-Help <nombre del comando> -detailed
 
 ## Ver suscripciones disponibles
 
-Existe un comando que permite ver las suscripciones existentes en la organizacion y las cantidad de licencias que posee. El comando en concreto es:
+Existe un comando que permite ver las suscripciones existentes en la organización y las cantidad de licencias que posee. El comando en concreto es:
 
 {% highlight posh %}
 Get-MsolSubscription
@@ -110,7 +110,7 @@ Para el caso de que solamente querramos hacer este cambio en algunos usuarios en
 Set-MsolUser -UserPrincipalName vsilva@dominio.com -PasswordNeverExpires $true
 {% endhighlight %}
 
-¿Y que pasa si quiero ver que usuarios tienen como caracteristica habilitada la contraseña nunca expira? Fácil:
+¿Y que pasa si quiero ver que usuarios tienen como característica habilitada la contraseña nunca expira? Fácil:
 
 {% highlight posh %}
 Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires

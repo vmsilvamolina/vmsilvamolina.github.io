@@ -23,7 +23,7 @@ Existen varias mejoras al respecto entre las que se encuentran:
   * Mayor capacidad de almacenamiento, hasta un total de 64 Terabytes.
   * No es soportado por versiones anteriores a **Hyper-V 3.0**. Siendo la versión standard en Windows Server 2012 y Windows 8.
   * Tiene un tamaño por defecto de bloque más grande para discos fijos y diferenciales.
-  * Protección contra la corrupcion de datos ante fallas de energía.
+  * Protección contra la corrupción de datos ante fallas de energía.
 
 Para convertir un disco .VHD a .VHDX lo vamos a hacer de 2 formas: Desde el **Hyper-V Manager** y desde **PowerShell**
 
@@ -33,11 +33,11 @@ Abrimos la consola de **Hyper-V Manager **y nos vamos al panel de acciones, ah�
 
 <img src="https://lh5.googleusercontent.com/-fzB0uEgGth0/UHNZdQn_-kI/AAAAAAAAA8Q/yGqYuBkH3YI/w235-h297-no/hyperv1.png" alt="" width="235" height="297" />
 
-Cuando inicie el asitente, le damos siguiente para poder empezar a seleccionar el disco y que vamos a hacer con él.
+Cuando inicie el asistente, le damos siguiente para poder empezar a seleccionar el disco y que vamos a hacer con él.
 
 <img  src="https://lh6.googleusercontent.com/-2R44Nh7eMVE/UHNZdgWAVuI/AAAAAAAAA8U/obDK7wNDjhg/w718-h540-no/hyperv2.png" alt="" width="718" height="540" />
 
-En Localizar disco, vamos con el boton de examinar a buscar la ruta donde se encuentra guardado nuestro .VHD
+En Localizar disco, vamos con el botón de examinar a buscar la ruta donde se encuentra guardado nuestro .VHD
 
 <img  src="https://lh4.googleusercontent.com/-cdCQSmmC8uQ/UHNZeYITnnI/AAAAAAAAA8g/JSgJz4UxO7w/w718-h540-no/hyperv3.png" alt="" width="718" height="540" />
 
@@ -57,7 +57,7 @@ Vamos a elegir la ruta donde vamos a querer que se guarde nuestro disco duro vir
 
 <img src="https://lh5.googleusercontent.com/-f6fboHPqerY/UHNZghQrVRI/AAAAAAAAA9A/VMl0uyZe28Y/w718-h540-no/hyperv7.png" alt="" width="718" height="540" />
 
-Con todos los datos ingresados correctamente estamos prontos para poder comenzar la conversión, para ello pulsamos el boton _**Finalizar...**_ y ahora a esperar a que se cree nuestro VHDX.
+Con todos los datos ingresados correctamente estamos prontos para poder comenzar la conversión, para ello pulsamos el botón _**Finalizar...**_ y ahora a esperar a que se cree nuestro VHDX.
 
 <img src="https://lh6.googleusercontent.com/-EMq0w8ifUrk/UHNZhEWYyLI/AAAAAAAAA9E/D8okmLPz2nQ/w718-h540-no/hyperv8.png" alt="" width="718" height="540" />
 
@@ -67,13 +67,13 @@ Para eso tenemos al maravilloso mundo del PowerShell!!
 
 ## PowerShell
 
-Acá es bastante más rapido, simplemente vamos a tener que ejecutar el comando
+Acá es bastante más rápido, simplemente vamos a tener que ejecutar el comando
 
 {% highlight posh %}
 Convert-VHD
 {% endhighlight %}
 
-Donde la sintaxis para este comando basicamente va a ser la siguiente:
+Donde la sintaxis para este comando básicamente va a ser la siguiente:
 
 > Convert-VHD [-Path] <Valor> [-DestinationPath] <Valor> [-VHDType <TipoVHD> ]
 

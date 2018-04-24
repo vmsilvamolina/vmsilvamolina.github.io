@@ -1,13 +1,9 @@
 ---
-id: 250
 title: Hyper-V Replica para todos!!!
 date: 2014-07-01T21:43:55+00:00
 author: Victor Silva
 layout: single
-guid: http://victormsilva.wordpress.com/?p=250
 permalink: /hyper-v-replica-para-todos/
-original_post_id:
-  - "250"
 dsq_thread_id:
   - "4486883912"
 categories:
@@ -74,9 +70,7 @@ Una vez configurado correctamente los host que pertenecerán a la implementació
 
 Cuando la replicación esta en curso, cada cierto tiempo definible (en Windows Server 2012 R2 este tiempo puede configurarse entre 30 segundos, 5 minutos o 30 minutos), el sitio primario envía información acerca de este último lapso de tiempo al sitio de réplica, donde se reproduce esta información en la réplica de Hyper-V.
 
-<span id="result_box" lang="es"><span class="hps">Se trata de un</span> <span class="hps">proceso de recuperación</span> <span class="hps">de desastres</span> <span class="hps">manual de modo</span> <span class="hps">que siempre hay</span> <span class="hps">intervención por parte del</span> <span class="hps">administrador de sistemas</span>. <span class="hps">Esto está en</span> <span class="hps">contraste con</span> <span class="hps">una solución automatizada</span> <span class="hps">de alta disponibilidad,</span> <span class="hps">tales como</span> <span class="hps">la</span> <span class="hps">migración en vivo</span>, que no tiene <span class="hps">tiempo de inactividad,</span> <span class="hps">a menos que ocurra</span> <span class="hps">una</span> <span class="hps">interrupción no programada.</span> </span>
-
-&nbsp;
+Se trata de un proceso de recuperación de desastres manual de modo que siempre hay intervención por parte del administrador de sistemas. Esto está en contraste con una solución automatizada de alta disponibilidad, tales como la migración en vivo, que no tiene tiempo de inactividad, a menos que ocurra una interrupción no programada.
 
 ## Configuración
 
@@ -84,7 +78,7 @@ Luego de ver la parte teórica de esta característica, vamos a empezar a config
 
 Para ello desde nuestra consola de PowerShell desde el servidor que va a ser nuestro host en el sitio principal, vamos a ver los comando que tenemos que ejecutar.
 
-Como Hyper-V Réplica viene deshabilitado por defecto en una intalación de Windows Server 2012 R2, lo primero que debemos hacer es habilitar el rol de Hyper-V, ejecutando el siguiente comando:
+Como Hyper-V Réplica viene deshabilitado por defecto en una instalación de Windows Server 2012 R2, lo primero que debemos hacer es habilitar el rol de Hyper-V, ejecutando el siguiente comando:
 
 <pre class="lang:ps decode:true">Install-WindowsFeature Hyper-V –Restart #Se va a reiniciar nuestro servidor de forma auto</pre>
 
@@ -113,6 +107,4 @@ Por mas información dejo los enlaces a la TechNet de los comandos utilizados:
   * <a title="TechNet: Set-VMReplicationServer" href="http://technet.microsoft.com/en-us/library/hh848598.aspx" target="_blank">Set-VMReplicationServer</a>
   * <a title="TechNet: Enable-VMReplication" href="http://technet.microsoft.com/en-us/library/jj136049.aspx" target="_blank">Enable-VMReplication</a>
 
-&nbsp;
-
-Saludos,
+Happy scripting!
