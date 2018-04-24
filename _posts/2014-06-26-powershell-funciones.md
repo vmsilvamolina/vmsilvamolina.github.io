@@ -14,7 +14,7 @@ tags:
 ---
 En PowerShell podemos hacer uso de las llamadas funciones. _Definición:_ Una función es un bloque de código con un nombre definido, que permite &#8220;llamar&#8221; por este nombre a ese bloque de código, una o varias veces en nuestro script, para evitar la repetición de un conjunto de instrucciones continuamente.
 
-Una de las razones por las que se usan mucho las funciones, es la capacidad de poder organizar la escritura del código. Permite la capacidad de llamar bloques de script varias veces, reduciendo la cantidad de codigo escrito para llevar a cabo la tarea final. Esto sin mencionar la mejora de la lectura del código, sea para entenderlo facilmente o para poder encontrar un posible eror.
+Una de las razones por las que se usan mucho las funciones, es la capacidad de poder organizar la escritura del código. Permite la capacidad de llamar bloques de script varias veces, reduciendo la cantidad de código escrito para llevar a cabo la tarea final. Esto sin mencionar la mejora de la lectura del código, sea para entenderlo fácilmente o para poder encontrar un posible error.
 
 La sintaxis para crear una función es la siguiente:
 
@@ -38,7 +38,7 @@ $sumar = $x + $y
 Write-Host “La respuesta es $sumar”
 }</pre>
 
-Que nos permitirá realizar la suma de 2 numeros e imprimir la respuesta dentro del mensaje definido.
+Que nos permitirá realizar la suma de 2 números e imprimir la respuesta dentro del mensaje definido.
 
 Es decir que si definimos la función anterior y ejecutamos (escribimos y pulsamos enter):
 
@@ -48,7 +48,7 @@ El resultado va a ser:
 
 > La respuesta es 10
 
-Otra manera de definir parametros en una función es con el siguiente metodo:
+Otra manera de definir parámetros en una función es con el siguiente método:
 
 <pre class="lang:ps decode:true ">Function Sumar
 {
@@ -58,7 +58,7 @@ $sumar = $x + $y
 Write-Host “La respuesta es $sumar”
 }</pre>
 
-De esta manera se expresan los parametros dentro del bloque del script, pero siempre en primer lugar dentro de todo el codigo de la función.
+De esta manera se expresan los parámetros dentro del bloque del script, pero siempre en primer lugar dentro de todo el código de la función.
 
 
-Saludos,
+Happy scripting!

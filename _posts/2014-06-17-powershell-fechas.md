@@ -15,7 +15,7 @@ tags:
   - PowerShell
   - Script
 ---
-En algunos casos debemos trabajar con fechas sobre nuestros scripts. Vamos a ver algunas maneras de trabajar con las fechas, de darles formato y de crear un objeto en X dias hacia adelante.
+En algunos casos debemos trabajar con fechas sobre nuestros scripts. Vamos a ver algunas maneras de trabajar con las fechas, de darles formato y de crear un objeto en X días hacia adelante.
 
 
 Lo primero que vamos a mencionar es el comando que realiza estas acciones: **Get-Date**.
@@ -46,7 +46,7 @@ Y que pasa si nosotros queremos ver la fecha a nuestra manera? Por ejemplo, solo
 Get-Date -Formta dd
 {% endhighlight %}
 
-Otra froma de dar formato puede ser la siguiente, separando en cada línea los diferentes atributos:
+Otra forma de dar formato puede ser la siguiente, separando en cada línea los diferentes atributos:
 
 {% highlight posh %}
 $Date = Get-Date

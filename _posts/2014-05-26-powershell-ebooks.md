@@ -14,7 +14,7 @@ tags:
   - PowerShell
 format: aside
 ---
-En este post quiero compartir una publicación de **Martin Schvartzman**, que en esta portunidad nos publica una serie de links para poder acceder a varios libros de PowerShell.
+En este post quiero compartir una publicación de **Martin Schvartzman**, que en esta pportunidad nos publica una serie de links para poder acceder a varios libros de PowerShell.
 
 El acceso a su post original es el siguiente:
 

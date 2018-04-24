@@ -26,10 +26,10 @@ Para solucionar esto simplemente abrir la consola Usuarios y equipos de Active D
 
 Luego seleccionar con el botón derecho sobre el dominio en **Find...**
 
-En el cuadro de busqueda, insertar el nombre del usuario que se quiere habilitar en Lync Server.
+En el cuadro de búsqueda, insertar el nombre del usuario que se quiere habilitar en Lync Server.
 
-Abrir las propiedades de ese usuario y en la solapa **Security**, click en **Advanced** y luego en el botón **Enable Inheritance**.
+Abrir las propiedades de ese usuario y en la solapa **Security**, clic en **Advanced** y luego en el botón **Enable Inheritance**.
 
-Despues de este procedimiento realizar el proceso de habilitación nuevamente de los usuarios en cuestión para poder aprovechar esta gran solución de comunicaciones unificadas.
+Después de este procedimiento realizar el proceso de habilitación nuevamente de los usuarios en cuestión para poder aprovechar esta gran solución de comunicaciones unificadas.
 
 Happy scripting!

@@ -35,7 +35,7 @@ Where-Object {$_.DriveType -eq 3}
 
 Vamos a guardar este archivo con el nombre, por ejemplo, de *DiskInfo.ps1*.
 
-Ahora ejecutamos una consola de PowerShell, vamos a la ruta donde guardamos el archivo (en caso de guardarlo en la raiz del disco <b>C:\</b> sería:
+Ahora ejecutamos una consola de PowerShell, vamos a la ruta donde guardamos el archivo (en caso de guardarlo en la raíz del disco <b>C:\</b> sería:
 
 {% highlight posh %}
 cd C:\ 
@@ -47,7 +47,7 @@ Y escribimos:
 .\DiskInfo.ps1
 {% endhighlight %}
 
-Y tendriamos como resultado lo siguiente:
+Y tendríamos como resultado lo siguiente:
 
 <img class="alignnone" src="https://lh4.googleusercontent.com/-vF7ksa2i5aM/U2hGhIe-naI/AAAAAAAAEXg/TBWlv2o9ZqU/w270-h184-no/DiskInfo.png" alt="" width="270" height="184" />
 

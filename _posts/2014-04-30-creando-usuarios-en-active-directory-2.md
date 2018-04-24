@@ -30,7 +30,7 @@ dsadd user "cn=%1, ou=NombreOU, dc=Dominio, dc=Sufijo" - fn %2 -ln %3 -pwd P@ssw
 
 <img class="alignnone" src="https://lh6.googleusercontent.com/jKOi6ZzbB4QyOm9kbP3NSOZoLXavfC6mG550JDre81s=w605-h264-no" alt="" width="605" height="264" />
 
-Guardar el archivo con un nombre que puedan identificar para que sirve facilmente , por ejemplo **CrearUsuario.bat**.
+Guardar el archivo con un nombre que puedan identificar para que sirve fácilmente , por ejemplo **CrearUsuario.bat**.
 
 Ahora para crear un usuario que tenga como nombre **Tania**, como apellido **Miller** y que el nombre de usuario para iniciar sesión sea **tmiller**, se debe abrir una consola de comandos, navegar hasta la ruta donde se guardó el bat y escribir:
 
@@ -38,7 +38,7 @@ Ahora para crear un usuario que tenga como nombre **Tania**, como apellido **Mil
 CrearUsuario tmiller Tania Miller
 {% endhighlight %}
 
-Facil, no? Puede parecer que sí, pero... Se puede automatizar mas la tarea? Que pasa cuando son muchos usuarios a la vez? Y si están en distintas OUs? La solución a esto es crear usuarios en base a una planilla de excel. Esta planilla lo que debe contener es una lista de los nombres y apellidos de cada persona a la que se le deba crear un usuario.  
+Fácil, no? Puede parecer que sí, pero... Se puede automatizar mas la tarea? Que pasa cuando son muchos usuarios a la vez? Y si están en distintas OUs? La solución a esto es crear usuarios en base a una planilla de excel. Esta planilla lo que debe contener es una lista de los nombres y apellidos de cada persona a la que se le deba crear un usuario.  
 
 Bien… ahora partimos de una lista de usuarios creados en excel, de la siguiente manera:
 
@@ -49,7 +49,7 @@ A esta hoja la vamos a renombrar, por ejemplo como **InfoDeUsuarios** ya que co
 En la siguiente hoja vamos a especificar los datos que necesitamos para poder armar el script final de la siguiente manera:
 
   * Nombre de dominio **Contoso.com** (Dominio y Sufijo)
-  * En la columna Nombre de Usario hay que escribir la siguiente función:
+  * En la columna Nombre de Usuario hay que escribir la siguiente función:
 
 {% highlight plaintext %}    
 =CONCATENAR(IZQUIERDA(InfoDeUsuarios!A2;1);InfoDeUsuarios!B2;",")
@@ -80,7 +80,7 @@ A esta hoja la vamos a renombrar como **TodosLosDatos**. En la tercer hoja vamos
 =CONCATENAR(TodosLosDatos!A4;TodosLosDatos!B4;TodosLosDatos!C4;TodosLosDatos!D4;TodosLosDatos!E4;TodosLosDatos!F4;" ";"-fn";" ";InfoDeUsuarios!A4;" ";"-ln";" ";InfoDeUsuarios!B4;" ";"-pwd";" ";"P@ssw0rd";" ";"-mustchpwd";" ";"yes")
 {% endhighlight %}
 
-Esto va a recolectar todos los datos necesarios para poder armar cada línea de comando correctamente con todo lo que nosostros llenamos anteriormente para no tener que escribir uno por uno. El resultado de esta función es lo que vamos a copiar en un notepad y lo vamos a guardar como: **AgregarUsuarios.bat**.
+Esto va a recolectar todos los datos necesarios para poder armar cada línea de comando correctamente con todo lo que nosotros llenamos anteriormente para no tener que escribir uno por uno. El resultado de esta función es lo que vamos a copiar en un notepad y lo vamos a guardar como: **AgregarUsuarios.bat**.
 
 <img class="alignnone" src="https://lh5.googleusercontent.com/-fU1orCiMV0Q/UGzp93yf71I/AAAAAAAAA50/X1nZsDxLYFw/w788-h334-no/excel+3.png" alt="" width="788" height="334" />
 
