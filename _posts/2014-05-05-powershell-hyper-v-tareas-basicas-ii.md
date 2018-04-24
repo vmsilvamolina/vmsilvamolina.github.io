@@ -80,9 +80,9 @@ Partimos de la base que la memoria es suficiente para poder migrar las maquinas.
 
 Lo primero que vamos a hacer es abrir la consola Windows PowerShell ISE y escribir:
 
-
+{% highlight posh %}
 Get-VM -ComputerName Host1 | Out-GridView -Title "Seleccionar una o mas VMs para migrar" -PassThru | Get-VMDvdDrive | where DVDMediaType -ne None | Set-VMDvdDrive -Path $null | Move-VM -DestinationHost Host2 -DestinationStoragePath C:VHDs
-</pre>
+{% endhighlight %}
 
 Lo vamos a guardar y al ejecutarlo nos va a desplegar una ventana interactiva que nos permite elegir entre la lista de VMs dentro del Host1 y a su vez de esas maquinas seleccionadas, si tienen algo montado, lo va a desmontar o extraer.
 

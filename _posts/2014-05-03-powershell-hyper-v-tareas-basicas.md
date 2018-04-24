@@ -42,7 +42,7 @@ Install-WindowsFeature –Name Hyper-V –Restart –IncludeAllSubFeature –Inc
 
 Lo primero que pensamos cuando hablamos de automatizar tareas en Hyper-V es crear maquinas virtuales.
 
-Vamos a ver que tan facil es crear uan VM desde PowerShell, con el siguiente comando:
+Vamos a ver que tan fácil es crear uan VM desde PowerShell, con el siguiente comando:
 
 > New-VM \[[-Name] <String>\] \[[-MemoryStartupBytes\] <Int64>] -NewVHDPath <String> -NewVHDSizeBytes <UInt64> \[-AsJob\] \[-BootDevice <String> \] \[-ComputerName <String[]> \] \[-Path <String> \] \[-SwitchName <String> \] \[ <CommonParameters>\]
 
@@ -52,7 +52,7 @@ Aca tenemos un ejemplo para crear una VM :
 New-VM -Name Server01 –MemoryStartupBytes 1GB -NewVHDPath c:Server01.vhd -NewVHDSizeBytes 60GB
 {% endhighlight %}
 
-De la misma manera podemos crear un Switch Virtual mediante una sola línea de codigo, con el siguiente comando:
+De la misma manera podemos crear un Switch Virtual mediante una sola línea de código, con el siguiente comando:
 
 > New-VMSwitch \[-Name] <String> -NetAdapterName <String> [-AllowManagementOS <Boolean> \] \[-ComputerName <String[\]> ] \[-EnableIov <Boolean> \] \[-MinimumBandwidthMode <VMSwitchBandwidthMode> \] \[-Notes <String> \] \[ <CommonParameters>\] 
 
@@ -64,7 +64,7 @@ New-VMSwitch –Name VSWITCH -NetAdapterName "Ethernet 2"
 
 ## Hyper-V Live Migration:
 
-La migración en vivo con Hyper-V es posible con o sin storage, del mismo modo que si se encuentra en un clúster o no. Se pueden especificar direcciones IP para utilizar exclusivamente en la migración, como tambien se pueden establecer varias migraciones de maquinas virtuales al mismo tiempo permitiendo una mayor flexibilidad.
+La migración en vivo con Hyper-V es posible con o sin storage, del mismo modo que si se encuentra en un clúster o no. Se pueden especificar direcciones IP para utilizar exclusivamente en la migración, como también se pueden establecer varias migraciones de maquinas virtuales al mismo tiempo permitiendo una mayor flexibilidad.
 
 Para habilitar Live Migration, simplemente debemos ejecutar:
 
@@ -72,7 +72,7 @@ Para habilitar Live Migration, simplemente debemos ejecutar:
 Enable-VMMigration
 {% endhighlight %}
 
-Para iniciar una migracion de una VM, debemos de ejecutar este comando:
+Para iniciar una migración de una VM, debemos de ejecutar este comando:
 
 > Move-VM \[-Name] <String> [-DestinationHost] <String> [-AsJob\] \[-ComputerName <String[\]> ] \[-DestinationStoragePath <String> \] \[-IncludeStorage\] \[-Passthru\] \[-ResourcePoolName <String> \] \[-RetainVhdCopiesOnSource\] \[-SmartPagingFilePath <String> \] \[-SnapshotFilePath <String> \] \[-Vhds <Hashtable[\]> ] \[-VirtualMachinePath <String> \] \[-Confirm\] \[-WhatIf\] \[ <CommonParameters>\]
 

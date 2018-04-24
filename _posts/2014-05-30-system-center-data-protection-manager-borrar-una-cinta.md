@@ -30,7 +30,7 @@ El enlace para descargar el archivo, es el siguiente: [DPMEraseTape.zip](https:/
 
 Ahora vamos con el procedimiento para borrar la cinta:
 
-Lo primero que debemos hacer es acceder a la consola de DPM, ya que necesitamos obtener el ID de nuestra cinta. Para ello luego de acceder a la consola debemos ir a Bibliotecas (Library) y ya teniendo la cinta seleccionada, en detalles, hacer un click con el botón derecho sobre nombre de la unidad (Tape ID) y luego copiar fila.
+Lo primero que debemos hacer es acceder a la consola de DPM, ya que necesitamos obtener el ID de nuestra cinta. Para ello luego de acceder a la consola debemos ir a Bibliotecas (Library) y ya teniendo la cinta seleccionada, en detalles, hacer un clic con el botón derecho sobre nombre de la unidad (Tape ID) y luego copiar fila.
 
 <img class="alignnone" src="https://lh3.googleusercontent.com/-AmPuo79jgQY/U54hn9yW-XI/AAAAAAAAFA8/NqSkTI92ooE/w1044-h452-no/DPM_Library_tape.png" alt="" width="750" height="325" />
 
@@ -55,6 +55,6 @@ Cuando ejecuten este último comando, van a poder elegir 2 opciones: Short Erase
 
 <img class="alignnone" src="https://lh5.googleusercontent.com/-WChNdqbVu3U/U54j_DD578I/AAAAAAAAFBk/54MZIRQNeaY/w1021-h525-no/DPM_Library_reg.png" alt="" width="566" height="291" />
 
-Con esto tendriamos listo el procedimiento para poder borrar la cinta correctamente.
+Con esto tendríamos listo el procedimiento para poder borrar la cinta correctamente.
 
 Happy scripting!

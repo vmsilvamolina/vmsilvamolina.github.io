@@ -1,10 +1,8 @@
 ---
-id: 459
 title: 'PowerShell &#8211; Añadir y remover items de un &#8220;Array&#8221;'
 date: 2014-07-19T15:21:05+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=459
 permalink: /powershell-anadir-y-remover-items-de-un-array/
 dsq_thread_id:
   - "4491949024"
@@ -63,4 +61,4 @@ Y por último podemos utilizar la siguiente sintaxis, que realiza lo mismo pero 
 
 <pre class="lang:ps decode:true">$FrutasNuevas = {$Frutas}.Invoke()</pre>
 
-Saludos,
+Happy scripting!
