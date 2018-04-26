@@ -52,10 +52,10 @@ Si la salida en consola es "False", entonces debemos crear el archivo, en vez de
 
 > El archivo profile es el siguiente: C:\Users\<userName>\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 
-En caso de contar con visual studio code instalado en el equipo, ejecutamos lo siguiente:
+En caso de contar con Visual Studio Code instalado en el equipo, ejecutamos lo siguiente:
 
 {% highlight posh %}
-code profile
+code $profile
 {% endhighlight %}
 
 Así podemos editar el archivo existente o comenzar a trabajar sobre él en caso que no exista aún.

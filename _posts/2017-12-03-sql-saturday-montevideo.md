@@ -44,7 +44,7 @@ gallery:
 
 Ayer sábado terminó la primer edición del evento global llamado SQL Saturday y por primera vez se hizo en Montevideo, Uruguay. Estoy muy contento y feliz por haber participado en la organización del mismo, ya que había mucha expectación al respecto del mismo.
 
-Contamos con speakers de toda Latinoamerica, Expertos de Microsoft, Expertos en SQL Server y Microsoft MVPs hablando de temas como:
+Contamos con speakers de toda Latinoamérica, Expertos de Microsoft, Expertos en SQL Server y Microsoft MVPs hablando de temas como:
 
 * Administración de SQL Server 
 * Tuning y Development en SQL Server

@@ -23,7 +23,7 @@ Hace un tiempo escribí un post sobre que era [Pester](http://blog.victorsilva.c
 
 Básicamente, Pester es un framework de testing unitario, que permite comprobar el correcto funcionamiento de cierto código de forma aislada.
 
-En esta oportunidad, quiero compartir un pequeño test para comprobar Hyper-V desde Pester. Obteniendo como resultado de la ejecución del mismo si lo servidores específicados se encuentran activos.
+En esta oportunidad, quiero compartir un pequeño test para comprobar Hyper-V desde Pester. Obteniendo como resultado de la ejecución del mismo si lo servidores especificados se encuentran activos.
 
 ## Test
 

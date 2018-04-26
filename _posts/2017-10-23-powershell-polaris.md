@@ -66,9 +66,9 @@ Get-Command -Module Polaris
 
 El primer cmdlet que vamos a utilizar para el ejemplo es **_New-WebRoute_** y nos permite definir una ruta HTTP en la que nuestro webserver va a escuchar. Simplemente para refrescar la memoria, gracias al protocolo HTTP podemos comunicarnos utilizando el esquema _request-response_ en donde existen varios métodos de petición (GET, POST, PUT, etc.) para realizar acciones sobre el servidor.
 
-Como parte del ejemplo, nos resta comentar que commando tenemos para iniciar el servidor. Para ello vamos a utilizar **_Start-Polaris_**. A modo de comentario vale la pena aclarar que el puerto por defecto del servidor es el **8080**. En caso de querer definir un puerto diferente, debemos utilizar el parámetro _Port_.
+Como parte del ejemplo, nos resta comentar que comando tenemos para iniciar el servidor. Para ello vamos a utilizar **_Start-Polaris_**. A modo de comentario vale la pena aclarar que el puerto por defecto del servidor es el **8080**. En caso de querer definir un puerto diferente, debemos utilizar el parámetro _Port_.
 
-Así que vamos a crear el &#8220;Hola Mundo!&#8221; en nuestro flameante servidor de la siguiente manera:
+Así que vamos a crear el "Hola Mundo!" en nuestro flamante servidor de la siguiente manera:
 
 {% highlight posh %}
 #Primero definimos la ruta con el método
@@ -93,7 +93,7 @@ Stop-Polaris -ServerContext $app
 
 Ahora vamos a ver un ejemplo un poco más divertido, que nos demuestra el potencial de este proyecto. Al ser un webserver montado sobre PowerShell, tenemos a disposición para utilizar comandos que impacten sobre el resultado de la consulta (por ejemplo un GET), por lo que cada vez que realicemos la consulta obtendremos un valor actualizado.
 
-La demostración más sencilla que se me ocurrió es consultar la hora, ya que es un valor que va cambiando constantemente. Así que vamos a contruir lo siguiente:
+La demostración más sencilla que se me ocurrió es consultar la hora, ya que es un valor que va cambiando constantemente. Así que vamos a construir lo siguiente:
 
 {% highlight posh %}
 New-GetRoute -Path "/time" -ScriptBlock {

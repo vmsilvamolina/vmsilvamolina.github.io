@@ -71,7 +71,7 @@ openssl version
 
 Ya con todo instalado y listo, es necesario generar los archivos de configuración que permitan modificar nuestro servidor CentOS.
 
-Si vamos a trabajar desde una máquina con Windows, es necesario contar con una versión igual o superior de PowrShell v4.0. En segundo lugar también se requiere disponer del módulo **_nx_**, llamado Linux Resource Provider MOF:
+Si vamos a trabajar desde una máquina con Windows, es necesario contar con una versión igual o superior de PowerShell v4.0. En segundo lugar también se requiere disponer del módulo **_nx_**, llamado Linux Resource Provider MOF:
 
 {% highlight posh %}
 Install-Module nx
@@ -117,7 +117,7 @@ firewall-cmd --reload
 
 ## Aplicar la configuración al servidor Linux
 
-Continuado a lo anterior debemos ejecutar en el quipo Windows lo siguiente:
+Continuado a lo anterior debemos ejecutar en el equipo Windows lo siguiente:
 
 {% highlight posh %}
 #Servidor CentOS

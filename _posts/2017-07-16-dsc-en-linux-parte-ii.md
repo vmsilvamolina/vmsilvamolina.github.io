@@ -102,7 +102,7 @@ Start-DscConfiguration -Path:"C:\DSCLinux" -CimSession:$Sess -Wait -Verbose
 {% endhighlight %}
     
 
-Si todo lo que hemos realizado, ha concluído correctamente vamos a poder abrir un navegador y acceder a la IP de nuestro servidor, para encontrarnos con lo siguiente:
+Si todo lo que hemos realizado, ha concluido correctamente vamos a poder abrir un navegador y acceder a la IP de nuestro servidor, para encontrarnos con lo siguiente:
 
 <img src="https://cu2www-ch3302.files.1drv.com/y4muFSjSLH0vAT4qfjUmDtPrg3gTiZUBaKCwk0sHfPKcYj1bIjSw8cjC4jGKE7W4O454H0VNhYxpVuGG80xfmnyK-uQSDiYwyJVa2ZP2ix4uzVjBXR4kI1mPLaa-RE5EgygmZ28sV0OaOJI82Awx_W21DfalXwTXM3jKO_CLjepmgj7if1oKu-lACWjvAAdlyhkQJkc1eWBwbKjRQpWcCsEsA?width=824&#038;height=583&#038;cropmode=none" width="824" height="583" alt="PowerShell DSC en Linux: Web Server" class="alignnone size-full" />
 

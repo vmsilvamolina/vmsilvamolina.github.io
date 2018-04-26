@@ -57,7 +57,7 @@ Como dato adicional antes de comenzar a ver con PowerShell ésta información, v
 
 ## Manos a la obra
 
-No vamos a necesitar más herramientas que nuestra consola de PowerShell para poder llevar a cabo lo que necesitamos: deplegar información detallada sobre el bloqueo de un usuario en particular.
+No vamos a necesitar más herramientas que nuestra consola de PowerShell para poder llevar a cabo lo que necesitamos: desplegar información detallada sobre el bloqueo de un usuario en particular.
 
 Primero debemos entender que comando nos va a permitir obtener los eventos que necesitamos con información al respecto de nuestra necesidad. El cmdlet central que vamos a usar es [Get-WinEvent]().
 
