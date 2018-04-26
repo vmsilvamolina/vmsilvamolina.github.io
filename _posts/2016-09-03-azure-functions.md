@@ -1,10 +1,8 @@
 ---
-id: 1288
 title: Azure Functions
 date: 2016-09-03T00:51:48+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1288
 permalink: /azure-functions/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*Sz3Js055VwE6KyPu.jpg";s:10:"author_url";s:33:"https://medium.com/@vmsilvamolina";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"8cc9ce505509";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:82:"https://medium.com/@vmsilvamolina/azure-functions-y-como-beneficiarse-8cc9ce505509";}'
@@ -36,7 +34,7 @@ Básicamente es una abstracción en la que solo debemos preocuparnos de que el c
 
 Ahora bien, no debemos perder de vista que Azure Functions permite ejecutar pequeñas piezas de código (funciones) en la nube. Vamos a considerar su uso para realizar tareas de procesamientos, solicitudes o mantenimiento de archivos logrando como consecuencia integrar sistemas, trabajar con Internet of Things (IoT) o construir APIs o microservicios.
 
-### Crear nuestra primera Azure Function
+## Crear nuestra primera Azure Function
 
 Antes de comenzar a escribir nuestra primer función es necesario contar con una suscripción de Azure, en caso de no contar con una activa les comparto un [enlace](https://azure.microsoft.com/es-es/free/) para que puedan crear una.
 
@@ -50,13 +48,13 @@ La editorial Packtpub todos los días ofrece un libro gratuito, para saber cuál
 
 Dentro de las regiones vamos a seleccionar la que más nos convenga según nuestros requerimientos. Elegí Brasil sólo para salir de las regiones de US (no me interesa la latencia).
 
-### Scheduler
+## Scheduler
 
 Vamos a seleccionar **Create + get started** para situarnos en la siguiente pantalla:
 
 <img src="https://bv8msa-ch3302.files.1drv.com/y4mzx3lyHSnurap8fH6CcJxQYcAMvMbJTDWBMZ6c-Tg5Upe2NSKE9jhc-FX_nfcMR1EyuQyu0g5Ktj110lu0OgKqHsqFyzS3MDU2cU7Vx4ezvAFlQJ0NAQHKGyPS0oUXT_xbgktUjlSXSIBJITZ6410u6-j8qKpGOOKGKG_1v3LsXYOhIw9NmBE9sff3iEAxOkI_Z9UCgJErdrkr9d8t642xA?width=567&#038;height=529&#038;cropmode=none" width="567" height="529" alt="Azure Functions" class="alignnone size-medium" />
 
-En donde nos aparecen algunas opciones prestablecidas para crear nuestra función. Como nosotros vamos a trabajar con PowerShell seleccionamos **_Our create your own custom function_**.
+En donde nos aparecen algunas opciones preestablecidas para crear nuestra función. Como nosotros vamos a trabajar con PowerShell seleccionamos **_Our create your own custom function_**.
 
 Vamos a seleccionar **_PowerShell_** como lenguaje y el template del tipo **_TimeTrigger_**. Antes de finalizar el asistente definiremos el nombre de la función:
 
@@ -80,21 +78,22 @@ Ingresamos la estructura anterior y seleccionamos create:
 
 Ahora nos toca desarrollar la parte de código, vamos a utilizar el cmdlet Invoke-WebRequest con el que obtendremos el dato que necesitamos para enviar al mail. Destacar que el comando solamente puede ejecutarse con el parámetro **_-UseBasicParsing_** por lo que es necesario manipular los datos de forma más extensa, de la siguiente manera:
 
-    #Datos
-    $web = Invoke-WebRequest -Uri https://www.packtpub.com/packt/offers/free-learning -UseBasicParsing
-    $texto = ($web.RawContent -split '<div class="dotd-title">' | select -Last 1)
-    $title = (($texto -split '</h2>' | select -First 1) -split '<h2>' | select -Last 1).trim()
-    #Credenciales
-    $user = 'vmsilvamolina@victorsilva.com.uy'
-    $pass = (ConvertTo-SecureString 'XXXXXXXXXXXXXX' -AsPlainText -Force)
-    $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $pass
-    #Envío de mail 
-    $date = Get-Date -Format dd/MM
-    Send-MailMessage -To vmsilvamolina@gmail.com -From vmsilvamolina@victorsilva.com.uy -Subject "Packtpub: Libro gratis - $date" -Body $title -SmtpServer smtp.office365.com -UseSsl -Credential $cred -Port 587
-    
+{% highlight posh %}
+#Datos
+$web = Invoke-WebRequest -Uri https://www.packtpub.com/packt/offers/free-learning -UseBasicParsing
+$texto = ($web.RawContent -split '<div class="dotd-title">' | select -Last 1)
+$title = (($texto -split '</h2>' | select -First 1) -split '<h2>' | select -Last 1).trim()
+#Credenciales
+$user = 'vmsilvamolina@victorsilva.com.uy'
+$pass = (ConvertTo-SecureString 'XXXXXXXXXXXXXX' -AsPlainText -Force)
+$cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $pass
+#Envío de mail 
+$date = Get-Date -Format dd/MM
+Send-MailMessage -To vmsilvamolina@gmail.com -From vmsilvamolina@victorsilva.com.uy -Subject "Packtpub: Libro gratis - $date" -Body $title -SmtpServer smtp.office365.com -UseSsl -Credential $cred -Port 587
+{% endhighlight %}
 
 <img src="https://bv8psa-ch3302.files.1drv.com/y4mdUB9LN6zsZclCrj6eUrtfw86p_Ry6Icav-wy992B1ztEV5k5wvlx3xg_71YTKPmDhSA0LlZC8P9aYJLc3DRW_vayq1b2yELmFFbUb4HfyaOwJfWuW_elUUe45KtanfbmKfcOsLz_1u6l6JvC6dw5GVoZ8c-svHrp4YMcaTSgTGh0WGdN422lsZCoHKUiCx0qcy5OUhnCcw1aYjV1Rnooug?width=1305&#038;height=501&#038;cropmode=none" width="1305" height="501" alt="Azure Functions - Código" class="alignnone size-medium" />
 
 Ya con el código ingresado, vamos a guardar los cambios y posteriormente a que se ejecute, para poder obtener como resultado nuestro mail con la información del libro sin necesidad de acceder a la página, utilizando una función simple en Azure.
 
-Saludos,
+Happy scripting!

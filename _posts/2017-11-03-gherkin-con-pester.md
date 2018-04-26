@@ -22,7 +22,7 @@ Esta característica permite definir sus *features* y especificaciones en una si
 
 ## Primer especificación
 
-Vamos a comenzar definiendo nuestra primer especificación que por obvias razones va a ser bastante simple. Para ello debemos generar un archivo de texto plano que deben guardarse con la extensión *.feature*, que nos va a permitir procesarla de forma correcta.
+Vamos a comenzar definiendo nuestra primer especificación que por obvias razones va a ser bastante simple. Para ello debemos generar un archivo de texto plano que deben guardarse con la extensión _.feature_, que nos va a permitir procesarla de forma correcta.
 
 Para el ejemplo, vamos a considerar como *feature* la copia de un archivo:
 
@@ -39,7 +39,7 @@ Scenario: The file exists, and the target folder exists
 
 El bloque anterior lo vamos a guardar como ***CopyItem.feature***. Ya con este archivo en cuestión tenemos nuestra primer especificación al estilo Gherkin. Creo que es una buena aclaración el destacar que se pueden tener múltiples escenarios para una función en el mismo archivo. 
 
-Ahora para tener un resultado de lo que generamos, a pesar de que faltan definir componetes, podemos ubicarnos en la ruta donde se encuentra el archivo que acabamos de generar y ejecutamos:
+Ahora para tener un resultado de lo que generamos, a pesar de que faltan definir componentes, podemos ubicarnos en la ruta donde se encuentra el archivo que acabamos de generar y ejecutamos:
 
 {% highlight posh %}
 Invoke-Gherkin
@@ -53,7 +53,7 @@ Y obtendríamos como resultado:
 
 Con lo anterior obtendríamos enumeradas todas las especificaciones de las funciones que tenemos definidas, y luego, ejecuta las pruebas correspondientes. Como todavía no hemos creado ninguna prueba, ninguna pasó de forma satisfactoria.
 
-Todas las comprobaciones que se definen para una función de Gherkin se llaman pasos. Para ello es necesario generar un archivo con un nombre con extensión *.Steps.ps1*.
+Todas las comprobaciones que se definen para una función de Gherkin se llaman pasos. Para ello es necesario generar un archivo con un nombre con extensión _.Steps.ps1_.
 
 ### Definiendo los Steps
 
@@ -86,7 +86,7 @@ And 'the new file is the same as the original file' {
 }
 {% endhighlight %}
 
-Si se presta atención a lo declaradon anteriormente, queda visiblemente que se creó una prueba al estilo Pester para las líneas en la especificación definida. Cada una de las líenas anteriores comienza con una palabra clave: *Given*, *And*, *When* o *Then* (*But* también es una palabra clave válida para utilizar). La descripción se extrae directamente de la especificación, ya que *Invoke-Gherkin* usa esa descripción para hacer la coincidencia.
+Si se presta atención a lo declarado anteriormente, queda visiblemente que se creó una prueba al estilo Pester para las líneas en la especificación definida. Cada una de las líneas anteriores comienza con una palabra clave: *Given*, *And*, *When* o *Then* (*But* también es una palabra clave válida para utilizar). La descripción se extrae directamente de la especificación, ya que *Invoke-Gherkin* usa esa descripción para hacer la coincidencia.
 
 También quiero puntualizar que las palabras *step keywords* (Given, And, When, Then, But) son intercambiables dentro del código y tienen los siguientes usos:
 

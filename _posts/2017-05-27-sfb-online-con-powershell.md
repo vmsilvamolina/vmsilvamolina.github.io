@@ -16,11 +16,11 @@ tags:
   - SfB Online
   - Skype for Business Online
 ---
-Skype for Business es uno de los productos de Microsoft que ha tenido mayor aceptación en el mercado gracias a su facilidad de uso, sumado a las grandes carcterísticas que ofrece como solución de comunicaciones en el mundo empresarial. A su vez, gracias a Office 365, contamos con una posibilidad de adpción muy sencilla que permite realizar una implementación de forma muy veloz. Por ello es que hoy vamos a hablar de cómo aprovechar mejor esta grandiosa solución de comunicaciones unificadas en la que voy a compartir como administrar Skype for Business Online con PowerShell en pocas líneas de código.
+Skype for Business es uno de los productos de Microsoft que ha tenido mayor aceptación en el mercado gracias a su facilidad de uso, sumado a las grandes características que ofrece como solución de comunicaciones en el mundo empresarial. A su vez, gracias a Office 365, contamos con una posibilidad de adopción muy sencilla que permite realizar una implementación de forma muy veloz. Por ello es que hoy vamos a hablar de cómo aprovechar mejor esta grandiosa solución de comunicaciones unificadas en la que voy a compartir como administrar Skype for Business Online con PowerShell en pocas líneas de código.
 
 ## Conectarnos a nuestra suscripción
 
-Skype for Business Online, es uno de los servicios que ofrece Offie 365 dentro de su suite de soluciones. Es por ello que necesitamos de PowerShell para poder administrar esta solución. Si bien existe el portal de administración, las posibilidades que ofrece son limitadas.
+Skype for Business Online, es uno de los servicios que ofrece Office 365 dentro de su suite de soluciones. Es por ello que necesitamos de PowerShell para poder administrar esta solución. Si bien existe el portal de administración, las posibilidades que ofrece son limitadas.
 
 Para comenzar a trabajar es necesario contar con el módulo llamado [Skype for Business Online Connector](https://www.microsoft.com/en-us/download/details.aspx?id=39366). La instalación es muy sencilla; simplemente avanzar en el asistente y listo.
 
@@ -41,7 +41,7 @@ Ingresar las credenciales de nuestra suscripción para poder realizar la conexi�
 
 ## Obteniendo información básica
 
-El primer cmdlet que vamos a ver es Get-CsOnlineUser, que básicamente lo que hace es deplegar información sobre un usuario o usuarios habilitados. Por ejemplo si queremos obtener información del usuario _Victor Silva_ podemos ejecutar lo siguiente:
+El primer cmdlet que vamos a ver es Get-CsOnlineUser, que básicamente lo que hace es desplegar información sobre un usuario o usuarios habilitados. Por ejemplo si queremos obtener información del usuario _Victor Silva_ podemos ejecutar lo siguiente:
 
 {% highlight posh %}
 Get-CsOnlineUser -Identity "Victor Silva"
@@ -87,7 +87,7 @@ En donde _Identity_ es el nombre que le vamos a dar a nuestra política y la fea
 Get-CsOnlineUser “Victor Silva” | Grant-CsConferencingPolicy -PolicyName DeshabilitarCompartirEscritorio
 {% endhighlight %}
 
-Y listo! El usuario Victor Silva no va a poder compartir escritorio alutilizar Skype for Business Online. Para comprobar si se aplicó correctamente la política:
+Y listo! El usuario Victor Silva no va a poder compartir escritorio al utilizar Skype for Business Online. Para comprobar si se aplicó correctamente la política:
 
 {% highlight posh %}
 Get-CsConferencingPolicy -ApplicableTo "Victor Silva"

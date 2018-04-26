@@ -35,7 +35,7 @@ class Alien {
 }
 {% endhighlight %}
 
-Como mencionamos anteriormente, ahora que tenemos nuestra clase definida, podemos crear instancias de ella. Tenemos a disposición varias maneras diferentes de hacer esto. La primera es usar *New-Object* con el parámetro *-TypeName*.
+Como mencionamos anteriormente, ahora que tenemos nuestra clase definida, podemos crear instancias de ella. Tenemos a disposición varias maneras diferentes de hacer esto. La primera es usar *New-Object* con el parámetro _-TypeName_.
 
 {% highlight posh %}
 $greenMan = New-Object -TypeName Alien

@@ -13,7 +13,7 @@ tags:
   - PowerShell
 ---
 
-Hace algunos días tuve que resolver un pequeño problema que estaba rondando y decidí compartir lo que sé sobre este cmdlet en particular llamado *Invoke-WebRequest*. Así que a modo de introducción voy a señalar que gracias a su uso es posible monitorear sitios web. Si bien este no es su cometido más destacable, con pocas líneas de código podemos relizar cosas muy interesantes, que nos facilitan la tarea tanto de la parte de administración de los servicios web, como también a la hora de implementar una solución o diagnosticar un estado o situación.
+Hace algunos días tuve que resolver un pequeño problema que estaba rondando y decidí compartir lo que sé sobre este cmdlet en particular llamado *Invoke-WebRequest*. Así que a modo de introducción voy a señalar que gracias a su uso es posible monitorear sitios web. Si bien este no es su cometido más destacable, con pocas líneas de código podemos realizar cosas muy interesantes, que nos facilitan la tarea tanto de la parte de administración de los servicios web, como también a la hora de implementar una solución o diagnosticar un estado o situación.
 
 Aquellos que vienen del mundo Linux, o tienen conocimiento sobre la consola en general, se deben estar haciendo una idea de que el comando muy similar al viejo cURL ([info aquí](http://en.wikipedia.org/wiki/CURL)). Muy popular porque permite realizar transferencias HTTP, HTTPS, FTP, telnet, etc. En Linux, uno de los usos más habituales es la descarga de archivos o paquetes que se encuentran disponibles en formato HTTP en sistemas sin entorno gráfico.
 

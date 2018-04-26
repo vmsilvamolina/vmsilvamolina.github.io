@@ -20,9 +20,9 @@ tags:
 ---
 Según [Wikipedia](https://es.wikipedia.org/wiki/Aritmetica):
 
-> La arítmetica es la rama de la matemática cuyo objeto de estudio son los números y las operaciones elementales hechas con ellos: adición, resta, multiplicación y división.
+> La aritmética es la rama de la matemática cuyo objeto de estudio son los números y las operaciones elementales hechas con ellos: adición, resta, multiplicación y división.
 
-Así es que lo que vamos a comprobar hoy es la facilidad con la que podemos realizar operaciones desde PowerShell para intentar hacer un mundo mejor (o al menos, más automatizado) dentro de la mátemática!
+Así es que lo que vamos a comprobar hoy es la facilidad con la que podemos realizar operaciones desde PowerShell para intentar hacer un mundo mejor (o al menos, más automatizado) dentro de la matemática!
 
 PowerShell ofrece de forma implícita la utilización de las operaciones elementales como se expresa en la definición de aritmética. Simplemente hay que ejecutar la operación a realizar como lo haríamos en la calculadora de Windows:
 

@@ -18,7 +18,7 @@ tags:
   - Windows Server
   - Windows Server 2016
 ---
-Todos los administradores de sistemas en algún momento han tenido que lidiar con problemas de respaldos: desde los softwares de Backup que no funcionan o la falta de seguimiento de los trabajos. Ésto hace que al momento de requerir un respaldo en muchas oportunidades la respuesta sea negativa. Por todo lo anterior y más, es que he decidido escribir un pequeño artículo sobre como realizar el backup en Windows Server 2016.
+Todos los administradores de sistemas en algún momento han tenido que lidiar con problemas de respaldos: desde los software de Backup que no funcionan o la falta de seguimiento de los trabajos. Ésto hace que al momento de requerir un respaldo en muchas oportunidades la respuesta sea negativa. Por todo lo anterior y más, es que he decidido escribir un pequeño artículo sobre como realizar el backup en Windows Server 2016.
 
 Dentro de las características que ofrece Windows Server 2016 (y también presente en versiones anteriores), siendo una de las más importantes creo yo, es la capacidad de realizar respaldos o Backups de nuestros servidores. Si bien la mayoría de las empresas hoy por hoy deben contar con una solución para obtener copias de seguridad, no todo el mundo sabe que se puede utilizar el mismo Windows Server para este fin y sin costo alguno. Por ello hoy vamos a ver como trabajar con esta feature y como no, desde nuestro querido PowerShell, para no perder la costumbre.
 
@@ -48,9 +48,9 @@ Cómo creamos la política que gestionará nuestros trabajos de backup? Muy fác
 $Policy = New-WBPolicy 
 {% endhighlight %}
 
-Este procedimiento prentende tomar como destino (de los archivos de backup) una unidad de red, así que antes de continuar con los siguientes pasos tenemos que tener la carpeta destino ya compartida y con los permisos de escritura.
+Este procedimiento pretende tomar como destino (de los archivos de backup) una unidad de red, así que antes de continuar con los siguientes pasos tenemos que tener la carpeta destino ya compartida y con los permisos de escritura.
 
-Continuando con el proceso tenemos que setear los parametros en la política para que pueda recuperar backups del tipo bare metal y el componente system state:
+Continuando con el proceso tenemos que setear los parámetros en la política para que pueda recuperar backups del tipo bare metal y el componente system state:
 
 {% highlight posh %}    
 $Policy | Add-WBBareMetalRecovery
