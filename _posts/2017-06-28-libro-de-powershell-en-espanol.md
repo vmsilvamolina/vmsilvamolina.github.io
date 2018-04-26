@@ -18,7 +18,7 @@ tags:
 ---
 Es para mi un gran honor y placer poder compartir de forma pública una grandiosa aventura por la que estoy incursionando: **_Mi primer libro_**. Y como no podía ser de otra manera, se va a centrar en _Windows PowerShell_, recorriendo varios temas como la sintaxis, buenas prácticas, usabilidad, extensión de la herramienta. Además de tocar temas como PowerShell DSC, Pester, y módulos para trabajar con diferentes plataformas como Azure y VMware (PowerCLI).
 
-Hace un tiempo que comencé a escribir, poco a poco, los diferentes capítulos y el temario a cubrir para lograr un resultado final que cumpla con su cometido: acercar esta fabulosa herramienta a aquellos que no se han animado a utiliarla. En cambio, para los que tienen un poco más de experiencia, el objetivo de libro es ser un material de referencia actualizado y por sobre todo, en español.
+Hace un tiempo que comencé a escribir, poco a poco, los diferentes capítulos y el temario a cubrir para lograr un resultado final que cumpla con su cometido: acercar esta fabulosa herramienta a aquellos que no se han animado a utilizarla. En cambio, para los que tienen un poco más de experiencia, el objetivo de libro es ser un material de referencia actualizado y por sobre todo, en español.
 
 Este post es para compartir un poco de lo que se viene y que es lo que podremos encontrar en él. La publicación del libro aún no está definida, pero sin dudas que será este año y en poco tiempo.
 

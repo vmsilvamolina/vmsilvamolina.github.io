@@ -19,7 +19,7 @@ tags:
   - MD5
   - PowerShell
 ---
-Hace un tiempo tuve un requerimiento para resolver una situación particular: Comprobar archivos diariamente a modo de identificar si tuvo cambios o no durante el día. Siempre que esucho este tipo de solicitudes pienso casi que naturalmente en PowerShell, no se me pasa por la cabeza contemplar otra herramienta. Por ello es escribo esta entrada, para hablar de MD5 y PowerShell.
+Hace un tiempo tuve un requerimiento para resolver una situación particular: Comprobar archivos diariamente a modo de identificar si tuvo cambios o no durante el día. Siempre que escucho este tipo de solicitudes pienso casi que naturalmente en PowerShell, no se me pasa por la cabeza contemplar otra herramienta. Por ello es escribo esta entrada, para hablar de MD5 y PowerShell.
 
 ## Introducción a MD5
 

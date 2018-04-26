@@ -17,7 +17,7 @@ tags:
   - PowerShell 6.0
   - PowerShell en Linux
 ---
-PowerShell en Linux debe ser una de las cosas que más llamó la atención de los administradores de sistemas debido a las nuevas posibilidades que surjen ala hora de trabajar en ambientes donde no existe una plataforma unificada (es decir, que no utilizan Windows de forma única). Desde hace tiempo que la gente del equipo de desarrollo de PowerShell está trabajando sobre la usabilidad de Windows PowerShell enfocados en la multiplataforma. No es nuevo el amor que está demostrando Microsoft sobre Linux y MAC, por ello es que quiero hablar un poco de la manera de trabajar con esta grandiosa herramienta desde un SO que no sea de Microsoft.
+PowerShell en Linux debe ser una de las cosas que más llamó la atención de los administradores de sistemas debido a las nuevas posibilidades que aparecen a la hora de trabajar en ambientes donde no existe una plataforma unificada (es decir, que no utilizan Windows de forma única). Desde hace tiempo que la gente del equipo de desarrollo de PowerShell está trabajando sobre la usabilidad de Windows PowerShell enfocados en la multiplataforma. No es nuevo el amor que está demostrando Microsoft sobre Linux y MAC, por ello es que quiero hablar un poco de la manera de trabajar con esta grandiosa herramienta desde un SO que no sea de Microsoft.
 
 Para el post de hoy voy a usar una VM con Linux Mint 18.2 y la versión de PowerShell 6.0 (beta, ya que aún continua en desarrollo). Elegí esta versión, ya que la gente de [Distrowatch](https://distrowatch.com/) indica que es la más popular en los últimos meses!
 
@@ -49,7 +49,7 @@ sudo dpkg -i powershell_6.0.0-alpha.9-1ubuntu1.16.04.1_amd64.deb
 
 <img src="https://du03fw-ch3302.files.1drv.com/y4m8KDNQVKMMSpxq0EdYjSEic1-bXzrtPQ8LWMwZ8UitX0CnpJ8ggcalyK1P_8bcPaDjMEqH0LdQ7rkCZ4FDsVcgr9j9dvUMdXgxyub0HSsztGdizGU6WCijS1JQMIopXo7aNrLS_jip6NK7oXuD9jndo_Rc0bPdPs3aja64zARDVLa4dRmBObvUIkOuwJmchEBxYyTz2UucJaYSk5XgEjiZw?width=1152&#038;height=542&#038;cropmode=none" width="1152" height="542" alt="Instalación de PowerShell en Linux" class="alignnone size-medium" />
 
-Y luego de completada la instalación, debemos inicarlo desde la consola, con una acción tan simple como ejecutar lo siguiente:
+Y luego de completada la instalación, debemos iniciarlo desde la consola, con una acción tan simple como ejecutar lo siguiente:
 
 {% highlight posh %}
 #Iniciar PowerShell

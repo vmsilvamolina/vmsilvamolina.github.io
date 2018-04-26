@@ -1,10 +1,8 @@
 ---
-id: 1276
 title: Publicar en Microsoft Teams desde PowerShell
 date: 2016-11-06T00:28:39+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1276
 permalink: /publicar-en-microsoft-teams-desde-powershell/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*Sz3Js055VwE6KyPu.jpg";s:10:"author_url";s:33:"https://medium.com/@vmsilvamolina";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"ec65b99f1e1f";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:91:"https://medium.com/@vmsilvamolina/publicar-en-microsoft-teams-desde-powershell-ec65b99f1e1f";}'
@@ -24,7 +22,7 @@ Los que no conocen Microsoft Teams, les recomiendo que revisen [éste enlace](ht
 
 Ahora bien, por qué PowerShell? Porque es lo que a mí más me gusta! Aunque en realidad no se limita solo a PowerShell lo que vamos a ver, si no que en realidad tenemos la opción de elegir nuestro lenguaje de scripting favorito ya que las notificaciones que vamos a generar son creadas por medio de JSON, utilizando el conector **Incoming Webhook**. En adición a lo anterior, existe una extensa lista de conectores disponibles para poder utilizar dentro de Microsoft Teams, entre ellos Trello, Twitter, Github y Wunderlist.
 
-### Crear el conector
+## Crear el conector
 
 Primero debemos crear el conector en nuestro canal, por lo que debemos ingresar a [teams.microsoft.com](http://teams.microsoft.com) y posteriormente acceder al canal de nuestro Team y seleccionar Connectors como indica la imagen:
 
@@ -46,7 +44,7 @@ Al crearlo nos aparecerá una URL necesaria para poder utilizar el servicio. Aho
 
 <img src="https://qv4psa-ch3302.files.1drv.com/y4m9uUKz2eIy5ESgqM_NVY-zbDO94oh8BwdO_rUj4xNad7DL_zPD2_hnXPnEhpWqV06q9_zgO7lxCz6dbFruOfC7nCslHST3o8oqFQ-1pbMflTRwHoi_74UaSvxRPQ4vXsPmCodhNSBxEOfjTW2kJLc733tw59p9zhlaRQPTqhi463mHZHp9e4cyckeEh_KzBSaNFAG3EeCRh8Rx7uTOZmYyQ?width=827&#038;height=529&#038;cropmode=none" width="827" height="529" alt="URL del para utilizar el conector" class="alignnone size-medium" />
 
-### Publicar en Microsoft Teams desde PowerShell
+## Publicar en Microsoft Teams desde PowerShell
 
 Para crear nuestra primera publicación, el procedimiento se reduce a la siguientes líneas:
 
@@ -66,4 +64,4 @@ Lo que vamos a obtener como resultado es un mensaje del tipo **_Hola Mundo!_** p
 
 En conclusión, vemos que no es para nada difícil poder integrarnos desde PowerShell a Microsoft Teams y especialmente, publicar en Microsoft Teams ya sea para alertar de ciertas situaciones como para generar avisos o eventos programados hacia nuestro canal.
 
-Saludos,
+Happy scripting!
