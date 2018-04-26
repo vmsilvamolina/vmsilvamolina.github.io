@@ -1,6 +1,6 @@
 ---
 title: El parámetro Passthru en PowerShell
-date: 2018-03-10T8:51:00+00:00
+date: 2018-03-10T23:51:00+00:00
 author: Victor Silva
 layout: single
 permalink: /passthru-en-powershell/
@@ -38,7 +38,9 @@ Copy-Item -Path C:\Temp\File.txt -Destination .\Desktop -Passthru
 
 Obteniendo el siguiente resultado:
 
-<img src="https://oy9bda-ch3302.files.1drv.com/y4mP9VjxyJaeiTZgwkEkH2-I7ArwOwWGlVog332QrJ6XGTmeMGhwfgYyPoSxXncNJw2dGaRg3dIFlTSEWOA5eJjeYFkJ18YEbHe9ynyUc2bU7w_SH19SQsXAg3nxG-l1nrH3iL9aU2x7jC9RBczrkziVt0sKi1gd9bMA87Jy7gHkqalpnbe-T2XqpfboHLSmONCjgBLbUzwzSlS50dA-TujwQ?width=859&#038;height=189&#038;cropmode=none" width="859" height="189" alt="Copy-Item con el parámetro Passthru" class="alignnone size-medium" /><h3Encontrar comandos con el parámetro passthru</h3> 
+<img src="https://oy9bda.ch.files.1drv.com/y4mdh6j1Zs8YimJvK0OqZ3KvjEvZUynrWWtYDS2vZ4jS8m2XMBQ4_MBBbY9bGqW87K_qahWuQ-1bM4rSD7U0QyRgqvlt0QRfs_aoJKzFxaXseEG8iZ9ZzIdMypKcBKYSGoXo78e5vwlRbHvV_84tMyAOXQ0C-qbj8R7chzWYVGy5VO2zjzlMeqV--E9fEOb7GY_v--dMP07Ara0Hvj_AWPtCw?width=859&height=205&cropmode=none" width="859" height="205" alt="Copy-Item con el parámetro Passthru" class="alignnone size-medium" />
+
+### Encontrar comandos con el parámetro passthru
 
 Para obtener una lista con todos los cmdlets que cuentan con el parámetro _passthru_ disponibles para usar debemos ejecutar algo como la siguiente línea:
 
