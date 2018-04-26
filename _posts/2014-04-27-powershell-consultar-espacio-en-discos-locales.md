@@ -19,7 +19,7 @@ tags:
 Lo que vamos a ver en esta oportunidad es como hacer un pequeño reporte del estado de nuestros discos. Una de las tareas más tediosas de los administradores de sistemas es comprobar los estados de los discos, debido a que es una de las causas de los problemas que ocurren en algunas oportunidades. Primero vamos a abrir la Windows Powershell ISE, para armar nuestro script. Y escribimos:
 
 {% highlight posh %}
-Get-WMIObject  -Class Win32_LogicalDisk | Where-Object {$\_.DriveType -eq 3}  `
+Get-WMIObject  -Class Win32_LogicalDisk | Where-Object {$_.DriveType -eq 3}  `
   | Select-Object @{n="Unidad";e={($\_.Name)}}, 
                 @{n="Etiqueta";e={($\_.VolumeName)}}, 
                 @{n='Tamaño (GB)';e={"{0:n2}" -f ($\_.size/1gb)}}, 
