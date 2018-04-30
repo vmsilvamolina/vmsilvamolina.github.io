@@ -17,7 +17,7 @@ tags:
   - PowerShell
   - Serverless
 ---
-### Serverless Computing &#8211; Azure Functions
+## Serverless Computing &#8211; Azure Functions
 
 Aunque suene un poco contradictorio, el concepto de Serverless no significa que no hay un servidor, en realidad hace referencia a que no hay ningún servidor del que debemos preocuparnos. Ésta idea se asemeja bastante a lo que es **_Paas_**, aunque en realidad es un nuevo concepto que lo lleva a otro nivel.
 
@@ -48,7 +48,7 @@ La editorial Packtpub todos los días ofrece un libro gratuito, para saber cuál
 
 Dentro de las regiones vamos a seleccionar la que más nos convenga según nuestros requerimientos. Elegí Brasil sólo para salir de las regiones de US (no me interesa la latencia).
 
-## Scheduler
+### Scheduler
 
 Vamos a seleccionar **Create + get started** para situarnos en la siguiente pantalla:
 

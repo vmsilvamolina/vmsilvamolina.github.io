@@ -1,10 +1,8 @@
 ---
-id: 1344
 title: Primeros pasos en Azure Storage con PowerShell
 date: 2016-07-29T00:05:41+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1344
 permalink: /azure-storage/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*Sz3Js055VwE6KyPu.jpg";s:10:"author_url";s:33:"https://medium.com/@vmsilvamolina";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"e912921dae75";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:78:"https://medium.com/@vmsilvamolina/primeros-pasos-en-azure-storage-e912921dae75";}'
@@ -24,13 +22,13 @@ tags:
 ---
 Azure ofrece una variedad de servicios bastante amplia, por lo que abarcar todos los productos realmente se dificulta. Y más se dificulta con la velocidad en que evolucionan los mismos y las exigencias del negocio. Si bien es cierto que hay servicios en _preview_ que al tiempo desaparecen o mutan, muchos otros se vuelven el core de la plataforma, como lo es Azure Storage.
 
-### ¿Qué es Azure Storage?
+## ¿Qué es Azure Storage?
 
 Azure Storage ofrece una solución de almacenamiento en la nube, otorgando disponibilidad, escalabilidad y durabilidad.
 
 El paradigma de **cloud computing** nos dio acceso a nuevos escenarios de desarrollo e implementación de soluciones. En estos escenarios son tratados por igual empresas que procesan cientos de terabytes de datos o pequeñas empresas que necesitan almacenar cantidades de datos necesarios para alimentar una web o alojar planillas de uso diario. En ambos casos el cliente va a pagar por uso, o sea, por lo los datos que esté almacenando.
 
-### Los servicios de Azure Storage
+## Los servicios de Azure Storage
 
 Azure Storage ofrece 4 tipos de servicios de almacenamiento:
 
@@ -45,7 +43,7 @@ Para poder consumir los servicios de Azure Storage de forma segura y controlada,
 
   * **Blob Storage Accounts:** Este tipo es específico para almacenar datos no estructurados como blobs (objetos). Blob Storage accounts son similares a las cuentas de almacenamiento de propósito general existentes y comparten todas las características de durabilidad, disponibilidad, escalabilidad y rendimiento. Que incluye la consistencia del 100% de API para bloquear blobs y agregar blobs. Para las aplicaciones que requieren solo Almacenamiento de blobs en bloque o en anexos, se recomienda utilizar cuentas de Almacenamiento de blobs.
 
-### Replicación y Alta disponibilidad
+## Replicación y Alta disponibilidad
 
 Los datos de las cuentas de Azure Storage se replican siempre para garantizar la durabilidad y alta disponibilidad. Existien cuatro opciones diferentes de replicación para poder seleccionar la que mejor se adapte a las necesidades del negocio:
 
@@ -59,7 +57,7 @@ Los datos de las cuentas de Azure Storage se replican siempre para garantizar la
 
 > Para obtener más información sobre lo presentado recomiendo leer la [documentación oficial](https://docs.microsoft.com/es-es/azure/storage/storage-introduction).
 
-### Blob Storage: cómo utilizarlo
+## Blob Storage: cómo utilizarlo
 
 Vamos a ver como empezar a meter mano en esto del storage en Azure y para ello, seleccionamos el Blob Storage para comenzar.
 
@@ -87,7 +85,7 @@ También puede descargarse desde el portal de Azure, utilizando el botón &#8220
 
 Ya con el Storage Explorer descargado e instalado en nuestro equipo, vamos a ver como subir un archivo para luego acceder a él.
 
-### Crear un blob y subir archivos
+## Crear un blob y subir archivos
 
 Desde las propiedades de nuestra cuenta de storage, vamos a seleccionar la opción **_Open in Explorer_**, que nos consultará si permitimos la ejecución del Storage Explorer en nuestro equipo local.
 
@@ -107,37 +105,39 @@ Ahora que tenemos nuestro contenedor, vamos a subirlo a nuestro contenedor. Prim
 
 <img src="https://azfirw-ch3302.files.1drv.com/y4mdOiT75zgzlBdcc0QSbepSUizkOLlnO7L6trndO2hrO7s29aeMv9avRu_dWSXSkYqV6ufQbzA20Oi8UHjR8X03dfSF6v8A2GmIzRonUwmnIrHLrML48186zh6OsVg1e-ngp96fELy3JGce5RnaMezJLaskr1p7kX3EqMDRsCiISbWzOUycB7BuKqTk7daHLQzDN-LIvlajIpwgiAYwwPAUA?width=986&#038;height=512&#038;cropmode=none" width="986" height="512" alt="Storage Explorer upload files" class="alignnone size-medium" />
 
-### PowerShell y Azure Storage
+## PowerShell y Azure Storage
 
 Luego de ver los conceptos principales de Azure Storage y de cómo comenzar a trabajar por medio del portal de Azure, vamos a ver como hacerlo por medio de la consola de PowerShell.
 
 Por obvias razones hacemos énfasis en la necesidad de tener en el equipo el módulo de Azure PowerShell instalado. En caso de no contar con el mismo simplemente debemos ejecutar:
 
-    Install-Module -Name AzureRM -Scope CurrentUser
-    
+{% highlight posh %}
+Install-Module -Name AzureRM -Scope CurrentUser
+{% endhighlight %}
 
 Y ahora sí, lo primero que vamos a compartir es cómo se crea la cuenta de storage:
 
-    ### Autenticarse en Azure
-    Add-AzureRmAccount
-    
-    ### Crear el Azure Resource Manager (ARM) Resource Group
-    $ResourceGroup = @{
-    Name = 'AzureStoragePoSh'
+{% highlight posh %}
+### Autenticarse en Azure
+Add-AzureRmAccount
+
+### Crear el Azure Resource Manager (ARM) Resource Group
+$ResourceGroup = @{
+Name = 'AzureStoragePoSh'
+Location = 'Central US'
+Force = $true
+}
+New-AzureRmResourceGroup @ResourceGroup
+
+### Crear la Storage Account
+$StorageAccount = @{
+    ResourceGroupName = 'AzureStoragePoSh'
+    Name = 'StoragePoShAccount'
+    SkuName = 'Standard_LRS'
     Location = 'Central US'
-    Force = $true
     }
-    New-AzureRmResourceGroup @ResourceGroup
-    
-    ### Crear la Storage Account
-    $StorageAccount = @{
-        ResourceGroupName = 'AzureStoragePoSh'
-        Name = 'StoragePoShAccount'
-        SkuName = 'Standard_LRS'
-        Location = 'Central US'
-        }
-    New-AzureRmStorageAccount @StorageAccount
-    
+New-AzureRmStorageAccount @StorageAccount
+{% endhighlight %}
 
 Ahora que hemos creado la cuenta de almacenamiento, necesitamos comenzar a comunicarnos con la API REST de almacenamiento de Azure, por supuesto, con PowerShell. Esto requiere que creemos un contexto de autenticación que apunte específicamente al servicio de almacenamiento de Azure. En este punto, estamos cambiando de comunicación con la API de Azure Resource Manager (ARM) y hablando con Azure Storage en su lugar.
 
@@ -145,30 +145,33 @@ En primer lugar, obtendremos las claves de la cuenta de almacenamiento utilizand
 
 > Los comandos ya no tienen &#8220;AzureRm&#8221; en el nombre, simplemente tienen el prefijo &#8220;Azure&#8221;. Esto se debe a que los >comandos Azure Storage no forman parte de la interfaz de Azure Resource Manager.
 
-    ### Obtenemos la Storage Account authentication keys con ARM
-    $Keys = Get-AzureRmStorageAccountKey -ResourceGroupName AzureStoragePoSh -Name StoragePoShAccount;
-    
-    ### Usando el módulo Azure.Storage, se crea el Storage Authentication Context
-    $StorageContext = New-AzureStorageContext -StorageAccountName AzureStoragePoSh -StorageAccountKey $Keys[0].Value;
-    
+{% highlight posh %}
+### Obtenemos la Storage Account authentication keys con ARM
+$Keys = Get-AzureRmStorageAccountKey -ResourceGroupName AzureStoragePoSh -Name StoragePoShAccount
+
+### Usando el módulo Azure.Storage, se crea el Storage Authentication Context
+$StorageContext = New-AzureStorageContext -StorageAccountName AzureStoragePoSh -StorageAccountKey $Keys[0].Value
+{% endhighlight %}
 
 Teniendo lo mencionado anteriormente, vamos a crear un Blob Container para alojar nuestros &#8220;blobs&#8221; de almacenamiento. Para ello:
 
-    ### Crear un Blob Container en la Storage Account
-    New-AzureStorageContainer -Context $StorageContext -Name blobStoragePoSh;
-    
+{% highlight posh %}
+### Crear un Blob Container en la Storage Account
+New-AzureStorageContainer -Context $StorageContext -Name blobStoragePoSh
+{% endhighlight %}
 
 Finalizando el proceso resta realizar la carga de un archivo para validar todo lo ejecutado y configurado anteriormente, de la siguiente manera:
 
-    ### Subimos un archivo con a el Microsoft Azure Storage Blob Container
-    $UploadFile = @{
-        Context = $StorageContext;
-        Container = 'blobStoragePoSh';
-        File = "C:\Users\Victor\Desktop\test.txt";
-        }
-    Set-AzureStorageBlobContent @UploadFile;
-    
+{% highlight posh %}
+### Subimos un archivo con a el Microsoft Azure Storage Blob Container
+$UploadFile = @{
+    Context = $StorageContext
+    Container = 'blobStoragePoSh'
+    File = "C:\Users\Victor\Desktop\test.txt"
+}
+Set-AzureStorageBlobContent @UploadFile
+{% endhighlight %}
 
 En la que vamos a utilizar el blob creado, específicando también la ruta de nuestro archivo a subir&#8230; y todo ello con PowerShell!
 
-Saludos,
+Happy scripting!
