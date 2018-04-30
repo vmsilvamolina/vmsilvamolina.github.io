@@ -1,10 +1,8 @@
 ---
-id: 1264
 title: Windows 10 Anniversary Update en WSUS
 date: 2016-08-21T15:00:29+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1264
 permalink: /windows-10-anniversary-update/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";N;s:10:"author_url";N;s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";N;s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:4:"none";s:3:"url";N;}'
@@ -23,24 +21,25 @@ Windows 10 Anniversary Update se ha traído cambios no solo a nivel de Sistema O
 
 Si bien la situación actual no limita continuar desplegando los updates críticos y de seguridad liberados para el sistema operativo, no es posible entregar las funciones nuevas que se han liberado, como por ejemplo la actualización **1607** (_Windows 10 Anniversary Update_), que aparte de ser una actualización de seguridad (crítica) provee nuevas features (detalles en <https://technet.microsoft.com/en-us/itpro/windows/whats-new/whats-new-windows-10-version-1607>).
 
-### Limpieza de la base
+## Limpieza de la base
 
 Luego de instalada la actualización para WSUS, debemos ejecutar una limpieza de la base para actualice el catálogo correspondiente. Para ello es necesario ejecutar el siguiente procedimiento desde PowerShell:
 
-    # Para todos los updates del tipo upgrade, se deshabilita la clasificación
-    Get-WsusClassification | Where-Object -FilterScript {$_.Classification.Title -Eq “Upgrades”} | Set-WsusClassification -Disable
-    
-    # eliminar todos los updates que pertenecen a la version 1511
-    $s = Get-WsusServer
-    $s.SearchUpdates(“version 1511, 10586”) | foreach { $s.DeleteUpdate($_.Id.UpdateId) } 
-    
-    # habilitar la clasificación de los updates del tipo upgrade
-    Get-WsusClassification | Where-Object -FilterScript {$_.Classification.Title -Eq “Upgrades”} | Set-WsusClassification 
-    
-    #realizar una sincronización
-    $sub = $s.GetSubscription()
-    $sub.StartSynchronization()
-    
+{% highlight posh %}
+# Para todos los updates del tipo upgrade, se deshabilita la clasificación
+Get-WsusClassification | Where-Object -FilterScript {$_.Classification.Title -Eq “Upgrades”} | Set-WsusClassification -Disable
+
+# eliminar todos los updates que pertenecen a la version 1511
+$s = Get-WsusServer
+$s.SearchUpdates(“version 1511, 10586”) | foreach { $s.DeleteUpdate($_.Id.UpdateId) } 
+
+# habilitar la clasificación de los updates del tipo upgrade
+Get-WsusClassification | Where-Object -FilterScript {$_.Classification.Title -Eq “Upgrades”} | Set-WsusClassification 
+
+#realizar una sincronización
+$sub = $s.GetSubscription()
+$sub.StartSynchronization()
+{% endhighlight %}
 
 Luego de ejecutar lo anterior, podemos observar desde la consola de WSUS que el resultado del informe de sincronización ya está mostrando el upgrade de _Windows 10 Anniversary Update_:
 
@@ -48,4 +47,4 @@ Luego de ejecutar lo anterior, podemos observar desde la consola de WSUS que el 
 
 Solo resta esperar que se descargue el upgrade en el servidor WSUS para, luego de aprobarlo, inicie la distribución en los equipos.
 
-Saludos,
+Happy scripting!
