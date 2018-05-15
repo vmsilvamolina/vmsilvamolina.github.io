@@ -26,7 +26,7 @@ if (!(Test-Path $FilePath) ) {
 }
 {% endhighlight %}
 
-Ahora debemos definir como comprobar si el archivo es igual o diferente, utilizando HttpWebRequest de la siguiente manera:
+Ahora debemos definir como comprobar si el archivo es igual o diferente, utilizando **HttpWebRequest** de la siguiente manera:
 
 {% highlight posh %}
 try {
