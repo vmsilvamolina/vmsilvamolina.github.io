@@ -148,8 +148,13 @@ It 'Should Accept Array of toppings'{
 }
 {% endhighlight %}
     
+El ejemplo anterior se extrajo del test que definimos anteriormente y tiene varias sentencias con *Should*, aunque vamos a centrarnos en la última: 
 
-El ejemplo anterior se extrajo del test que definimos anteriormente y tiene varias sentencias con _Should_, aunque vamos a centrarnos en la última: _$Pizza.count -gt 1 | should be $true_. Ésta sentencia define que la prueba será correcta en el caso que retorne un valor mayor a uno en la cuenta de los objetos resultantes de la función.
+{% highlight posh %}
+$Pizza.count -gt 1 | should be $true
+{% endhighlight %}
+
+Ésta sentencia define que la prueba será correcta en el caso que retorne un valor mayor a uno en la cuenta de los objetos resultantes de la función.
 
 Ahora que avanzamos en este framework es momento de comenzar a armar tests más complejos y esperar a la siguiente entrega sobre Pester Framework!
 
