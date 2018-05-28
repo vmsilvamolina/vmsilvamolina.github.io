@@ -86,7 +86,7 @@ The module has the following commands:
 Get-Command -Module PSMarvel
 {% endhighlight %}
 
-{% highlight text %}
+{% highlight plaintext %}
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
 Function        Find-MarvelCharacter                               1.0.2      PSMarvel
@@ -98,7 +98,7 @@ Function        Get-MarvelRandomCharacter                          1.0.2      PS
 
 ## Example
 
-{% highlight text %}
+{% highlight plaintext %}
 C:\Users\vmsilvamolina> Get-MarvelComic -Title "Iron Fist (2017) #77"
 
 ## Comic title:
