@@ -85,7 +85,7 @@ El primer **if** comprueba si la línea de texto comienza con el caracter <b>#</
 
 Y éstas deben ser descartadas... Pero antes debemos considerar un segundo **if** en donde se utiliza una expresión regular un poco más compleja para separar en 2 grupos los valores y así poder filtrar lo que realmente es necesario. La expresión regular en cuestión es la siguiente:
 
-> ^#(?<Clave>[^:]+):\s*(?<Valor>.*)$
+> ^#(?\<Clave\>[^:]+):\s+(?\<Valor\>.+)$
 
 Les comparto un recurso web para realizar comprobaciones de expresiones regulares: [https://regex101.com/](https://regex101.com/). Si tomamos el bloque de texto anterior la comprobación del patrón definido cumple con lo que requerimos:
 
