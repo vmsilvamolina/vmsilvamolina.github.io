@@ -1,10 +1,8 @@
 ---
-id: 508
-title: 'Lync 2013 &#8211; &#8220;Hubo un problema al comprobar el certificado del servidor&#8221;'
+title: 'Lync 2013 : "Hubo un problema al comprobar el certificado del servidor"'
 date: 2014-08-03T14:41:56+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=508
 permalink: /lync-2013-hubo-un-problema-al-comprobar-el-certificado-del-servidor/
 dsq_thread_id:
   - "4472283808"
@@ -19,8 +17,6 @@ Al momento de compartir una presentación de PowerPoint, desde nuestro cliente d
 
 Un caso en el que puede aplicar y aparecer este error se debe a que el entorno donde se ha implementado la solución de Lync Server, se encuentre en otro dominio diferente a la máquina que intenta compartir la presentación, asi como también una máquina que no se encuentra unida al dominio.
 
-<!--more-->
-
 <img class="alignnone" src="https://lh4.googleusercontent.com/-tBLQ_5OSvEM/VA87z_VVX8I/AAAAAAAAFp8/SsUFd-VMxJc/w445-h248-no/Lync_Error_Certificado_OWA.png" alt="" width="445" height="248" />
 
 Este error se soluciona de la siguiente manera:
@@ -33,6 +29,4 @@ Y dentro de la solapa Opciones Avanzadas, buscar y destildar la opción _Comprob
 
 <img class="alignnone" src="https://lh4.googleusercontent.com/-2sRxLukOJTI/VA87z3bngjI/AAAAAAAAFqI/j41Iw_44rBg/w422-h542-no/Lync_IE_Revocation.png" alt="" width="422" height="542" />
 
-&nbsp;
-
-Saludos,
+Happy scripting!
