@@ -25,7 +25,7 @@ $Cadena = "Hola soy una cadena"
 $Cadena.Split()
 {% endhighlight %}
 
-En el ejemplo anterior vemos como se corta la cadena tomando como referencia el espacio entre caracteres. Que sucede si por ejemplo tenemos una cadena en la que nuestro &#8220;separador&#8221; son dos puntos (:)
+En el ejemplo anterior vemos como se corta la cadena tomando como referencia el espacio entre caracteres. Que sucede si por ejemplo tenemos una cadena en la que nuestro "separador" son dos puntos (:)
 
 Debemos de definir el método split de la siguiente manera:
 
