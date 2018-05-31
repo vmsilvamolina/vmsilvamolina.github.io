@@ -1,10 +1,8 @@
 ---
-id: 488
 title: 'Lync 2013 &#8211; Error del cliente (vdpsrc.dll)'
 date: 2014-08-15T14:39:48+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=488
 permalink: /lync-2013-error-del-cliente-vdpsrc-dll/
 dsq_thread_id:
   - "4604386438"
@@ -15,7 +13,6 @@ tags:
   - KB2880980
   - Lync 2013
   - vdpsrc.dll
-format: aside
 ---
 En alguna oportunidad nos encontramos con el siguiente problema:
 
@@ -23,12 +20,10 @@ En una notebook con un driver Intel PROSet/Wireless para el software de Bluetoot
 
 La causa se debe a que este Software se registra como dispositivo de video. Por lo que genera un evento de error indicando que la dll en concreto es la:
 
-> C:Program FilesIntelbluetoothvdpsrc.dll
+> C:\Program Files\Intel\bluetoothvdpsrc.dll
 
 Para solucionar este inconveniente, basta con instalar el siguiente Update para poder resolver este error:
 
 <a title="KB2880980" href="http://www.microsoft.com/es-ES/download/confirmation.aspx?id=42894" target="_blank">Link de descarga</a>
 
-&nbsp;
-
-Saludos,
+Happy scripting!

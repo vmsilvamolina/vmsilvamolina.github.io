@@ -18,21 +18,27 @@ Este es un tema bastante confuso, por lo que vamos a ver algunos consejos a la h
 
 Los primero que vamos a hacer es crear un array y ver que tipo de elemento es:
 
-<pre class="lang:ps decode:true">$Frutas = "Manzana","Pera","Banana","Naranja"</pre>
+{% highlight posh %}
+$Frutas = "Manzana","Pera","Banana","Naranja"
+{% endhighlight %}
 
 Y luego ejecutamos:
 
-<pre class="lang:ps decode:true">$Frutas.GetType()</pre>
+{% highlight posh %}
+$Frutas.GetType()
+{% endhighlight %}
 
 <img class="alignnone" src="https://lh4.googleusercontent.com/-Pixpgm8QK68/U95MRodMPQI/AAAAAAAAFQo/4NDfpPIRyXo/w700-h267-no/PS_Array_1.png" alt="" width="700" height="267" />
 
 Si intentamos añadir un elemento o borrarlo nos aparece un mensaje de error:
 
-<pre class="lang:ps decode:true ">$Frutas.Add("Kiwi")
+{% highlight posh %}
+$Frutas.Add("Kiwi")
 
 $Frutas.Remove("Manzana")
 
-$Frutas.IsFixedSize</pre>
+$Frutas.IsFixedSize
+{% endhighlight %}
 
 <img class="alignnone" src="https://lh6.googleusercontent.com/-U4AY7zL22L4/VAUMk1NVZiI/AAAAAAAAFms/fo9qEqohhlc/w877-h351-no/PS_Arrays_2.png" alt="" width="877" height="351" />
 
@@ -44,21 +50,28 @@ Una manera de poder lidiar con este problema es utilizar **_System.Collections.A
 
 Y de esta manera vamos a poder modificar los elementos del _Array:_
 
-<pre class="lang:ps decode:true">$Matriz.Add("Kiwi")
+{% highlight posh %}
+$Matriz.Add("Kiwi")
 
-$Matriz</pre>
+$Matriz
+{% endhighlight %}
 
 Otra manera de agregar elementos a un nuevo array sumando los de otro ya definido es:
 
-<pre class="lang:ps decode:true">$NuevoArray = $Frutas += "Melón"
-</pre>
+{% highlight posh %}
+$NuevoArray = $Frutas += "Melón"
+{% endhighlight %}
 
 Y si en vez de adicionar un elemento o elementos en un nuevo array, queremos eliminar la manera correcta sería ejecutando:
 
-<pre class="lang:ps decode:true">$MenosFrutas = $Frutas -ne "Manzana"</pre>
+{% highlight posh %}
+$MenosFrutas = $Frutas -ne "Manzana"
+{% endhighlight %}
 
 Y por último podemos utilizar la siguiente sintaxis, que realiza lo mismo pero de otra manera:
 
-<pre class="lang:ps decode:true">$FrutasNuevas = {$Frutas}.Invoke()</pre>
+{% highlight posh %}
+$FrutasNuevas = {$Frutas}.Invoke()
+{% endhighlight %}
 
 Happy scripting!
