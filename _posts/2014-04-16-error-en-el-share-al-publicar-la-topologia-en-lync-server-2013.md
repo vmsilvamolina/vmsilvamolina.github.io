@@ -16,9 +16,9 @@ tags:
 ---
 Al realizar la instalación de Lync Server 2013 nos encontramos en un momento en la necesidad de especificar un repositorio compartido, el cual se debe declarar para poder continuar con la instalación.
 
-  * ACL Error: Access permissions error
-  * Error:Failed to save permissions on (CARPETA COMPARTIDA)
-  * ACL Error: Failed Adding “Access Write” permission for “XXX” on “share”. Access control list (ACL) might fail on UNIX files shares. Refer to the deployment guide to manually set the ACLs in the file share.
+> ACL Error: Access permissions error
+> Error:Failed to save permissions on (CARPETA COMPARTIDA)
+> ACL Error: Failed Adding “Access Write” permission for “XXX” on “share”. Access control list (ACL) might fail on UNIX files shares. Refer to the deployment guide to manually set the ACLs in the file share.
 
 Para solucionar este inconveniente, simplemente debemos de abrir las propiedades del recurso a compartir.
 

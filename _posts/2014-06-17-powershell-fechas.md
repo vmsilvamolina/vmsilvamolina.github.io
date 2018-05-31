@@ -60,24 +60,21 @@ $Date = Get-Date
 
 Dando como resultado lo siguiente:
 
-> Day: 17
-  
-> Month: 6
-  
-> Year: 2014
-  
-> Hour: 9
-  
-> Minute: 32
-  
-> Second: 44
+{% highlight plaintext %}
+Day: 17
+Month: 6
+Year: 2014
+Hour: 9
+Minute: 32
+Second: 44
+{% endhighlight %}
 
-Bien, todo perfecto, pero que sucede si nuestra intención es crear una objeto en el futuro, en días posteriores? Muy sencillo, debemos agregar el método AddDays desde el objeto DataTime, un ejemplo de ello sería:
+Bien, todo perfecto, pero que sucede si nuestra intención es crear una objeto en el futuro, en días posteriores? Muy sencillo, debemos agregar el método **AddDays** desde el objeto *DataTime*, un ejemplo de ello sería:
 
 {% highlight posh %}
 (Get-Date).AddDays(10)
 {% endhighlight %}
 
-Generando un objeto que nos imprime la fecha con 10 días hacia adelante.
+Generando un objeto que imprime en consola la fecha con 10 días hacia adelante.
 
 Happy scripting!

@@ -93,7 +93,8 @@ Para ello vamos a trabajar con los siguientes comandos:
 
 Debemos obtener como resultados de los test ejecutados por la herramienta **dcdiag** valores equivalentes al siguiente ejemplo:
 
-<pre class="nums:false lang:default decode:true ">Domain Controller Diagnosis
+{% highlight plaintext %}
+Domain Controller Diagnosis
 
 Performing initial setup:
 
@@ -210,14 +211,15 @@ Starting test: Intersite
 Starting test: FsmoCheck
 
 ......................... RESKIT-DOM.reskit.com passed test FsmoCheck
-</pre>
+{% endhighlight %}
 
 
 **_Para corroborar el estado de la replicación_**
 
 Debemos obtener como resultados de los test ejecutados por la herramienta **repadmin** valores equivalentes al siguiente ejemplo:
 
-<pre class="nums:false lang:default decode:true ">repadmin /showrepl server1.microsoft.com
+{% highlight plaintext %}
+C:\>repadmin /showrepl server1.microsoft.com
 Building7aserver1
 DC Options : IS_GC
 Site OPtions: (none)
@@ -243,13 +245,15 @@ last attempt @ 2002-09-09 12:25.10 was successful.
 DC=microsoft,Dc=com
 Building7bserver2 via RPC
 objectGuid: e55c6c75-75bb-485a-a0d3-020a44c3afe7
-last attempt @ 2001-09-09 12:25.11 was successful</pre>
+last attempt @ 2001-09-09 12:25.11 was successful
+{% endhighlight %}
 
 **_Para corroborar el estado de la resolución de nombres_**
 
 Debemos obtener como resultados de los test ejecutados por la herramienta **nslookup** valores equivalentes al siguiente ejemplo:
 
-<pre class="nums:false lang:default decode:true">Default Server:  dc1.example.microsoft.com
+{% highlight plaintext %}
+Default Server:  dc1.example.microsoft.com
 Address:  10.0.0.14
 set type=srv
 _ldap._tcp.dc._msdcs.example.microsoft.com
@@ -266,7 +270,8 @@ weight         = 0
 port           = 389
 svr hostname   = dc2.example.microsoft.com
 dc1.example.microsoft.com     internet address = 10.0.0.14
-dc2.example.microsoft.com     internet address = 10.0.0.15</pre>
+dc2.example.microsoft.com     internet address = 10.0.0.15
+{% endhighlight %}
 
 ## Etapa 3: Sincronización de cambios
 
@@ -296,7 +301,6 @@ Crear una OU (unidad organizativa) en Active Directory desde un controlador de d
 
 Dentro del nodo del dominio, debería de encontrarse la OU creada en el anterior controlador de dominio siguiendo los pasos detallados.
 
-
-Eso fue todo por ahora.
+Espero sirva de ejemplo para poder definir un plan de comprobación de Active Directory.
 
 Happy scripting!

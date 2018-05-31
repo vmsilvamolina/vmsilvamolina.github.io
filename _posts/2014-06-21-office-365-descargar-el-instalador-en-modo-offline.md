@@ -28,32 +28,37 @@ Así que resumiendo los pasos, serían los siguientes:
 
   * Modificar el archivo ***configuration.xml***, sustituir el SourcePath y UpdatePath según corresponda en su caso:
 
-<pre class="lang:xhtml decode:true">&lt;Configuration&gt;
-	&lt;Add SourcePath="PATH_TO_YOUR_DOWNLOAD_FOLDER, e.g. E:Downloads" OfficeClientEdition="32" &gt;
-		&lt;Product ID="O365ProPlusRetail"&gt;
-			&lt;Language ID="en-us" /&gt;
-		&lt;/Product&gt;
-		&lt;Product ID="VisioProRetail"&gt;
-			&lt;Language ID="en-us" /&gt;
-		&lt;/Product&gt;
-	&lt;/Add&gt;
-
-	&lt;Updates Enabled="TRUE" UpdatePath="PATH_TO_YOUR_DOWNLOAD_FOLDER, e.g. E:Downloads" /&gt;
-	&lt;Display Level="None" AcceptEULA="TRUE" /&gt;
-  &lt;!--  &lt;Logging Name="OfficeSetup.txt" Path="%temp%" /&gt;  --&gt;
-  &lt;!--  &lt;Property Name="AUTOACTIVATE" Value="1" /&gt;  --&gt;
-&lt;/Configuration&gt;</pre>
+{% highlight xml %}
+<Configuration>
+	<Add SourcePath="PATH_TO_YOUR_DOWNLOAD_FOLDER, e.g. E:Downloads" OfficeClientEdition="32" >
+		<Product ID="O365ProPlusRetail">
+			<Language ID="en-us" />
+		</Product>
+		<Product ID="VisioProRetail">
+			<Language ID="en-us" />
+		</Product>
+	</Add>
+	<Updates Enabled="TRUE" UpdatePath="PATH_TO_YOUR_DOWNLOAD_FOLDER, e.g. E:Downloads" />
+	<Display Level="None" AcceptEULA="TRUE" />
+  <!--  <Logging Name="OfficeSetup.txt" Path="%temp%" />  -->
+  <!--  <Property Name="AUTOACTIVATE" Value="1" />  -->
+</Configuration>
+{% endhighlight %}
 
   * Finalmente, ejecutar desde una consola CMD el siguiente comando:
 
-<pre class="lang:xhtml decode:true">setup.exe /download configuration.xml</pre>
+{% highlight bash %}
+setup.exe /download configuration.xml
+{% endhighlight %}
 
   * Esperar a que finalice la descarga (puede demorar dependiendo de la velocidad de descarga)
 
   * Para instalar, basta con ejecutar lo siguiente:
 
-<pre class="lang:xhtml decode:true ">setup.exe /configure configuration.xml</pre>
+{% highlight bash %}
+setup.exe /configure configuration.xml
+{% endhighlight %}
 
-Espero les sirva (lo van a utilizar cuando no tengan buena conexión a internet)
+Espero les sirva (lo van a utilizar cuando no tengan buena conexión a internet) :)
 
 Happy scripting!
