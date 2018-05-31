@@ -41,7 +41,7 @@ En esta oportunidad nos indica el siguiente error:
 
 > Data Protection Manager Error ID: 308
   
-> The protection agent operation failed because DPM could not communicate with the Protection Agent service on .
+> The protection agent operation failed because DPM could not communicate with the Protection Agent service on.
 
 Para solucionar el anterior error, debemos desinstalar el agente desde el panel de control, programas y características desde el servidor y luego ir al servidor de DPM y desinstalar desde la consola.
 
