@@ -51,6 +51,7 @@ En la siguiente hoja vamos a especificar los datos que necesitamos para poder ar
   * Nombre de dominio **Contoso.com** (Dominio y Sufijo)
   * En la columna Nombre de Usuario hay que escribir la siguiente función:
 
+
 {% highlight plaintext %}    
 =CONCATENAR(IZQUIERDA(InfoDeUsuarios!A2;1);InfoDeUsuarios!B2;",")
 {% endhighlight %}
@@ -66,6 +67,7 @@ Lo que hace esta función es armar el nombre de inicio de cada usuario, tomando 
 Lo que hace es tomar el nombre de la OU Secundaria de la lista creada en la primer hoja del libro de excel (para este ejemplo se nombro como InfoDeUsuarios)
 
   * En la columna OU Principal va la función:
+
 {% highlight plaintext%}    
 =CONCATENAR("ou=";InfoDeUsuarios!D2;",")
 {% endhighlight %}
@@ -84,6 +86,6 @@ Esto va a recolectar todos los datos necesarios para poder armar cada línea de 
 
 <img class="alignnone" src="https://lh5.googleusercontent.com/-fU1orCiMV0Q/UGzp93yf71I/AAAAAAAAA50/X1nZsDxLYFw/w788-h334-no/excel+3.png" alt="" width="788" height="334" />
 
-Esta pagina si quieren la pueden nombrar como **GuardarComoBat** para tener una mejor referencia en el futuro. Ya con todos las líneas generadas y el archivo .BAT guardado simplemente vamos a tener que situarnos donde este guardado el archivo y ejecutarlo como administrador. Con esto se van a crear todos los usuarios que estén en esa lista de manera automatizada.
+Esta pagina si quieren la pueden nombrar como **GuardarComoBat** para tener una mejor referencia en el futuro. Ya con todos las líneas generadas y el archivo *.bat* guardado simplemente vamos a tener que situarnos donde este guardado el archivo y ejecutarlo como administrador. Con esto se van a crear todos los usuarios que estén en esa lista de manera automatizada.
 
 Happy scripting!

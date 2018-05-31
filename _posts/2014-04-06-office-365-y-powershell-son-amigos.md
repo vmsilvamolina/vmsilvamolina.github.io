@@ -71,7 +71,7 @@ Get-Command -module MSonline
 Para obtener mas ayuda sobre un comando en particular ejecutar:
 
 {% highlight posh %}
-Get-Help <nombre del comando> -detailed
+Get-Help <nombreDelComando> -detailed
 {% endhighlight %}
 
 ## Ver suscripciones disponibles
@@ -87,13 +87,13 @@ Get-MsolSubscription
 Otra información necesaria es poder ver los usuarios de la organización que cuentan con una licencia asignada. Para poder comprobar el estado, basta con ejecutar el siguiente comando:
 
 {% highlight posh %}
-Get-MsolUser *| Where-Object {$_.isLicensed - eq "TRUE"}
+Get-MsolUser * | Where-Object {$_.isLicensed - eq "TRUE"}
 {% endhighlight %}
 
 Y si queremos ver dentro de muchos usuarios los que no tengan licencia asignada? Muy parecido&#8230; Basta con cambiar el valor "TRUE" a "FALSE", quedando de la siguiente manera:
 
 {% highlight posh %}
-Get-MsolUser *| Where-Object {$_.isLicensed - eq "FALSE"}
+Get-MsolUser * | Where-Object {$_.isLicensed - eq "FALSE"}
 {% endhighlight %}
 
 ## Contraseña nunca expira
