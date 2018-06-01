@@ -1,10 +1,8 @@
 ---
-id: 530
 title: Cambiar contraseña a Switch HP 1910
 date: 2014-10-04T01:45:09+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=530
 permalink: /cambiar-contrasena-a-switch-hp-1910/
 dsq_thread_id:
   - "4473209710"
@@ -19,7 +17,7 @@ Pocas veces me ha tocado la necesidad de sumergirme en estos tipos de temas. Per
   
 Lo primero que tengo que decir, es que contaba con un backup de la configuración (reciente). Lo segundo es que usé _Putty_ para conectarme (con el cable a la consola, obviamente).
   
-Antes de comenzar a toquetear el switch, debemos de instalar en nuestro equipo un servidor _TFTP_, buscando van a encontrar varios, gratis y todo. Descargen, instalen, inicien. Luego de este requisito pasamos a meter mano.
+Antes de comenzar a toquetear el switch, debemos de instalar en nuestro equipo un servidor _TFTP_, buscando van a encontrar varios, gratis y todo. Descargar, instalar, iniciar. Luego de este requisito pasamos a meter mano.
   
 Vamos a iniciar el procedimiento, reiniciando el switch. Durante el reinicio aparecerá un menú (del tipo que aparece en los BIOS) donde deberemos pulsar la combinación de teclas _Ctrl + B_, para poder acceder al menú de opciones.
 
@@ -77,4 +75,4 @@ Ahora sí, con todo listo, vamos a ejecutar el comando restore aclarando que la 
 
 Luego de hacer este restore, reiniciamos el dispositivo y vamos a poder acceder a nuestro Switch con la contraseña que nosotros detallamos anteriormente.
 
-Saludos,
+Happy scripting!

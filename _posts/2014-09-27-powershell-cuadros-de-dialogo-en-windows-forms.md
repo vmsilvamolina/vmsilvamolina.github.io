@@ -1,10 +1,8 @@
 ---
-id: 514
 title: 'PowerShell: Cuadros de diálogo en Windows Forms'
 date: 2014-09-27T20:23:43+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=514
 permalink: /powershell-cuadros-de-dialogo-en-windows-forms/
 dsq_thread_id:
   - "4480207448"
@@ -20,7 +18,8 @@ Para los que les gusta crear una interfaz visual a nuestros scripts (Windows For
 
 La función que hace esta maravilla es la siguiente:
 
-<pre class="lang:default decode:true ">Function Mostrar-MensajeCuadroDialogo {
+{% highlight posh %}
+Function Mostrar-MensajeCuadroDialogo {
 Param
 (
 [string]$Mensaje, 
@@ -29,13 +28,16 @@ Param
 [System.Windows.Forms.MessageBoxIcon]$Icono
 )
     return [System.Windows.Forms.MessageBox]::Show($Mensaje, $Titulo, $Botones, $Icono)
-}</pre>
+}
+{% endhighlight %}
 
 Ok, tenemos la función vamos a ver algunos ejemplos y como se van a ver.
 
-Primero vamos a crear un mensaje de información, por ejemplo con el mensaje: &#8220;Ha finalizado correctamente el proceso.&#8221; Necesitamos ejecutar:
+Primero vamos a crear un mensaje de información, por ejemplo con el mensaje: "Ha finalizado correctamente el proceso." Necesitamos ejecutar:
 
-<pre class="lang:default decode:true ">Mostrar-MensajeCuadroDialogo -Mensaje "Ha finalizado correctamente el proceso" -Titulo "Información" -Botones OK -Icono Information</pre>
+{% highlight posh %}
+Mostrar-MensajeCuadroDialogo -Mensaje "Ha finalizado correctamente el proceso" -Titulo "Información" -Botones OK -Icono Information
+{% endhighlight %}
 
 El resultado del código anterior es la siguiente imagen:
 
@@ -43,7 +45,9 @@ El resultado del código anterior es la siguiente imagen:
 
 En cambio, si queremos, por ejemplo, desplegar un mensaje de error, podemos utilizar:
 
-<pre class="lang:default decode:true ">Mostrar-MensajeCuadroDialogo -Mensaje "Se ha encontrado un error. Vuelva a ejecutar el proceso" -Titulo "Error" -Botones OK -Icono Error</pre>
+{% highlight posh %}
+Mostrar-MensajeCuadroDialogo -Mensaje "Se ha encontrado un error. Vuelva a ejecutar el proceso" -Titulo "Error" -Botones OK -Icono Error
+{% endhighlight %}
 
 Y nos aparecerá el siguiente cuadro:
 
@@ -51,6 +55,4 @@ Y nos aparecerá el siguiente cuadro:
 
 Así podremos probar varias combinaciones y diferentes botones a desplegar.
 
-&nbsp;
-
-Saludos,
+Happy scripting!
