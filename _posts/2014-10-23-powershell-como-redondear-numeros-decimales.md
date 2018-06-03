@@ -1,10 +1,8 @@
 ---
-id: 622
 title: 'PowerShell &#8211; Cómo redondear números decimales'
 date: 2014-10-23T19:09:16+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=622
 permalink: /powershell-como-redondear-numeros-decimales/
 dsq_thread_id:
   - "4472639286"
@@ -28,3 +26,5 @@ Para poder redondear este numero tenemos que anteponer lo siguiente:
 <pre>[math]::Round(44/7)</pre>
 
 Obteniendo como resultado: **_6_**
+
+Happy scripting!
