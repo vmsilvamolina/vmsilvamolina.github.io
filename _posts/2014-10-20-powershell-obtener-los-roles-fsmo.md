@@ -1,10 +1,8 @@
 ---
-id: 611
 title: 'PowerShell &#8211; Obtener los roles FSMO'
 date: 2014-10-20T18:59:49+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=611
 permalink: /powershell-obtener-los-roles-fsmo/
 dsq_thread_id:
   - "4528066059"
@@ -15,20 +13,26 @@ tags:
   - FSMO Roles
   - PowerShell
 ---
-Los experimentados en Active Directory, recordarán que para obtener los controladores de dominio que tienen en su haber los roles FSMO debiamos ejecutar lo siguiente:
+Los experimentados en Active Directory, recordarán que para obtener los controladores de dominio que tienen en su haber los roles FSMO deberíamos ejecutar lo siguiente:
 
-`NETDOM QUERY FSMO`
+> NETDOM QUERY FSMO
 
-Y conestoobteniamos una lista con los controladores y sus roles efectivamente.
+Y con esto obtendremos una lista con los controladores y sus roles efectivamente.
 
 Pero este blog pretende evangelizar el uso de Windows PowerShell, por lo que paso a detallar como sería el procedimiento para obtener los datos anteriores pero desde nuestra consola amiga:
 
-<pre>Get-ADDomain | Select-Object InfrastructureMaster, RIDMaster, PDCEmulator</pre>
+{% highlight posh %}
+Get-ADDomain | Select-Object InfrastructureMaster, RIDMaster, PDCEmulator
+{% endhighlight %}
 
-<pre>Get-ADForest | Select-Object DomainNamingMaster, SchemaMaster</pre>
+{% highlight posh %}
+Get-ADForest | Select-Object DomainNamingMaster, SchemaMaster
+{% endhighlight %}
 
-<pre>Get-ADDomainController -Filter * | Select-Object Name, Domain, Forest, OperationMasterRoles | Where-Object {$_.OperationMasterRoles} | Format-Table -AutoSize</pre>
+{% highlight posh %}
+Get-ADDomainController -Filter * | Select-Object Name, Domain, Forest, OperationMasterRoles | Where-Object {$_.OperationMasterRoles} | Format-Table -AutoSize
+{% endhighlight %}
 
 Fácil, no?
 
-Saludos,
+Happy scripting!
