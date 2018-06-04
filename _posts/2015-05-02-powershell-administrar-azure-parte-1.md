@@ -1,10 +1,8 @@
 ---
-id: 777
 title: 'PowerShell &#8211; Administrar Azure: Parte 1'
 date: 2015-05-02T10:46:49+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=777
 permalink: /powershell-administrar-azure-parte-1/
 dsq_thread_id:
   - "4585843211"
@@ -38,8 +36,9 @@ Luego de tener lo necesario, debemos empezar a configurar nuestros datos de susc
 
 Para comenzar debemos tener los datos para poder conectarnos desde PowerShell a la suscripción de Azure, para ello vamos a ejecutar lo siguiente:
 
-    Add-AzureAccount
-    
+{% highlight posh %}
+Add-AzureAccount
+{% endhighlight %}
 
 Dando como resultado lo siguiente:
 
@@ -53,32 +52,36 @@ Luego de unos momentos, nos aparecerán los siguientes datos:
 
 Para corroborar que estamos conectados a la suscripción correcta, ejecutamos:
 
-    Get-AzureSubsctiption
-    
+{% highlight posh %}
+Get-AzureSubsctiption
+{% endhighlight %}
 
 ## Crear una Máquina Virtual
 
 Antes de comenzar tenemos que fijar los datos de la suscripción para que no nos genere error al ejecutar los comandos, para ello ejecutamos el siguiente bloque de código:
 
-    $Subscr = Get-AzureSubscription | select -ExpandProperty SubscriptionName
-    $StAccount = Get-AzureStorageAccount | select -ExpandProperty Label
-    Set-AzureSubscription -SubscriptionName $Subscr -CurrentStorageAccountName $StAccount
-    
+{% highlight posh %}
+$Subscr = Get-AzureSubscription | select -ExpandProperty SubscriptionName
+$StAccount = Get-AzureStorageAccount | select -ExpandProperty Label
+Set-AzureSubscription -SubscriptionName $Subscr -CurrentStorageAccountName $StAccount
+{% endhighlight %}
 
 Debemos seleccionar la familia a la que pertenece la VM,por ejemplo si es Windows Server, Ubuntu, etc.
 
 Podemos obtener una lista de todas las imagenes disponibles ejecutando el siguiente comando:
 
-    Get-AzureVMImage | select ImageFamily -Unique
-    
+{% highlight posh %}
+Get-AzureVMImage | select ImageFamily -Unique
+{% endhighlight %}
 
 <img src="https://lh5.googleusercontent.com/-1nK-r_9xNfc/VUDqh22vP-I/AAAAAAAAG6Y/Hoo3kgNBP1g/w644-h533-no/PS_Azure_VMfamily.png" width="644" height="533" class="alignnone" />
 
 Para este ejemplo vamos a seleccionar la **_Windows Server Technical Preview_**.
 
-    $Family = "Windows Server Technical Preview"
-    $Image = Get-AzureVMImage | where { $_.ImageFamily -eq $Family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-    
+{% highlight posh %}
+$Family = "Windows Server Technical Preview"
+$Image = Get-AzureVMImage | where { $_.ImageFamily -eq $Family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+{% endhighlight %}
 
 Posteriormente tenemos que definir el tamaño de la VM, existen varias configuraciones definidas de tamaños, ésta es la lista de las configuraciones:
 
@@ -92,27 +95,33 @@ https://msdn.microsoft.com/library/azure/dn197896.aspx
 
 Ya tenemos todo, es hora de unir las partes y ejecutar lo siguiente:
 
-    $vmName = "WindowsServerTP" #Nombre a elección para la VM
-    $vmSize = "Small"
-    $VM = New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $Image
-    
+{% highlight posh %}
+$vmName = "WindowsServerTP" #Nombre a elección para la VM
+$vmSize = "Small"
+$VM = New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $Image
+{% endhighlight %}
 
 También podemos agregar la credencial del usuario administrador de la máquina:
 
-    $vmCred = Get-Credential
-    $VM | Add-AzureProvisioningConfig -Windows -AdminUsername $vmCred.GetNetworkCredential().Username -Password $vmCred.GetNetworkCredential().Password
-    
+{% highlight posh %}
+$vmCred = Get-Credential
+$VM | Add-AzureProvisioningConfig -Windows -AdminUsername $vmCred.GetNetworkCredential().Username -Password $vmCred.GetNetworkCredential().Password
+{% endhighlight %}
 
 Creamos el Cloud Service que alojará la VM, indicando el nombre y la **Location** donde se encontrará:
 
-    New-AzureService -ServiceName "SvcServer" -Location "South Central US"
-    
+{% highlight posh %}
+New-AzureService -ServiceName "SvcServer" -Location "South Central US"
+{% endhighlight %}
 
 Y ahora sí, creamos la VM:
 
-    New-AzureVM -ServiceName "SvcServer" -VMs $VM
-    
+{% highlight posh %}
+New-AzureVM -ServiceName "SvcServer" -VMs $VM
+{% endhighlight %}
 
 Si nos fijamos en el portal, luego de unos instantes vamos a tener la VM corriendo:
 
 <img src="https://lh4.googleusercontent.com/-ErYl3xp8o9g/VUZz4vb-aEI/AAAAAAAAG8Q/wREEhZqF0OE/w631-h233-no/PS_Azure_VMrun.png" width="631" height="233" class="alignnone" />
+
+Happy scripting!
