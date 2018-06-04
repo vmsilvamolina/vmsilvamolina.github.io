@@ -23,7 +23,9 @@ El resultado de esta operación es: **_63,428571&#8230;_**
 
 Para poder redondear este numero tenemos que anteponer lo siguiente:
 
-<pre>[math]::Round(44/7)</pre>
+{% highlight posh %}
+[math]::Round(44/7)
+{% endhighlight %}
 
 Obteniendo como resultado: **_6_**
 
