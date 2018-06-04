@@ -1,10 +1,8 @@
 ---
-id: 795
 title: Timeout al ejecutar comandos remotamente
 date: 2015-06-12T23:49:02+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=795
 permalink: /powershell-timeout-al-ejecutar-comandos-remotamente/
 dsq_thread_id:
   - "4601820923"
@@ -20,8 +18,9 @@ Trabajando con scripts que se ejecutan en servidores remotos, en una oportunidad
 
 Empecé con aislar el servidor e intentar ejecutar comandos para ver el comportamiento. Lo primero que intente es:
 
-    Get-Process -ComputerName Servidor01
-    
+{% highlight posh %}
+Get-Process -ComputerName Servidor01
+{% endhighlight %}
 
 Y nada, error.
 
@@ -39,4 +38,4 @@ Problema resuelto!
 
 Enlace para que puedan seguir aprendiendo sobre scripting remoto: [enlace](https://technet.microsoft.com/es-es/library/dd819505.aspx)
 
-Saludos,
+Happy scripting!

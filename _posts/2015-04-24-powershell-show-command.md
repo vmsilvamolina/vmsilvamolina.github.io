@@ -1,10 +1,8 @@
 ---
-id: 779
 title: 'PowerShell: Show-Command'
 date: 2015-04-24T10:29:46+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=779
 permalink: /powershell-show-command/
 dsq_thread_id:
   - "4486990669"
@@ -23,8 +21,9 @@ Abrimos una consola de PowerShell y ejecutamos **_Show-Command_**. Nos debe apar
 
 El comando nos muestra una lista (gráfica) de todos los comandos de todos los módulos disponibles. Puede que eso no sea muy mágico, pero si ejecutamos el mismo comando con otro comando como parametro, por ejemplo:
 
-    Get-Command Rename-Computer
-    
+{% highlight posh %}
+Get-Command Rename-Computer
+{% endhighlight %}
 
 Nos abre una interfaz gráfica con un formulario que contiene los parametros del comando!!! Eso si es muy bueno.
 
@@ -34,4 +33,4 @@ Al ser un formulario, vamos a tener marcados con un asterisco en rojo los que so
 
 Por mas información sobre el comando, les dejo el enlace a la TechNet: [Show-Command](https://technet.microsoft.com/en-us/library/hh849915.aspx)
 
-Saludos,
+Happy scripting!
