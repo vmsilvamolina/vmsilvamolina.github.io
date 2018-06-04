@@ -1,10 +1,8 @@
 ---
-id: 708
 title: 'PowerShell &#8211; Montar imagen ISO'
 date: 2015-03-12T21:02:46+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=708
 permalink: /powershell-montar-imagen-iso/
 dsq_thread_id:
   - "4482537832"
@@ -30,16 +28,18 @@ Esta acción vamos a poder llevarla a cabo con el siguiente comando:
 
 Y la sintaxis es bastante simple, si tenemos una ISO de nombre Imagen.iso en la carpeta C:\ISOS, para montarla debemos ejecutar:
 
-    Mount-DiskImage -ImagePath C:\ISOS\Imagen.iso
-    
+{% highlight posh %}
+Mount-DiskImage -ImagePath C:\ISOS\Imagen.iso
+{% endhighlight %}
 
 Listo!
 
 También podríamos ejecutar el comando sin el parámetro de la siguiente manera:
 
-    Mount-DiskImage C:\ISOS\Imagen.iso
-    
+{% highlight posh %}
+Mount-DiskImage C:\ISOS\Imagen.iso
+{% endhighlight %}
 
 Destacar también que ese no es el único uso de este fabuloso comando, también nos permite montar discos virtuales! Para realizar esta acción debemos de tener privilegios administrativos.
 
-Saludos,
+Happy scripting!
