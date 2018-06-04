@@ -1,10 +1,8 @@
 ---
-id: 753
 title: 'PowerShell &#8211; RunOnce'
 date: 2015-04-01T16:20:37+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=753
 permalink: /powershell-runonce/
 dsq_thread_id:
   - "4524196751"
@@ -28,9 +26,10 @@ Por lo que podemos definir si queremos que el código se ejecute luego de reinic
 
 Un ejemplo de uso, podría ser la necesidad de ejecutar un script ya guardado en la ruta **_C:\Scripts\Parte2.ps1_** para poder completar un procedimiento en particular. Para ello vamos a agregar una línea de código en nuestro script &#8220;Parte1.ps1&#8221;:
 
-    New-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce -Name "Parte2" -Value "powershell.exe -ExecutionPolicy Unrestricted -Command `"C:\Scripts\Parte2.ps1`""
-    
+{% highlight posh %}
+New-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce -Name "Parte2" -Value "powershell.exe -ExecutionPolicy Unrestricted -Command `"C:\Scripts\Parte2.ps1`""
+{% endhighlight %}
 
 Les comparto un enlace que habla sobre esta clave en particular: [link](https://msdn.microsoft.com/en-us/library/windows/desktop/aa376977%28v=vs.85%29.aspx).
 
-Saludos,
+Happy scripting!

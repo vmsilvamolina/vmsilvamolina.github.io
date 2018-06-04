@@ -1,10 +1,8 @@
 ---
-id: 787
 title: 'SCCM &#8211; Reportes: No se encontraron elementos'
 date: 2015-06-04T12:54:19+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=787
 permalink: /sccm-reportes-no-se-encontraron-elementos/
 dsq_thread_id:
   - "4483288581"
@@ -41,12 +39,13 @@ La ruta por defecto es **_C:\Program Files\Microsoft Configuration Manager\Logs\
     
 > Clase no válida
 
-Investigando un poco me encontré con un comando en particular que permite registrar nuevamente el proveedor WMI (en teoría al desisntalar una instancia de SQL).
+Investigando un poco me encontré con un comando en particular que permite registrar nuevamente el proveedor WMI (en teoría al desinstalar una instancia de SQL).
 
 El comando es cuestión es:
 
-    mofcomp "%programfiles(x86)%\Microsoft SQL Server\número\Shared\sqlmgmproviderxpsp2up.mof"
-    
+{% highlight bash %}
+mofcomp "%programfiles(x86)%\Microsoft SQL Server\número\Shared\sqlmgmproviderxpsp2up.mof"
+{% endhighlight %}
 
 Donde <número> corresponde según la versión de SQL, dejo una tabla para comprobar:
 
@@ -58,8 +57,9 @@ Donde <número> corresponde según la versión de SQL, dejo una tabla para compr
 
 En mi caso al tener SQL 2008 R2, el comando que ejecuté fue el siguiente:
 
-    mofcomp.exe "C:\Program Files (x86)\Microsoft SQL Server\100\Shared\sqlmgmproviderxpsp2up.mof"
-    
+{% highlight bash %}
+mofcomp.exe "C:\Program Files (x86)\Microsoft SQL Server\100\Shared\sqlmgmproviderxpsp2up.mof"
+{% endhighlight %}
 
 <img src="https://lh6.googleusercontent.com/-7pyT9jGWTNE/VXBkuuntapI/AAAAAAAAG_o/Cl1tDyPTyH0/w689-h359-no/SCCM_Reporting_4.png" width="689" height="359" class="alignnone" />
 
@@ -75,4 +75,4 @@ Y si probamos nuevamente en acceder a los reportes desde la consola de SCCM:
 
 Solucionado!
 
-Saludos,
+Happy scripting!
