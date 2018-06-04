@@ -1,10 +1,8 @@
 ---
-id: 703
 title: 'PowerShell &#8211; Definiendo mejores funciones!'
 date: 2015-03-05T11:58:16+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=703
 permalink: /powershell-definiendo-mejores-funciones/
 dsq_thread_id:
   - "4488313826"
@@ -42,36 +40,45 @@ Para definir los parámetros vamos a hacer lo siguiente:
 
 <img src="https://lh3.googleusercontent.com/-l8klXJt8irU/VPilRoBe9hI/AAAAAAAAG3A/Hv4SvHpHNVA/w457-h317-no/PS_Adv_Function_2.png" width="457" height="317" class="alignnone" />
 
-    Param(
-        [string]$ComputerName,
-        [string]$FilePath
-    )
-    
+{% highlight posh %}
+Param(
+    [string]$ComputerName,
+    [string]$FilePath
+)
+{% endhighlight %}
 
-Agregando el bloque de código anterior, nos permite, a la hora de llamar la función invocar esos parametros definidos. Cuando definimos los parámetros **$ComputerName** y **$FilePath**, establecemos que el tipo de variable es un _string_, que es lo que indica la imagen con el parámetro _$ComputerName_.
+Agregando el bloque de código anterior, nos permite, a la hora de llamar la función invocar esos parámetros definidos. Cuando definimos los parámetros **$ComputerName** y **$FilePath**, establecemos que el tipo de variable es un _string_, que es lo que indica la imagen con el parámetro _$ComputerName_.
 
 Si bien la manera de presentar los parámetros tipo lista es una manera, no es obligatorio, se puede hacer lineal. Voy a dejar un ejemplo y como se utilizarían los parámetros en una función simple:
 
-    Function Get-Suma {
-    param(
-    $Numero1, $Numero2
-    )
-    
-    $Resultado = $Numero1 + $Numero2
-    Write-host $Resultado
-    }
-    
-    Get-Suma -Numero1 8 -Numero2 12
-    
+{% highlight posh %}
+Function Get-Suma {
+param(
+$Numero1, $Numero2
+)
+
+$Resultado = $Numero1 + $Numero2
+Write-host $Resultado
+}
+
+Get-Suma -Numero1 8 -Numero2 12
+{% endhighlight %}
 
 Cuyo resultado es **20**
 
 ## Valores predefinidos de los parámetros
 
-Encaso de querer forzar valores predefinidos en los parámetros, podemos hacer lo siguiente:
+En caso de querer forzar valores predefinidos en los parámetros, podemos hacer lo siguiente:
 
-param( \[parameter(Mandatory=$true)\] \[ValidateSet(&#8220;Memoria&#8221;, &#8220;CPU&#8221;)\] [String[]] $Object, [string]$ChartType, $Values, [string]$FileName )
+param(
+  [parameter(Mandatory=$true)]
+  [ValidateSet(&#8220;Memoria&#8221;, &#8220;CPU&#8221;)]
+  [String[]]$Object, 
+  [string]$ChartType, 
+  $Values, 
+  [string]$FileName
+)
 
 Esto permite que a un parámetro que nosotros definamos en una función podamos definir valores conocidos. En el ejemplo tenemos el parámetro $Object, el cual tiene como valores predefinidos **_Memoria_** y **_CPU_**.
 
-Saludos,
+Happy scripting!
