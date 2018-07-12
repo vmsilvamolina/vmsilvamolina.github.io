@@ -4,7 +4,7 @@ date: 2018-06-29T18:57:00+00:00
 author: Victor Silva
 layout: single
 permalink: /snippets-vscode-azure/
-excerpt: ""
+excerpt: "Hace un tiempo que vengo utilizando Visual Studio Code y la verdad es, que cada día que pasa, le voy tomando más cariño. Es ágil, tiene una interfaz muy cuidada, está repleto de extensiones (a nivel de lenguajes o tecnologías) y es super customizable. En referencia a esto último es que he decidido armar esta entrada en el blog."
 categories:
   - Azure
   - PowerShell
