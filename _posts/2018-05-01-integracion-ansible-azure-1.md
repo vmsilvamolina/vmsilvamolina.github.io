@@ -15,7 +15,12 @@ tags:
   - Azure Cloud Shell
 ---
 
-<p>Este post pertenece a una serie de publicaciones relacionadas.</p>{: .notice--success}
+<div>
+<p>Este post pertenece a una serie de publicaciones relacionadas:</p>
+<li>Integración de Ansible y Azure - Introducción</li>
+<li><a href="https://blog.victorsilva.com.uy/integracion-ansible-azure-2/">Integración de Ansible y Azure - Hello world!</a></li>
+<li><a href="https://blog.victorsilva.com.uy/integracion-ansible-azure-3/">Integración de Ansible y Azure - Desplegar una VM</a></li>
+</div>{: .notice--success}
 
 En los días que corren, el concepto de **IaC** (*Insfrastructure as Code*) se ha vuelto moneda corriente entre los sysadmins. Por ello, creo que es necesario hablar sobre las posibilidades que Azure nos brinda realizar las tareas de la mejor manera posible.
 
