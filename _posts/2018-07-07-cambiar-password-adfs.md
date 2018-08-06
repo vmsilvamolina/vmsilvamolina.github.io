@@ -1,17 +1,18 @@
 ---
-title: 
+title: Cambiar password en ADFS
 date: 2018-07-07T18:57:00+00:00
 author: Victor Silva
 layout: single
 permalink: /cambiar-password-adfs/
-excerpt: ""
+excerpt: "ADFS ofrece la posibilidad de habilitar (por defecto se encuentra deshabilitada) una funcionalidad para permitir al usuario cambiar la contraseña desde el propio portal. Esto permite resolver situaciones como usuarios con contraseñas expiradas o nuevos usuarios que deben cambiar la password en el siguiente inicio de sesión."
 categories:
   - PowerShell
 tags:
   - PowerShell
   - ADFS
   - Password Change
-  - 
+  - Cambiar contraseña
+  - AD
 ---
 
 ADFS ofrece la posibilidad de habilitar (por defecto se encuentra deshabilitada) una funcionalidad para permitir al usuario cambiar la contraseña desde el propio portal. Esto permite resolver situaciones como usuarios con contraseñas expiradas o nuevos usuarios que deben cambiar la password en el siguiente inicio de sesión.
@@ -55,5 +56,7 @@ Donde vamos a poder actualizar nuestra contraseña sin salir del portal, ni ingr
 También es posible acceder directamente a la siguiente URL para realizar el cambio de contraseña en caso que se requiera instanciar esta funcionalidad de forma manual:
 
 [https://adfs.contoso.com/adfs/portal/updatepassword/](https://adfs.contoso.com/adfs/portal/updatepassword/)
+
+Hace un tiempo escribí un artículo sobre ADFS y cómo personalizar el portal para que muestr logos personalizados y más. El enlace es el siguiente: [https://blog.victorsilva.com.uy/customizar-la-web-adfs/](https://blog.victorsilva.com.uy/customizar-la-web-adfs/).
 
 Happy scripting!
