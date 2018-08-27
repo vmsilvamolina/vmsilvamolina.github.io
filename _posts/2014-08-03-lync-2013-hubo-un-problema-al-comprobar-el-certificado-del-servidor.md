@@ -1,5 +1,5 @@
 ---
-title: 'Lync 2013 : "Hubo un problema al comprobar el certificado del servidor"'
+title: 'Lync 2013 - Hubo un problema al comprobar el certificado del servidor'
 date: 2014-08-03T14:41:56+00:00
 author: Victor Silva
 layout: single
