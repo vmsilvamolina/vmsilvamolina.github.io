@@ -18,7 +18,7 @@ tags:
   - Get-WmiObject
   - PowerShell
   - PowerShell WMI
-  - root\cimv2
+  - cimv2
   - WMI
 ---
 Al momento de aprovechar los beneficios de Powershell usando objectos WMI, estamos interactuando directamente con _WMI namespaces_ y clases. Ahora bien, que es WMI:

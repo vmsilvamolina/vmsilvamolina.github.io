@@ -85,7 +85,7 @@ analytics:
 author:
   name             : "Victor Silva"
   avatar           : "/assets/images/bio-photo.jpg"
-  bio              : "I'll try to automate everything with PowerShell..."
+  bio              : "I'll try to automate everything with PowerShell 📃, DevOps 🚀, ❤️ Azure and I am Ansible enthusiast..."
   location         : "Montevideo, Uruguay"
   email            : "vmsilvamolina@hotmail.com"
   uri              :
@@ -192,6 +192,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-redirect-from
+  - simple-jekyll-search
 
 # mimic GitHub Pages with --safe
 whitelist:
