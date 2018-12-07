@@ -69,17 +69,17 @@ Si bien la mayoría de los ejemplos consideraba primero generar un **Resource Gr
 
 {% highlight yaml%}
   ---
-- name: Create Azure Resource Group
-  hosts: localhost
-  connection: local
-  vars:
-    rgname: demoAnsibleRG
+  - name: Create Azure Resource Group
+    hosts: localhost
+    connection: local
+    vars:
+      rgname: demoAnsibleRG
 
-  tasks:
-  - name: Create resource group
-    azure_rm_resourcegroup:
-      name: '{{ "{{ rgname " }}}}'
-      location: eastus
+    tasks:
+    - name: Create resource group
+      azure_rm_resourcegroup:
+        name: '{{ "{{ rgname " }}}}'
+        location: eastus
 {% endhighlight %}
 
 El código anterior representa la primer tarea del Playbook que vamos a utilizar. Algo para resaltar es el uso de variables (para el ejemplo se usó **demoAnsibleRG**). Esta variable me permite controlar de forma global la información que proporciono al ejecutar el Playbook, tomando relevancia real al momento de contar con una definición compleja de tareas y recursos facilitando la administración.
