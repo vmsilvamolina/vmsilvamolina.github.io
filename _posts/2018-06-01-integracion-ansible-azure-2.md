@@ -19,7 +19,7 @@ tags:
 <p>Este post pertenece a una serie de publicaciones relacionadas:</p>
 <li><a href="https://blog.victorsilva.com.uy/integracion-ansible-azure/">Integración de Ansible y Azure - Introducción</a></li>
 <li>Integración de Ansible y Azure - Hello world!</li>
-<li><a href="https://blog.victorsilva.com.uy/integracion-ansible-azure/">Integración de Ansible y Azure - Desplegar una VM</a></li>
+<li><a href="https://blog.victorsilva.com.uy/integracion-ansible-azure-3/">Integración de Ansible y Azure - Desplegar una VM</a></li>
 </div>{: .notice--success}
 
 En la entrega anterior se prepararon las credenciales que vamos a utilizar al momento de generar nuestros playbooks en Ansible. Como se comentó anteriormente Ansible, siendo un lenguaje declarativo, permite trabajar de tal manera que simplifica las tareas de administración de la infraestructura sumado a la flexibilidad generada a la hora de implementar soluciones, y sin tener que implementar agentes para tal fin. Estas tareas se agrupan en playbooks y, para no aburrir con el teórico, vamos a comenzar a definir un playbook y ver la estructura que presentan.
