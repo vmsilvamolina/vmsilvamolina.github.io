@@ -16,6 +16,7 @@ tags:
   - Jenkins
   - Scripting
   - Automatización
+  - DevOps
 ---
 
 Automatizar tareas aburridas es una de las cosas más divertidas para los que amamos el scripting, pero... ¿qué sucede si nos detenemos a pensar en la cantidad de scripts de PowerShell que hemos escrito para uso personal o del equipo? Módulos y/o funciones que ayudar a automatizar o solucionar problemas de forma más sencilla son olvidados y/o dejados de lado a pesar del esfuerzo que lleva realizar este tipo de tareas.
@@ -41,7 +42,7 @@ Jenkins se puede utilizar para hacer muchas cosas dentro del equipo de operacion
 
 Cualquier cosa que sea posible realizar con PowerShell, puede integrarse con Jenkins para proporcionar una interfaz fácil de usar, brindando un espacio para programar y ejecutar trabajos.
 
-¿Y Azure? Azure ofrece desde el marketplace la opción de desplegar una VM con todo listo para comenzar a trabajar.
+¿Y Azure? Azure ofrece desde el marketplace la opción de desplegar una VM con todo listo para comenzar a trabajar, incluyendo la posibilidad de extender la administración y gestión de los recursos de nube.
 
 <img src="https://hqyb9g.ch.files.1drv.com/y4miGxMZantg6sWfL3Qc3a4amDyhpkOvpR3i9Ii-JUaQ1WxBsBlU0dRV5wZAYMuhixeL7T4EcGSOSi1fPSfsOIwxFjXI6M3pSPv0uy8xVf_haWJRn13NCkwZxnGPOwWM_qekpxkMpeOUr3KFbdD6MsUmdvGjlO9GxB-PCpV2OG-k8jYjmJf4y4Lt0gSUjTy5xq2FYGhn_19ERQwm_9Cvt7nWw?width=585&height=568&cropmode=none" width="585" height="568" alt="Jenkins" class="alignnone" />
 
@@ -146,7 +147,7 @@ Luego de finalizado este proceso, es requerido generar un usuario admin. Para el
 
 <img src="https://kx4neq.ch.files.1drv.com/y4mn8FJKxp6idr-NwNPV8eDZXJUuj3TpqnTr0v9VIK-hPNrEgVyVlDdqbleTFGQXH80BNS2mKgTqpe8h_leYUDDV4qxLWK4iMFDkeZzguaxaoQtkx0X8ykDTYNHQpyQnf0KlDZ-B7sRJBaSP0gPr8BVBNTV58wyOGn-cG40-uwmxjyGgPlg6OveYg2iQ1PPpKuNLqF4zm9gmtm8Q8beJJMhjw?width=815&height=694&cropmode=none" width="815" height="694" alt="Create first admin user" class="alignnone" />
 
-> Start using Jenkins
+Seleccionar **Save and Continue** para comenzar a utilizar Jenkins.
 
 ### Instalación de PowerShell Core
 
@@ -217,7 +218,7 @@ Para poder ver el resultado, seleccionamos **Console Output** y vamos a poder ob
 
 La imagen anterior es el punto final, donde pudimos ejecutar un trabajo en Jenkins con PowerShell Core. Las posibilidades son infinitas sobre tareas a realizar y gestionar por medio de estas 2 grandes herramientas, sin contar que también existe la posibilidad de trabajar con Azure directamente.
 
-¿más información sobre Jenkins? https://jenkins.io/
+¿Más información sobre Jenkins? https://jenkins.io/
 
 En próximas entradas veremos como seguir profundizando en esta gran solución.
 
