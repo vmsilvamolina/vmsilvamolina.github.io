@@ -20,7 +20,9 @@ tags:
 ---
 
 
-Los que hemos trabajado en Azure con *ARM templates* sabemos que puede tornarse un poco engorroso el tema del manejo de los GUID (Globally Unique Identifier). Aunque existen varios métodos, 
+Los que hemos trabajado en Azure con *ARM templates* sabemos que puede tornarse difícil gestionar los diferentes recursos de un template y más aún, se vuelve un poco engorroso el tema del manejo de los GUID (Globally Unique Identifier). Estos amigos generan muchos dolores de cabeza a la hora de intentar orquestar los identificadores y que éstos sean únicos.
+
+Si bien existen varios métodos..
 
 
 
