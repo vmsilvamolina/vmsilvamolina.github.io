@@ -50,7 +50,7 @@ Cualquier cosa que sea posible realizar con PowerShell, puede integrarse con Jen
 
 Al ser este blog ferviente admirador de PowerShell y tomando en cuenta que estamos trabajando con Azure, el despliegue de la VM con Jenkins se realizará desde Azure Cloud Shell con PowerShell.
 
-Para ello, es necesario acceder a https://shell.azure.com y seleccionar la experiencia anteriormente comentada (PowerShell):
+Para ello, es necesario acceder a [https://shell.azure.com](https://shell.azure.com) y seleccionar la experiencia anteriormente comentada (PowerShell):
 
 <img src="https://jfpgiw.ch.files.1drv.com/y4mFxU-7kRjvk7PMU1jJc--DMZUcXA4d3KiGx-WeOjsUU-QxVDZeglMg9VVXjHRaY0rQxS1Ef4PwCfEhyGYy7bUBRfXRpq60oMPk03DhfgMDz55lZAU8PABCJBZL47h7lA200XiVgqo_12MNTKIAN6Jq1uvqpdP1jg5VblF-dFqE-u1pqrM6KyTS_ffpapjli--zvMYl5rKl6z-mEoyoCLitQ?width=933&height=455&cropmode=none" width="933" height="455" alt="Azure Cloud Shell" class="alignnone" />
 
@@ -103,7 +103,7 @@ Ya desplegada la VM con Jenkins en ejecución, se recomienda realizar algunos pa
 
 Para ello tenemos los siguientes pasos a realizar, detallados en la siguiente entrada:
 
-https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
+[https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
 
 Esta entrada no tiene como objetivo cubrir estos pasos inicialmente, por lo que se deja el enlace como referencia para implementaciones en producción.
 
@@ -218,7 +218,7 @@ Para poder ver el resultado, seleccionamos **Console Output** y vamos a poder ob
 
 La imagen anterior es el punto final, donde pudimos ejecutar un trabajo en Jenkins con PowerShell Core. Las posibilidades son infinitas sobre tareas a realizar y gestionar por medio de estas 2 grandes herramientas, sin contar que también existe la posibilidad de trabajar con Azure directamente.
 
-¿Más información sobre Jenkins? https://jenkins.io/
+¿Más información sobre Jenkins? [https://jenkins.io/](https://jenkins.io/)
 
 En próximas entradas veremos como seguir profundizando en esta gran solución.
 
