@@ -4,7 +4,6 @@ title: Exchange 2016 Requisitos de instalación
 date: 2015-10-02T20:12:19+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=892
 permalink: /exchange-2016-requisitos-de-instalacion/
 dsq_thread_id:
   - "4490568402"
