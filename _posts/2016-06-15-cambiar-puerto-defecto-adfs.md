@@ -11,7 +11,11 @@ dsq_thread_id:
 categories:
   - Active Directory Federation Services
   - PowerShell
-format: aside
+tags:
+  - PowerShell
+  - ADFS
+  - ADFS port
+  - Active Directory Federation Services
 ---
 En alguna ocasión podemos llegar a encontrarnos con la necesidad de tener que cambiar puerto por defecto en ADFS en nuestra implementación de Active Directory Federation Services sobre Windows Server 2012 R2, ya que podemos encontrarnos en un escenario que, por ejemplo, comparta varios servicios en una IP pública y por ende, el puerto 443 se encuentre actualmente en otro servicio publicado.
 
