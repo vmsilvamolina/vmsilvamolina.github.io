@@ -1,10 +1,8 @@
 ---
-id: 1211
 title: Cambiar puerto por defecto en ADFS
 date: 2016-06-15T09:49:52+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1211
 permalink: /cambiar-puerto-defecto-adfs/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*Sz3Js055VwE6KyPu.jpg";s:10:"author_url";s:33:"https://medium.com/@vmsilvamolina";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"62fe158feac7";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:81:"https://medium.com/@vmsilvamolina/cambiar-puerto-por-defecto-en-adfs-62fe158feac7";}'
@@ -47,4 +45,4 @@ Como último paso, reiniciar el servicio **_Active Directory Federation Services
 
 Ahora bien, **ADFS 3.0** no depende directamente del IIS, pero para que todo lo anterior se vea reflejado correctamente debemos instalar el rol de IIS y luego modificar los enlaces agregando **HTTPS** utilizando el puerto _8443_.
 
-Saludos,
+Happy scripting!
