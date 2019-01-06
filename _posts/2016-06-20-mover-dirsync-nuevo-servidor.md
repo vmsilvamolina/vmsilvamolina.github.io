@@ -1,10 +1,8 @@
 ---
-id: 1213
 title: Mover DirSync a un nuevo servidor
 date: 2016-06-20T14:08:41+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1213
 permalink: /mover-dirsync-nuevo-servidor/
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*Sz3Js055VwE6KyPu.jpg";s:10:"author_url";s:33:"https://medium.com/@vmsilvamolina";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"59fde9f846ca";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:80:"https://medium.com/@vmsilvamolina/mover-dirsync-a-un-nuevo-servidor-59fde9f846ca";}'
@@ -64,9 +62,7 @@ Luego de completar el ingreso de las credenciales de Office 365 y Active Directo
 
 ## Detener el DirSync a reemplazar
 
-Ubicados en el servidor original, vamos a detener el servicio de Windows: **Windows Azure Active Directory Sync
-  
-Service**
+Ubicados en el servidor original, vamos a detener el servicio de Windows: **Windows Azure Active Directory Sync Service**
 
 <img src="https://lh3.googleusercontent.com/dqeppQY0tQZDJY2vrZY0b_pvL5BI6q2ejdZCX1rbyvcTdwtWEWGlQ8rLevNk3irynTDBPS3nE5uat1T19taP8rpWpA1EL8Y2lbSmA7AhktkndCiIq2GuhUN_3b07f3HfRpWQm7w58dC1jgq3q58TyqSNuDC_wE8oHPAD7KwCq_j-VApeHmG7eQcvbhaEBPqx7TUZ5RfYpYNldShWPHKkihtHapp-Sbz5dd2TIDgGougBiuae5XyPUI4B3nm7amBHSLqt0-CChcjhOp3pyO79yqnTO4sCyE16PaN5tFL4P3AUjS4QuwXDgtq5qg9GmOgmN31uH90lTPXCG1zUERLH2Dh_diucnZ4n6vWemEeJ-BJP25oOZKdvKFx4FXmsiY7ZDzDYQDX6W-0Z1Vqz0D83cRK11judEmN99uo1b4ZJRfC2QFw4tFcJ75gD2mKPVco6r5_CXF2GtJ9_L8x4EAaQ6f8L6Pb5mxH3qMgtfg0B9l-R2U27f0QDvCBhsrSJHQ2f0cXwzd-uIEmwLFcRLuSP5k8LqGgUbcrk5MPq4bv2iH8u-UQ2YIpQrUNjZPAAAQxBeCz3oFFI6YmFLzlSKQMuMYMs3K9IOgg=w850-h110-no" width="850" height="110" alt="Detener el servicio de DirSync" class="alignnone" />
 
@@ -83,7 +79,7 @@ Debemos ir a la **Administración de equipos \ Usuario y grupos locales** y crea
 <img src="https://lh3.googleusercontent.com/mRqmHRvT4XILP4vNqDqZiM2SHTyP_hEa9DRk--wNjrHqJN-wlcjn3vSDyWzQQjj5Npp19DFyflkEy6m7iDysIrk9rIij6g2miBteWmj8SsvTUQ1cnRWxxUg124LnqkEkb79XLiRXKT3vDWaZzL4I4jlxXlCGXHx7nyD6B63x4Pjt4UklA5y4WftF1KLrGyf7iaRDCr7MhACWS98h1GCyTrU5LeeV-fuohMeK2HYEyR1k5IVqrfA2kqaMX1exqfLts-1MiIpxRAE0ImaaBRh7pUjS0SVGnMtFzjWLKW6D2PXZpZmC73UZ43Ahx5MEnDKAYAUEvOlsrlTzsccLWogSv_E652_h6_HfdxwTNBYJ2rRg4_flgdRbdUVQBSGlODJH_KJdnte4iieAKtLUk3aAYk3mKsa1fAt3y_WUucWxhHs7hO8GSmX7g1GZSwG2wZYhIfvNcFTOwTlLjgt1I3fhXycwSXPn3D5mr52vb3N8NuHuVIbY8NZraAp_F1CTA1SbEFkxx2Zy8n6cfK0qkWsRPgY9JnMdDteSOpH_JbJlGgEs6FRopo-sYi7lzjpLJ27ZBg8yIsP41UUjd3GlrZgPsPLPvhNiNjM=w430-h393-no" width="430" height="393" alt="Grupo MIISAdmins" class="alignnone" />
 
 Cerramos sesión en el servidor e iniciamos de nuevo, para que el token de seguridad surta efecto dentro del grupo creado.
-  
+
 Ahora vamos a importar la configuración correspondiente:
 
 <img src="https://lh3.googleusercontent.com/IGFVEoiTM8ymFGMJ51qhHlbyFLxZkVknF_umDoC0sSRuI7ZbeE_8UqBBlsP4EueNxGzDD_GVVwPucWU6AUMzGQ9EcREpwjIZ7JK8fm-usDcMrREGWNyt5aHUEo2x8VQWS58-QC48XU7sh_vvvB8BAbxngRQd0Vk0JWhpHBTIlWuS_ezXKDFoLGuisx0K90VUyoojE9c734fsnoRnHfl-DwEK_sToZA43ErVKeZRUm9yuv6WJ6Velv4bVJe19a01zT23k60lwytqOMcttUMSlSQSmtSWiG1M45T8yu3oLEQSXgsWgEY813HWwNI-e5XQ3ENIYdkravnHJ0cpiCqwWK7wRxiqkKr4Ku-BfyZbIYlTyTcd2eumq-2F0-aAr3TDDDagzxfhp6gH9eAo2E8Ek5Y7OPRH2BpDsa6TV_QRq8CZD6pICLRQhBWznUCsRH728lp-XemXAjcYzl-VP3AMqoPQdsmlh-zlY0hjrTNQXLZc9NQem51mCSURZJSfUqkmWTvFMNNobtRXpold7nW-30LurY4X8fpaOy8XfdiYKloL_EOnw2tPZa8qzy8qyyLGt2TDfCfUig7XEClRaenlksW0Cat4hu00=w808-h186-no" width="808" height="186" alt="Importar configuración de DirSync" class="alignnone" />
@@ -100,4 +96,4 @@ Finalizada la importación de la configuración vamos a ejecutar la sincronizaci
 
 Luego de realizado lo anterior vamos a poder comprobar desde la consol de **Office 365** o desde el **miisclient.exe** que se ha realizado correctamente la sincronización del directorio desde nuestro servidor nuevo.
 
-Saludos,
+Happy scripting!
