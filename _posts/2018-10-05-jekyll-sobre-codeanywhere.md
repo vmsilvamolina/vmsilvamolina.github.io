@@ -1,6 +1,7 @@
 ---
 title: "Ejecutar Jekyll sobre Codeanywhere"
 author: Victor Silva
+date: 2018-10-05T21:47:00+00:00
 layout: single
 permalink: /jekyll-sobre-codeanywhere/
 excerpt: ""
@@ -24,10 +25,46 @@ Es acá donde hablo de mi gran descubrimiento llamado **Codeanywhere**.
 
 En pocas palabras, Codeanywhere es una solución online donde se ofrece la posibilidad de tenr un IDE desde el browser.
 
-### Jekyll
+### Repositorio de código
 
-Jekyll está desarrollado en Ruby, por lo que es necesario instalar las gemas necesarias para poder utilizar este generador de contenido.
+En mi caso, el blog se encuentra alojado en GitHub, por lo que necesitamos hacer un `git clone`:
+
+{% highlight bash%} git clone https://github.com/vmsilvamolina/vmsilvamolina.github.io {% endhighlight %}
+
+### Instalar Jekyll
+
+Jekyll está desarrollado en Ruby, por lo que es necesario instalar las gemas necesarias para poder utilizar este generador de contenido:
+
+{% highlight bash%} gem install jekyll --no-ri --no-rdoc {% endhighlight %}
+
+Y también vamos a instalar el resaltador de sintaxis:
+
+{% highlight bash%} gem install rouge {% endhighlight %}
+
+Como comenté en líneas anteriores, mi código está hosteado en GitHub y corre sobre GitHub Pages por lo que necesitamos la siguiente gema para poder ejecutar el servidor sin problemas:
+
+{% highlight bash%} gem install github-pages {% endhighlight %}
+
+### Ejecutar Jekyll
+
+Ya con lo necesario para poder comenzar a probar nuestro servidor, vamos a ejecutar lo siguiente para inicializar el servidor web:
+
+{% highlight bash%} jekyll serve --host=0.0.0.0 --drafts {% endhighlight %}
+
+Nota: En la siguiente entrada voy a tratar el tema de trabajar con Drafts en Jekyll :)
+
+### Listo?
+
+Bueno... no todo salió como estaba previsto, al ejecutar el comando anterior se generó el siguiente error:
+
+> Conversion error: Jekyll::Converters::Scss encountered an error while converting 'assets/css/styles.scss': Invalid US-ASCII character "\xE2" on line 54
+
+Esto se debe a un error en la configuración del *locale* en el container. Debido a que no se puede modificar debido a la volatilidad, es necesario reflejar el cambio en el archivo de configuración.
+
+Como la plataforma utiliza OpenVZ es necesrio modificar el archivo de conf, adicionando lo siguiente:
+
+**"export LANG=en_US.UTF-8"**
 
 
-> Liquid Exception: Could not locate the included file 'video' in any of ["/home/cabox/workspace/_includes"]. 
-> Ensure it exists in one of those directories and, if it is a symlink, does not point outside your site source...
+Happy scripting!
+
