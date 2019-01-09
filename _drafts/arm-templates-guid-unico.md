@@ -1,7 +1,7 @@
 ---
 title: "GUID único en templates ARM con PowerShell"
-
 author: Victor Silva
+date: 2018-10-19T18:57:00+00:00
 layout: single
 permalink: /arm-templates-guid-unico/
 excerpt: ""
@@ -18,7 +18,7 @@ tags:
   - DevOps
   - Automatización
 ---
-date: 2018-10-19T18:57:00+00:00
+
 
 Los que hemos trabajado en Azure con *ARM templates* sabemos que puede tornarse difícil gestionar los diferentes recursos de un template y más aún, se vuelve un poco engorroso el tema del manejo de los GUID (Globally Unique Identifier). Estos amigos generan muchos dolores de cabeza a la hora de intentar orquestar los identificadores y que éstos sean únicos.
 
