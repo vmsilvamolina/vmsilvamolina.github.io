@@ -17,27 +17,26 @@ tags:
   - Draft
 ---
 
-Hace un tiempo que estoy intentando librarme de ambientes locales a la hora de escribir en el blog porque, si bien me encanta Jekyll como generador de contenido estático, tiene un requisito que es el siguiente: Para poder ver los cambios es necesario ejecutar el blog.
+Hace un tiempo que estoy intentando librarme de ambientes locales a la hora de escribir en el blog porque, si bien me encanta Jekyll como generador de contenido estático, tiene un requisito que es el siguiente: Para poder ver los cambios y/o borradores es necesario ejecutar el blog.
 
-es decir que se necesita de un **localhost** donde poner en marcha el blog, lo que va en contra de mi movimiento de libertad.
+Es decir que se necesita de un **localhost** donde poner en marcha el blog, lo que va en contra de mi movimiento de libertad (en terminos de requerimientos locales).
 
-Es acá donde hablo de mi gran descubrimiento llamado **Codeanywhere**.
-
-En pocas palabras, Codeanywhere es una solución online donde se ofrece la posibilidad de tenr un IDE desde el browser.
+Es acá donde hablo de mi gran descubrimiento llamado **Codeanywhere** ([https://codeanywhere.com](https://codeanywhere.com)).
+En pocas palabras, Codeanywhere es un entorno de desarrollo 100% online, donde se ofrece una solución para poder contar con un IDE completamente accesible desde el browser.
 
 ### Repositorio de código
 
-En mi caso, el blog se encuentra alojado en GitHub, por lo que necesitamos hacer un `git clone`:
+En mi caso, el blog se encuentra alojado en GitHub, por lo que necesitamos hacer un `git clone` de mi repositorio para contar con el código y toda la información del mismo:
 
 {% highlight bash%} git clone https://github.com/vmsilvamolina/vmsilvamolina.github.io {% endhighlight %}
 
 ### Instalar Jekyll
 
-Jekyll está desarrollado en Ruby, por lo que es necesario instalar las gemas necesarias para poder utilizar este generador de contenido:
+Jekyll está desarrollado mayormente en Ruby, por lo que es necesario instalar las gemas necesarias para poder utilizar este generador de contenido:
 
 {% highlight bash%} gem install jekyll --no-ri --no-rdoc {% endhighlight %}
 
-Y también vamos a instalar el resaltador de sintaxis:
+Y también vamos a instalar el resaltador de sintaxis para todo el código que se encuentra en los posts:
 
 {% highlight bash%} gem install rouge {% endhighlight %}
 
@@ -53,8 +52,6 @@ Ya con lo necesario para poder comenzar a probar nuestro servidor, vamos a ejecu
 
 Nota: En la siguiente entrada voy a tratar el tema de trabajar con Drafts en Jekyll :)
 
-### Listo?
-
 Bueno... no todo salió como estaba previsto, al ejecutar el comando anterior se generó el siguiente error:
 
 > Conversion error: Jekyll::Converters::Scss encountered an error while converting 'assets/css/styles.scss': Invalid US-ASCII character "\xE2" on line 54
@@ -65,6 +62,8 @@ Como la plataforma utiliza OpenVZ es necesrio modificar el archivo de conf, adic
 
 **"export LANG=en_US.UTF-8"**
 
+Información relacionada:
+* [Sitio de Jekyll](https://jekyllrb.com/)
+
 
 Happy scripting!
-
