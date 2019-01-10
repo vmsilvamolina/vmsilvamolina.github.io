@@ -34,7 +34,7 @@ After the execution (I had to wait a few minutes), I got the following error:
 
 > Filed to connecto to github.com port 443: Time out
 
-<img src="" width="888" height="721" alt="" class="alignnone" />
+<img src="https://v5xycw.ch.files.1drv.com/y4mrtQAQcEaHoY96kKJ8lx4VVV2246qethFvhz5g-NJUAUZ0cV39bk5BB9gCHqZqlFnME64tK1ZIjDDu4OKYqP3w1kRfUpL6GoKgUx-tABjimhU0ycETo8Vfs1NQgZ3TMYQ09GuIMc2v3wi9RqiMsQo6riJRJRfAYj5kcGG7YSXFDprFavHPThvaKyrD-qE0JnwmbXrki0DcOr5rmpny5-t5A?width=1129&height=73&cropmode=none" alt="Failed to connect to github.com port 443: Timed out" class="alignnone" />
 
 ### Solution
 
