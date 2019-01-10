@@ -14,6 +14,7 @@ tags:
   - AWS 
   - Serverless 
   - Lambda 
-  - Scripting 
-  - Automatizacion 
+  - Scripting
+  - Automation 
+  - English
 --- 

@@ -1,5 +1,5 @@
 ---
-title: "GitHub - Failed to connect to github.com port 443: Timed out"
+title: "Failed to connect to github.com port 443: Timed out [English]"
 author: Victor Silva
 date: 2018-10-19T20:04:00+00:00
 layout: single
@@ -17,6 +17,7 @@ tags:
   - DevOps
   - Automatización
   - posh-git
+  - English
 ---
 
 Last week I worked behind a corporate proxy. This really was a headache because everyone knows that you have an implicit restriction when you try to surf the web. But ... I didn´t know the problems I could have with GitHub, trying to sync my repos.

@@ -13,6 +13,7 @@ tags:
   - API
   - Marvel
   - Marvel Comics
+  - English
 ---
 
 <p>This is my first post in English :)</p>{: .notice--success}
