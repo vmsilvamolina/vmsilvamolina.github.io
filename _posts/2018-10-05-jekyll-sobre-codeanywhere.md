@@ -28,27 +28,37 @@ En pocas palabras, Codeanywhere es un entorno de desarrollo 100% online, donde s
 
 En mi caso, el blog se encuentra alojado en GitHub, por lo que necesitamos hacer un `git clone` de mi repositorio para contar con el código y toda la información del mismo:
 
-{% highlight bash%} git clone https://github.com/vmsilvamolina/vmsilvamolina.github.io {% endhighlight %}
+{% highlight bash%}
+  it clone https://github.com/vmsilvamolina/vmsilvamolina.github.io
+{% endhighlight %}
 
 ### Instalar Jekyll
 
 Jekyll está desarrollado mayormente en Ruby, por lo que es necesario instalar las gemas necesarias para poder utilizar este generador de contenido:
 
-{% highlight bash%} gem install jekyll --no-ri --no-rdoc {% endhighlight %}
+{% highlight bash%}
+  gem install jekyll --no-ri --no-rdoc
+{% endhighlight %}
 
 Y también vamos a instalar el resaltador de sintaxis para todo el código que se encuentra en los posts:
 
-{% highlight bash%} gem install rouge {% endhighlight %}
+{% highlight bash%}
+  gem install rouge
+{% endhighlight %}
 
 Como comenté en líneas anteriores, mi código está hosteado en GitHub y corre sobre GitHub Pages por lo que necesitamos la siguiente gema para poder ejecutar el servidor sin problemas:
 
-{% highlight bash%} gem install github-pages {% endhighlight %}
+{% highlight bash%}
+  gem install github-pages
+{% endhighlight %}
 
 ### Ejecutar Jekyll
 
 Ya con lo necesario para poder comenzar a probar nuestro servidor, vamos a ejecutar lo siguiente para inicializar el servidor web:
 
-{% highlight bash%} jekyll serve --host=0.0.0.0 --drafts {% endhighlight %}
+{% highlight bash%}
+  jekyll serve --host=0.0.0.0 --drafts
+{% endhighlight %}
 
 Nota: En la siguiente entrada voy a tratar el tema de trabajar con Drafts en Jekyll :)
 
