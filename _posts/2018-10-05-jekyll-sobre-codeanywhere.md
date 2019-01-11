@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2018-10-05T21:47:00+00:00
 layout: single
 permalink: /jekyll-sobre-codeanywhere/
-excerpt: ""
+excerpt: "Hace un tiempo que estoy intentando librarme de ambientes locales a la hora de escribir en el blog porque, si bien me encanta Jekyll como generador de contenido estático, tiene un requisito que es el siguiente: Para poder ver los cambios y/o borradores es necesario ejecutar el blog."
 categories:
   - Develpment
 tags:

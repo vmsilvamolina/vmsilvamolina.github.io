@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2018-10-19T20:04:00+00:00
 layout: single
 permalink: /failed-to-connect-to-github/
-excerpt: ""
+excerpt: "Last week I worked behind a corporate proxy. This really was a headache because everyone knows that you have an implicit restriction when you try to surf the web. But ... I didn´t know the problems I could have with GitHub, trying to sync my repos."
 categories:
   - PowerShell
   - DevOps
@@ -24,7 +24,7 @@ Last week I worked behind a corporate proxy. This really was a headache because 
 
 On my everyday tasks I use a lot PowerShell. When I need to acomplish a task, first I try to solve with the command line (if it´s possible, obviously).  
 
-Ok, when I tried to clone locally a repo, using the `git clone` command:
+So then, when I tried to clone locally a repo, using the `git clone` command:
 
 {% highlight bash%}
     git clone https://github.com/vmsilvamolina/vmsilvamolina.github.io.git
