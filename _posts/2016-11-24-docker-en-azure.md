@@ -1,4 +1,4 @@
----
+﻿---
 title: Utilizar Docker en Azure
 date: 2016-11-24T12:27:50+00:00
 author: Victor Silva
@@ -54,7 +54,7 @@ Lo primero que vamos a hacer es conectarnos a nuestro host de Docker en Azure. P
 bash
 {% endhighlight %}
 
-Fácil no? Bueno, en realidad con lo anterior solamente accedimos a nuestra consola de bash en Windows para poder utilizar el cliente ssh que trae incluido. En caso de que no tengan habilitada la feature de **_Bash on Ubuntu on Windows_**, les dejo un post anterior para que sepan como habilitarlo: [Habilitar Bash en Windows](http://blog.victorsilva.com.uy/habilitar-bash-windows/)
+Fácil, no? Bueno, en realidad con lo anterior solamente accedimos a nuestra consola de bash en Windows para poder utilizar el cliente ssh que trae incluido. En caso de que no tengan habilitada la feature de **_Bash on Ubuntu on Windows_**, les dejo un post anterior para que sepan como habilitarlo: [Habilitar Bash en Windows](http://blog.victorsilva.com.uy/habilitar-bash-windows/)
 
 Para conectarnos por ssh desde nuestra consola basta ejecutar:
 
