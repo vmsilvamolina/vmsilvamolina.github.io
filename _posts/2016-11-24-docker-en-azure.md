@@ -1,4 +1,4 @@
-﻿---
+---
 title: Utilizar Docker en Azure
 date: 2016-11-24T12:27:50+00:00
 author: Victor Silva
