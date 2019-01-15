@@ -1,16 +1,17 @@
 --- 
-title: "Using a Lambda Function to send automated blog post on Twitter [English]" 
+title: "Using a Lambda Function to automated blog post on Twitter (part 1) [English]" 
 author: Victor Silva
 date: 2019-01-01T19:57:00+00:00 
 layout: single 
 permalink: /aws-lambda-powershell-twitter/ 
-excerpt: "" 
+excerpt: "A few months ago, I started to learn about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. Additional to this, I follow the technical blog from Amazon and I read about the support for PowerShell Core 6 and I worked a lot with serverless (using Azure Functions) so that, serverless have a place in my heart nowadays" 
 categories: 
   - PowerShell 
   - AWS 
   - DevOps 
 tags: 
-  - PowerShell 
+  - PowerShell
+  - PowerShell Core 
   - AWS 
   - Serverless 
   - Lambda 
@@ -19,9 +20,16 @@ tags:
   - English
 --- 
 
-A few months ago, I started to learn about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. Additional to this, I follow the technical blog from Amazon and I read about the support for PowerShell Core 6 and I worked a lot with serverless (using Azure Functions) so that, serverless have a place in my heart nowadays. Well, with the above, I´ll share who to work with Amazon, in particular with the serverless solution called Lambda with PowerShell Core.
+<div>
+<p>This post is part of a series of related publications:</p>
+<li>Setting up a development environment</li>
+<li><a href="https://blog.victorsilva.com.uy/integracion-ansible-azure-2/">Integración de Ansible y Azure - Hello world!</a></li>
+<li><a href="https://blog.victorsilva.com.uy/integracion-ansible-azure-3/">Integración de Ansible y Azure - Desplegar una VM</a></li>
+</div>{: .notice--success}
 
-How will I explain that? Sharing with you a way to send automated blog post on Twitter without "human" interaction.
+A few months ago, I started to learn about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. Additional to this, I follow the technical blog from Amazon and I read about the support for PowerShell Core 6 and I worked a lot with serverless (using Azure Functions) so that, serverless have a place in my heart nowadays. Well, with the above, I´ll share how to work with AWS, in particular with the serverless solution called Lambda with PowerShell Core.
+
+How will I explain that? Sharing with you an excellent example: A way to send automated blog post on Twitter without "human" interaction.
 
 ## Setting up a development environment
 
@@ -35,6 +43,70 @@ Launch the Visual Studio Code app by typing code in your PowerShell session and 
 
 After Visual Studio Code has reload, you are ready for editing PowerShell files :)
 
+### Using PowerShell Core version
+
+Because the objective is to use PowerShell Core, we need to add a new variable to your profile settings file.
+
+Open VSCode and click en File, after that click on Preferences and the last step is to select Settings.
+
+Find in the right corner up, a button with two curly brackets ({ and }). Two editor panes appear. In the right-most  pane (user settings), insert the setting bellow:
+
+{% highlight posh%}
+  "powershell.powerShellExePath": "c:/Program Files/PowerShell/6/pwsh.exe"
+{% endhighlight %}
+
+The number **6** represents the version o PowerShell (core).
+Save the settings file and restart VSCode.
+
+### Install the .NET Core SDK
+
+Next, we need to install the .NET Core 2.2 SDK, because the Lambda support for PowerShell uses the same .NET Core. The .NET Core SDK is used by PowerShell publishing cmdlets for Lambda to create the Lambda deployment package.
+
+You can find the .NET Core 2.2 SDK [here](https://www.microsoft.com/net/download).
+
+### Install the PowerShell module AWSLambdaPSCore
+
+The last component we need for the development environment is the AWSLambdaPSCore module, that you can install from the PowerShell Gallery directly, using the following command:
+
+{% highlight posh%}
+  Install-Module AWSLambdaPSCore -Scope CurrentUser
+{% endhighlight %}
+
+## Using Lambda function to publish on twitter
+
+Well, after all the steps required to set the dev environment, we are ready to start to work with AWS Lambda and PowerShell Core. As the title indicates, the purpose of this post is share how to send posts from my blog to twitter without any human interaction.
+
+First we need to modify a little the blog, adding a new file that centralize all the entries.
+
+
+{% highlight plaintext%}
+  ---
+  layout: null
+  permalink: /entries.json
+  sitemap: false
+  ---
+
+  {
+      "title": "{{ site.title}}",
+      "description": "{{ site.description }}",
+      "url": "{{ site.url }}",
+      "date": "{{ site.time | date_to_rfc822 }}",
+      "posts": [
+          {% for post in site.posts %}
+          {% if post.hide_from_feed != true %}
+          {% if forloop.first != true %},{% endif %}
+          {
+          "title": "{{ post.title }}",
+          "url": "{{ post.url | prepend: site.baseurl }}",
+          "date": "{{ post.date | date_to_rfc822 }}",
+          "tags": {{ post.tags | jsonify }},
+          "categories": {{ post.categories | jsonify }}
+          }
+          {% endif %}
+          {% endfor %}
+      ]
+  }
+{% endhighlight %}
 
 
 https://docs.aws.amazon.com/lambda/latest/dg/powershell-programming-model.htm
