@@ -1,10 +1,8 @@
 ---
-id: 862
 title: 'PowerShell: Crear un módulo binario'
 date: 2015-08-14T15:43:22+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=862
 permalink: /powershell-crear-un-modulo-binario/
 dsq_thread_id:
   - "4484896218"
