@@ -1,10 +1,8 @@
 ---
-id: 807
 title: 'SQL &#8211; Does not support the language of the OS'
 date: 2015-07-08T21:56:26+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=807
 permalink: /sql-does-not-support-the-language-of-the-os/
 dsq_thread_id:
   - "4482452570"
