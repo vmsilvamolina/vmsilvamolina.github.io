@@ -1,10 +1,8 @@
 ---
-id: 800
 title: 'PowerShell: Cómo instalar Windows a un VHD'
 date: 2015-07-04T22:21:38+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=800
 permalink: /powershell-como-instalar-windows-a-un-vhd/
 dsq_thread_id:
   - "4519251321"

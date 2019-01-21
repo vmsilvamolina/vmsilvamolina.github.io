@@ -109,4 +109,8 @@ First we need to modify a little the blog, adding a new file that centralize all
 {% endhighlight %}
 
 
+Install-Module AWSPowerShell.NetCore
+
+
+
 https://docs.aws.amazon.com/lambda/latest/dg/powershell-programming-model.htm

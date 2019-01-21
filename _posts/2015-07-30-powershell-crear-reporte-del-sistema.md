@@ -1,10 +1,8 @@
 ---
-id: 849
 title: 'PowerShell: Crear reporte del sistema'
 date: 2015-07-30T23:54:22+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=849
 permalink: /powershell-crear-reporte-del-sistema/
 dsq_thread_id:
   - "4473723983"

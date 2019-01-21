@@ -1,10 +1,8 @@
 ---
-id: 857
 title: 'Windows Server 2012: Failure configuring Windows updates. Reverting changes&#8230;'
 date: 2015-08-06T22:58:33+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=857
 permalink: /windows-server-2012-failure-configuring-windows-updates-reverting-changes/
 dsq_thread_id:
   - "4484305340"

@@ -4,7 +4,6 @@ date: 2014-05-05T21:54:05+00:00
 author: Victor Silva
 layout: single
 permalink: /powershell-hyper-v-tareas-basicas-ii/
-
 dsq_thread_id:
   - "4548487095"
 categories:

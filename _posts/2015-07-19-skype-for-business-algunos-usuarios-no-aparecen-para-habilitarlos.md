@@ -1,10 +1,8 @@
 ---
-id: 841
 title: 'Skype for Business &#8211; Algunos usuarios no aparecen para habilitarlos'
 date: 2015-07-19T21:04:13+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=841
 permalink: /skype-for-business-algunos-usuarios-no-aparecen-para-habilitarlos/
 dsq_thread_id:
   - "4488034410"

@@ -1,10 +1,8 @@
 ---
-id: 855
 title: 'PowerShell: Cambiar el nivel funcional de AD'
 date: 2015-08-03T21:56:59+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=855
 permalink: /powershell-cambiar-el-nivel-funcional-de-ad/
 dsq_thread_id:
   - "4504995138"
