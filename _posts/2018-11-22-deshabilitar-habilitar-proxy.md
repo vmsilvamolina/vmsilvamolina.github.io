@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2018-11-22T22:21:00+00:00
 layout: single
 permalink: /deshabilitar-habilitar-proxy/
-excerpt: ""
+excerpt: "Hace un par de post comenté que estuve trabajando detrás de un proxy corporativo, y estos días he vuelto a estar en la misma condición. Por lo que al llevarme el equipo a mi casa, me encontraba con la necesidad de estar modificando la configuración del proxy en Internet Explorer para poder nevegar tranquilo."
 categories:
   - PowerShell
 tags:
