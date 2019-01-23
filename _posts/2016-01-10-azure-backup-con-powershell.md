@@ -1,10 +1,8 @@
 ---
-id: 1011
 title: Azure Backup con PowerShell
 date: 2016-01-10T22:55:25+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1011
 permalink: /azure-backup-con-powershell/
 dsq_thread_id:
   - "4483035952"

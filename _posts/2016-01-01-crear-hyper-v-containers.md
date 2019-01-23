@@ -1,10 +1,8 @@
 ---
-id: 983
 title: Crear Hyper-V Containers
 date: 2016-01-01T10:31:54+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=983
 permalink: /crear-hyper-v-containers/
 dsq_thread_id:
   - "4473134480"

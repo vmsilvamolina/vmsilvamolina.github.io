@@ -1,10 +1,8 @@
 ---
-id: 981
 title: Crear Windows Server Containers
 date: 2015-12-28T14:39:13+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=981
 permalink: /crear-windows-server-containers/
 dsq_thread_id:
   - "4473270286"

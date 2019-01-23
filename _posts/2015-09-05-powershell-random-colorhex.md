@@ -1,10 +1,8 @@
 ---
-id: 880
 title: 'PowerShell: Random-ColorHex'
 date: 2015-09-05T16:00:20+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=880
 permalink: /powershell-random-colorhex/
 dsq_thread_id:
   - "4472946398"

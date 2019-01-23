@@ -1,10 +1,8 @@
 ---
-id: 1032
 title: Chef y Azure
 date: 2016-01-15T19:30:39+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=1032
 permalink: /chef-y-azure/
 dsq_thread_id:
   - "4527838006"

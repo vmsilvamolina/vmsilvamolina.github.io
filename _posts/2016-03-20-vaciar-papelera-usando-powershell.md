@@ -1,5 +1,4 @@
 ---
-id: 1104
 title: Vaciar papelera usando PowerShell
 date: 2016-03-20T01:09:09+00:00
 author: Victor Silva

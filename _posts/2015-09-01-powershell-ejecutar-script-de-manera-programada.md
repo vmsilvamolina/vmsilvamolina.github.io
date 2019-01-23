@@ -1,10 +1,8 @@
 ---
-id: 875
 title: 'PowerShell: Ejecutar script de manera programada'
 date: 2015-09-01T10:07:38+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=875
 permalink: /powershell-ejecutar-script-de-manera-programada/
 dsq_thread_id:
   - "4473168824"

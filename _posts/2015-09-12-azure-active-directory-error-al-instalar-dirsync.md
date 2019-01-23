@@ -1,10 +1,8 @@
 ---
-id: 894
 title: 'Azure Active Directory &#8211; Error al instalar DirSync'
 date: 2015-09-12T21:42:25+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=894
 permalink: /azure-active-directory-error-al-instalar-dirsync/
 dsq_thread_id:
   - "4473652421"

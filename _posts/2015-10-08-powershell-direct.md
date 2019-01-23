@@ -1,10 +1,8 @@
 ---
-id: 900
 title: 'PowerShell Direct &#8211; Ejecutar PowerShell en una VM desde el Hyper-V host'
 date: 2015-10-08T12:47:04+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=900
 permalink: /powershell-direct/
 dsq_thread_id:
   - "4481906361"

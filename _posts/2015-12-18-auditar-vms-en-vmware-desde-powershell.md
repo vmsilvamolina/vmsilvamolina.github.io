@@ -1,10 +1,8 @@
 ---
-id: 965
 title: Auditar VMs en VMware desde PowerShell
 date: 2015-12-18T23:49:18+00:00
 author: Victor Silva
 layout: single
-guid: http://blog.victorsilva.com.uy/?p=965
 permalink: /auditar-vms-en-vmware-desde-powershell/
 dsq_thread_id:
   - "4473477638"
