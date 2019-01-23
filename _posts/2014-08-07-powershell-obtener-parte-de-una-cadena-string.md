@@ -50,4 +50,5 @@ $Cadena.Split(":")[1]
 {% endhighlight %}
 
 Y listo!
+
 Happy scripting!

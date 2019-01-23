@@ -1,5 +1,5 @@
 ---
-title: 'Lync &#8211; Como saber en que Front End estamos logueados?'
+title: 'Saber en que Front End de Lync Server estamos logueados'
 date: 2014-07-07T19:46:46+00:00
 author: Victor Silva
 layout: single

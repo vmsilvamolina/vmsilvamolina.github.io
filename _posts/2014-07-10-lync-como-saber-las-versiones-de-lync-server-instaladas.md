@@ -1,5 +1,5 @@
 ---
-title: 'Lync &#8211; Como saber las versiones de Lync Server instaladas?'
+title: 'Como saber las versiones de Lync Server instaladas?'
 date: 2014-07-10T10:39:39+00:00
 author: Victor Silva
 layout: single

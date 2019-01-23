@@ -20,7 +20,7 @@ Al intentar realizar la instalación del agente de DPM 2012 SP1 en un servidor, 
 El siguiente error en la consola de Data Protection Manager es el que aparece en este escenario:
 
 > Data Protection Manager Error ID: 270
-  
+> 
 > The agent operation failed on because DPM could not communicate with the DPM protection agent. The computer may be protected by another DPM server, or the protection agent may have been uninstalled on the protected computer.
 
 Si nos fijamos en los eventos del servidor donde queremos instalar el agente nos aparece el evento con **ID 10016.**
@@ -40,7 +40,7 @@ Vamos a la consola de DPM y seleccionamos refresh para ver el status del agente.
 En esta oportunidad nos indica el siguiente error:
 
 > Data Protection Manager Error ID: 308
-  
+>  
 > The protection agent operation failed because DPM could not communicate with the Protection Agent service on.
 
 Para solucionar el anterior error, debemos desinstalar el agente desde el panel de control, programas y características desde el servidor y luego ir al servidor de DPM y desinstalar desde la consola.

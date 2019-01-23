@@ -21,33 +21,24 @@ Antes de comenzar a toquetear el switch, debemos de instalar en nuestro equipo u
   
 Vamos a iniciar el procedimiento, reiniciando el switch. Durante el reinicio aparecerá un menú (del tipo que aparece en los BIOS) donde deberemos pulsar la combinación de teclas _Ctrl + B_, para poder acceder al menú de opciones.
 
-> Press Ctrl-B to enter Boot Menu&#8230;
+> Press Ctrl-B to enter Boot Menu...
 
 Ya pulsada la combinación de teclas, nos desplegará el siguiente menú:
 
-> BOOT  MENU
-  
-> 1. Download application file to flash
-  
-> 2. Select application file to boot
-  
-> 3. Display all files in flash
-  
-> 4. Delete file from flash
-  
-> 5. Modify bootrom password
-  
-> 6. Enter bootrom upgrade menu
-  
-> 7. Skip current configuration file
-  
-> 8. Set bootrom password recovery
-  
-> 9. Set switch startup mode
-  
-> 0. Reboot
-  
-> Enter your choice(0-9):
+{% highlight plaintext%}
+  BOOT  MENU
+  1. Download application file to flash
+  2. Select application file to boot
+  3. Display all files in flash
+  4. Delete file from flash
+  5. Modify bootrom password
+  6. Enter bootrom upgrade menu
+  7. Skip current configuration file
+  8. Set bootrom password recovery
+  9. Set switch startup mode
+  10. Reboot
+  Enter your choice(0-9):
+{% endhighlight %}
 
 Dentro de este menú debemos pulsar la tecla 7, que selecciona la opción:
 
@@ -57,7 +48,9 @@ Y finalmente pulsar la tecla 0 para reiniciar el dispositivo.
   
 Ya reiniciado, nos va a loguear automaticamente y desde la consola vamos a poder ejecutar el siguiente comando:
 
-> _cmdline-mode on
+{% highlight plaintext%}
+  _cmdline-mode on
+{% endhighlight %}
 
 <img class="alignnone" src="https://lh3.googleusercontent.com/-ds9k7lkFq9E/VH5LY53Pr4I/AAAAAAAAGOQ/ybGf-Gg-pZk/w595-h202-no/HP1910_1.png" alt="" width="595" height="202" />
   
@@ -69,9 +62,9 @@ Antes de ejecutar el comando restore, debemos modificar en el archivo de configu
   
 Ahora sí, con todo listo, vamos a ejecutar el comando restore aclarando que la sintaxis del comando para restaurar el archivo de configuración anterior (.cfg) es la siguiente:
 
-> restore startup-configuration from <IP del Servidor TFTP> <Nombre del archivo.cfg>
-
-&nbsp;
+{% highlight plaintext%}
+  restore startup-configuration from <IP del Servidor TFTP> <Nombre del archivo.cfg>
+{% endhighlight %}
 
 Luego de hacer este restore, reiniciamos el dispositivo y vamos a poder acceder a nuestro Switch con la contraseña que nosotros detallamos anteriormente.
 

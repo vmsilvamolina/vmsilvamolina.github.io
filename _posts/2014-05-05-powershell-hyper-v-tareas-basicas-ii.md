@@ -23,7 +23,7 @@ Siguiendo con el post anterior, en esta oportunidad vamos a crear un script que 
 
 Lo primero que vamos a ver es como comprobar los recursos necesarios, como es el caso de la memoria, si no tengo memoria para poder asignar a la maquina que se va a hospedar en el host destino, no voy a poder realizar Live Migration.
 
-## Memoria:
+## Memoria
 
 Antes de comenzar el live migration, necesitamos asegurarnos de que el host destino tiene la memoria suficiente para poder alojar la maquina virtual, con el siguiente comando:
 
@@ -37,7 +37,7 @@ Get-VMMemory -VMName Server01 -ComputerName HOST2
 
 Donde HOST2 es el nombre del host destino.
 
-## Procesador:
+## Procesador
 
 Que pasa si nuestros hosts tienen procesadores de diferente proveedor? No se puede hacer Live Migration por defecto. Lo que debemos hacer es habilitar una opción llamada &#8220;Processor Compatibility &#8211; Migrate to a Physical computer with a different processor versión&#8221; en la configuración de la VM. Es tan simple como ejecutar los siguientes comandos:
 
@@ -53,7 +53,7 @@ Ahora, habilitar el modo de compatibilidad:
 Set-VMProcessor VM1 -CompatibilityForMigrationEnabled $true
 {% endhighlight %}
 
-## Lectora:
+## Lectora
 
 Parece muy básico, pero muchas veces trabajando con nuestras maquinas virtuales, dejamos isos montadas, que a la hora de hacer la migración nos hacen saltar errores. Esto sucede, porque la ISO no se encuentra en el host destino. Para no perder tiempo con estas cosas, lo mejor es añadir una simple línea de código que nos permita revisar este pre-requisito por nosotros.
 

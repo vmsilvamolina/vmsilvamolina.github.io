@@ -36,7 +36,7 @@ Get-AppxPackage -AllUsers | Select-Object -Property Name, Architecture, Version 
 
 Quedando así:
 
-<img src="https://lh4.googleusercontent.com/-lQNmW8inrpM/VMmYPDMO0bI/AAAAAAAAGxA/4qxGkX1TtdI/w475-h524-no/PS_Uninstall_App_3.png" width="1025" height="524" class="alignnone" />
+<img src="https://lh4.googleusercontent.com/-lQNmW8inrpM/VMmYPDMO0bI/AAAAAAAAGxA/4qxGkX1TtdI/w475-h524-no/PS_Uninstall_App_3.png" width="475" height="524" class="alignnone" />
 
 Ahora bien, en mi caso quiero desinstalar la aplicación de facebook. Lo primero que debemos hacer es encontrar esta aplicación utilizando el comando anterior, agregando el parametro ***-Name*** y escribiendo entre asteriscos (*) la palabra *facebook* (que se que esta en el nombre de la aplicación).
 

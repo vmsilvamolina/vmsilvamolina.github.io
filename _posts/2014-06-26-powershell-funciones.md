@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Funciones'
+title: 'Funciones en PowerShell'
 date: 2014-06-26T18:27:45+00:00
 author: Victor Silva
 layout: single
