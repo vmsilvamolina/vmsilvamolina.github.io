@@ -21,10 +21,10 @@ tags:
 --- 
 
 <div>
-<p>This post is part of a series of related publications:</p>
-<li>Setting up a development environment</li>
-<li><a href="https://blog.victorsilva.com.uy/integracion-ansible-azure-2/">Integración de Ansible y Azure - Hello world!</a></li>
-<li><a href="https://blog.victorsilva.com.uy/integracion-ansible-azure-3/">Integración de Ansible y Azure - Desplegar una VM</a></li>
+<p>This post is part of a series of related posts:</p>
+<li>Lambda Function to automated blog post on Twitter - Setting up a development environment</li>
+<li>Lambda Function to automated blog post on Twitter - Configuring source files and AWS storage</li>
+<li>Lambda Function to automated blog post on Twitter - Creating the schedule</li>
 </div>{: .notice--success}
 
 A few months ago, I started to learn about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. Additional to this, I follow the technical blog from Amazon and I read about the support for PowerShell Core 6 and I worked a lot with serverless (using Azure Functions) so that, serverless have a place in my heart nowadays. Well, with the above, I´ll share how to work with AWS, in particular with the serverless solution called Lambda with PowerShell Core.
@@ -72,45 +72,12 @@ The last component we need for the development environment is the AWSLambdaPSCor
   Install-Module AWSLambdaPSCore -Scope CurrentUser
 {% endhighlight %}
 
-## Using Lambda function to publish on twitter
+Additionally, we need to install the **AWSPowerShell.NetCore** module, for work with other AWS Services.
 
-Well, after all the steps required to set the dev environment, we are ready to start to work with AWS Lambda and PowerShell Core. As the title indicates, the purpose of this post is share how to send posts from my blog to twitter without any human interaction.
-
-First we need to modify a little the blog, adding a new file that centralize all the entries.
-
-
-{% highlight plaintext%}
-  ---
-  layout: null
-  permalink: /entries.json
-  sitemap: false
-  ---
-
-  {
-      "title": "{{ site.title}}",
-      "description": "{{ site.description }}",
-      "url": "{{ site.url }}",
-      "date": "{{ site.time | date_to_rfc822 }}",
-      "posts": [
-          {% for post in site.posts %}
-          {% if post.hide_from_feed != true %}
-          {% if forloop.first != true %},{% endif %}
-          {
-          "title": "{{ post.title }}",
-          "url": "{{ post.url | prepend: site.baseurl }}",
-          "date": "{{ post.date | date_to_rfc822 }}",
-          "tags": {{ post.tags | jsonify }},
-          "categories": {{ post.categories | jsonify }}
-          }
-          {% endif %}
-          {% endfor %}
-      ]
-  }
+{% highlight posh%}
+  Install-Module AWSPowerShell.NetCore
 {% endhighlight %}
 
+Well, After all changes we'll continue on the next post, configuing the files on the blog and the AWS S3 service for storage the records (published posts).
 
-Install-Module AWSPowerShell.NetCore
-
-
-
-https://docs.aws.amazon.com/lambda/latest/dg/powershell-programming-model.htm
+Happy scripting!
