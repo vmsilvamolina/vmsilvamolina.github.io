@@ -83,7 +83,6 @@ Y con la información que recolectamos podemos armar las siguientes funciones pa
         End {
             Write-Output "Proxy is now Disabled"      
         }
-
     }
 {% endhighlight %}
 
