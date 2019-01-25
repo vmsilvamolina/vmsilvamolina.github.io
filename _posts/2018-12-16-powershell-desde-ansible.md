@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2018-12-16T23:43:01+00:00
 layout: single
 permalink: /powershell-desde-ansible/
-excerpt: ""
+excerpt: "Hace un tiempo escribí sobre Ansible y la integración, o los mecanismos disponibles, que tenemos con Azure, haciendo foco en el uso de la Azure Cloud Shell. Pero ¿que métodos tenemos a disposición si queremos utilizar PowerShell dentro de un Playbook de Ansible?"
 categories:
   - PowerShell
   - DevOps
