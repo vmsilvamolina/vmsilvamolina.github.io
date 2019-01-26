@@ -53,13 +53,13 @@ Ya con el archivo creado, vamos a encontrarnos con el siguiente panorama en Visu
 Ahora que tenemos lo requerido, vamos a comenzar a definir nuestro primer Snippet. Antes, quiero definir la estructura del mismo con lo siguiente:
 
 {% highlight json%}
-{
-	"Write host": {
-		"prefix": "print",
-		"body": "Write-Host \"${1:Hola mundo!}\"",
-		"description": "Write-Host Snippet"
-	},
-}
+  {
+    "Write host": {
+      "prefix": "print",
+      "body": "Write-Host \"${1:Hola mundo!}\"",
+      "description": "Write-Host Snippet"
+    },
+  }
 {% endhighlight %}
 
 Tomando ejemplo anterior tenemos los siguientes puntos:
@@ -76,27 +76,27 @@ La tarea en cuestión es crear una VM, donde usamos al menos 2 comandos para apr
 El siguiente Snippet resuelve mi tarea de una forma muy simple:
 
 {% highlight json%}
-{
-	"New VM": {
-		"prefix": "newvm",
-		"body": [
-			"#New Azure Resource Group",
-			"New-AzureRmResourceGroup -ResourceGroupName \"${1:ResourceGroup}\" -Location \"${2:EastUS}\"",
-			
-			"#New VM",
-			"New-AzureRmVm `",
-			"\t-ResourceGroupName \"${1:ResourceGroup}\" `",
-			"\t-Name \"${3:VM}\" `",
-			"\t-Location \"${2:EastUS}\" `",
-			"\t-VirtualNetworkName \"${4:vNET}\" `",
-			"\t-SubnetName \"${5:Subnet}\" `",
-			"\t-SecurityGroupName \"${6:NetworkSecurityGroup}\" `",
-			"\t-PublicIpAddressName \"${7:PublicIpAddress}\" `",
-			"\t-Credential ${8:$cred}",
-		],
-		"description": "Crear una VM en Azure"
-	}
-}
+  {
+    "New VM": {
+      "prefix": "newvm",
+      "body": [
+        "#New Azure Resource Group",
+        "New-AzureRmResourceGroup -ResourceGroupName \"${1:ResourceGroup}\" -Location \"${2:EastUS}\"",
+        
+        "#New VM",
+        "New-AzureRmVm `",
+        "\t-ResourceGroupName \"${1:ResourceGroup}\" `",
+        "\t-Name \"${3:VM}\" `",
+        "\t-Location \"${2:EastUS}\" `",
+        "\t-VirtualNetworkName \"${4:vNET}\" `",
+        "\t-SubnetName \"${5:Subnet}\" `",
+        "\t-SecurityGroupName \"${6:NetworkSecurityGroup}\" `",
+        "\t-PublicIpAddressName \"${7:PublicIpAddress}\" `",
+        "\t-Credential ${8:$cred}",
+      ],
+      "description": "Crear una VM en Azure"
+    }
+  }
 {% endhighlight %}
 
 Como se puede observar, otra cosa que nos permiten los Snippets es utilizar **placeholders** como por ejemplo `${1:ResourceGroup}`, en donde se definen ciertos valores inicialmente que pueden ser modificados luego de ser insertado el Snippet. Adicional a lo anterior es posible navegar entre ellos, tomando el orden definido en el código, utilizando la tecla Tab.

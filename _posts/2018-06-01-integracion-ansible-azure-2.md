@@ -27,49 +27,53 @@ En la entrega anterior se prepararon las credenciales que vamos a utilizar al mo
 ## Anatomía de un playbook
 
 {% highlight plaintext %}
----
-- hosts: webservers
-  vars:
-    http_port: 80
-    max_clients: 200
-  remote_user: root
-  tasks:
-  - name: ensure apache is at the latest version
-    yum:
-      name: httpd
-      state: latest
-  - name: write the apache config file
-    template:
-      src: /srv/httpd.j2
-      dest: /etc/httpd.conf
-    notify:
-    - restart apache
-  - name: ensure apache is running (and enable it at boot)
-    service:
-      name: httpd
-      state: started
-      enabled: yes
-  handlers:
-    - name: restart apache
+  ---
+  - hosts: webservers
+    vars:
+      http_port: 80
+      max_clients: 200
+    remote_user: root
+    tasks:
+    - name: ensure apache is at the latest version
+      yum:
+        name: httpd
+        state: latest
+    - name: write the apache config file
+      template:
+        src: /srv/httpd.j2
+        dest: /etc/httpd.conf
+      notify:
+      - restart apache
+    - name: ensure apache is running (and enable it at boot)
       service:
         name: httpd
-        state: restarted
+        state: started
+        enabled: yes
+    handlers:
+      - name: restart apache
+        service:
+          name: httpd
+          state: restarted
 {% endhighlight %}
 
 El bloque de código anterior es un playbook, y como tal, se pueden observar agrupaciones que permiten descifrar sin mayor esfuerzo ciertas tareas, variables, etc. Vamos a realizar comentarios sobre cada una de ellas:
 
-#### hosts
+### hosts
 
 Dentro de la sección hosts vamos a poder definir el host o el grupo de host donde se ejecutarán las tareas. Este valor es obligatorio.
 
-#### vars
+### vars
 
 Son variables definidas para determinar la configuración de los recursos a implementar por medio de las tareas.
 
-#### tasks
+### tasks
 
 Lista de acciones a ejecutar, en donde se pueden invocar módulos externos y usar las variables definidas anteriormente (en caso que se hayan definido).
 
-#### handlers
+### handlers
 
 Los handlers son nuestra forma de llamar a una tarea después de que se completa otra tarea previamente.
+
+Continuará...
+
+Happy scripting!

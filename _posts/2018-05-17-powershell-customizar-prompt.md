@@ -35,9 +35,9 @@ Ahora bien, teniendo ubicado el archivo a modificar vamos a ver algunas cosas.
 Primero debemos definir, por ejemplo, una función en donde poder ubicar nuestros cambios. Para ser consecuente, voy a generar una función llamada **prompt**, donde le voy a indicar que me devuelta (return) el símbolo numeral (o sharp):
 
 {% highlight posh%}
-function Prompt {
+  function Prompt {
     return "#"
-}
+  }
 {% endhighlight %}
 
 Si guardamos los cambios y ejecutamos una nueva consola de PowerShell vamos a ver lo siguiente:
@@ -49,12 +49,12 @@ Ya con esto podemos hacer algunas modificaciones, como: &#8220;>&#8221; o &#8220
 O agregar una variable, de la siguiente manera utilizando la hora:
 
 {% highlight posh%}
-function Prompt {
+  function Prompt {
     Write-Host ("[") -nonewline
     Write-Host (Get-Date -format HH:mm:ss) -nonewline
     Write-Host ("] #") -nonewline
     return " "
-}
+  }
 {% endhighlight %}
 
 Dejando el símbolo numeral, como separador (para que quede más ordenado).
@@ -64,7 +64,7 @@ Dejando el símbolo numeral, como separador (para que quede más ordenado).
 Teniendo la base anterior, podemos tomar la función y agregarle un poco de color y algún símbolo más:
 
 {% highlight posh%}
-function Prompt { 
+  function Prompt { 
     Write-Host ("[") -nonewline -foregroundcolor DarkGray 
     Write-Host (Get-Date -format HH:mm:ss) -nonewline 
     Write-Host ("] ") -nonewline -foregroundcolor DarkGray 
@@ -72,7 +72,7 @@ function Prompt {
     Write-Host (" | ") -nonewline -foregroundcolor DarkGray
     Write-Host ("#") -nonewline -foregroundcolor Yellow
     return " "
-}
+  }
 {% endhighlight %}
 
 <img src="https://pmhpja.ch.files.1drv.com/y4mfulzS_kgC2eMS6GziSr3XxHJ7BRXwfVQP0MVE7Ie9M9PexLFSC7AMcNcJ23Zl79f0M6-kgJYL7Kaigft9ED-3lO_X6_ad0_MDTOabFegcsXc8tPZcsC8v_jr0nfmUC-X2e2sKJ5yixdVDMDdCCj5ZhYVXf2SneqNEGxNvz3GkKL6G9bL8xX9PU6-vQRsEbIGAiLpwzz0c8Ixib2JRPrgUw?width=859&height=218&cropmode=none" width="859" height="218" alt="Prompt con hora, ubicación y #" class="alignnone" />
@@ -82,7 +82,7 @@ function Prompt {
 También podemos hacerle cambios visuales al título de la ventana, como en este ejemplo, agregando mi nombre y la versión de PowerShell:
 
 {% highlight posh%}
-(Get-Host).UI.RawUI.WindowTitle =  "Victor" + " (v" + (Get-Host).Version + ")"
+  (Get-Host).UI.RawUI.WindowTitle =  "Victor" + " (v" + (Get-Host).Version + ")"
 {% endhighlight %}
 
 <img src="https://pmhqja.ch.files.1drv.com/y4mFTioXxU7DuRaY_edOaxhYou8eA3I3jpKLaDfN0JgUVOuoB7uZFqXFwVHjwdpIwn7cADi3zA2ZPNE7lIi8QkllAyLpejYZGi5w_QZPACW1oqRYQ_xZ04aNOm3_Q90gcz-lLaj60CdP2UOhBv_od_kaB9bykfXOT-kvBYV7V7l8ynpkCkaazFXLWi_hW_jcMCIGsBbPjxzYXF9azuUI4CUqA?width=859&height=218&cropmode=none" width="859" height="218" alt="Título cambiado" class="alignnone" />
@@ -92,18 +92,18 @@ También podemos hacerle cambios visuales al título de la ventana, como en este
 Adicional a lo anterior podemos realizar una comprobación de privilegios, comprobando si el usuario ejecutó la sesión como administrador con la siguiente función:
 
 {% highlight posh%}
-function Test-Administrator {
+  function Test-Administrator {
     $user = [Security.Principal.WindowsIdentity]::GetCurrent()
     (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
-}
+  }
 {% endhighlight %}
 
 Y agregando lo anterior a otro ejemplo de customización del prompt:
 
 {% highlight posh%}
-function prompt {
+  function prompt {
     if (Test-Administrator) {  # Use different username if elevated
-        Write-Host "[Adm] " -NoNewline -ForegroundColor White
+      Write-Host "[Adm] " -NoNewline -ForegroundColor White
     }
 
     Write-Host "$ENV:USERNAME" -NoNewline -ForegroundColor Green
@@ -119,7 +119,7 @@ function prompt {
     Write-Host ""
 
     return "> "
-}
+  }
 {% endhighlight %}
 
 El resultado es:

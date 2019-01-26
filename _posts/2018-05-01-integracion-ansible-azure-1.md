@@ -48,7 +48,7 @@ No todos los que usan Azure a diario (sin importar las tareas que realicen) cono
 Y menos aún, saben que dentro de la shell que proporciona Azure, se encuentra instalado Ansible por defecto. Para comprobar ésto, basta con ejecutar lo siguiente (y de paso vamos a saber la versión que se encuentra instalada):
 
 {% highlight bash%}
-ansible --version
+  ansible --version
 {% endhighlight %}
 
 <img src="https://alqvrw.ch.files.1drv.com/y4mld6QRzFmMDCxo-d8kDWOJ5klGQnFbvty4r2nDkWVmzPCgYDZ1icJ7MkFRv9y_W50p-I3tza7ZbO-GQkHIfemQNiUsK6mfDccQJI-YPLzmLmXH5qaTQv8_9SYcB13Z_R_m6jMyAmNcFuEgICUitp6siuqb6wl4OFjEdr5gawxhM1g-iw7N7qCzN0Jwt4zkOsMgicrvutTClh6FcMesuXxag?width=802&height=532&cropmode=none" width="802" height="532" alt="Ansible version" class="alignnone size-medium" />
@@ -64,7 +64,7 @@ Ansible se comunica con Azure usando un nombre de usuario y contraseña o un **s
 Para crear un service principal dentro de la Azure Cloud Shell se debe ejecutar:
 
 {% highlight bash%}
-az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
+  az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
 {% endhighlight %}
 
 Más información: [az ad sp create-for-rbac](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
@@ -72,17 +72,17 @@ Más información: [az ad sp create-for-rbac](https://docs.microsoft.com/en-us/c
 El resultado debería ser similar al siguiente:
 
 {% highlight json%}
-{
-  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-}
+  {
+    "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
+    "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
+    "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
+  }
 {% endhighlight %}
 
 Para autenticar contra Azure es necesario contar con el *subscription ID*, ejecutando el comando [az account show](https://docs.microsoft.com/en-us/cli/azure/account?view=azure-cli-latest#az-account-show):
 
 {% highlight bash%}
-az account show --query "{ subscription_id: id }"
+  az account show --query "{ subscription_id: id }"
 {% endhighlight %}
 
 ### Crear el archivo de credenciales para Ansible
@@ -92,8 +92,8 @@ Para proveer de credenciales a Ansible es posible generar variables de entorno o
 Dentro de la consola vamos a ejecutar los siguientes comandos para crear el archivo de credenciales para Ansible:
 
 {% highlight bash%}
-mkdir ~/.azure
-vi ~/.azure/credentials
+  mkdir ~/.azure
+  vi ~/.azure/credentials
 {% endhighlight %}
 
 Para los que no tienen mucho dominio del editor de textos **vi**, en esta oportunidad lo único que debemos saber es que para poder ingresar valores en el nuevo archivo *credentials*, es necesario pulsar la tecla **Insert**.
@@ -104,11 +104,11 @@ Para guardar los cambios y salir del editor, debemos pulsar la tecla **Esc**, es
 Los valores a ingresar dentro del archivo tienen que tener la siguiente forma:
 
 {% highlight text%}
-[default]
-subscription_id=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-client_id=eec5624a-90f8-4386-8a87-02730b5410d5
-secret=531dcffa-3aff-4488-99bb-4816c395ea3f
-tenant=72f988bf-86f1-41af-91ab-2d7cd011db47
+  [default]
+  subscription_id=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  client_id=eec5624a-90f8-4386-8a87-02730b5410d5
+  secret=531dcffa-3aff-4488-99bb-4816c395ea3f
+  tenant=72f988bf-86f1-41af-91ab-2d7cd011db47
 {% endhighlight %}
 
 Que corresponden a la salida de los comandos anteriormente ejecutados (*az ad sp create-for-rbac* y *az account show*).
