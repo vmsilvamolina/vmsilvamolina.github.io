@@ -27,7 +27,7 @@ On my everyday tasks I use a lot PowerShell. When I need to acomplish a task, fi
 So then, when I tried to clone locally a repo, using the `git clone` command:
 
 {% highlight bash%}
-    git clone https://github.com/vmsilvamolina/vmsilvamolina.github.io.git
+  git clone https://github.com/vmsilvamolina/vmsilvamolina.github.io.git
 {% endhighlight %}
 
 After the execution (I had to wait a few minutes), I got the following error:
@@ -51,7 +51,7 @@ That's my boy! ;)
 Well, we'll find how we can set the values to intent to use the proxy reading the help file. How we can access it? Executing the following:
 
 {% highlight bash%}
-    git config --list
+  git config --list
 {% endhighlight %}
 
 
@@ -64,7 +64,7 @@ Perfect!
 For solve the "*Failed to connect to github.com port 443: Timed out*" message we need to run:
 
 {% highlight bash%}
-    git config --global http.proxy http://dominio\vsilva:Passw0rd@proxyServer:8080
+  git config --global http.proxy http://dominio\vsilva:Passw0rd@proxyServer:8080
 {% endhighlight %}
 
 Done! You can check if the setting was applied running `git config --global http.proxy`

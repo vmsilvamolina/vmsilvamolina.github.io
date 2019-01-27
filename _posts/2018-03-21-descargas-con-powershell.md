@@ -16,20 +16,20 @@ En la oficina he adquirido una fama particular con la automatización de proceso
 Desglosando el problema tenemos que primero se debe hacer una comprobación local de si el archivo a descargar se encuentra en cierta ruta. Para ello:
 
 {% highlight posh %}
-$URL = "https://www.dominio.com/archivo.zip"
-$FilePath = "C:\users\vmsilvamolina\Desktop\Archivos\archivo.zip"
-if (!(Test-Path $FilePath) ) {
-    #Descargar
-    [void](New-Object System.Net.WebClient).DownloadFile($URL.ToString(), $FilePath)
-} else {
-    #Comprobar si son diferentes
-}
+  $URL = "https://www.dominio.com/archivo.zip"
+  $FilePath = "C:\users\vmsilvamolina\Desktop\Archivos\archivo.zip"
+  if (!(Test-Path $FilePath) ) {
+      #Descargar
+      [void](New-Object System.Net.WebClient).DownloadFile($URL.ToString(), $FilePath)
+  } else {
+      #Comprobar si son diferentes
+  }
 {% endhighlight %}
 
 Ahora debemos definir como comprobar si el archivo es igual o diferente, utilizando **HttpWebRequest** de la siguiente manera:
 
 {% highlight posh %}
-try {
+  try {
     $webRequest = [System.Net.HttpWebRequest]::Create($URL);
     $webRequest.IfModifiedSince = ([System.IO.FileInfo]$FilePath).LastWriteTime
     $webRequest.Method = "GET";
@@ -38,15 +38,15 @@ try {
     $stream = New-Object System.IO.StreamReader($webResponse.GetResponseStream())
     $stream.ReadToEnd() | Set-Content -Path $FilePath -Force 
 
-} catch [System.Net.WebException] {
+  } catch [System.Net.WebException] {
     if ($_.Exception.Response.StatusCode -eq [System.Net.HttpStatusCode]::NotModified) {
-        Write-Host "  $FilePath no se ha modificado, no se descargará..."
+      Write-Host "  $FilePath no se ha modificado, no se descargará..."
     } else {
-        $Status = $_.Exception.Response.StatusCode
-        $msg = $_.Exception
-        Write-Host "  Error al descargar $FilePath : $Status - $msg"
+      $Status = $_.Exception.Response.StatusCode
+      $msg = $_.Exception
+      Write-Host "  Error al descargar $FilePath : $Status - $msg"
     }
-}
+  }
 {% endhighlight %}
 
 Si se fijan en la sección de **catch** se observa el estado de WebException para determinar si se descarga el archivo o en su defecto, si se generó un error al intentar descargar.
@@ -55,46 +55,46 @@ Con todo lo anterior, podemos armar una función para invocarla, o sumarla a nue
 
 {% highlight posh %}
 function Download-File {
-    Param (
-        [Parameter(Mandatory=$True)][System.Uri]$URL,
-        [Parameter(Mandatory=$True )][string]$FilePath
-    )
+  Param (
+    [Parameter(Mandatory=$True)][System.Uri]$URL,
+    [Parameter(Mandatory=$True )][string]$FilePath
+  )
 
-    #Revisar si el directorio existe
-    #System.IO.FileInfo works even if the file/dir doesn't exist, which is better then get-item which requires the file to exist
-    if (!(Test-Path ([System.IO.FileInfo]$FilePath).DirectoryName)) {
-        [void](New-Item ([System.IO.FileInfo]$FilePath).DirectoryName -Force -Type directory)
+  #Revisar si el directorio existe
+  #System.IO.FileInfo works even if the file/dir doesn't exist, which is better then get-item which requires the file to exist
+  if (!(Test-Path ([System.IO.FileInfo]$FilePath).DirectoryName)) {
+    [void](New-Item ([System.IO.FileInfo]$FilePath).DirectoryName -Force -Type directory)
+  }
+
+  #Revisar si el archivo existe
+  if (!(Test-Path $FilePath) ) {
+    #Descargar
+    [void](New-Object System.Net.WebClient).DownloadFile($URL.ToString(), $FilePath)
+  } else {
+    try {
+      #use HttpWebRequest to download file
+      $webRequest = [System.Net.HttpWebRequest]::Create($URL);
+      $webRequest.IfModifiedSince = ([System.IO.FileInfo]$FilePath).LastWriteTime
+      $webRequest.Method = "GET";
+      [System.Net.HttpWebResponse]$webResponse = $webRequest.GetResponse()
+
+      #Read HTTP result from the $webResponse
+      $stream = New-Object System.IO.StreamReader($webResponse.GetResponseStream())
+      #Save to file
+      $stream.ReadToEnd() | Set-Content -Path $FilePath -Force 
+
+    } catch [System.Net.WebException] {
+      #Check for a 304
+      if ($_.Exception.Response.StatusCode -eq [System.Net.HttpStatusCode]::NotModified) {
+        Write-Host "  $FilePath not modified, not downloading..."
+      } else {
+        #Unexpected error
+        $Status = $_.Exception.Response.StatusCode
+        $msg = $_.Exception
+        Write-Host "  Error dowloading $FilePath, Status code: $Status - $msg"
+      }
     }
-
-    #Revisar si el archivo existe
-    if (!(Test-Path $FilePath) ) {
-        #Descargar
-        [void](New-Object System.Net.WebClient).DownloadFile($URL.ToString(), $FilePath)
-    } else {
-        try {
-            #use HttpWebRequest to download file
-            $webRequest = [System.Net.HttpWebRequest]::Create($URL);
-            $webRequest.IfModifiedSince = ([System.IO.FileInfo]$FilePath).LastWriteTime
-            $webRequest.Method = "GET";
-            [System.Net.HttpWebResponse]$webResponse = $webRequest.GetResponse()
-
-            #Read HTTP result from the $webResponse
-            $stream = New-Object System.IO.StreamReader($webResponse.GetResponseStream())
-            #Save to file
-            $stream.ReadToEnd() | Set-Content -Path $FilePath -Force 
-
-        } catch [System.Net.WebException] {
-            #Check for a 304
-            if ($_.Exception.Response.StatusCode -eq [System.Net.HttpStatusCode]::NotModified) {
-                Write-Host "  $FilePath not modified, not downloading..."
-            } else {
-                #Unexpected error
-                $Status = $_.Exception.Response.StatusCode
-                $msg = $_.Exception
-                Write-Host "  Error dowloading $FilePath, Status code: $Status - $msg"
-            }
-        }
-    }
+  }
 }
 {% endhighlight %}
 

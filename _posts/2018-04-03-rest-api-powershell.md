@@ -47,28 +47,28 @@ $files = $response.items
 ### GET + "custom headers"
 
 {% highlight posh %}
-$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
-$headers.Add("X-DATE", '9/29/2018')
-$headers.Add("X-SIGNATURE", 'xxxxxxxxxxxxxxxxxxx')
-$headers.Add("X-API-KEY", 'testUser')
-$response = Invoke-RestMethod 'http://example.com/api/people/1' -Headers $headers
+  $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+  $headers.Add("X-DATE", '9/29/2018')
+  $headers.Add("X-SIGNATURE", 'xxxxxxxxxxxxxxxxxxx')
+  $headers.Add("X-API-KEY", 'testUser')
+  $response = Invoke-RestMethod 'http://example.com/api/people/1' -Headers $headers
 {% endhighlight %}
 
 ### PUT/POST
 
 {% highlight posh %}
-$person = @{
+  $person = @{
     title='TituloDelArchivo'
     author='Victor Silva'
-}
-$json = $person | ConvertTo-Json
-$response = Invoke-RestMethod 'http://example.com/api/files/1' -Method Put -Body $json -ContentType 'application/json'
+  }
+  $json = $person | ConvertTo-Json
+  $response = Invoke-RestMethod 'http://example.com/api/files/1' -Method Put -Body $json -ContentType 'application/json'
 {% endhighlight %}
 
 ### DELETE
 
 {% highlight posh %}
-$response = Invoke-RestMethod 'http://example.com/api/files/1' -Method Delete
+  $response = Invoke-RestMethod 'http://example.com/api/files/1' -Method Delete
 {% endhighlight %}
 
 Happy scripting!

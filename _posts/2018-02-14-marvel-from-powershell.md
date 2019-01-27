@@ -43,36 +43,36 @@ First, setup a Marvel API key (create an account): [link](https://developer.marv
 With the keys, you can start to consume the API using the cmdlet [Invoke-RestMethod](). I wrote the following function to start accessing information:
 
 {% highlight posh %}
-#API Keys and TS
-$MarvelPublic = "baXXXXXXXXXXXXXXXXXXXXXXXX38"
-$MarvelPrivate = "62fXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX41"
-$MarvelTS = New-TimeSpan -End (Get-Date -Year 2018 -Month 1 -Day 1)
+  #API Keys and TS
+  $MarvelPublic = "baXXXXXXXXXXXXXXXXXXXXXXXX38"
+  $MarvelPrivate = "62fXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX41"
+  $MarvelTS = New-TimeSpan -End (Get-Date -Year 2018 -Month 1 -Day 1)
 
-#Form the hash as Marvel requires 
-$ToHash = $MarvelTS.ToString() + $MarvelPrivate.ToString() + $MarvelPublic.ToString()
-$StringBuilder = New-Object System.Text.StringBuilder 
-[System.Security.Cryptography.HashAlgorithm]::Create("MD5").ComputeHash([System.Text.Encoding]::UTF8.GetBytes($ToHash)) | % {
-    [Void]$StringBuilder.Append($_.ToString("x2")) 
-}
-$MD5 = $StringBuilder.ToString()
+  #Form the hash as Marvel requires 
+  $ToHash = $MarvelTS.ToString() + $MarvelPrivate.ToString() + $MarvelPublic.ToString()
+  $StringBuilder = New-Object System.Text.StringBuilder 
+  [System.Security.Cryptography.HashAlgorithm]::Create("MD5").ComputeHash([System.Text.Encoding]::UTF8.GetBytes($ToHash)) | % {
+      [Void]$StringBuilder.Append($_.ToString("x2")) 
+  }
+  $MD5 = $StringBuilder.ToString()
 {% endhighlight %}
 
 How can you search any character? We'll use the parameter **nameStartsWith** with the URL and the apikey like this:
 
 {% highlight posh %}
-#Call the API gateway
-$StartWith = "Spider"
-$Url = "https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=$StartWith&apikey=$MarvelPublic&hash=$MD5&ts=$MarvelTS"
+  #Call the API gateway
+  $StartWith = "Spider"
+  $Url = "https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=$StartWith&apikey=$MarvelPublic&hash=$MD5&ts=$MarvelTS"
 {% endhighlight %}
 
 And manipulate the data:
 
 {% highlight posh %}
-$Results = Invoke-WebRequest $Url
-$Content = $results.Content
-$Output = ConvertFrom-Json $Content
-#Display only the name list
-$Output.data.results.name
+  $Results = Invoke-WebRequest $Url
+  $Content = $results.Content
+  $Output = ConvertFrom-Json $Content
+  #Display only the name list
+  $Output.data.results.name
 {% endhighlight %}
 
 The result:
@@ -84,17 +84,17 @@ The result:
 The module has the following commands:
 
 {% highlight posh %}
-Get-Command -Module PSMarvel
+  Get-Command -Module PSMarvel
 {% endhighlight %}
 
 {% highlight plaintext %}
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Function        Find-MarvelCharacter                               1.0.2      PSMarvel
-Function        Find-MarvelComic                                   1.0.2      PSMarvel
-Function        Get-MarvelCharacter                                1.0.2      PSMarvel
-Function        Get-MarvelComic                                    1.0.2      PSMarvel
-Function        Get-MarvelRandomCharacter                          1.0.2      PSMarvel
+  CommandType     Name                                               Version    Source
+  -----------     ----                                               -------    ------
+  Function        Find-MarvelCharacter                               1.0.2      PSMarvel
+  Function        Find-MarvelComic                                   1.0.2      PSMarvel
+  Function        Get-MarvelCharacter                                1.0.2      PSMarvel
+  Function        Get-MarvelComic                                    1.0.2      PSMarvel
+  Function        Get-MarvelRandomCharacter                          1.0.2      PSMarvel
 {% endhighlight %}
 
 ## Example
