@@ -99,36 +99,36 @@ Siempre es posible mejorar código... para ello es posible agrupar el bloque ant
 
 {% highlight posh%}
 function ConvertFrom-IISLog {
-    [CmdletBinding()]
-    param (
-        [Parameter(Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName)]
-        [string[]]
-        $Path
-    )
+  [CmdletBinding()]
+  param (
+    [Parameter(Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName)]
+    [string[]]
+    $Path
+  )
 
-    process {
-        foreach ($SinglePath in $Path) {
-            $Properties = @{}
+  process {
+    foreach ($SinglePath in $Path) {
+      $Properties = @{}
 
-            Get-Content -Path $SinglePath |
-                ForEach-Object {
-                    if ($_ -match '^#') {
-                        if ($_ -match '^#(?<Clave>[^:]+):\s*(?<Valor>.*)$') {
-                            if ($Matches.Clave -eq 'Fields') {
-                                $Fields  = @(-split $Matches.Valor)
-                            }
-                        }
-                    } else {
-                        $FieldValues = @(-split $_)
-                        $Properties.Clear()
-                        for ($Index = 0; $Index -lt $FieldValues.Length; $Index++) {
-                            $Properties[$Fields[$Index]] = $FieldValues[$Index]
-                        }
-                        [pscustomobject]$Properties
-                    }
-                }
+      Get-Content -Path $SinglePath |
+        ForEach-Object {
+          if ($_ -match '^#') {
+            if ($_ -match '^#(?<Clave>[^:]+):\s*(?<Valor>.*)$') {
+              if ($Matches.Clave -eq 'Fields') {
+                  $Fields  = @(-split $Matches.Valor)
+              }
+            }
+          } else {
+            $FieldValues = @(-split $_)
+            $Properties.Clear()
+            for ($Index = 0; $Index -lt $FieldValues.Length; $Index++) {
+                $Properties[$Fields[$Index]] = $FieldValues[$Index]
+            }
+            [pscustomobject]$Properties
+          }
         }
     }
+  }
 }
 {% endhighlight %}
 
