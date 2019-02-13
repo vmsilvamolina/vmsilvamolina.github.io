@@ -4,6 +4,7 @@ date: 2017-11-24T7:24:21+00:00
 author: Victor Silva
 layout: single
 permalink: /git-en-powershell/
+excerpt: "Actualmente creo que nadie que trabaja en áreas de tecnologías de la información desconoce lo que es Git. O al menos, creo que nadie debería continuar por la vida sin tener ni la más mínima idea de lo beneficioso que es el mundo del control de versiones. Git es un sistema de control de versiones (Version Control System o VCS en inglés) distribuidas y 'open source'. Por más información, adjunto el enlace a la web oficial aquí: https://git-scm.com/."
 categories:
   - PowerShell
 tags:
@@ -25,8 +26,8 @@ Para descargar Git for Windows es necesario acceder al siguiente enlace: [Git fo
 Luego de la instalación, vamos a ejecutar lo siguiente:
 
 {% highlight posh %}
-git config --global user.name 'nombre'
-git config --global user.email 'email address'
+  git config --global user.name 'nombre'
+  git config --global user.email 'email address'
 {% endhighlight %}
 
 Con lo anterior definimos el usuario y mail que vamos a utilizar en nuestros repositorios. En el caso de GitHub es necesario para poder hacer commits y que aparezca en la gráfica de contribuciones de nuestro perfil.
@@ -35,7 +36,7 @@ Con lo anterior definimos el usuario y mail que vamos a utilizar en nuestros rep
 En el caso de Posh-Git, debemos considerar que es un módulo de PowerShell, por lo que podemos descargarlo e instalarlo desde la gallery. Para ello vamos a ejecutar:
 
 {% highlight posh %}
-Install-Module -Name posh-git -Force
+  Install-Module -Name posh-git -Force
 {% endhighlight %}
 
 ## PowerShell profile
@@ -45,7 +46,7 @@ Ya tenemos todos los requisitos para utilizar Git desde PowerShell, aunque resta
 Antes de ver que es lo que vamos a agregar en el perfil, es necesario saber si ya tenemos el archivo creado o no. Para ello ejecutamos:
 
 {% highlight posh %}
-Test-Path $profile
+  Test-Path $profile
 {% endhighlight %}
 
 Si la salida en consola es "False", entonces debemos crear el archivo, en vez de editarlo. 
@@ -55,15 +56,15 @@ Si la salida en consola es "False", entonces debemos crear el archivo, en vez de
 En caso de contar con Visual Studio Code instalado en el equipo, ejecutamos lo siguiente:
 
 {% highlight posh %}
-code $profile
+  code $profile
 {% endhighlight %}
 
 Así podemos editar el archivo existente o comenzar a trabajar sobre él en caso que no exista aún.
 Ahora sí, debemos agregar lo siguiente para poder importar el módulo en cada nueva ejecución de la consola:
 
 {% highlight posh %}
-cd $home
-Import-Module -Name posh-git -ErrorAction SilentlyContinue
+  cd $home
+  Import-Module -Name posh-git -ErrorAction SilentlyContinue
 {% endhighlight %}
 
 Y cada vez que nos ubiquemos en una carpeta que sea un repositorio de git, el prompt va a cambiar de la siguiente manera:

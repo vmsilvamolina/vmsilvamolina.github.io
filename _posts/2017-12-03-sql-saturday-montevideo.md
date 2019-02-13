@@ -4,6 +4,7 @@ date: 2017-12-03T11:21:46
 author: Victor Silva
 layout: single
 permalink: /sql-saturday-montevideo/
+excerpt: "Ayer sábado terminó la primer edición del evento global llamado SQL Saturday y por primera vez se hizo en Montevideo, Uruguay. Estoy muy contento y feliz por haber participado en la organización del mismo, ya que había mucha expectación al respecto del mismo."
 categories:
   - Eventos
 tags:

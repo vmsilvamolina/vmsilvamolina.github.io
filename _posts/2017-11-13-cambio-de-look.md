@@ -4,6 +4,7 @@ date: 2017-11-13T23:10:33+00:00
 author: Victor Silva
 layout: single
 permalink: /cambio-de-look/
+excerpt: "Hey! Acabo de cambiar todo el aspecto visual del blog, y además, también cambié de plataforma (que no es poco). Deje de utilizar Wordpress para mi blog y pasé a usar 'GitHub Pages'. Las razones fueron varias, una de ellas era la facilidad que tengo para poder generar contenido, la seguridad es otro de los puntos, ya que no es necesario tener ninguna base de datos por el simple hecho que el sitio es estático."
 categories:
   - General
 tags:
@@ -32,4 +33,4 @@ Todas esas cosas con Jekyll no son tan simples. Ahora dependo de quien halla des
 
 Espero que el cambio les guste, tanto como a mí.
 
-Saludos,
+Happy scripting!
