@@ -19,10 +19,10 @@ Hace un tiempo escribí sobre Ansible y la integración, o los mecanismos dispon
 
 Ansible ofrece una serie de módulos para poder interactuar con los servidores Windows:
 
-* win_command: Permite ejecutar comandos incluyendo scripts de PowerShell, por medio de la invocación del ejecutable.
-* win_shell: Es la segunda opción y la menos recomendada, ya que el entorno del usuario tiene incidencia.
+* **win_command:** Permite ejecutar comandos incluyendo scripts de PowerShell, por medio de la invocación del ejecutable.
+* **win_shell:** Es la segunda opción y la menos recomendada, ya que el entorno del usuario tiene incidencia.
 
-Un ejemplo de uso de win_command sería lo siguiente:
+Un ejemplo de uso de *win_command* sería lo siguiente:
 
 {% highlight yaml%}
   - name: Ejecutar un script
@@ -31,7 +31,7 @@ Un ejemplo de uso de win_command sería lo siguiente:
 
 Donde directamente invocamos un script para ejecutar remotamente.
 
-Obviamente esto trae asociado que anteriormente se debió copiar el archivo al destino. Ansible tiene el módulo win_copy para tal fin. Su uso, sería de la siguiente manera:
+Obviamente esto trae asociado que anteriormente se debió copiar el archivo al destino. Ansible tiene el módulo *win_copy* para tal fin. Su uso, sería de la siguiente manera:
 
 {% highlight yaml%}
   - win_copy:

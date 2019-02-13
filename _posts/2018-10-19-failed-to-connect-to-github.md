@@ -36,7 +36,7 @@ After the execution (I had to wait a few minutes), I got the following error:
 
 <img src="https://v5xycw.ch.files.1drv.com/y4mrtQAQcEaHoY96kKJ8lx4VVV2246qethFvhz5g-NJUAUZ0cV39bk5BB9gCHqZqlFnME64tK1ZIjDDu4OKYqP3w1kRfUpL6GoKgUx-tABjimhU0ycETo8Vfs1NQgZ3TMYQ09GuIMc2v3wi9RqiMsQo6riJRJRfAYj5kcGG7YSXFDprFavHPThvaKyrD-qE0JnwmbXrki0DcOr5rmpny5-t5A?width=1129&height=73&cropmode=none" alt="Failed to connect to github.com port 443: Timed out" class="alignnone" />
 
-### Solution
+## Solution
 
 If you ever used Git in your life, you know there is a local configuration for parametrize the user experience. Git provides a tool called **git config** that lets you get and set configuration variables that control all aspects of how Git looks and operates. Among all the values, you can config the username, password, text editor and more.
 
