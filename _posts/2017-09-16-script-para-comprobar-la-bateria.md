@@ -4,6 +4,7 @@ date: 2017-09-16T14:30:06+00:00
 author: Victor Silva
 layout: single
 permalink: /script-para-comprobar-la-bateria/
+excerpt: "En el trabajo me cambiaron la notebook y eso genera un montón de cosas (buenas y malas); reinstalar software, acomodar algunas cosas y configurar otras tantas. Debido a que me gusta el scripting, tengo un script para ello."
 medium_post:
   - 'O:11:"Medium_Post":11:{s:16:"author_image_url";s:68:"https://cdn-images-1.medium.com/fit/c/200/200/0*Sz3Js055VwE6KyPu.jpg";s:10:"author_url";s:33:"https://medium.com/@vmsilvamolina";s:11:"byline_name";N;s:12:"byline_email";N;s:10:"cross_link";s:2:"no";s:2:"id";s:12:"eaebb029c11e";s:21:"follower_notification";s:3:"yes";s:7:"license";s:19:"all-rights-reserved";s:14:"publication_id";s:2:"-1";s:6:"status";s:6:"public";s:3:"url";s:84:"https://medium.com/@vmsilvamolina/script-para-comprobar-la-bater%C3%ADa-eaebb029c11e";}'
 dsq_thread_id:
@@ -27,7 +28,7 @@ Así que, sin tener mayor fundamento que lo expuesto anteriormente me dispuse a 
 Tomando en cuenta mi acotado conocimiento sobre WMI, es posible que exista alguna clase que pueda ser mi punto de partida para empezar a recolectar datos. Efectivamente existe una clase que se llama **[Win32_Battery](https://msdn.microsoft.com/en-us/library/aa394074%28v=vs.85%29.aspx)** que nos comparte información sobre la batería. Ejecutando _Get-WmiObjet_ obtenemos lo siguiente:
 
 {% highlight posh %}
-Get-WmiObject Win32_Battery
+  Get-WmiObject Win32_Battery
 {% endhighlight %}
     
 
@@ -42,24 +43,24 @@ Tener en cuenta que el otro indicador que tenemos que prestar atención es **Bat
 Frente a la información anterior, podemos armar un simple script para comprobar la batería:
 
 {% highlight posh %}
-function Check-BatteryPercentage {
+  function Check-BatteryPercentage {
     if ((Get-WmiObject Win32_Battery).BatteryStatus -ne 1) {
-        if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -gt 80) {
-            Write-host "Desconectar de la corriente!"
-        }
+      if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -gt 80) {
+        Write-host "Desconectar de la corriente!"
+      }
     } else {
-        if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -lt 20) {
-            Write-host "Conectar el equipo!"
-        }
+      if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -lt 20) {
+        Write-host "Conectar el equipo!"
+      }
     }    
-}
+  }
 {% endhighlight %}
 
 Debido al objetivo del post, vamos a continuar resolviendo el problema de los pop-ups Para ello existen varias maneras de resolver esto. En este post voy a compartir la que para mí es la más fácil:
 
 {% highlight posh %}
-$wshell = New-Object -ComObject Wscript.Shell
-$wshell.Popup("Desconectar la notebook",0,"Alerta",0x0 + 0x30)
+  $wshell = New-Object -ComObject Wscript.Shell
+  $wshell.Popup("Desconectar la notebook",0,"Alerta",0x0 + 0x30)
 {% endhighlight %}
 
 <img src="https://pboaga-ch3302.files.1drv.com/y4m0BtLlEkuFG145ssS2C-wXXwNLAmALgvo4IbtPWPINqeotF1jdfAA4lsSbW44w6ExI2aLeQkEgRg_WxvR19QjwECUIujbGFM0C0hPF4EMb7GKydw4ModEnKv9ny6FYRH4Bvf5ePf8lS6pb5cwk5VHCvRMDtPJwS6sJTTx1nItFNiUc9q-HcLnUuVixEB8TzxDttbbWDrQIYlXeoVqcvS-Lg?width=992&#038;height=371&#038;cropmode=none" width="992" height="371" alt="Popup Method" class="alignnone size-full" />
@@ -67,19 +68,19 @@ $wshell.Popup("Desconectar la notebook",0,"Alerta",0x0 + 0x30)
 Finalmente vamos a tener el siguiente script:
 
 {% highlight posh %}
-function Check-BatteryPercentage {
+  function Check-BatteryPercentage {
     if ((Get-WmiObject Win32_Battery).BatteryStatus -ne 1) {
-        if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -gt 80) {
-            $wshell = New-Object -ComObject Wscript.Shell
-            $wshell.Popup("Desconectar de la corriente!",0,"Alerta",0x0 + 0x30)
-        }
+      if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -gt 80) {
+        $wshell = New-Object -ComObject Wscript.Shell
+        $wshell.Popup("Desconectar de la corriente!",0,"Alerta",0x0 + 0x30)
+      }
     } else {
-        if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -lt 20) {
-            $wshell = New-Object -ComObject Wscript.Shell
-            $wshell.Popup("Conectar el equipo!",0,"Alerta",0x0 + 0x30)
-        }
+      if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -lt 20) {
+        $wshell = New-Object -ComObject Wscript.Shell
+        $wshell.Popup("Conectar el equipo!",0,"Alerta",0x0 + 0x30)
+      }
     }
-}
+  }
 {% endhighlight %}
     
 

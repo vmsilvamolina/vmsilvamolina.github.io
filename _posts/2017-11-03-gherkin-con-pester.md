@@ -4,6 +4,7 @@ date: 2017-11-03T22:17:33+00:00
 author: Victor Silva
 layout: single
 permalink: /gherkin-con-pester/
+excerpt: "Hace un tiempo leí por ahí que Pester tenía una característica secreta, muy interesante, de la que tenía que hablar en mi blog. Para los que no recuerdan que es Pester, les comparto un enlace a un post en el blog del que hablamos sobre Pester: https://blog.victorsilva.com.uy/pester-framework/ "
 categories:
   - PowerShell
 tags:
@@ -27,9 +28,9 @@ Vamos a comenzar definiendo nuestra primer especificación que por obvias razone
 Para el ejemplo, vamos a considerar como *feature* la copia de un archivo:
 
 {% highlight plaintext %}
-Feature: You can copy one file
+  Feature: You can copy one file
 
-Scenario: The file exists, and the target folder exists
+  Scenario: The file exists, and the target folder exists
     Given we have a source file
     And we have a destination folder
     When we call Copy-Item
@@ -42,7 +43,7 @@ El bloque anterior lo vamos a guardar como ***CopyItem.feature***. Ya con este a
 Ahora para tener un resultado de lo que generamos, a pesar de que faltan definir componentes, podemos ubicarnos en la ruta donde se encuentra el archivo que acabamos de generar y ejecutamos:
 
 {% highlight posh %}
-Invoke-Gherkin
+  Invoke-Gherkin
 {% endhighlight %}
 
 > Comprobar que se encuentre instalada la última versión de Pester, ya que la compatibilidad con Gherkin no estaba presente en todas las versiones. Para actualizar el módulo basta con ejecutar 'Update-Module -Name Pester'.
@@ -60,30 +61,30 @@ Todas las comprobaciones que se definen para una función de Gherkin se llaman p
 Ahora que tenemos definido el concepto de "steps", vamos a definirlos como indica el siguiente archivo, guardándolo bajo el nombre ***CopyItem.Steps.ps1***:
 
 {% highlight posh %}
-Given 'we have a source file' {
+  Given 'we have a source file' {
     mkdir C:\source -ErrorAction SilentlyContinue
     Set-Content 'C:\source\something.txt' -Value 'Data'
     'C:\source\something.txt' | Should Exist
-}
+  }
 
-Given 'we have a destination folder' {
+  Given 'we have a destination folder' {
     mkdir C:\target -ErrorAction SilentlyContinue
     'C:\target' | Should Exist
-}
+  }
 
-When 'we call Copy-Item' {
+  When 'we call Copy-Item' {
     { Copy-Item c:\source\something.txt C:\target } | Should Not Throw
-}
+  }
 
-Then 'we have a new file in the destination' {
+  Then 'we have a new file in the destination' {
     'C:\target\something.txt' | Should Exist
-}
+  }
 
-And 'the new file is the same as the original file' {
+  And 'the new file is the same as the original file' {
     $first = Get-FileHash C:\target\something.txt
     $second = Get-FileHash C:\source\something.txt
     $second.Hash | Should Be $first.Hash
-}
+  }
 {% endhighlight %}
 
 Si se presta atención a lo declarado anteriormente, queda visiblemente que se creó una prueba al estilo Pester para las líneas en la especificación definida. Cada una de las líneas anteriores comienza con una palabra clave: *Given*, *And*, *When* o *Then* (*But* también es una palabra clave válida para utilizar). La descripción se extrae directamente de la especificación, ya que *Invoke-Gherkin* usa esa descripción para hacer la coincidencia.
