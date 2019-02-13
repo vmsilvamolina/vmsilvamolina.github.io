@@ -10,6 +10,7 @@ categories:
 tags:
   - PowerShell
   - Youtube
+  - InternetExplorer.Application
 ---
 
 <p><b>Actualizado:</b> 11 de Abril de 2018</p>{: .notice--success}

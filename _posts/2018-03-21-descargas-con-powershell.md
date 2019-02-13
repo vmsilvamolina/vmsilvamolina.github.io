@@ -4,6 +4,7 @@ date: 2018-03-21T13:51:00+00:00
 author: Victor Silva
 layout: single
 permalink: /descargas-con-powershell/
+excerpt: "En la oficina he adquirido una fama particular con la automatización de procesos y tareas aburridas. Hace unos días un compañero llegó con una solicitud particular sobre una tarea de administración que él realiza. La tarea en cuestión que debía resolver PowerShell era comprobar de forma local si la versión de un archivo a descargar era la última publicada. De lo contrario, se debía ejecutar la descarga y reemplazar con el archivo nuevo. Ya con la misión definida es hora de ponerse a trabajar."
 categories:
   - PowerShell
 tags:

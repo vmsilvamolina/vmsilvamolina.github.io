@@ -4,6 +4,7 @@ date: 2018-03-10T23:51:00+00:00
 author: Victor Silva
 layout: single
 permalink: /passthru-en-powershell/
+excerpt: "El parámetro 'passthru' es utilizado con frecuencia, pero sin conocer realmente que es lo que permite realizar, o al menos que es lo que hace de manera simple. Básicamente permite agregar una salida a cmdlets que no tienen esta función por defecto, es decir que agrega una funcionalidad o extiende el uso de ciertos cmdlets."
 categories:
   - PowerShell
 tags:
