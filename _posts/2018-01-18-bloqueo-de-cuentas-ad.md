@@ -64,7 +64,7 @@ Primero debemos entender que comando nos va a permitir obtener los eventos que n
 Como vimos anteriormente, el ID que indica que una cuenta se encuentra bloqueada es el 4740, por lo que vamos a usar la siguiente sintaxis para guardar todos los eventos con ese ID:
 
 {% highlight posh %}
-$eventos = Get-WinEvent -FilterHashtable @{logname='Security'; ID=4740; }
+  $eventos = Get-WinEvent -FilterHashtable @{logname='Security'; ID=4740; }
 {% endhighlight %}
 
 También agregamos el tipo de log, *Security* en este caso, ya que los eventos de auditoría se registran en esa categoría.
@@ -74,31 +74,31 @@ Ya tenemos en nuestra variable *$eventos* todos los registros que informan sobre
 Así que armé esta pequeña función que manipula el resultado de lo anteriormente detallado y lo presenta como un objeto:
 
 {% highlight posh %}
-function Get-UsuarioBloqueado {
-param(
-    [string]$Usuario
-)
+  function Get-UsuarioBloqueado {
+  param(
+      [string]$Usuario
+  )
 
-    $eventos = Get-WinEvent -FilterHashtable @{logname='Security'; ID=4740; }
-    $datos = 'TargetDomainName', 'TargetUserName'
-    $eventos | ForEach-Object {
-        ([xml]$_.ToXml()).Event.EventData | ForEach-Object {
-            $props = @{}
+      $eventos = Get-WinEvent -FilterHashtable @{logname='Security'; ID=4740; }
+      $datos = 'TargetDomainName', 'TargetUserName'
+      $eventos | ForEach-Object {
+          ([xml]$_.ToXml()).Event.EventData | ForEach-Object {
+              $props = @{}
 
-            $_.Data |
-                Where-Object { $datos -contains $_.Name} |
-                ForEach-Object { $props[$_.Name] = $_.'#text' }
+              $_.Data |
+                  Where-Object { $datos -contains $_.Name} |
+                  ForEach-Object { $props[$_.Name] = $_.'#text' }
 
-            New-Object -Type PSObject -Property $props | where {$_.TargetUserName -ge $usuario }
-        }
-    }
-}
+              New-Object -Type PSObject -Property $props | where {$_.TargetUserName -ge $usuario }
+          }
+      }
+  }
 {% endhighlight %}
 
 Y la utilizamos de la siguiente manera:
 
 {% highlight posh %}
-Get-UsuarioBloqueado -Usuario vsilva
+  Get-UsuarioBloqueado -Usuario vsilva
 {% endhighlight %}
 
 <img src="https://nrrdxg.ch.files.1drv.com/y4mxniJ2AqHPaq_-PGgnZOtwu_dpZoYrXPjD-VzeJmLTNkHpHCCZnNHni7tdHaqq6HaNqOHKTYGyqlwGrriMPbTOyBxfMReSrP1AhRsNxWXiI7ihhb6Y7geq8wTBqg-oZTrNdA92R25aMBwo19kO4pkxA5gZuKZWPpoZIvgAuNFk9nt3V2ClFFhJT07vnem4RvAgjXu0MjIyxGB-fln-7UQQA?width=906&height=293&cropmode=none" alt="Resultado de ejecutar la función Get-UsuarioBloqueado" class="alignnone size-full" />

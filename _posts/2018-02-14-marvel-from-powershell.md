@@ -28,7 +28,7 @@ Marvel had publish a REST API which allows you to gather data regarding the enti
 The module can be installed from the PowerShell Gallery using the following complex command:
 
 {% highlight posh %}
-Install-Module -Name PSMarvel
+  Install-Module -Name PSMarvel
 {% endhighlight %}
 
 
