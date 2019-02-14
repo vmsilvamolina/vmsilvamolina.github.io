@@ -4,6 +4,7 @@ date: 2018-04-12T19:57:00+00:00
 author: Victor Silva
 layout: single
 permalink: /logs-iis-powershell/
+excerpt: "Existen numerosas herramientas de análisis de logs para IIS y para logs en general, y probablemente sea una excelente idea utilizar estos sistemas para realizar un monitoreo continuo de nuestras soluciones. Sin embargo, en el mundo real a veces solo tienes un montón de logs de IIS y algunas preguntas simples por responder con la información que allí se aloja."
 categories:
   - PowerShell
 tags:

@@ -4,6 +4,7 @@ date: 2018-05-17T22:09:26+00:00
 author: Victor Silva
 layout: single
 permalink: /powershell-customizar-prompt/
+excerpt: "PowerShell ofrece muchas maneras de hacernos felices y una de ellas es la customización de la consola. Hoy quiero compartir como modificar el prompt de nuestra consola para darle un toque más personalizado y/o diferente."
 dsq_thread_id:
   - "4488031977"
 medium_post:
