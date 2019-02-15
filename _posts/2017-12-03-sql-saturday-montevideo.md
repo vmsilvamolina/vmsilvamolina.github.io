@@ -94,5 +94,4 @@ Les comparto algunas fotos del evento:
 
 Gracias a los sponsors que hicieron posible esto y a todos los que de una u otra forma participaron para hacer que fuera posible un evento de tal magnitud.
 
-Hasta la próxima!
-
+Happy scripting!

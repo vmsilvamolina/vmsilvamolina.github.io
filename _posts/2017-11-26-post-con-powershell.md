@@ -59,12 +59,12 @@ Ya que la mayoría de las veces escribimos y publicamos el post sobre el mismo d
 
 {% highlight posh %}
   function New-JekyllPost {
-      [CmdletBinding()]
-      param ( 
-          [Parameter(Position=0, ValueFromPipeline=$true)][PSObject[]]$Date = (Get-Date),
-          [Parameter(Position=1, ValueFromPipeline=$true)][string]$Title,
-          [Parameter(Position=2, ValueFromPipeline=$true)][string]$Category
-      )
+    [CmdletBinding()]
+    param ( 
+      [Parameter(Position=0, ValueFromPipeline=$true)][PSObject[]]$Date = (Get-Date),
+      [Parameter(Position=1, ValueFromPipeline=$true)][string]$Title,
+      [Parameter(Position=2, ValueFromPipeline=$true)][string]$Category
+    )
   }
 {% endhighlight %}
 
@@ -76,7 +76,7 @@ Definimos las siguientes variables ya manipuladas:
 
 {% highlight posh %}
   if ($Date.GetType() -eq [string]) {
-      $Date = [datetime]$Date
+    $Date = [datetime]$Date
   }
   $DatePost = $Date | Get-Date -Format s
   $DatePostName = ($DatePost).Split("T")[0]
@@ -112,27 +112,27 @@ Y ahora sí, juntando todas las partes, obtendremos la función que nos va a per
 
 {% highlight posh %}
   function New-JekyllPost {
-      [CmdletBinding()]
-      param ( 
-          [Parameter(Position=0, ValueFromPipeline=$true)][PSObject[]]$Date = (Get-Date),
-          [Parameter(Position=1, ValueFromPipeline=$true)][string]$Title,
-          [Parameter(Position=2, ValueFromPipeline=$true)][string]$Category
-      )
-      Process {
-          $PostPath = "C:\users\vmsilvamolina\OneDrive\Documentos\GitHub\vmsilvamolina.github.io\_posts\"
+    [CmdletBinding()]
+    param ( 
+      [Parameter(Position=0, ValueFromPipeline=$true)][PSObject[]]$Date = (Get-Date),
+      [Parameter(Position=1, ValueFromPipeline=$true)][string]$Title,
+      [Parameter(Position=2, ValueFromPipeline=$true)][string]$Category
+    )
+    Process {
+      $PostPath = "C:\users\vmsilvamolina\OneDrive\Documentos\GitHub\vmsilvamolina.github.io\_posts\"
 
-          if ($Date.GetType() -eq [string]) {
-              $Date = [datetime]$Date
-          }
-          $DatePost = $Date | Get-Date -Format s
-          $DatePostName = ($DatePost).Split("T")[0]
+      if ($Date.GetType() -eq [string]) {
+        $Date = [datetime]$Date
+      }
+      $DatePost = $Date | Get-Date -Format s
+      $DatePostName = ($DatePost).Split("T")[0]
 
-          $TitlePost = $Title.Replace(" ","-").ToLower()
-          $PostName = [string]$DatePostName + "-" + $TitlePost + ".md"
-          New-Item -Path $PostPath -ItemType File -Name $PostName | Out-Null
-          [string]$PostFileName = $PostPath + "\" + $PostName
+      $TitlePost = $Title.Replace(" ","-").ToLower()
+      $PostName = [string]$DatePostName + "-" + $TitlePost + ".md"
+      New-Item -Path $PostPath -ItemType File -Name $PostName | Out-Null
+      [string]$PostFileName = $PostPath + "\" + $PostName
 
-          $Values = @"
+      $Values = @"
   ---
   title: $Title
   date: $DatePost
@@ -143,8 +143,8 @@ Y ahora sí, juntando todas las partes, obtendremos la función que nos va a per
     - $Category
   ---
   "@
-          Add-Content -Path $PostFileName -Value $Values
-      }
+      Add-Content -Path $PostFileName -Value $Values
+    }
   }
 {% endhighlight %}
 
