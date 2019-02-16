@@ -76,22 +76,22 @@ Así que armé esta pequeña función que manipula el resultado de lo anteriorme
 {% highlight posh %}
   function Get-UsuarioBloqueado {
   param(
-      [string]$Usuario
+    [string]$Usuario
   )
 
-      $eventos = Get-WinEvent -FilterHashtable @{logname='Security'; ID=4740; }
-      $datos = 'TargetDomainName', 'TargetUserName'
-      $eventos | ForEach-Object {
-          ([xml]$_.ToXml()).Event.EventData | ForEach-Object {
-              $props = @{}
+    $eventos = Get-WinEvent -FilterHashtable @{logname='Security'; ID=4740; }
+    $datos = 'TargetDomainName', 'TargetUserName'
+    $eventos | ForEach-Object {
+      ([xml]$_.ToXml()).Event.EventData | ForEach-Object {
+        $props = @{}
 
-              $_.Data |
-                  Where-Object { $datos -contains $_.Name} |
-                  ForEach-Object { $props[$_.Name] = $_.'#text' }
+        $_.Data |
+          Where-Object { $datos -contains $_.Name} |
+          ForEach-Object { $props[$_.Name] = $_.'#text' }
 
-              New-Object -Type PSObject -Property $props | where {$_.TargetUserName -ge $usuario }
-          }
+        New-Object -Type PSObject -Property $props | where {$_.TargetUserName -ge $usuario }
       }
+    }
   }
 {% endhighlight %}
 

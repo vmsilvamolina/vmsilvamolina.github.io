@@ -95,5 +95,4 @@ En nuestro ejemplo, vamos a suponer que tenemos los servidores 10.100.10.15 y 10
   New-AdcRealServer -Port 443 -Protocol tcp -RealServer 10.100.10.16 -RealServerPort 443 -VirtualService 10.100.10.80
 {% endhighlight %}
 
-
 Happy scripting!
