@@ -1,5 +1,5 @@
 --- 
-title: "Using a Lambda Function to automated blog post on Twitter (part 1) [English]" 
+title: "Using a Lambda Function to automate blog post on Twitter (part 1) [English]" 
 author: Victor Silva
 date: 2019-01-01T19:57:00+00:00 
 layout: single 
@@ -22,9 +22,9 @@ tags:
 
 <div>
 <p>This post is part of a series of related posts:</p>
-<li>Lambda Function to automated blog post on Twitter - Setting up a development environment</li>
-<li>Lambda Function to automated blog post on Twitter - Configuring source files and AWS storage</li>
-<li>Lambda Function to automated blog post on Twitter - Creating the schedule</li>
+<li>Lambda Function to automate blog post on Twitter - Setting up a development environment</li>
+<li>Lambda Function to automate blog post on Twitter - Configuring source files and AWS storage</li>
+<li>Lambda Function to automate blog post on Twitter - Creating the schedule</li>
 </div>{: .notice--success}
 
 A few months ago, I started to learn about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. Additional to this, I follow the technical blog from Amazon and I read about the support for PowerShell Core 6 (I worked a lot with serverless, using Azure Functions) so that, serverless have a place in my heart nowadays. Well, with the above, I´ll share how to work with AWS, in particular with the serverless solution called Lambda with PowerShell Core.
