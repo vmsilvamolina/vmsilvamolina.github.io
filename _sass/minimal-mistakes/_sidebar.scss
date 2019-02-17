@@ -32,7 +32,7 @@
     &.sticky {
       overflow-y: auto;
       /* calculate height of nav list */
-      height: calc(100vh - 90px - 2em); // viewport height - approx. masthead height - main content top margin
+      height: calc(100vh - 50px - 2em); // viewport height - approx. masthead height - main content top margin
     }
   }
 
