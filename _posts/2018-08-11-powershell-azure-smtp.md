@@ -47,13 +47,13 @@ Continuando con la estructura de lo que nos interesa, pasamos a ver el código.
 
 Lo primero es destacar que cmdlet vamos a usar. Para enviar un mail tenemos [Send-MailMessage](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/send-mailmessage?view=powershell-6). Con el cmdlet anterior vamos a necesitar ciertos valores que serán nuestras variables:
 
-- $userName
-- $password
-- $smtpServer
-- $emailFrom
-- $emailTo
-- $subject
-- $body
+- `$userName`
+- `$password`
+- `$smtpServer`
+- `$emailFrom`
+- `$emailTo`
+- `$subject`
+- `$body`
 
 Al ser información sensible, lo recomendado es utilizar algún mecanismo para poder proteger estos datos. Para ello utilizamos la sección de **Application Settings** dentro de la *function app* creada.
 
