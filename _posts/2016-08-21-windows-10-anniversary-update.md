@@ -13,7 +13,7 @@ categories:
   - Windows Server
 tags:
   - "1607"
-  - WIndows 10
+  - Windows 10
   - Windows 10 Anniversary Update
   - WSUS
 ---
