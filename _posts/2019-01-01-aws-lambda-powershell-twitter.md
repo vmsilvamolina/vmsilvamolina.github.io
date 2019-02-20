@@ -1,5 +1,5 @@
 --- 
-title: "Using a Lambda Function to automate blog post on Twitter (part 1) [English]" 
+title: "Automate the posts on Twitter using a AWS Lambda function and PowerShell [English]" 
 author: Victor Silva
 date: 2019-01-01T19:57:00+00:00 
 layout: single 
@@ -19,13 +19,6 @@ tags:
   - Automation 
   - English
 --- 
-
-<div>
-<p>This post is part of a series of related posts:</p>
-<li>Lambda Function to automate blog post on Twitter - Setting up a development environment</li>
-<li>Lambda Function to automate blog post on Twitter - Configuring source files and AWS storage</li>
-<li>Lambda Function to automate blog post on Twitter - Creating the schedule</li>
-</div>{: .notice--success}
 
 A few months ago, I started to learn about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. Additional to this, I follow the technical blog from Amazon and I read about the support for PowerShell Core 6 (I worked a lot with serverless, using Azure Functions) so that, serverless have a place in my heart nowadays. Well, with the above, I´ll share how to work with AWS, in particular with the serverless solution called Lambda with PowerShell Core.
 
@@ -79,5 +72,44 @@ Additionally, we need to install the **AWSPowerShell.NetCore** module, for work 
 {% endhighlight %}
 
 Well, After all changes we'll continue on the next post, configuing the files on the blog and the AWS S3 service for storage the records (published posts).
+
+## Using Lambda function to publish on Twitter
+
+Well, after all the steps required to set the dev environment, we are ready to start to work with AWS Lambda and PowerShell Core. As the section title indicates, the main purpose of this post is share how to send posts from my blog to twitter without any human interaction.
+
+First we need to modify a little the blog, adding a new file called ***entries.html*** that centralize all the entries with a specific format (JSON). Store it in the root directory.
+
+{% highlight plaintext%}
+  ---
+  layout: null
+  permalink: /entries.json
+  sitemap: false
+  ---
+
+  {
+      "title": "{{ site.title}}",
+      "url": "{{ site.url }}",
+      "posts": [
+          {% for post in site.posts %}
+          {% if post.hide_from_feed != true %}
+          {% if forloop.first != true %},{% endif %}
+          {
+          "title": "{{ post.title }}",
+          "date": "{{ post.date | date_to_rfc822 }}",
+          "url": "{{ post.url | prepend: site.baseurl }}",
+          "categories": {{ post.categories | jsonify }},
+          "tags": {{ post.tags | jsonify }}
+          }
+          {% endif %}
+          {% endfor %}
+      ]
+  }
+{% endhighlight %}
+
+The file will show all the posts published, like this:
+
+<img >
+
+
 
 Happy scripting!
