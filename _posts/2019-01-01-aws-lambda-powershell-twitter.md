@@ -98,7 +98,6 @@ We need to have a file that work as history record to save all the previous Twee
   }
 {% endhighlight %}
 
-
 ### AWS S3 bucket
 
 You need to create a AWS S3 bucket and upload the history file, because you need to access to this file each time that the Lambda function run. 
@@ -124,17 +123,32 @@ Perfect! The following step is upload the history file to the new S3 bucket, usi
 
 **Note:** I replace the values with variables (strings) to simplify the syntax.
 
-Well, The last configuration step over the files is grant the public access (read)
+Well, The last configuration step over the files is grant the public access (read), inside the overview tab, select the button **Make public**:
 
-## Using Lambda function to publish on Twitter
+<img src="https://v5xzcw.ch.files.1drv.com/y4m0THkeEZyPty26-6K1MVDtZJzH2JS8D8gnYqvu1ViDpnxtJOLqPAhcb7Wsa6ifeBc2kOfsRFqqvpxnHuWzoJiKwlmg221vFsEocd1xaasUGZR5H4Z5Ze7mjHNlzo_jQjaxOIzI8RvZdZpO2EJAqbUx3W5ISp_yUBC9hAygTzrM2FhvXrunvclPFNfnhXI5fK1LPvCeqtp_T6YhGKVS1bp_Q?width=937&height=326&cropmode=none" alt="" class="alignnone" />
 
-So when, 
+## Create the Lambda function to publish on Twitter
+
+So when, now we need to create the Lambda Function, running the following commmand:
+
+{% highlight posh%}
+  New-AWSPowerShellLambda -ScriptName "TwitterBlog" -Template Basic
+{% endhighlight %}
+
+After that, edit the function file running the commands below:
+
+{% highlight posh%}
+  cd .\TwitterBlog\
+  code .\TwitterBlog.ps1
+{% endhighlight %}
+
+And add the next code to the function file (TwitterBlog.ps1):
 
 {% highlight posh%}
   # Define variables and extra info
-  $bucketName = ""
-  $historyFile = "https://s3.\<AWSregion\>.amazonaws.com/$bucketName/history.json"
-  $blogFeed = "https://blog.victorsilva.com.uy/entries.json"
+  $bucketName = "" #Add the Bucket name
+  $historyFile = "https://s3.\<AWSregion\>.amazonaws.com/$bucketName/history.json" #Add the correct region
+  $blogFeed = "https://blogDomain.com/entries.json" #Change the URL with the correct file
 
   # Load history file and blog entries
   $history = Invoke-WebRequest -Uri $historyFile | ConvertFrom-Json
@@ -157,26 +171,60 @@ So when,
   $link = "https://blog.victorsilva.com.uy"+$post.url
   $body = "Blog post: $title`n$link`n$hashtags"
 
-  #Tweet using the API
-  <#
-  $oAuth = @{
-      ApiKey            = $env:TWITTER_CONSUMER_KEY
-      ApiSecret         = $env:TWITTER_CONSUMER_SECRET
-      AccessToken       = $env:TWITTER_ACCESS_TOKEN
-      AccessTokenSecret = $env:TWITTER_ACCESS_SECRET
-  }
-  $tweetParams = @{
-      ResourceURL   = 'statuses/update.json'
-      RestVerb      = 'POST'
-      Parameters    = @{
-          status = $tweetText
-      }
-      OAuthSettings = $oAuth
-  }
-  $tweet     = Invoke-TwitterRestMethod @tweetParams
+  [Reflection.Assembly]::LoadWithPartialName("System.Security")
+  [Reflection.Assembly]::LoadWithPartialName("System.Net")  
+      
+  # Set your OAuth variables and such
+  $message = [System.Uri]::EscapeDataString($body)
+  $oauth_consumer_key = $env:twitterConsumerKey
+  $oauth_consumer_secret = $env:twitterConsumerSecret
+  $oauth_token = $env:twitterToken
+  $oauth_token_secret = $env:twitterTokenSecret
+  $random = New-Object -type Random
+  $oauth_nonce = $random.Next()
+  $culture = New-Object System.Globalization.CultureInfo("en-US")
+  $ts = [System.DateTime]::UtcNow - [System.DateTime]::ParseExact("01/01/1970", "dd/MM/yyyy", $null)
+  $oauth_timestamp = [System.Convert]::ToInt64($ts.TotalSeconds).ToString()
+      
+  # Build base signature
+  $signature = "POST&"
+  $signature += [System.Uri]::EscapeDataString("https://api.twitter.com/1.1/statuses/update.json") + "&"
+  $signature += [System.Uri]::EscapeDataString("oauth_consumer_key=" + $oauth_consumer_key + "&")
+  $signature += [System.Uri]::EscapeDataString("oauth_nonce=" + $oauth_nonce + "&")
+  $signature += [System.Uri]::EscapeDataString("oauth_signature_method=HMAC-SHA1&")
+  $signature += [System.Uri]::EscapeDataString("oauth_timestamp=" + $oauth_timestamp + "&")
+  $signature += [System.Uri]::EscapeDataString("oauth_token=" + $oauth_token + "&")
+  $signature += [System.Uri]::EscapeDataString("oauth_version=1.0&")
+  $signature += [System.Uri]::EscapeDataString("status=" + $message)
+  $signature_key = [System.Uri]::EscapeDataString($oauth_consumer_secret) + "&" + [System.Uri]::EscapeDataString($oauth_token_secret)
+      
+  # Convert via SHA1
+  $hmacsha1 = new-object System.Security.Cryptography.HMACSHA1
+  $hmacsha1.Key = [System.Text.Encoding]::ASCII.GetBytes($signature_key)
+  $oauth_signature = [System.Convert]::ToBase64String($hmacsha1.ComputeHash([System.Text.Encoding]::ASCII.GetBytes($signature)))
+      
+  # Build OAuth Header
+  $oauth_authorization = 'OAuth '
+  $oauth_authorization += 'oauth_consumer_key="' + [System.Uri]::EscapeDataString($oauth_consumer_key) + '", '
+  $oauth_authorization += 'oauth_nonce="' + [System.Uri]::EscapeDataString($oauth_nonce) + '", '
+  $oauth_authorization += 'oauth_signature="' + [System.Uri]::EscapeDataString($oauth_signature) + '", '
+  $oauth_authorization += 'oauth_signature_method="HMAC-SHA1", '
+  $oauth_authorization += 'oauth_timestamp="' + [System.Uri]::EscapeDataString($oauth_timestamp) + '", '
+  $oauth_authorization += 'oauth_token="' + [System.Uri]::EscapeDataString($oauth_token) + '", '
+  $oauth_authorization += 'oauth_version="1.0"'
+      
+  # Build body
+  $post_body = [System.Text.Encoding]::ASCII.GetBytes("status=" + $message)
+      
+  # Set basic information for Invoke-RestMethod
+  $headers = @{"Authorization" = $oauth_authorization}
+  $contenttype = "application/x-www-form-urlencoded"
+  $post_body
+
+  #Post a Tweet
+  $tweet = Invoke-RestMethod -Method Post -Uri "https://api.twitter.com/1.1/statuses/update.json" -Headers $headers -ContentType $contenttype -Body $post_body
   $tweetJson = $tweet | ConvertTo-Json
   Write-Output "Tweet sent:`n$tweetJson"
-  #>
 
   #Save teh info to the history
   $date = (Get-Date).ToUniversalTime().ToString('u')
@@ -186,14 +234,60 @@ So when,
   }
   $history.lastTweetedDate = $date
   $history.tweetedPosts += $tweetedPost
-  Write-S3Object -BucketName $bucketName -Key history.json -AccessKey $accessKey -SecretAccessKey $secretAccessKey -Content ($history | ConvertTo-Json)
+  Write-S3Object -BucketName $bucketName -Key history.json -AccessKey $env:accessKey -SecretAccessKey $env:secretAccessKey -Content ($history | ConvertTo-Json) -PublicReadOnly
 
 {% endhighlight %}
 
+if you pay attention, I defined some environment variables. These are for hide information about private keys and secrets from AWS access and Twitter API.
+
+**Note:** To obtain the Twitter's keys and secrets, access to: [https://developer.twitter.com/en/apps](https://developer.twitter.com/en/apps)
+
+You can read the next document to learn how to use environment variables on AWS services:[https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html](https://docs.aws.amazon.com/lambda/latest/dg/env_variables.html)
+
+## Publish the Lambda function
+
+To publish the Lambda function, you can run the command 
+
+{% highlight posh%}
+  Publish-AWSPowerShellLambda -ScriptPath .\TwitterBlog.ps1 -Name "TwitterBlog" -Region <region>
+{% endhighlight %}
+
+You need to define a role following the instructions. Only need **AWSLambdaEdgeExecutionRole** permission.
+
+### Workaround
+
+If you had problems executing the previous command, the alternative way to publish the function is execute the command **New-AWSPowerShellLambdaPackage** with the following syntax:
+
+{% highlight posh%}
+  New-AWSPowerShellLambdaPackage -ScriptPath .\TwitterBlog.ps1 -OutputPackage fileUploader.zip
+{% endhighlight %}
+
+And upload the file on the AWS Lambda console, specifying the **LambdaHandler** (appear on the output from the above command) on the *Function Code* section.
+
+After that, click on the **Save** button.
+
+<img src="https://vcbmaq.ch.files.1drv.com/y4mpd3TbNyj5tuhQbi2jdOJTFvUZq4xu8YoCeP9HxhLSvBu0izjv5S3DTNHi-BzHIsh69spHG8Fu9WQzufyofjOwozz-_9ZsOaetoRp2wj7UhulzRA-M4-KiQltVlIx5BGn0YmROBAbMs55D_pKyXfFMclbNgeeS_6UhmqY-R7gaeJswowb3l92Z_Z8M6Z0AJd8QBLz2AkSO_LxnbBoEDPCHQ?width=1497&height=766&cropmode=none" alt="New-AWSPowerShellLambdaPackage example" class="alignnone" />
+
+## Trigger: CloudWatch Events
+
+The last step is coming: the function exist and the necessary files too. Let’s set up the CloudWatch schedule event to trigger the Lambda function. To do that, go to the configuration section in the Lambda console and select CloudWatch Events in the configure triggers section.
+
+<img src="https://hjf9iw.ch.files.1drv.com/y4m2X6II_S_Vp0HOMjKtbDBKa2FGHQ3ZdnjyLRQ2g2CjVlRx0zyW43t_fNPKQdQA9IKduMR_Nh3HzYss4upv1Q6ZbtVH0kUE9xZ-3Gyx2r7Ma1jpOaSn1mt2sZpKVZyqbJVnQsLDpO_3Fxjn-y-TSiyHfSWT_YcPOgfcSntaqZAckRcx0joOoisYZgKbYJMrpvIBxLYbdE5xCaIuQbIZ8gq1w?width=1694&height=811&cropmode=none" alt="" class="alignnone" />
+
+This opens a new Configure trigger panel to set up the schedule event. We’ll need to set the following fields.
+
+Select the **Create a new rule** option and define a unique name to identify this rule. Set to **Scheduled expression** the rule type. The expression identify the frequency to run the script (this can be expressed in either a Cron expression or a Rate expression). To see our new PowerShell based Lambda function in action, let’s set this value to `rate(5 minutes)` to have it run every 5 minutes.
+
+And voilà! After a few minutes you can see a tweet published from AWS Lambda function using PowerShell Core.
+
+<img src="https://iaykxg.ch.files.1drv.com/y4mKaqkG7vuBER-gubKPILnyZokbumOPnv7A-2XBiR8JliVUkkNByyQBfJD1zsxO5KB2329C8aW7iJna8jv6Fc_6ugDp407rWMNKMIi1ZzrVw_bTKD8h8AHQNpdGcoshFx2Cv6ubd69EZSCcZffTUIrpyuJ-JLw4gySp9-MG_7tdSFDX7rxYu9N7GcJRntH-wcLPz-oxJ5mJE68XkvmAgQiGA?width=952&height=723&cropmode=none" alt="Tweeet example using AWS Lambda function and PowerShell Core" class="alignnone" />
+
 ## Little tips...
 
-1- **Fix all the tags**: Bacause every tweet use each tag with hashtag, you need to correct every tag to share specific information about your post.
-2- **Fix the titles**: You must correct all the URL: If a URL is too long you can set a new URL and redirect from the all with the redirect_from plugin from Jekyll. Another approach is add a service like **bit.ly** to generate a short URL.
-3- 
+A short list to check on your blog before start using that!
+
+1- **Fix all the tags**: Bacause every tweet use each tag as hashtag, you need to correct every tag to share specific information about your post.
+2- **Fix the titles**: You must correct all the URLs: If a URL is too long you can set a new URL and redirect from the old with the *redirect_from* plugin from Jekyll. Another approach is add a service like **bit.ly** to generate a short URL.
+3- **Update the content**: If you start publish old posts, you need to work to update all the content of your posts.
 
 Happy scripting!
