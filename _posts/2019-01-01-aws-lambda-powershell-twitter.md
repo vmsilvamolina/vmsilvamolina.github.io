@@ -20,9 +20,9 @@ tags:
   - English
 --- 
 
-A few months ago, I started to learn about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. Additional to this, I follow the technical blog from Amazon and I read about the support for PowerShell Core 6 (I worked a lot with serverless, using Azure Functions) so that, serverless have a place in my heart nowadays. Well, with the above, I´ll share how to work with AWS, in particular with the serverless solution called Lambda with PowerShell Core.
+A few months ago, I started learning about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. In addition to this, I follow Amazon´s technical blog and I read about the support for PowerShell Core 6 (I worked a lot with serverless, using Azure Functions) so that, serverless has a place in my heart nowadays. Well, with the above, I´ll share how to work with AWS, in particular with the serverless solution called Lambda with PowerShell Core.
 
-How will I explain that? Sharing with you an excellent example: A way to send automated blog post on Twitter without "human" interaction.
+How will you explain that in detail? Sharing with you an excellent example: A way to send automated blog post on Twitter without "human" interaction.
 
 ## Setting up a development environment
 
@@ -75,7 +75,7 @@ Well, After all changes we'll continue on the next post, configuing the files on
 
 ## Prepare the blog for collect the data
 
-Well, after all the steps required to set the dev environment, we are ready to start to work with the next section: collect the data. As the section title indicates, the main purpose of this post is share how to modify the blog adding a new file to join all the posts info  and creating another file that save all the published Tweets.
+After all the steps required to set the dev environment, we are ready to start to work with the next section: collect the data. As the section title indicates, the main purpose of this post is share how to modify the blog adding a new file to join all the posts info  and creating another file that save all the published Tweets.
 
 ### All posts
 
