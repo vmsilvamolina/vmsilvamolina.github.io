@@ -22,27 +22,27 @@ tags:
 
 A few months ago, I started learning about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. In addition to this, I follow Amazon´s technical blog and I read about the support for PowerShell Core 6 (I worked a lot with serverless, using Azure Functions) so that, serverless has a place in my heart nowadays. Well, with the above, I´ll share how to work with AWS, in particular with the serverless solution called Lambda with PowerShell Core.
 
-How will you explain that in detail? Sharing with you an excellent example: A way to send automated blog post on Twitter without "human" interaction.
+How will I explain that in detail? By sharing with you an excellent example: A way to send automated blog post on Twitter without "human" interaction.
 
 ## Setting up a development environment
 
 Before we get started developing PowerShell Core based Lambda functions, let’s set up our dev environment.
 
-First, I recommend you to use [Visual Studio Code](https://code.visualstudio.com/download), because the *ISE* (Integrated Scripting Environment) is not supported with PowerShell Core. But, you need to configure a little things before start coding...
+First, I recommend you to use [Visual Studio Code](https://code.visualstudio.com/download), because the *ISE* (Integrated Scripting Environment) doesn't support PowerShell Core. But, you need to configure a few things before start coding...
 
 ### Installing PowerShell Extension
 
-Launch the Visual Studio Code app by typing `code` in your PowerShell session and pressing Ctrl+P to launch *Quick Open*. In Quick Open, type `ext install powershell` and hit *Enter*. The Extensions view opens on the Side Bar, select the PowerShell extension from Microsoft. So then, click the Install button on the PowerShell, after the install, you´ll see the Install button to Reload. Click that.
+Launch the Visual Studio Code app by typing `code` in your PowerShell session and pressing Ctrl+P to launch *Quick Open*. In Quick Open, type `ext install powershell` and hit *Enter*. The Extensions view opens on the side bar, select the PowerShell extension from Microsoft. So then, click the Install button on PowerShell, after the setup, you´ll see the Install button to Reload. Click that.
 
-After Visual Studio Code has reload, you are ready for editing PowerShell files :)
+After Visual Studio Code has reloaded, you are ready for editing PowerShell files :)
 
 ### Using PowerShell Core version
 
 Because the objective is to use PowerShell Core, we need to add a new variable to your profile settings file.
 
-Open VSCode and click en File, after that click on Preferences and the last step is to select Settings.
+Open VSCode and click *File*, after that click on *Preferences* and the last step is to select *Settings*.
 
-Find in the right corner up, a button with two curly brackets ({ and }). Two editor panes appear. In the right-most  pane (user settings), insert the setting bellow:
+Find up in the right corner, a button with two curly brackets ({ and }). Two editor panes will appear. In the right-most pane (user settings), insert the setting bellow:
 
 {% highlight posh%}
   "powershell.powerShellExePath": "c:/Program Files/PowerShell/6/pwsh.exe"
@@ -59,7 +59,7 @@ You can find the .NET Core 2.2 SDK [here](https://www.microsoft.com/net/download
 
 ### Install the PowerShell module AWSLambdaPSCore
 
-The last component we need for the development environment is the AWSLambdaPSCore module, that you can install from the PowerShell Gallery directly, using the following command:
+The last component we need for the development environment is the **AWSLambdaPSCore** module, that you can install from the PowerShell Gallery directly, using the following command:
 
 {% highlight posh%}
   Install-Module AWSLambdaPSCore -Scope CurrentUser
@@ -71,11 +71,11 @@ Additionally, we need to install the **AWSPowerShell.NetCore** module, for work 
   Install-Module AWSPowerShell.NetCore
 {% endhighlight %}
 
-Well, After all changes we'll continue on the next post, configuing the files on the blog and the AWS S3 service for storage the records (published posts).
+Well, after all changes we'll continue on the next post, configuring the files on the blog and the AWS S3 service for storing the records (published posts).
 
-## Prepare the blog for collect the data
+## Prepare the blog for collecting the data
 
-After all the steps required to set the dev environment, we are ready to start to work with the next section: collect the data. As the section title indicates, the main purpose of this post is share how to modify the blog adding a new file to join all the posts info  and creating another file that save all the published Tweets.
+After all the steps required to set the dev environment, we are ready to start to work with the next section: collecting the data. As the section title indicates, the main purpose of this post is sharing how to modify the blog adding a new file to join all the posts info  and creating another file that save all the published Tweets.
 
 ### All posts
 
@@ -107,7 +107,7 @@ Before run any command associated to AWS, I´ll explain a way to set the access 
 * **AccessKey**
 * **SecretAccessKey**
 
-How to obtain that values? You need to login to the AWS console ([https://aws.amazon.com/console/](https://aws.amazon.com/console/)). Under your profile name, select the option: **My security credentials**. Select the section **Access keys (access key ID and secret access key)** and click over the button **Create New Access Key**. The last step is download the file with the info or select the *Show Access Key* option to copy/paste to a secure site (I´ll explain how to use *Environment Variables* with Lambda to store securely that info).
+How to obtain that values? You need to login to the AWS console ([https://aws.amazon.com/console/](https://aws.amazon.com/console/)). Under your profile name, select the option: **My security credentials**. Select the section **Access keys (access key ID and secret access key)** and click over the button **Create New Access Key**. The last step is downloading the file with the info or select the *Show Access Key* option to copy/paste to a secure site (I´ll explain how to use *Environment Variables* with Lambda to store securely that info).
 
 Now, you can use the following command (you must have installed the **AWSPowerShell.NetCore** module, previously commented):
 
@@ -121,7 +121,7 @@ Perfect! The following step is upload the history file to the new S3 bucket, usi
   Write-S3Object -BucketName $bucketName -File C:\history.json -AccessKey $accessKey -SecretAccessKey $secretAccessKey
 {% endhighlight %}
 
-**Note:** I replace the values with variables (strings) to simplify the syntax.
+**Note:** I replaced the values with variables (strings) to simplify the syntax.
 
 Well, The last configuration step over the files is grant the public access (read), inside the overview tab, select the button **Make public**:
 
@@ -129,7 +129,7 @@ Well, The last configuration step over the files is grant the public access (rea
 
 ## Create the Lambda function to publish on Twitter
 
-So when, now we need to create the Lambda Function, running the following commmand:
+So, now we need to create the Lambda Function, running the following commmand:
 
 {% highlight posh%}
   New-AWSPowerShellLambda -ScriptName "TwitterBlog" -Template Basic
@@ -246,7 +246,7 @@ You can read the next document to learn how to use environment variables on AWS 
 
 ## Publish the Lambda function
 
-To publish the Lambda function, you can run the command 
+To publish the Lambda function, you can run the command:
 
 {% highlight posh%}
   Publish-AWSPowerShellLambda -ScriptPath .\TwitterBlog.ps1 -Name "TwitterBlog" -Region <region>
