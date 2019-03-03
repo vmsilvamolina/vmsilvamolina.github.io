@@ -125,7 +125,7 @@ Perfect! The following step is upload the history file to the new S3 bucket, usi
 
 Well, The last configuration step over the files is grant the public access (read), inside the overview tab, select the button **Make public**:
 
-<img src="https://v5xzcw.ch.files.1drv.com/y4m0THkeEZyPty26-6K1MVDtZJzH2JS8D8gnYqvu1ViDpnxtJOLqPAhcb7Wsa6ifeBc2kOfsRFqqvpxnHuWzoJiKwlmg221vFsEocd1xaasUGZR5H4Z5Ze7mjHNlzo_jQjaxOIzI8RvZdZpO2EJAqbUx3W5ISp_yUBC9hAygTzrM2FhvXrunvclPFNfnhXI5fK1LPvCeqtp_T6YhGKVS1bp_Q?width=937&height=326&cropmode=none" alt="" class="alignnone" height="200" />
+<img src="https://v5xzcw.ch.files.1drv.com/y4m0THkeEZyPty26-6K1MVDtZJzH2JS8D8gnYqvu1ViDpnxtJOLqPAhcb7Wsa6ifeBc2kOfsRFqqvpxnHuWzoJiKwlmg221vFsEocd1xaasUGZR5H4Z5Ze7mjHNlzo_jQjaxOIzI8RvZdZpO2EJAqbUx3W5ISp_yUBC9hAygTzrM2FhvXrunvclPFNfnhXI5fK1LPvCeqtp_T6YhGKVS1bp_Q?width=937&height=220&cropmode=none" alt="" class="alignnone" height="200" />
 
 ## Create the Lambda function to publish on Twitter
 
