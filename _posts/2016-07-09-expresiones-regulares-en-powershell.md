@@ -23,49 +23,52 @@ En nuestra empresa nombramos nuestros servidores comenzando con SRV y continuand
 
 Vamos a desglosar esta expresión para comprender mejor como trabaja:
    
-&#8211; **SRV**: Cumple mi primera condición de nomenclatura en donde todos mis servidores comienzan con SRV.
+ - **SRV**: Cumple mi primera condición de nomenclatura en donde todos mis servidores comienzan con SRV.
    
-&#8211; **[A-Z]{2-4}**: Continuando con mi nomenclatura el nombre del servidor debe contener información del rol que contiene y esta información no debe pasar los 4 caracteres (todos en mayúscula).
+ - **[A-Z]{2-4}**: Continuando con mi nomenclatura el nombre del servidor debe contener información del rol que contiene y esta información no debe pasar los 4 caracteres (todos en mayúscula).
    
-&#8211; \d{2}: Al final del nombre debe contener un número de 2 dígitos.
+ - **\d{2}**: Al final del nombre debe contener un número de 2 dígitos.
 
 Ahora que tenemos el patrón vamos a probar diferentes ejemplos de textos que contienen nombres de servidores que cumplen con el patrón y otros no:
 
-    $text = 'El nombre del controlador de dominio es SRVDC01 y el servidor de DHCP es SRVDHCP03.'
-    $pattern = 'SRV[A-Z]{2,4}\d{2}'
-    $text -match $pattern
+{% highlight posh%}
+  $text = 'El nombre del controlador de dominio es SRVDC01 y el servidor de DHCP es SRVDHCP03.'
+  $pattern = 'SRV[A-Z]{2,4}\d{2}'
+  $text -match $pattern
+{% endhighlight %}
     
 
-Considerando el código anterior se deja en evidencia el uso del operador _-match_ para comprobar si se encontraban coincidencias con respecto al patrón de búsqueda. Ésta expresión devuelve resultados booleanos ($true o $false). Debido a que el ejemplo que utilizamos devuelve $true, podemos observar el resultado de esa evaluación accediendo a una variable automática llamada **_$matches_**:
-
-<imagen de ejecutar matches>
+Considerando el código anterior se deja en evidencia el uso del operador _-match_ para comprobar si se encontraban coincidencias con respecto al patrón de búsqueda. Ésta expresión devuelve resultados booleanos ($true o $false). Debido a que el ejemplo que utilizamos devuelve $true, podemos observar el resultado de esa evaluación accediendo a una variable automática llamada **_$matches_**
 
 Donde podemos armar algo más estructurado como lo siguiente:
 
-    if ($text -match $pattern) { $matches[0] }
+{% highlight posh%}
+  if ($text -match $pattern) { $matches[0] }
+{% endhighlight %}
     
-
 ### Patrones
 
 Me gustaría compartir algunos ejemplos de patrones según el tipo de búsqueda:
 
 ## Multiples caracteres
 
-    $text = 'Mi nombre es James Bond'
-    $pattern = 'Jame[^abc]'
-    $text -match $pattern
-    #Resultado: $true
+{% highlight posh%}
+  $text = 'Mi nombre es James Bond'
+  $pattern = 'Jame[^abc]'
+  $text -match $pattern
+  #Resultado: $true
+{% endhighlight %}
     
-
 El resultado es true, ya que mi patrón excluye las letras _a_, _b_ y _c_ como último caracter (James no termina con ninguna de esas letras).
 
 ## Según la posición
 
-    $text = 'PowerShell es lo peor'
-    $text -replace 'peor$','mejor'
-    #Resultado: PowerShell es lo mejor
+{% highlight posh%}
+  $text = 'PowerShell es lo peor'
+  $text -replace 'peor$','mejor'
+  #Resultado: PowerShell es lo mejor
+{% endhighlight %}
     
-
 Utilizamos el signo **$** para indicar que valide el patrón si se encuentra al final de la línea.
 
 ### Select-String
@@ -74,7 +77,8 @@ Pero tenemos un inconveniente, que capaz no lo notaron; el resultado solamente d
 
 ¿Que sucede con los casos en donde necesitamos obtener todos los resultados que cumplen con el expresión? En estos casos vamos a utilizar el cmdlet **_Select-String_**. Para usar el cmdlet anterio debemos asignar el pattern al parámetro **_-AllMatches_** y expandir las propiedades como ejemplifica la siguiente línea:
 
-    $text | Select-String -AllMatches $pattern | select -ExpandProperty Matches | select -ExpandProperty Value
-    
+{% highlight posh%}
+  $text | Select-String -AllMatches $pattern | select -ExpandProperty Matches | select -ExpandProperty Value
+{% endhighlight %}
 
-Saludos,
+Happy scripting!
