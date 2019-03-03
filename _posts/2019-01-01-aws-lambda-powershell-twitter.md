@@ -272,7 +272,7 @@ After that, click on the **Save** button.
 
 The last step is coming: the function exist and the necessary files too. Let’s set up the CloudWatch schedule event to trigger the Lambda function. To do that, go to the configuration section in the Lambda console and select CloudWatch Events in the configure triggers section.
 
-<img src="https://hjf9iw.ch.files.1drv.com/y4m2X6II_S_Vp0HOMjKtbDBKa2FGHQ3ZdnjyLRQ2g2CjVlRx0zyW43t_fNPKQdQA9IKduMR_Nh3HzYss4upv1Q6ZbtVH0kUE9xZ-3Gyx2r7Ma1jpOaSn1mt2sZpKVZyqbJVnQsLDpO_3Fxjn-y-TSiyHfSWT_YcPOgfcSntaqZAckRcx0joOoisYZgKbYJMrpvIBxLYbdE5xCaIuQbIZ8gq1w?width=1694&height=811&cropmode=none" alt="AWS Lambda function with CloudWatch Events" class="alignnone" height=350 />
+<img src="https://hjf9iw.ch.files.1drv.com/y4m2X6II_S_Vp0HOMjKtbDBKa2FGHQ3ZdnjyLRQ2g2CjVlRx0zyW43t_fNPKQdQA9IKduMR_Nh3HzYss4upv1Q6ZbtVH0kUE9xZ-3Gyx2r7Ma1jpOaSn1mt2sZpKVZyqbJVnQsLDpO_3Fxjn-y-TSiyHfSWT_YcPOgfcSntaqZAckRcx0joOoisYZgKbYJMrpvIBxLYbdE5xCaIuQbIZ8gq1w?width=1694&height=811&cropmode=none" alt="AWS Lambda function with CloudWatch Events" class="alignnone" height="350" />
 
 This opens a new Configure trigger panel to set up the schedule event. We’ll need to set the following fields.
 
@@ -280,7 +280,7 @@ Select the **Create a new rule** option and define a unique name to identify thi
 
 And voilà! After a few minutes you can see a tweet published from AWS Lambda function using PowerShell Core.
 
-<img src="https://iaykxg.ch.files.1drv.com/y4mKaqkG7vuBER-gubKPILnyZokbumOPnv7A-2XBiR8JliVUkkNByyQBfJD1zsxO5KB2329C8aW7iJna8jv6Fc_6ugDp407rWMNKMIi1ZzrVw_bTKD8h8AHQNpdGcoshFx2Cv6ubd69EZSCcZffTUIrpyuJ-JLw4gySp9-MG_7tdSFDX7rxYu9N7GcJRntH-wcLPz-oxJ5mJE68XkvmAgQiGA?width=952&height=723&cropmode=none" alt="Tweeet example using AWS Lambda function and PowerShell Core" class="alignnone" height=250 />
+<img src="https://iaykxg.ch.files.1drv.com/y4mKaqkG7vuBER-gubKPILnyZokbumOPnv7A-2XBiR8JliVUkkNByyQBfJD1zsxO5KB2329C8aW7iJna8jv6Fc_6ugDp407rWMNKMIi1ZzrVw_bTKD8h8AHQNpdGcoshFx2Cv6ubd69EZSCcZffTUIrpyuJ-JLw4gySp9-MG_7tdSFDX7rxYu9N7GcJRntH-wcLPz-oxJ5mJE68XkvmAgQiGA?width=952&height=723&cropmode=none" alt="Tweeet example using AWS Lambda function and PowerShell Core" class="alignnone" height="250" />
 
 ## Little tips...
 
