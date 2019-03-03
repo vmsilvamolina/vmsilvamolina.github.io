@@ -46,11 +46,11 @@ Donde podemos armar algo más estructurado como lo siguiente:
   if ($text -match $pattern) { $matches[0] }
 {% endhighlight %}
     
-### Patrones
+## Patrones
 
 Me gustaría compartir algunos ejemplos de patrones según el tipo de búsqueda:
 
-## Multiples caracteres
+### Multiples caracteres
 
 {% highlight posh%}
   $text = 'Mi nombre es James Bond'
@@ -61,7 +61,7 @@ Me gustaría compartir algunos ejemplos de patrones según el tipo de búsqueda:
     
 El resultado es true, ya que mi patrón excluye las letras _a_, _b_ y _c_ como último caracter (James no termina con ninguna de esas letras).
 
-## Según la posición
+### Según la posición
 
 {% highlight posh%}
   $text = 'PowerShell es lo peor'
