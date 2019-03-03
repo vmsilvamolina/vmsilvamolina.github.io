@@ -15,7 +15,6 @@ tags:
   - Error
   - SCCM 2012
   - SSL/TLS
-  - Tip
 ---
 Si estamos trabajando con System Center Configuration Manager 2012, y deseamos instalar la consola en un equipo cliente, puede surgir un error de conexión que nos impida la correcta ejecución de la misma.
 

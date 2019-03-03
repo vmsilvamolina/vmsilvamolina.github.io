@@ -10,10 +10,10 @@ dsq_thread_id:
 categories:
   - Data Protection Manager
 tags:
+  - DPM
   - Error ID 270
   - Error ID 308
   - Event ID 10016
-  - DPM
 ---
 Al intentar realizar la instalación del agente de DPM 2012 SP1 en un servidor, nos encontramos con un evento que indica un error a la hora de actualizar el estado del agente.
 

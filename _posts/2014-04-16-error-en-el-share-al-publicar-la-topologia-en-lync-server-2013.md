@@ -10,9 +10,9 @@ dsq_thread_id:
 categories:
   - Skype for Business Server
 tags:
-  - Share
   - Lync Server 2013
   - ACL Error
+  - Share
 ---
 Al realizar la instalación de Lync Server 2013 nos encontramos en un momento en la necesidad de especificar un repositorio compartido, el cual se debe declarar para poder continuar con la instalación.
 

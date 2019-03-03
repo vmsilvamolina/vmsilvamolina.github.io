@@ -11,10 +11,10 @@ categories:
   - PowerShell
   - Windows Server
 tags:
-  - Cmdlets
-  - Espacio en disco
   - PowerShell
   - Get-WMIObject
+  - Cmdlets
+  - Espacio en disco
 ---
 Lo que vamos a ver en esta oportunidad es como hacer un pequeño reporte del estado de nuestros discos. Una de las tareas más tediosas de los administradores de sistemas es comprobar los estados de los discos, debido a que es una de las causas de los problemas que ocurren en algunas oportunidades. Primero vamos a abrir la Windows Powershell ISE, para armar nuestro script. Y escribimos:
 

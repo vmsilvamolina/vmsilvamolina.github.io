@@ -10,8 +10,8 @@ dsq_thread_id:
 categories:
   - Skype for Business Server
 tags:
-  - Insufficient access rights
   - Lync Server 
+  - Insufficient access rights
   - Problem 4003
 ---
 Al momento de habilitar usuarios en Lync Server, en algunas ocasiones me he encontrado con el siguiente error:
