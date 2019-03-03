@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2019-01-01T19:57:00+00:00 
 layout: single 
 permalink: /aws-lambda-powershell-twitter/ 
-excerpt: "A few months ago, I started to learn about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. Additional to this, I follow the technical blog from Amazon and I read about the support for PowerShell Core 6 and I worked a lot with serverless (using Azure Functions) so that, serverless have a place in my heart nowadays" 
+excerpt: "A few months ago, I started to learn about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. Additional to this, I follow the technical blog from Amazon and I read about the support for PowerShell Core 6 and I worked a lot with serverless (using Azure Functions) so for that, serverless have a place in my heart nowadays" 
 categories: 
   - PowerShell 
   - AWS 
@@ -20,7 +20,7 @@ tags:
   - English
 --- 
 
-A few months ago, I started learning about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. In addition to this, I follow Amazon´s technical blog and I read about the support for PowerShell Core 6 (I worked a lot with serverless, using Azure Functions) so that, serverless has a place in my heart nowadays. Well, with the above, I´ll share how to work with AWS, in particular with the serverless solution called Lambda with PowerShell Core.
+A few months ago, I started learning about Amazon Web Services (AWS) because I had the necessity to expand my knowledge of cloud services offers. In addition to this, I follow Amazon´s technical blog and I read about the support for PowerShell Core 6 (I worked a lot with serverless, using Azure Functions) so for that, serverless has a place in my heart nowadays. Well, with the above, I´ll share how to work with AWS, in particular with the serverless solution called Lambda with PowerShell Core.
 
 How will I explain that in detail? By sharing with you an excellent example: A way to send automated blog post on Twitter without "human" interaction.
 
@@ -75,7 +75,7 @@ Well, after all changes we'll continue on the next post, configuring the files o
 
 ## Prepare the blog for collecting the data
 
-After all the steps required to set the dev environment, we are ready to start to work with the next section: collecting the data. As the section title indicates, the main purpose of this post is sharing how to modify the blog adding a new file to join all the posts info  and creating another file that save all the published Tweets.
+After all the steps required to set the dev environment, we are ready to start working with the next section: collecting the data. As the section title indicates, the main purpose of this post is sharing how to modify the blog adding a new file to join all the posts info  and creating another file that save all the published Tweets.
 
 ### All posts
 
@@ -89,7 +89,7 @@ The file will show all the posts published, as shown in the image:
 
 ### History file
 
-We need to have a file that work as history record to save all the previous Tweets published because I don't like repeat the same post 2 times in a row, for example. The first step is define what type of info the file will save, for example, the date of the last published tweet and a list of previously published posts, like this:
+We need to have a file that work as history record to save all the previous Tweets published because I don't like repeating the same post 2 times in a row, for example. The first step is defining what type of info the file will save, for example, the date of the last published tweet and a list of previously published posts, like this:
 
 {% highlight json%}
   {
@@ -100,14 +100,14 @@ We need to have a file that work as history record to save all the previous Twee
 
 ### AWS S3 bucket
 
-You need to create a AWS S3 bucket and upload the history file, because you need to access to this file each time that the Lambda function run. 
+You need to create a AWS S3 bucket and upload the history file, because you need to access this file each time that the Lambda function run. 
 
-Before run any command associated to AWS, I´ll explain a way to set the access to the cloud services from the console. Using the commands provided from Amazon, you have a pair of parameters to set the info related to your credentials:
+Before running any command associated to AWS, I´ll explain a way to set the access to the cloud services from the console. Using the commands provided from Amazon, you have a pair of parameters to set the info related to your credentials:
 
 * **AccessKey**
 * **SecretAccessKey**
 
-How to obtain that values? You need to login to the AWS console ([https://aws.amazon.com/console/](https://aws.amazon.com/console/)). Under your profile name, select the option: **My security credentials**. Select the section **Access keys (access key ID and secret access key)** and click over the button **Create New Access Key**. The last step is downloading the file with the info or select the *Show Access Key* option to copy/paste to a secure site (I´ll explain how to use *Environment Variables* with Lambda to store securely that info).
+How to obtain those values? You need to login to the AWS console ([https://aws.amazon.com/console/](https://aws.amazon.com/console/)). Under your profile name, select the option: **My security credentials**. Select the section **Access keys (access key ID and secret access key)** and click over the button **Create New Access Key**. The last step is downloading the file with the info or select the *Show Access Key* option to copy/paste to a secure site (I´ll explain how to use *Environment Variables* with Lambda to store securely that info).
 
 Now, you can use the following command (you must have installed the **AWSPowerShell.NetCore** module, previously commented):
 
@@ -238,7 +238,7 @@ And add the next code to the function file (TwitterBlog.ps1):
 
 {% endhighlight %}
 
-If you pay attention, I defined some environment variables. These are for hide information about private keys and secrets from AWS access and Twitter API.
+If you pay attention, I defined some environment variables. These are for hiding information about private keys and secrets from AWS access and Twitter API.
 
 **Note:** To obtain the Twitter's keys and secrets, access to: [https://developer.twitter.com/en/apps](https://developer.twitter.com/en/apps)
 
@@ -262,7 +262,7 @@ If you had problems executing the previous command, the alternative way to publi
   New-AWSPowerShellLambdaPackage -ScriptPath .\TwitterBlog.ps1 -OutputPackage fileUploader.zip
 {% endhighlight %}
 
-And upload the file on the AWS Lambda console, specifying the **LambdaHandler** (appear on the output from the above command) on the *Function Code* section.
+And upload the file on the AWS Lambda console, specifying the **LambdaHandler** (appearing on the output from the above command) on the *Function Code* section.
 
 After that, click on the **Save** button.
 
@@ -276,7 +276,7 @@ The last step is coming: the function exist and the necessary files too. Let’s
 
 This opens a new Configure trigger panel to set up the schedule event. We’ll need to set the following fields.
 
-Select the **Create a new rule** option and define a unique name to identify this rule. Set to **Scheduled expression** the rule type. The expression identify the frequency to run the script (this can be expressed in either a Cron expression or a Rate expression). To see our new PowerShell based Lambda function in action, let’s set this value to `rate(5 minutes)` to have it run every 5 minutes.
+Select the **Create a new rule** option and define a unique name to identify this rule. Set to **Scheduled expression** the rule type. The expression identifies the frequency to run the script (this can be expressed in either a Cron expression or a Rate expression). To see our new PowerShell based Lambda function in action, let’s set this value to `rate(5 minutes)` to have it run every 5 minutes.
 
 And voilà! After a few minutes you can see a tweet published from AWS Lambda function using PowerShell Core.
 
@@ -287,7 +287,7 @@ And voilà! After a few minutes you can see a tweet published from AWS Lambda fu
 A short list to check on your blog before start using that!
 
 1- **Fix all the tags**: Bacause every tweet use each tag as hashtag, you need to correct every tag to share specific information about your post.
-2- **Fix the titles**: You must correct all the URLs: If a URL is too long you can set a new URL and redirect from the old with the *redirect_from* plugin from Jekyll. Another approach is add a service like **bit.ly** to generate a short URL.
-3- **Update the content**: If you start publish old posts, you need to work to update all the content of your posts.
+2- **Fix the titles**: You must correct all the URLs: If a URL is too long you can set a new URL and redirect from the old with the *redirect_from* plugin from Jekyll. Another approach is adding a service like **bit.ly** to generate a short URL.
+3- **Update the content**: If you start publishing old posts, you need to work to update all the content of your posts.
 
 Happy scripting!
