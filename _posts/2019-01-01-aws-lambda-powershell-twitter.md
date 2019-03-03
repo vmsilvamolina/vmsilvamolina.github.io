@@ -286,8 +286,8 @@ And voilà! After a few minutes you can see a tweet published from AWS Lambda fu
 
 A short list to check on your blog before start using that!
 
-1- **Fix all the tags**: Bacause every tweet use each tag as hashtag, you need to correct every tag to share specific information about your post.
-2- **Fix the titles**: You must correct all the URLs: If a URL is too long you can set a new URL and redirect from the old with the *redirect_from* plugin from Jekyll. Another approach is adding a service like **bit.ly** to generate a short URL.
-3- **Update the content**: If you start publishing old posts, you need to work to update all the content of your posts.
+1. **Fix all the tags**: Bacause every tweet use each tag as hashtag, you need to correct every tag to share specific information about your post.
+2. **Fix the titles**: You must correct all the URLs: If a URL is too long you can set a new URL and redirect from the old with the *redirect_from* plugin from Jekyll. Another approach is adding a service like **bit.ly** to generate a short URL.
+3. **Update the content**: If you start publishing old posts, you need to work to update all the content of your posts.
 
 Happy scripting!
