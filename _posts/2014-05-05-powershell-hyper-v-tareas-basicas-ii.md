@@ -11,10 +11,10 @@ categories:
   - PowerShell
   - Windows Server
 tags:
-  - Cmdlets
   - Hyper-V
-  - Live Migration
   - PowerShell
+  - Live Migration
+  - Cmdlets
   - Recursos
   - Virtual Machine
   - Windows Server

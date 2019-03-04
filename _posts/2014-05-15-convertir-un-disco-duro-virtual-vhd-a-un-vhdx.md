@@ -12,8 +12,8 @@ categories:
 tags:
   - Hyper-V
   - PowerShell
-  - VHD
   - VHDX
+  - VHD
 ---
 En Windows 8 y Windows Server 2012 se introdujo un nuevo formato de disco duro virtual denominado **.VHDX** y hoy vamos a ver como convertir hacia este nuevo formato.
 

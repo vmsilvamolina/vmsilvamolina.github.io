@@ -11,12 +11,12 @@ dsq_thread_id:
 categories:
   - Operations Manager
 tags:
-  - Dispositivos de red
   - Firewall
   - Monitoreo
-  - no response ping
-  - Ping
   - SCOM
+  - Ping
+  - no response ping
+  - Dispositivos de red
 ---
 Tuvimos un caso en el que al utilizar las reglas de detección de dispositivos de red en SCOM 2012 nos encontró una serie de dispositivos con el estado Pending Management, con la notificación No response ping.
 

@@ -11,9 +11,9 @@ categories:
   - PowerShell
   - Windows Server
 tags:
-  - Cmdlets
   - Hyper-V
   - PowerShell
+  - Cmdlets
   - Windows Server
 ---
 El módulo de Hyper-V para Windows PowerShell en Windows Server 2012 incluye más de 160 cmdlets para automatizar las tareas de administración de Hyper-V.

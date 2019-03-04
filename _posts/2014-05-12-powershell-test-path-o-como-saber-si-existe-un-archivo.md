@@ -9,9 +9,9 @@ dsq_thread_id:
 categories:
   - PowerShell
 tags:
-  - Cmdlets
   - PowerShell
   - Test-Path
+  - Cmdlets
 ---
 A veces cuando estamos armando un script, nos encontramos con la necesidad de validar la existencia de un archivo en un directorio en particular, por ejemplo.
 
