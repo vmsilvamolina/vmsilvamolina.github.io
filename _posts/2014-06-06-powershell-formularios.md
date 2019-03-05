@@ -9,10 +9,10 @@ dsq_thread_id:
 categories:
   - PowerShell
 tags:
-  - Forms
   - PowerShell
   - Windows Forms
   - WinForms
+  - Forms
 ---
 A la hora de crear nuestros scripts, por necesidad o por tratar de agregar una capa de interacción con el usuario, podemos crear formularios de Windows, por medio de .Net Framework, permitiendo agregar una **GUI** (Graphical User Interface) a nuestros scripts.
 

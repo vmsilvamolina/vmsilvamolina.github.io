@@ -9,10 +9,10 @@ dsq_thread_id:
 categories:
   - PowerShell
 tags:
-  - Cmdlets
+  - PowerShell
   - Dates
   - Fechas
-  - PowerShell
+  - Cmdlets
   - Script
 ---
 En algunos casos debemos trabajar con fechas sobre nuestros scripts. Vamos a ver algunas maneras de trabajar con las fechas, de darles formato y de crear un objeto en X días hacia adelante.

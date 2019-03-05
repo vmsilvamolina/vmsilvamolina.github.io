@@ -11,8 +11,8 @@ categories:
   - Windows Server
 tags:
   - Active Directory
-  - AD
   - Migración
+  - AD
   - Plan de pruebas
 ---
 Se pretende establecer y describir el procedimiento a realizar luego de completada la migración de dominio de Active Directory en la infraestructura, para así verificar la integridad de la implementación así como el correcto funcionamiento de los componentes de la misma.

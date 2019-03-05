@@ -10,7 +10,7 @@ categories:
   - PowerShell
 tags:
   - eBooks
-  - Post
+  - Libros gratis
   - PowerShell
 format: aside
 ---

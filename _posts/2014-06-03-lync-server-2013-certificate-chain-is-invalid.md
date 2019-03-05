@@ -9,6 +9,7 @@ dsq_thread_id:
 categories:
   - Skype for Business Server
 tags:
+  - Lync Server 2013
   - CA
   - Certificate error
   - Chain is invalid
