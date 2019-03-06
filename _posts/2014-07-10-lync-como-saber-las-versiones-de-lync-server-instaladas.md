@@ -10,9 +10,9 @@ categories:
   - PowerShell
   - Skype for Business Server
 tags:
-  - Cmdlets
-  - Lync Server
   - PowerShell
+  - Lync Server
+  - Cmdlets
   - versiones
 ---
 Un pequeño comando que nos permitirá conocer las versiones de los diferentes roles de nuestra implementación de Lync Server.
@@ -22,7 +22,7 @@ Muy útil, cuando nos encontramos con la necesidad de actualizar o de ver los pa
 Simplemente desde una Shell de administración de Lync, debemos ejecutar la siguiente línea de código:
 
 {% highlight posh %}
-Get-WmiObject -Query 'select * from win32_product' | where {$_.name -like "Microsoft Lync Server*"} | foreach {$_}
+  Get-WmiObject -Query 'select * from win32_product' | where {$_.name -like "Microsoft Lync Server*"} | foreach {$_}
 {% endhighlight %}
 
 Happy scripting!

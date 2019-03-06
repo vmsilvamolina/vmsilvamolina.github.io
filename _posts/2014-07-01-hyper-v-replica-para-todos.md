@@ -12,12 +12,12 @@ categories:
   - Replica
   - Windows Server
 tags:
-  - Cmdlets
+  - Hyper-V
+  - PowerShell
   - DRP
   - HA
-  - Hyper-V
+  - Cmdlets
   - Maquinas Virtuales
-  - PowerShell
   - Replica
   - Windows Server 2012 R2
 ---
