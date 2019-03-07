@@ -1,5 +1,5 @@
 --- 
-title: "Azure Pipelines ¿por donde empiezo?" 
+title: "Azure DevOps: Environment variables" 
 author: Victor Silva
 date: 2019-01-15T19:57:00+00:00 
 layout: single 
@@ -14,7 +14,9 @@ tags:
   - Variables
 --- 
 
-Antes de revisar en profundidad podemos expresar que es conceptualmente como una forma automatizada de disponibilizar nuevas features de una aplicación a los usuarios finales (o usuarios de pruebas también). Los pipelines, también conocidos como CI/CD (Continuous Integration y Continupus delivery) definen el proceso en que el programador actualiza el código en el repositorio y de forma automática se inician una serie de pasos configurados donde transcurren ciertas tareas como tests unitarios hasta la distribución de los cambios en los diferentes ambientes.
+Azure DevOps es la solución que ofrece Microsoft 
+
+Antes de revisar en profundidad lo que el título indica, podemos expresar primeramente que un pipeline es conceptualmente como una forma automatizada de disponibilizar nuevas features de una aplicación a los usuarios finales (o usuarios de pruebas también). Los pipelines, también conocidos como CI/CD (Continuous Integration y Continupus delivery) definen el proceso en que el programador actualiza el código en el repositorio y de forma automática se inician una serie de pasos configurados donde transcurren ciertas tareas como tests unitarios hasta la distribución de los cambios en los diferentes ambientes.
 
 
 
