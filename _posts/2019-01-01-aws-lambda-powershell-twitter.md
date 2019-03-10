@@ -92,9 +92,9 @@ First we need to improve the blog, adding a new file called ***entries.html*** t
       "title": "\{\{ site.title\}\}",
       "url": "\{\{ site.url \}\}",
       "posts": \[
-          \{% for post in site.posts %\}
-          \{% if post.hide_from_feed != true %\}
-          \{% if forloop.first != true %},{% endif %\}
+          \{\% for post in site.posts \%\}
+          \{\% if post.hide_from_feed != true \%\}
+          \{\% if forloop.first != true %},{% endif \%\}
           \{
           "title": "\{\{ post.title \}\}",
           "date": "\{\{ post.date | date_to_rfc822 \}\}",
@@ -102,8 +102,8 @@ First we need to improve the blog, adding a new file called ***entries.html*** t
           "categories": \{\{ post.categories | jsonify \}\},
           "tags": \{\{ post.tags | jsonify \}\}
           \}
-          \{% endif %\}
-          \{% endfor %\}
+          \{\% endif \%\}
+          \{\% endfor \%\}
       \]
   \}
 {% endhighlight %}
