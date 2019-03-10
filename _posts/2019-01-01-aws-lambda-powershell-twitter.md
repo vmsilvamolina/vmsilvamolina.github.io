@@ -81,32 +81,7 @@ Well, after all the steps required to set the dev environment, we are ready to s
 
 First we need to improve the blog, adding a new file called ***entries.html*** that centralize all the entries with a specific format (JSON). Store it in the root directory.
 
-{% highlight plaintext%}
-  ---
-  layout: null
-  permalink: /entries.json
-  sitemap: false
-  ---
-
-  \{
-      "title": "\{\{ site.title\}\}",
-      "url": "\{\{ site.url \}\}",
-      "posts": \[
-          \{\% for post in site.posts \%\}
-          \{\% if post.hide_from_feed != true \%\}
-          \{\% if forloop.first != true %},{% endif \%\}
-          \{
-          "title": "\{\{ post.title \}\}",
-          "date": "\{\{ post.date | date_to_rfc822 \}\}",
-          "url": "\{\{ post.url | prepend: site.baseurl \}\}",
-          "categories": \{\{ post.categories | jsonify \}\},
-          "tags": \{\{ post.tags | jsonify \}\}
-          \}
-          \{\% endif \%\}
-          \{\% endfor \%\}
-      \]
-  \}
-{% endhighlight %}
+<script src="https://gist.github.com/vmsilvamolina/0595b11f66d553a00f9718a774a5c777.js"></script>
 
 The file will show all the posts published, as shown in the image:
 
