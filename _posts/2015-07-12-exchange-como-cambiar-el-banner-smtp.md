@@ -17,16 +17,17 @@ tags:
 ---
 Según la TechNet:
 
-_El título SMTP es la respuesta de la conexión SMTP que recibe un servidor de mensajería SMTP remoto después de conectarse a un conector de recepción configurado en un equipo que ejecuta Microsoft Exchange Server 2013._
+>El título SMTP es la respuesta de la conexión SMTP que recibe un servidor de mensajería SMTP remoto después de conectarse a un conector de recepción configurado en un equipo que ejecuta Microsoft Exchange Server 2013.
 
-Para modificar este mensaje (por seguridad, para ofrecer menos información de los servidores publicados) lo que tenemos que hacer, obviamente desde PowerShell 🙂 , es lo siguiente.
+Para modificar este mensaje (por seguridad, para ofrecer menos información de los servidores publicados) lo que tenemos que hacer, obviamente desde PowerShell 🙂, es lo siguiente.
 
 Conectados al servidor de Exchange, o remotamente con el módulo de administración de Exchange ya cargado, ejecutamos:
 
-    Set-ReceiveConnector -Identity "Nombre del conector" - Banner "Mensaje"
-    
+{% highlight posh%}
+  Set-ReceiveConnector -Identity "Nombre del conector" -Banner "Mensaje"
+{% endhighlight %}
 
-Lo recomendado para definir el mensaje del banner es un texto similar a: &#8220;220 NombreDelServidor&#8221;
+Lo recomendado para definir el mensaje del banner es un texto similar a: "**220 NombreDelServidor**"
 
 Un ejemplo:
 
@@ -38,4 +39,4 @@ Para verificar que realmente quedó configurado, ejecutamos un telnet al servido
 
 Dejo el enlace a la TechNet del comando utilizado: [Set-ReceiveConnector](https://technet.microsoft.com/es-es/library/bb125140%28v=exchg.150%29.aspx)
 
-Saludos,
+Happy scripting!

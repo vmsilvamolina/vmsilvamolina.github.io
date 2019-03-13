@@ -32,4 +32,4 @@ Muchas gracias por el apoyo a todos los que siempre lo hicieron y motivaron a qu
 
 Un enlace para los que quieren saber más de este reconocimiento: [Microsoft MVP](https://mvp.microsoft.com/)
 
-Saludos,
+Happy scripting!

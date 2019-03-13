@@ -1,5 +1,5 @@
 ---
-title: 'Skype for Business &#8211; Eventos: 1000, 1026 y servicios detenidos'
+title: 'Skype for Business: Eventos con ID 1000/1026 y servicios detenidos'
 date: 2015-06-30T23:31:32+00:00
 author: Victor Silva
 layout: single
@@ -9,11 +9,10 @@ dsq_thread_id:
 categories:
   - Sin categoría
 tags:
-  - Error ID 1000
-  - Error ID 1026
+  - Error ID 1000/1026
   - Skype for Business
-  - Skype for Business Centralised Logging Service Agent
-  - Skype for Business Replica Replicator Agent
+  - Centralised Logging Service Agent
+  - Replica Replicator Agent
 ---
 Me paso hace relativamente poco instalando la solución de Skype for Business encontrarme luego de finalizar la instalación con el siguiente panorama:
 
@@ -25,12 +24,13 @@ Al ingresar al panel de control de SFB, un símbolo de cruz en color rojo debajo
 
 Ok, no tenía muchas pistas pero me sonaba familiar con la versión anterior: **_Lync Server 2013_**.
 
-Si bien no tengo una buena memoria, a veces me sorprendo a mí mismo. Recordé un cmdlet para corroborar el estado de la replicación, ejecuté:
+Si bien no tengo una buena memoria, a veces me sorprendo a mí mismo. Recordé un cmdlet para corroborar el estado de la replicación, por lo que ejecuté:
 
-    Get-CSManagementReplicationStatus
+{% highlight posh%}
+  Get-CSManagementReplicationStatus
+{% endhighlight %}
     
-
-El resultado fue **false**. Era el esperado pero por las dudas lo ejecuté igual.
+El resultado fue **false**. Era el esperado, pero por las dudas lo ejecuté igual.
 
 Apoyando a mi memoria nuevamente, recordé una serie de pasos para reconstruir la replica.
 
@@ -41,23 +41,23 @@ El procedimiento es el siguiente:
   * Agregar la cuenta apropiada (preferiblemente la cuenta que se encuentra en el grupo de CsAdministrator) y **OK**.
   * Seleccionar **Reemplazar propietario en subcontenedores y objetos**.
   * Eliminar la carpeta **_xds-replica_**. 
-  * Desde programas y características desde panel de control, seleccionar Core Components del grupo de Skype for
-  
-    Business y luego seleccionar Reparar. 
+  * Desde programas y características desde panel de control, seleccionar Core Components del grupo de Skype for Business y luego seleccionar Reparar. 
   * Acceder a los servicios (services.msc) y setear **_Skype for Business Centralised Logging Service Agent_** como Automatic (Delayed). 
   * Luego setear el servicio **_Skype for Business Replica Replicator Agent_** como Automatic (Delayed). 
   * Iniciar ambos servicios.
 
 Ejecutar desde una consola de PowerShell:
 
-    Invoke-CsManagementStoreReplication
+{% highlight posh%}
+  Invoke-CsManagementStoreReplication
+{% endhighlight %}
     
-
 Esperar un par de minutos y ejecutar:
 
-    Get-CsManagementStoreReplicationStatus
+{% highlight posh%}
+  Get-CsManagementStoreReplicationStatus
+{% endhighlight %}
     
+Perfecto! Ahora el resultado es true en la replicación. Si abrimos el panel de control de Skype for Business vamos a tener todo en verde, indicando que todo se encuentra funcional.
 
-Perfecto! Ahora el resultado es true en la replicación. Si abrimos el panel de control de Skype for Business vamos a tener todo en verde.
-
-Saludos,
+Happy scripting!
