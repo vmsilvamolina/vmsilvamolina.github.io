@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2019-01-15T19:57:00+00:00 
 layout: single 
 permalink: /azure-devops-env-variables/ 
-excerpt: "" 
+excerpt: "Azure DevOps es la solución que ofrece Microsoft, siendo la sucesora a VSTS (Visual Studio Team Services), que permite abarcar la totalidad del ciclo de vida del desarrollo para ayudar a ofrecer software más rápido y de mejor calidad. Según palabras del propio Microsoft, Azure DevOps Services representan la oferta más completa que existe en la nube pública." 
 categories: 
   - Azure
   - DevOps
