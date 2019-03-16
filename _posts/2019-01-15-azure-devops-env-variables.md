@@ -31,7 +31,7 @@ La plataforma Azure DevOps cuenta con los siguientes servicios:
  - **Azure TestPlans**: Gestionar planes para pruebas manuales, planificadas y exploratorias.
 
 Comparto una entrada en el blog de Microsoft donde hablan de Azure DevOps:
-https://azure.microsoft.com/es-es/blog/introducing-azure-devops/
+[https://azure.microsoft.com/es-es/blog/introducing-azure-devops/](https://azure.microsoft.com/es-es/blog/introducing-azure-devops/)
 
 ## ¿Azure Pipelines?
 Antes de revisar en profundidad lo que el título de la publicación indica, podemos expresar primeramente que un pipeline es conceptualmente una forma automatizada de disponibilizar nuevas features de una aplicación a los usuarios finales (o usuarios de pruebas también). Los pipelines, también conocidos como CI/CD (Continuous Integration y Continuous delivery) definen el proceso en que el programador actualiza el código en el repositorio y de forma automática se inician una serie de pasos configurados donde transcurren ciertas tareas como tests unitarios hasta la distribución de los cambios en los diferentes ambientes.
@@ -44,13 +44,13 @@ Las variables de entorno o **environment variables** son valores que afectan (o 
 
 Ahora que tenemos la base teórica vamos a ver un ejemplo práctico, para ello vamos a crear un pipeline simple utilizando el siguiente archivo **.yml** ya cargado en el repositorio y configurado en el pipeline:
 
-<img src="https://kppp8w.ch.files.1drv.com/y4mLjYDYWVW-uA1FS6tQQvLPSjClQkARYgIju89-FEv9ZJoMN56AjEGz_Ddrb-4FBjIdNZoUPY0FGzkVH-0T-ZnN7iWZuSV3SW8pHZI_N6_Xy3amevCSt37EW2LkqqVup1Iqdc9rM8fZmOSXKsAsWawNQOpjNODCFLLLpPwvIoe2PWcr2BPG2EqD7s9Akm3YMtesX3byAcHEkcqCCWsvd40eA?width=827&height=361&cropmode=none" alt="Azure Pipeline demo" class="alignnone" />
+<img src="https://kppp8w.ch.files.1drv.com/y4mLjYDYWVW-uA1FS6tQQvLPSjClQkARYgIju89-FEv9ZJoMN56AjEGz_Ddrb-4FBjIdNZoUPY0FGzkVH-0T-ZnN7iWZuSV3SW8pHZI_N6_Xy3amevCSt37EW2LkqqVup1Iqdc9rM8fZmOSXKsAsWawNQOpjNODCFLLLpPwvIoe2PWcr2BPG2EqD7s9Akm3YMtesX3byAcHEkcqCCWsvd40eA?width=827&height=241&cropmode=none" alt="Azure Pipeline demo" class="alignnone" />
 
 Es el build más simple que he escrito hasta ahora: Simplemente una tarea con PowerShell, donde se imprime la variable ***demo***, definida en el pipeline (aún no, pero lo haremos):
 
 Para definir esta variable, es necesario editar el pipeline y acceder a la sección **Variables**:
 
-<img src="https://w2erlg.ch.files.1drv.com/y4mTI0xKkrR88IN-kZJSrhroSBJaS5ZnwDdYJs1TtLndty90uexrza3tg45uYPY_xaVu8yvVkVWl0sLbgI9VThlywfDDV7x3syXjd_oWu4MWLVfl7AprL9IQ0ux2hye-92VaHKQEGqLVNQPTYI1dhN_oMkba5zEuYaD-i1zgQldSlKvQR-r3SyCTVG240s4N3dp9acKgZ5lyVA7bMIJ7xq4qA?width=1493&height=441&cropmode=none" alt="" class="alignnone" />
+<img src="https://w2erlg.ch.files.1drv.com/y4mTI0xKkrR88IN-kZJSrhroSBJaS5ZnwDdYJs1TtLndty90uexrza3tg45uYPY_xaVu8yvVkVWl0sLbgI9VThlywfDDV7x3syXjd_oWu4MWLVfl7AprL9IQ0ux2hye-92VaHKQEGqLVNQPTYI1dhN_oMkba5zEuYaD-i1zgQldSlKvQR-r3SyCTVG240s4N3dp9acKgZ5lyVA7bMIJ7xq4qA?width=1493&height=341&cropmode=none" alt="" class="alignnone" />
 
 Luego, al ejecutar el build, vamos a obtener como resultado una tarea específica donde se imprime el resultado de la variable de entorno:
 
