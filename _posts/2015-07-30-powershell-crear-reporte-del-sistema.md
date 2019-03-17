@@ -155,4 +155,4 @@ Dejo a continuación el script entero, para que se pueda entender el concepto y 
 
 <script src="https://gist.github.com/vmsilvamolina/f5f18fd2742ac876bdc1.js"></script>
   
-Saludos,
+Happy scripting!
