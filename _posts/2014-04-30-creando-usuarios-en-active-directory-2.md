@@ -25,7 +25,7 @@ Ahora, que es una plantilla de usuario (template)? Es una cuenta de usuario gen√
 Lo primero que vamos a hacer es abrir un notepad y escribir:
 
 {% highlight posh %}
-dsadd user "cn=%1, ou=NombreOU, dc=Dominio, dc=Sufijo" - fn %2 -ln %3 -pwd P@ssw0rd -mustchpwd yes
+  dsadd user "cn=%1, ou=NombreOU, dc=Dominio, dc=Sufijo" - fn %2 -ln %3 -pwd P@ssw0rd -mustchpwd yes
 {% endhighlight %}
 
 <img class="alignnone" src="https://lh6.googleusercontent.com/jKOi6ZzbB4QyOm9kbP3NSOZoLXavfC6mG550JDre81s=w605-h264-no" alt="" width="605" height="264" />

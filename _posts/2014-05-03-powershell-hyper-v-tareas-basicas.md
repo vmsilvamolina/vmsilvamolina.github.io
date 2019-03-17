@@ -27,13 +27,13 @@ El uso de estos comandos es el punto de partida, sabiendo que se puede construir
 Lo primero que podemos verificar es si esta instalado el rol, para ello:
 
 {% highlight posh %}
-Get-WindowsFeature Hyper-V*
+  Get-WindowsFeature Hyper-V*
 {% endhighlight %}
 
 Y habilitamos el rol de la siguiente manera:
 
 {% highlight posh %}
-Install-WindowsFeature –Name Hyper-V –Restart –IncludeAllSubFeature –IncludeManagementTools
+  Install-WindowsFeature –Name Hyper-V –Restart –IncludeAllSubFeature –IncludeManagementTools
 {% endhighlight %}
 
 >Este comando reiniciará el servidor, se recomienda guardar los datos antes de ejecutarlo.
@@ -49,7 +49,7 @@ Vamos a ver que tan fácil es crear uan VM desde PowerShell, con el siguiente co
 Aca tenemos un ejemplo para crear una VM :
 
 {% highlight posh %}
-New-VM -Name Server01 –MemoryStartupBytes 1GB -NewVHDPath c:Server01.vhd -NewVHDSizeBytes 60GB
+  New-VM -Name Server01 –MemoryStartupBytes 1GB -NewVHDPath c:Server01.vhd -NewVHDSizeBytes 60GB
 {% endhighlight %}
 
 De la misma manera podemos crear un Switch Virtual mediante una sola línea de código, con el siguiente comando:
@@ -59,7 +59,7 @@ De la misma manera podemos crear un Switch Virtual mediante una sola línea de c
 Este sería un ejemplo para crear un Switch Virtual:
 
 {% highlight posh %}
-New-VMSwitch –Name VSWITCH -NetAdapterName "Ethernet 2"
+  New-VMSwitch –Name VSWITCH -NetAdapterName "Ethernet 2"
 {% endhighlight %}
 
 ## Hyper-V Live Migration:
@@ -69,7 +69,7 @@ La migración en vivo con Hyper-V es posible con o sin storage, del mismo modo q
 Para habilitar Live Migration, simplemente debemos ejecutar:
 
 {% highlight posh %}
-Enable-VMMigration
+  Enable-VMMigration
 {% endhighlight %}
 
 Para iniciar una migración de una VM, debemos de ejecutar este comando:
@@ -79,13 +79,13 @@ Para iniciar una migración de una VM, debemos de ejecutar este comando:
 Un ejemplo de uso:
 
 {% highlight posh %}
-Move-VM –Name Server01 –DestinationHost Host01 –DestinationStoragePath 'C:VMS'
+  Move-VM –Name Server01 –DestinationHost Host01 –DestinationStoragePath 'C:VMS'
 {% endhighlight %}
 
 Además, dependiendo del ancho de banda, se pueden realizar múltiples migraciones en vivo. Esto puede ser controlado ajustando la cantidad de migraciones utilizando la siguiente linea de PowerShell:
 
 {% highlight posh %}
-Set-VMHost –MaximumVirtualMachineMigrations [number]
+  Set-VMHost –MaximumVirtualMachineMigrations [number]
 {% endhighlight %}
 
 Happy scripting!

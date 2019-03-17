@@ -24,27 +24,26 @@ Vamos a recrear una situación para su correcto uso:
 Supongamos que necesito verificar si el archivo .ISO de la evaluación de Lync Server (**_LS-E-8308.0-enUS.iso_**) se encuentra en la carpeta Downloads, ubicada en mi perfil. Por lo que vamos a necesitar escribir las siguientes líneas en nuestra consola:
 
 {% highlight posh %}
-# Chequear si se encuentra el archivo
-$LyncISO = "C:UsersVictorDownloadsLS-E-8308.0-enUS.iso"
-Test-Path $WantFile
+  # Chequear si se encuentra el archivo
+  $LyncISO = "C:UsersVictorDownloadsLS-E-8308.0-enUS.iso"
+  Test-Path $WantFile
 {% endhighlight %}
-
 
 Devolviendo un True (si se encuentra) o un False.
 
 Si le damos un poco mas de rosca al asunto, podemos definir un mensaje en caso de que lo encuentre, de la siguiente manera:
 
 {% highlight posh %}
-# Chequear si se encuentra el archivo
-$LyncISO = "C:UsersVictorDownloadsLS-E-8308.0-enUS.iso"
+  # Chequear si se encuentra el archivo
+  $LyncISO = "C:UsersVictorDownloadsLS-E-8308.0-enUS.iso"
 
-$ExisteISO = Test-Path $LyncISO
+  $ExisteISO = Test-Path $LyncISO
 
-If ($ExisteISO -eq $True) {
-   Write-Host "Existe .ISO de Lync!"
-} Else {
-   Write-Host "No se encuentra la .ISO"
-}
+  If ($ExisteISO -eq $True) {
+    Write-Host "Existe .ISO de Lync!"
+  } Else {
+    Write-Host "No se encuentra la .ISO"
+  }
 {% endhighlight %}
 
 Happy scripting!

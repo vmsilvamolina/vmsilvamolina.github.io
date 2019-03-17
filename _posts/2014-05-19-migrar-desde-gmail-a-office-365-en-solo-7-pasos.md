@@ -14,7 +14,7 @@ tags:
   - Office 365
 format: aside
 ---
-En esta oportunidad no quiero opacar el trabajo de los especialistas de Office 365 de Microsoft&#8230; por lo que simplemente voy a adjuntar el link a este procedimiento que nos simplifica la migración desde Gmail hacia Office 365.
+En esta oportunidad no quiero opacar el trabajo de los especialistas de Office 365 de Microsoft... por lo que simplemente voy a adjuntar el link a este procedimiento que nos simplifica la migración desde Gmail hacia Office 365.
 
 El enlace es el siguiente:
 
