@@ -58,6 +58,7 @@ Entonces, para generar lo anterior, tenemos que ejecutar lo siguiente:
     $RegPath += "\" + $ServerName
     New-ItemProperty $RegPath -Name "https" -Value 1 -PropertyType "DWord"
   }
+{% endhighlight %}
 
 Es una función bastante simple y rústica, simplemente quería reflejar como poder resolver la situación desde la consola.
 
