@@ -13,7 +13,7 @@ tags:
   - Function
   - Funciones
 ---
-En PowerShell podemos hacer uso de las llamadas funciones. _Definición:_ Una función es un bloque de código con un nombre definido, que permite &#8220;llamar&#8221; por este nombre a ese bloque de código, una o varias veces en nuestro script, para evitar la repetición de un conjunto de instrucciones continuamente.
+En PowerShell podemos hacer uso de las llamadas funciones. _Definición:_ Una función es un bloque de código con un nombre definido, que permite "llamar" por este nombre a ese bloque de código, una o varias veces en nuestro script, para evitar la repetición de un conjunto de instrucciones continuamente.
 
 Una de las razones por las que se usan mucho las funciones, es la capacidad de poder organizar la escritura del código. Permite la capacidad de llamar bloques de script varias veces, reduciendo la cantidad de código escrito para llevar a cabo la tarea final. Esto sin mencionar la mejora de la lectura del código, sea para entenderlo fácilmente o para poder encontrar un posible error.
 
@@ -37,8 +37,8 @@ Avanzando con el tema funciones, vamos a ver como podemos pasar argumentos a una
 
 {% highlight posh %}
   Function Sumar ($x, $y) {
-      $sumar = $x + $y
-      Write-Host “La respuesta es $sumar”
+    $sumar = $x + $y
+    Write-Host “La respuesta es $sumar”
   }
 {% endhighlight %}
 
@@ -60,10 +60,10 @@ Otra manera de definir parámetros en una función es con el siguiente método:
 
 {% highlight posh %}
   Function Sumar {
-      param ($x, $y)
+    param ($x, $y)
 
-      $sumar = $x + $y
-      Write-Host “La respuesta es $sumar”
+    $sumar = $x + $y
+    Write-Host “La respuesta es $sumar”
   }
 {% endhighlight %}
 

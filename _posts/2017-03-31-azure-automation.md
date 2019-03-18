@@ -65,4 +65,4 @@ Y con lo anterior, vamos a guardar nuestro Runbook y como último seleccionamos 
 
 Para la siguiente entrega vamos a ver como programar la ejecución, así como tareas más complejas con nuestros recursos en Azure.
 
-Saludos,
+Happy scripting!

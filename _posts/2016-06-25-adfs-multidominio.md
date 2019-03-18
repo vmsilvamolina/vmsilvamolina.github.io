@@ -48,17 +48,19 @@ Comenzamos accediendo a la consola de **Active Directory Federation Services**, 
 
 Posteriormente vamos a ejecutar la consola de Azure PowerShell y vamos a ejecutar:
 
-    Connect-MsolService
+{% highlight posh%}
+  Connect-MsolService
+{% endhighlight %}
     
-
 Y después de lo anterior, resta ejecutar:
 
-    Convert-MsolDomainToFederated -DomainName "dominio1.com" -SupportMultipleDomain
-    Update-MsolFederatedDomain -DomainName "dominio1.com" -SupportMultipleDomain
-    Convert-MsolDomainToFederated -DomainName "dominio2.com" -SupportMultipleDomain
-    Update-MsolFederatedDomain -DomainName "dominio2.com" -SupportMultipleDomain
+{% highlight posh%}
+  Convert-MsolDomainToFederated -DomainName "dominio1.com" -SupportMultipleDomain
+  Update-MsolFederatedDomain -DomainName "dominio1.com" -SupportMultipleDomain
+  Convert-MsolDomainToFederated -DomainName "dominio2.com" -SupportMultipleDomain
+  Update-MsolFederatedDomain -DomainName "dominio2.com" -SupportMultipleDomain
+{% endhighlight %}
     
-
 Donde **_dominio1.com_** es el dominio que ya se encontraba configurado dentro de ADFS y Office365. El **_dominio2.com_** es el segundo dominio que queremos agregar para que esté soportado dentro de nuestro portal de ADFS.
 
-Saludos,
+Happy scripting!

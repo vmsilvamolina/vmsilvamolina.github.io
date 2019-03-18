@@ -52,6 +52,13 @@ Para definir esta variable, es necesario editar el pipeline y acceder a la secci
 
 <img src="https://w2erlg.ch.files.1drv.com/y4mTI0xKkrR88IN-kZJSrhroSBJaS5ZnwDdYJs1TtLndty90uexrza3tg45uYPY_xaVu8yvVkVWl0sLbgI9VThlywfDDV7x3syXjd_oWu4MWLVfl7AprL9IQ0ux2hye-92VaHKQEGqLVNQPTYI1dhN_oMkba5zEuYaD-i1zgQldSlKvQR-r3SyCTVG240s4N3dp9acKgZ5lyVA7bMIJ7xq4qA?width=1493&height=341&cropmode=none" alt="" class="alignnone" />
 
+O de lo contrario, definir en el archivo .yml que utilizamos para construir el pipeline la variable de la siguiente manera:
+
+{% highlight yaml%}
+variables:
+  MyVariable: 'This is a variable value'
+{% endhighlight %}
+
 Luego, al ejecutar el build, vamos a obtener como resultado una tarea específica donde se imprime el resultado de la variable de entorno:
 
 <img src="https://8gmbrg.ch.files.1drv.com/y4mOaR7TnKM7_7Kpx7xhgazNgJhCWYOaPQFh4VWPCYUsMpIhvjPkpGUJmU7Cq2e46IwsSdNYHkpM5qufI-G_tE2zAvZ9oiGN_9TUksc0FBFCAZ7VkZH5HY_Y7zSa-GR57KUanBSqNKxUBMLtP4C2-dzXQXYQY6o9lGmqJUTCvVguk9aqAWgRd7JDbVLjKASnqkzxVUn4hCmzMGt2AJe6z1Rnw?width=1511&height=441&cropmode=none" alt="" class="alignnone" />

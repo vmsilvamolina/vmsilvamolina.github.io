@@ -27,7 +27,7 @@ Dentro de las características que ofrece Windows Server 2016 (y también presen
 Partimos desde la necesidad de conocer si tenemos habilitada o no esta característica en nuestro servidor a respaldar, por ello debemos ejecutar el siguiente comando para obtener la respuesta:
 
 {% highlight posh %}
-Get-WindowsFeature | ? {$_.DisplayName -match "Backup"}
+  Get-WindowsFeature | ? {$_.DisplayName -match "Backup"}
 {% endhighlight %}
 
 Obteniendo como resultado (si no está habilitada) la siguiente imagen:
@@ -37,7 +37,7 @@ Obteniendo como resultado (si no está habilitada) la siguiente imagen:
 Para habilitar el rol de Windows Server Backup en el servidor que nos encontramos trabajando, tenemos que ejecutar la siguiente línea de código:
 
 {% highlight posh %}
-Add-WindowsFeature -Name Windows-Server-Backup
+  Add-WindowsFeature -Name Windows-Server-Backup
 {% endhighlight %}
 
 Luego de finalizado el proceso, si volvemos a ejecutar el primer comando, en la columna _Install State_ debe de aparecer _Installed_. Teniendo la característica habilitada deberemos de configurar la política que ejecutará los trabajos.
@@ -45,7 +45,7 @@ Luego de finalizado el proceso, si volvemos a ejecutar el primer comando, en la 
 Cómo creamos la política que gestionará nuestros trabajos de backup? Muy fácil, debemos ejecutar:
 
 {% highlight posh %}
-$Policy = New-WBPolicy 
+  $Policy = New-WBPolicy
 {% endhighlight %}
 
 Este procedimiento pretende tomar como destino (de los archivos de backup) una unidad de red, así que antes de continuar con los siguientes pasos tenemos que tener la carpeta destino ya compartida y con los permisos de escritura.
@@ -53,35 +53,35 @@ Este procedimiento pretende tomar como destino (de los archivos de backup) una u
 Continuando con el proceso tenemos que setear los parámetros en la política para que pueda recuperar backups del tipo bare metal y el componente system state:
 
 {% highlight posh %}    
-$Policy | Add-WBBareMetalRecovery
-$Policy | Add-WBSystemState
+  $Policy | Add-WBBareMetalRecovery
+  $Policy | Add-WBSystemState
 {% endhighlight %}
 
 Agrego los discos críticos como volúmenes para respaldar en el servidor:
 
 {% highlight posh %}
-$Volumes = Get-WBVolume -CriticalVolumes
-Add-WBVolume -Policy $Policy -Volume $Volumes
+  $Volumes = Get-WBVolume -CriticalVolumes
+  Add-WBVolume -Policy $Policy -Volume $Volumes
 {% endhighlight %}
 
 
 Se define el destino de los respaldos, en este caso, voy a utilizar un recurso compartido de red (el servidor “<serverName>” y la carpeta compartida “BKP”):
 
 {% highlight posh %}
-$BackupLocation = New-WBBackupTarget -NetworkPath "\\<serverName>\BKP" -Credential
-Add-WBBackupTarget -Policy $Policy -Target $BackupLocation
+  $BackupLocation = New-WBBackupTarget -NetworkPath "\\<serverName>\BKP" -Credential
+  Add-WBBackupTarget -Policy $Policy -Target $BackupLocation
 {% endhighlight %}
 
 Defino la programación, en este ejemplo quiero que se realice en 10 minutos, por lo que agrego:
 
 {% highlight posh %}
-Set-WBSchedule -Policy $Policy -Schedule ([datetime]::Now.AddMinutes(10))
+  Set-WBSchedule -Policy $Policy -Schedule ([datetime]::Now.AddMinutes(10))
 {% endhighlight %}
 
 Y por último me resta iniciar el trabajo
 
 {% highlight posh %}
-Start-WBBackup -Policy $Policy
+  Start-WBBackup -Policy $Policy
 {% endhighlight %}
 
 Si todo lo anterior se ejecutó sin problemas, en 10 minutos comenzará a respaldar el servidor.
@@ -91,32 +91,32 @@ Si todo lo anterior se ejecutó sin problemas, en 10 minutos comenzará a respal
 A continuación comparto el bloque de código todo junto, comentado y agrego al inicio una parte lógica para que compruebe si la característica de Windows Backup está habilitada (en caso contrario, va a realizar la instalación de la misma):
 
 {% highlight posh %}
-#Compruebo si la feature BackUp esta habilitada, en caso contrario la habilito.
-$WSB = Get-WindowsFeature -Name Windows-Server-Backup
-If ($WSB.Installed -ne "True") {
+  #Compruebo si la feature BackUp esta habilitada, en caso contrario la habilito.
+  $WSB = Get-WindowsFeature -Name Windows-Server-Backup
+  If ($WSB.Installed -ne "True") {
     Add-WindowsFeature -Name Windows-Server-Backup 
-}
+  }
 
-#Genero la política para el respaldo
-$Policy = New-WBPolicy
+  #Genero la política para el respaldo
+  $Policy = New-WBPolicy
 
-#Agrego los parámetros necesarios
-$Policy | Add-WBBareMetalRecovery
-$Policy | Add-WBSystemState
+  #Agrego los parámetros necesarios
+  $Policy | Add-WBBareMetalRecovery
+  $Policy | Add-WBSystemState
 
-#Agrego los discos a respaldar
-$Volumes = Get-WBVolume -CriticalVolumes
-Add-WBVolume -Policy $Policy -Volume $Volumes
+  #Agrego los discos a respaldar
+  $Volumes = Get-WBVolume -CriticalVolumes
+  Add-WBVolume -Policy $Policy -Volume $Volumes
 
-#Agrego el destino, en este caso el recurso de red compartido BKP en Server
-$BackupLocation = New-WBBackupTarget -NetworkPath "\\<serverName>\BKP"
-Add-WBBackupTarget -Policy $Policy -Target $BackupLocation
+  #Agrego el destino, en este caso el recurso de red compartido BKP en Server
+  $BackupLocation = New-WBBackupTarget -NetworkPath "\\<serverName>\BKP"
+  Add-WBBackupTarget -Policy $Policy -Target $BackupLocation
 
-#Defino la programación (10 minutos desde el comienzo del Job)
-Set-WBSchedule -Policy $Policy -Schedule ([datetime]::Now.AddMinutes(10))
+  #Defino la programación (10 minutos desde el comienzo del Job)
+  Set-WBSchedule -Policy $Policy -Schedule ([datetime]::Now.AddMinutes(10))
 
-#Inicio el Job
-Start-WBBackup -Policy $Policy
+  #Inicio el Job
+  Start-WBBackup -Policy $Policy
 {% endhighlight %}
 
-Saludos,
+Happy scripting!

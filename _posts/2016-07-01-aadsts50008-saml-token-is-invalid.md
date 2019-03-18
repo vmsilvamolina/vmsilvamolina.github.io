@@ -30,14 +30,18 @@ Este es un error que puede verse relacionado con diferentes aspectos de la confi
 
 Para solucionar este problema es necesario ejecutar el siguiente comando de PowerShell:
 
-    Update-MsolFederatedDomain -DomainName dominio.com
+{% highlight posh%}
+  Update-MsolFederatedDomain -DomainName dominio.com
+{% endhighlight %}
     
 
 Si bien el Cmdlet anterior está desarrollado principalmente para realizar cambios en los dominios, para este escenario basta simplemente ejecutarlo. Y, que de cierta manera, se vuelvan a configurar los parámetros que teníamos definidos en la implementación.
 
 Cabe destacar [Update-MsolFederatedDomain](https://docs.microsoft.com/en-us/powershell/module/msonline/update-msolfederateddomain?view=azureadps-1.0) pertenece al módulo **_msonline_**, por lo que hay que tener ésta consideración a la hora de ejecutarlo. Lo recomendado es ejecutarlo en el servidor que tiene el portal de ADFS implementado. En todo caso para comprobar que el módulo se encuentre cargado en la consola de PowerShell que tenemos en ejecución, basta con correr:
 
-    Get-Module
+{% highlight posh%}
+  Get-Module
+{% endhighlight %}
     
 
 Y de los resultados deplegados, buscar msonline, como se comentó anteriormente.
@@ -46,4 +50,4 @@ En caso de que no funcione correctamente lo mejor va a ser realizar un troublesh
 
 Y si con el cmdlet anterior, funcionó correctamente, les recomiendo revisar cómo [Customizar la web de ADFS](http://blog.victorsilva.com.uy/customizar-la-web-adfs/). El post comparte como darle un cambio visual al portal, agregando logos y textos de ayuda.
 
-Saludos,
+Happy scripting!
