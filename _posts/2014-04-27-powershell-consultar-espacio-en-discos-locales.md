@@ -20,11 +20,11 @@ Lo que vamos a ver en esta oportunidad es como hacer un pequeño reporte del est
 
 {% highlight posh %}
   Get-WMIObject  -Class Win32_LogicalDisk | Where-Object {$_.DriveType -eq 3}  `
-    | Select-Object @{n="Unidad";e={($\_.Name)}}, 
-                    @{n="Etiqueta";e={($\_.VolumeName)}}, 
-                    @{n='Tamaño (GB)';e={"{0:n2}" -f ($\_.size/1gb)}}, 
-                    @{n='Libre (GB)';e={"{0:n2}" -f ($\_.freespace/1gb)}}, 
-                    @{n='% Libre';e={"{0:n2}" -f ($\_.freespace/$_.size*100)}}
+    | Select-Object @{n="Unidad";e={($_.Name)}}, 
+                    @{n="Etiqueta";e={($_.VolumeName)}}, 
+                    @{n='Tamaño (GB)';e={"{0:n2}" -f ($_.size/1gb)}}, 
+                    @{n='Libre (GB)';e={"{0:n2}" -f ($_.freespace/1gb)}}, 
+                    @{n='% Libre';e={"{0:n2}" -f ($_.freespace/$_.size*100)}}
 {% endhighlight %}
 
 Lo que hacemos con estas líneas es, desde el comando **Get-WMIObject**, buscar en la clase **Win32_LogicalDisk** los datos. En este caso seleccionamos los objetos (Discos) que son del tipo local:
