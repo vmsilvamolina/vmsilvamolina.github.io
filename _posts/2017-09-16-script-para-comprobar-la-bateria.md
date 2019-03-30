@@ -43,16 +43,14 @@ Tener en cuenta que el otro indicador que tenemos que prestar atención es **Bat
 Frente a la información anterior, podemos armar un simple script para comprobar la batería:
 
 {% highlight posh %}
-  function Check-BatteryPercentage {
-    if ((Get-WmiObject Win32_Battery).BatteryStatus -ne 1) {
-      if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -gt 80) {
-        Write-host "Desconectar de la corriente!"
-      }
-    } else {
-      if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -lt 20) {
-        Write-host "Conectar el equipo!"
-      }
-    }    
+  if ((Get-WmiObject Win32_Battery).BatteryStatus -ne 1) {
+    if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -gt 80) {
+      Write-host "Desconectar de la corriente!"
+    }
+  } else {
+    if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -lt 20) {
+      Write-host "Conectar el equipo!"
+    }
   }
 {% endhighlight %}
 
@@ -66,6 +64,25 @@ Debido al objetivo del post, vamos a continuar resolviendo el problema de los po
 <img src="https://pboaga-ch3302.files.1drv.com/y4m0BtLlEkuFG145ssS2C-wXXwNLAmALgvo4IbtPWPINqeotF1jdfAA4lsSbW44w6ExI2aLeQkEgRg_WxvR19QjwECUIujbGFM0C0hPF4EMb7GKydw4ModEnKv9ny6FYRH4Bvf5ePf8lS6pb5cwk5VHCvRMDtPJwS6sJTTx1nItFNiUc9q-HcLnUuVixEB8TzxDttbbWDrQIYlXeoVqcvS-Lg?width=992&#038;height=371&#038;cropmode=none" width="992" height="371" alt="Popup Method" class="alignnone size-full" />
 
 Finalmente vamos a tener el siguiente script:
+
+{% highlight posh %}
+  if ((Get-WmiObject Win32_Battery).BatteryStatus -ne 1) {
+    if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -gt 80) {
+      $wshell = New-Object -ComObject Wscript.Shell
+      $wshell.Popup("Desconectar de la corriente!",0,"Alerta",0x0 + 0x30)
+    }
+  } else {
+    if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -lt 20) {
+      $wshell = New-Object -ComObject Wscript.Shell
+      $wshell.Popup("Conectar el equipo!",0,"Alerta",0x0 + 0x30)
+    }
+  }
+{% endhighlight %}
+    
+
+En conclusión resta programar para que se ejecute según el tiempo que consideremos necesario. Si no saben como hacerlo, hace un tiempo escribí sobre ello: [Ejecutar script de manera programada](http://blog.victorsilva.com.uy/powershell-ejecutar-script-de-manera-programada/).
+
+También podríamos generar una función para simplificar la ejecución:
 
 {% highlight posh %}
   function Check-BatteryPercentage {
@@ -82,8 +99,5 @@ Finalmente vamos a tener el siguiente script:
     }
   }
 {% endhighlight %}
-    
-
-En conclusión resta programar para que se ejecute según el tiempo que consideremos necesario. Si no saben como hacerlo, hace un tiempo escribí sobre ello: [Ejecutar script de manera programada](http://blog.victorsilva.com.uy/powershell-ejecutar-script-de-manera-programada/).
 
 Happy scripting!
