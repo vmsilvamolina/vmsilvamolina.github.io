@@ -64,7 +64,7 @@ Perfect!
 For solve the "*Failed to connect to github.com port 443: Timed out*" message we need to run:
 
 {% highlight bash%}
-  git config --global http.proxy http://dominio\vsilva:Passw0rd@proxyServer:8080
+  git config --global http.proxy http://domain.local\vsilva:Passw0rd@proxyServer:8080
 {% endhighlight %}
 
 Done! You can check if the setting was applied running `git config --global http.proxy`
