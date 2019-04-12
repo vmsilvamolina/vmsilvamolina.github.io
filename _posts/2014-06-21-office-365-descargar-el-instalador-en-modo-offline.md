@@ -18,7 +18,7 @@ tags:
 ---
 Al intentar buscar una manera de poder realizar este procedimiento no encontré nada especifico por lo que pretendo compartir la manera en que me funcionó a mi en lo personal.
 
-Lo primero que debemos saber es que no vamos a poder descargar el instalador de Office desde el portal de Office 365, por lo que vamos a tener que descargar la herramienta de Microsoft: <a title="Descargar Office Deployment Tool for Click-to-Run " href="http://www.microsoft.com/en-us/download/details.aspx?id=36778" target="_blank">Office Deployment Tool for Click-to-Run</a>
+Lo primero que debemos saber es que no vamos a poder descargar el instalador de Office desde el portal de Office 365, por lo que vamos a tener que descargar la herramienta de Microsoft: <a title="Descargar Office Deployment Tool for Click-to-Run " href="https://www.microsoft.com/en-us/download/details.aspx?id=49117" target="_blank">Office Deployment Tool for Click-to-Run</a>
 
 Ya con la herramienta descargada, vamos a necesitar instalarla, y luego, modificar el archivo _**configuration.xml**_ para indicarle que es lo que vamos a hacer.
 
