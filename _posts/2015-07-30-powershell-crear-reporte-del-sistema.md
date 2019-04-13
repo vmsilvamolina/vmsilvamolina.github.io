@@ -109,7 +109,7 @@ Continuando con las secciones importantes, pasamos a la extracción y recolecci�
 
 {% highlight posh%}
   ## Información de discos ##
-  $DiskInfo = Get-WMIObject -ComputerName $Computer -Class Win32_LogicalDisk | Where-Object {$_.DriveType -eq 3}  `
+  $DiskInfo = Get-WMIObject -Class 'Win32_LogicalDisk' -ComputerName $Computer  | Where-Object {$_.DriveType -eq 3}  `
     | Select-Object @{Name="Unidad";Expression={($_.Name)}},
                     @{Name="Total (GB)";Expression={([math]::Round($_.size/1gb))}},
                     @{Name="Libre (GB)";Expression={([math]::Round($_.freespace/1gb))}},
