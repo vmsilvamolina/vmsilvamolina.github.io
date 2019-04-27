@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Añadir y remover items de un "Array"'
+title: 'PowerShell: Añadir y remover items de un Array'
 date: 2014-07-19T15:21:05+00:00
 author: Victor Silva
 layout: single
