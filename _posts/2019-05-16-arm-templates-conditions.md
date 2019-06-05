@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2019-05-16T11:51:00+00:00 
 layout: single 
 permalink: /arm-templates-conditions/ 
-excerpt: "Azure Resource Manager es "la" solución que ofrece Microsoft para hacer el deploy en Azure de forma nativa. Y cuando digo LA es porque, si bien existen otras soluciones, Azure Resource Manager es la base fundamental de los recursos actuales. También es cierto que algunos templates de ARM pueden volverse muy largos y confusos cuando agrupan la definición de varios recursos, ya que la estructura de JSON no es la mejor aliada para estos casos." 
+excerpt: 'Azure Resource Manager es "la" solución que ofrece Microsoft para hacer el deploy en Azure de forma nativa. Y cuando digo LA es porque, si bien existen otras soluciones, Azure Resource Manager es la base fundamental de los recursos actuales. También es cierto que algunos templates de ARM pueden volverse muy largos y confusos cuando agrupan la definición de varios recursos, ya que la estructura de JSON no es la mejor aliada para estos casos.' 
 categories: 
   - Azure
   - DevOps
