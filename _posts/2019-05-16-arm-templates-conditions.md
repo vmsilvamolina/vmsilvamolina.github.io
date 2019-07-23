@@ -17,7 +17,7 @@ tags:
 
 Azure Resource Manager es "la" solución que ofrece Microsoft para hacer el deploy en Azure de forma nativa. Y cuando digo LA es porque, si bien existen otras soluciones, Azure Resource Manager es la base fundamental de los recursos actuales. También es cierto que algunos templates de ARM pueden volverse muy largos y confusos cuando agrupan la definición de varios recursos, ya que la estructura de JSON no es la mejor aliada para estos casos.
 
-<img src="/assets/images/postsImages/AZ_ARM_templates_1.jpg" class="alignnone" />
+<img src="/assets/images/postsImages/AZ_ARM_templates_1.png" class="alignnone" />
 
 De todas formas, ARM juega un papel fundamental en los despliegues y hoy vamos a ver un particularidad de éstos, como lo son las condiciones.
 
