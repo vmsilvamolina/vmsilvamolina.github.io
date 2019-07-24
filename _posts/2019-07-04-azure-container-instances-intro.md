@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2019-07-04T07:17:00+00:00 
 layout: single 
 permalink: /azure-container-instances-intro/ 
-excerpt: "" 
+excerpt: "Azure Container Instances es una solución que nos permite ejecutar contenedores basados en imágenes, públicas o privadas, partiendo del la siguiente premisa: no es necesario provisionar ningún tipo de infraestructura antes de ejecutar el o los contenedores. Sumado a la falta de necesidad de administrar la plataforma, este servicio tiene un modelo de facturación por segundo, lo que significa que vamos a pagar únicamente el tiempo en que el contenedor se encuentre en ejecución." 
 categories: 
   - Azure
   - DevOps 
