@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell - Añadir y remover items de un Array'
-date: 2014-07-19T15:21:05+00:00
+date: 2019-06-11T21:08:55+00:00
 author: Victor Silva
 layout: post
 permalink: /powershell-anadir-y-remover-items-de-un-array/

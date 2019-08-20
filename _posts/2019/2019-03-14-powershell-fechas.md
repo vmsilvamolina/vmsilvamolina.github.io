@@ -1,6 +1,6 @@
 ---
 title: 'Trabajar en PowerShell con fechas'
-date: 2014-06-17T10:04:48+00:00
+date: 2019-03-14T09:17:34+00:00
 author: Victor Silva
 layout: post
 permalink: /powershell-fechas/

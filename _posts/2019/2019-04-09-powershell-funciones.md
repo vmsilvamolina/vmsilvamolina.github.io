@@ -1,6 +1,6 @@
 ---
 title: 'Funciones en PowerShell'
-date: 2014-06-26T18:27:45+00:00
+date: 2019-04-09T14:43:11+00:00
 author: Victor Silva
 layout: post
 permalink: /powershell-funciones/

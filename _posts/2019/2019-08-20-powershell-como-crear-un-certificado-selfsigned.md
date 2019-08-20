@@ -1,6 +1,6 @@
 ---
 title: 'Powershell - Cómo crear un certificado SelfSigned?'
-date: 2014-07-15T13:41:52+00:00
+date: 2019-08-20T11:27:43+00:00
 author: Victor Silva
 layout: post
 permalink: /powershell-como-crear-un-certificado-selfsigned/
