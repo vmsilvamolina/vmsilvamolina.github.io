@@ -25,7 +25,7 @@ Supongamos que necesito verificar si el archivo .ISO de la evaluación de Lync S
 
 {% highlight posh %}
   # Chequear si se encuentra el archivo
-  $LyncISO = "C:UsersVictorDownloadsLS-E-8308.0-enUS.iso"
+  $LyncISO = "C:\Users\Victor\Downloads\LS-E-8308.0-enUS.iso"
   Test-Path $WantFile
 {% endhighlight %}
 
@@ -35,7 +35,7 @@ Si le damos un poco mas de rosca al asunto, podemos definir un mensaje en caso d
 
 {% highlight posh %}
   # Chequear si se encuentra el archivo
-  $LyncISO = "C:UsersVictorDownloadsLS-E-8308.0-enUS.iso"
+  $LyncISO = "C:\Users\Victor\Downloads\LS-E-8308.0-enUS.iso"
 
   $ExisteISO = Test-Path $LyncISO
 
