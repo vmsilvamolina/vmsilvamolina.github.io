@@ -1,5 +1,17 @@
 --- 
-
+title: "Run command en Azure VMs con PowerShell"
+author: Victor Silva
+date: 2019-02-16T11:51:00+00:00 
+layout: single 
+permalink: /powershell-vm-run-command/ 
+excerpt: 'Azure ofrece nuevas funcionalidades todo el tiempo, por lo que no es raro estar utilizando el portal y ver una nueva opción o feature lista para usar. Revisando dentro del blade de las VMs encontré una opción llamada "Run Command" dentro de las opciones de la sección "Operations". No recordaba haber visto esa opción antes, por lo que le hice clic y me sorprendió lo que obtuve...' 
+categories: 
+  - Azure
+  - PowerShell
+tags: 
+  - Azure
+  - PowerShell
+  - Scripting
 --- 
 
 Azure ofrece nuevas funcionalidades todo el tiempo, por lo que no es raro estar utilizando el portal y ver una nueva opción o feature lista para usar. Revisando dentro del blade de las VMs encontré una opción llamada **Run Command** dentro de las opciones de la sección "Operations". No recordaba haber visto esa opción antes, por lo que le hice clic y me sorprendió lo que obtuve...
