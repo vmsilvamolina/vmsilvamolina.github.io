@@ -69,21 +69,21 @@ O también se encuentra a disposición `SelectingleNode`, para retornr un único
   $xdoc.SelectSingleNode("//book[2]/title")
 {% endhighlight %}
 
-<img src="/assets/images/postsImages/PS_XML_N+2.png" class="alignnone">
+<img src="/assets/images/postsImages/PS_XML_2.png" class="alignnone">
 
 ## Accediendo a XML como Objetos
 
 Siguiendo con el mismo objeto **XmlDocument**, PowerShell también proporciona compatibilidad con objetos dinámicos para datos del tipo XML: esto permite acceder a la información que el objeto XML contiene como objetos de PowerShell, que no requieren ni el selector XPath ni la necesidad de conocer en detalle los nodos XML ni sus valores. Por ejemplo desde VSCode y gracias a Intellisense, es posible acceder al esquema cuando se cargan los datos del archivo XML. El siguiente gif muestra en acción el proceso de obtención de opciones de selección y finalización de las palabras.
 
-<img src="/assets/images/postsImages/PS_XML_M.gif" class="alignnone">
+<img src="/assets/images/postsImages/PS_XML_3.gif" class="alignnone">
 
 A continuación un par de ejemplos de cómo XML se convierte en objetos de PowerShell:
 
-<img src="/assets/images/postsImages/PS_XML_N.png" class="alignnone">
+<img src="/assets/images/postsImages/PS_XML_4.png" class="alignnone">
 
 En donde también podemos acceder de forma individual a cada elemento (libro, en este caso) y sus respectivos datos:
 
-<img src="/assets/images/postsImages/PS_XML_N+1.png" class="alignnone">
+<img src="/assets/images/postsImages/PS_XML_5.png" class="alignnone">
 
 Vale la pena destacar que todos los XML nodes del documento se convierten en propiedades de PowerShell, donde los valores de los elementos y los valores de los atributos se tratan exactamente de la misma manera: utilizando la notación de "punto" estándar.
 
@@ -104,6 +104,6 @@ Donde al revisar el archivo anterior obtenemos el precio del libro actualizado, 
   Get-Content .\booksNewPrice.xml | Select-String "Midnight Rain" -Context 2,7
 {% endhighlight %}
 
-<img src="/assets/images/postsImages/PS_XML_N+3.png" class="alignnone">
+<img src="/assets/images/postsImages/PS_XML_6.png" class="alignnone">
 
 Happy scripting!
