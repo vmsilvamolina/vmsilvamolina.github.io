@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2020-02-17T23:18:00+00:00 
 layout: single 
 permalink: /powershell-tail/
-excerpt: ""
+excerpt: "¿A quién le gusta leer logs casi 'infinitos'? Creo que es una tarea que en Windows por mucho tiempo resultó bastante tediosa, sin contar que hacerlo desde el bloc de notas le pone un condimento adicional y, más aún, resolviendo el problema en tiempo real"
 categories: 
   - PowerShell
 tags: 
