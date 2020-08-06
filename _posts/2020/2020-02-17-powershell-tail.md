@@ -18,7 +18,7 @@ tags:
 
 Pero, simpre podemos contar con PowerShell para salir de esas situaciones. Y ésta no es una exepción. Dentro de todos los cmdlets que ofrece PowerShell, existe `Get-Content` que nos va a permitir obtener el contenido de forma muy similiar a como lo haría *tail* en linux.
 
-# Get-Content al rescate
+## Get-Content al rescate
 
 El cmdlet ofrece varios parámetros, pero nos vamos a detener en 3 principalmente:
 

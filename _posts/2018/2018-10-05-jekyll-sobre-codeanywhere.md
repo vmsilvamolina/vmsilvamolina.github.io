@@ -62,7 +62,7 @@ Ya con lo necesario para poder comenzar a probar nuestro servidor, vamos a ejecu
   jekyll serve --host=0.0.0.0 --drafts
 {% endhighlight %}
 
-<p>Nota: Más adelante voy a tratar el tema de trabajar con Drafts en Jekyll :)</p>{: .notice--success}
+<div><b>Nota:</b> Más adelante voy a tratar el tema de trabajar con Drafts en Jekyll :)</div>{: .notice--success}
 
 Bueno... no todo salió como estaba previsto, al ejecutar el comando anterior se generó el siguiente error:
 

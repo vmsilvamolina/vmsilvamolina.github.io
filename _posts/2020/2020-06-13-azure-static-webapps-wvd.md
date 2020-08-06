@@ -138,9 +138,7 @@ Luego de generado el CNAME y validado por el asistente se creará el custom doma
 
 <img src="/assets/images/postsImages/PS_StaticWebApp_4.png" class="alignnone">
 
-Ahora si podremos acceder a WVD usando la URL **www.victorsilva.com.uy**.
-
-<div><b>Nota:</b> Al ser un servicio en Preview, estimo que en un futuro se podrán utilizar otros CNAMEs diferentes a WWW.</div>{: .notice--success}
+Ahora si podremos acceder a WVD usando la URL **wvd.victorsilva.com.uy**.
 
 Con todo lo anterior, tenemos una solución para poder acceder a los servicios de Windows Virtual Desktop usando un nombre propio para el cliente web, por medio de una Static Web App en Azure.
 

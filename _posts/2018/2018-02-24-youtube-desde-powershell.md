@@ -13,7 +13,7 @@ tags:
   - InternetExplorer.Application
 ---
 
-<p><b>Actualizado:</b> 11 de Abril de 2018</p>{: .notice--success}
+<div><b>Actualizado:</b> 11 de Abril de 2018</div>{: .notice--success}
 
 Hoy en [Stackoverflow en español](https://es.stackoverflow.com), dentro del tag *PowerShell* encontré una consulta sobre la posibilidad de realizar búsquedas en YouTube desde la consola y allí poder comenzar a mirar videos relacionados a lo que interesaba buscar, simplemente ejecutando una única función desde la consola.
 
