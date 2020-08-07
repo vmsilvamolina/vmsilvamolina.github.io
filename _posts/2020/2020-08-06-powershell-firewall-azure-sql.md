@@ -1,5 +1,5 @@
 --- 
-title: "¿Cómo actualizar por powershell las reglas del firewall de un Azure SQL? [Guest]"
+title: "¿Cómo actualizar por PowerShell las reglas de firewall en Azure SQL? [Guest]"
 author: Felipe Schneider
 date: 2020-08-06T19:30:00+00:00 
 layout: single 
@@ -19,11 +19,11 @@ tags:
 
 Debido a la pandemia que afecta a todos en el mundo, la mayoría de los que trabajamos en TI nos vimos forzados a trabajar desde casa con un montón de desafíos. En esta entrada del blog les quiero comentar un problema que me surgió relacionado con la seguridad del lugar donde trabajo y una posible forma de solucionar ese problema de forma "automática".
 
-### Contexto del problema
+## Contexto del problema
 
 La casa matriz del cliente cuenta con una SSL/VPN para acceder a los servidores productivos, dicha VPN por temas de seguridad, no permite el uso de **Split tunneling** por lo tanto todo mi tráfico pasa a través del Gateway de la oficina. Esto genera que el consumo de dicho equipo se vea aumentado significativamente. Otro tema para tener en cuenta es que la mayoría de nosotros no contamos con una IP fija desde nuestros hogares por lo tanto cada 12hs aproximadamente se nos renueva dicha IP. Por lo tanto, lo que vamos a hacer es agregar una nueva entrada en el firewall del Azure SQL con nuestra nueva IP cada vez que se actualice (o al menos cada vez que el script corra).
 
-### Paso a paso
+## Paso a paso
 
 El primer desafío que debemos sortear es obtener nuestra IP pública, por suerte a partir de las nuevas versiones de Windows 10, el comando [cURL](https://devblogs.microsoft.com/commandline/tar-and-curl-come-to-windows/) viene de forma nativo integrado en el kernel del OS. Existen muchos sitios que bridan el servicio de decirnos cual es nuestra IP, por la simplicidad en que presenta el dato vamos a usar [https://ifconfig.io/ip](https://ifconfig.io/ip) ya que la respuesta es la IP y no tenemos que analizar el DOM o andar parseando la respuesta mediante filtrado de etiquetas, splits u otros.
 
@@ -92,7 +92,7 @@ Por último, una vez que tenemos todos los datos cargados, vamos a actualizar nu
 
 Y ya está, ahora este script lo podemos configurar para que corra como tarea programada cada X cantidad de horas y poder acceder a nuestro azure SQL de forma directa.
 
-### Bonus track
+## Bonus track
 
 Este problema también nos paso con un cliente que tiene un FortiGate con un SD-WAN configurado y uno de los enlaces tiene ip dinámica. Lamentablemente para esto no pudimos usar el comando `Invoke-WebRequest`.
 
