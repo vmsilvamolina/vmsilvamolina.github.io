@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2020-06-13T23:28:00+00:00 
 layout: single 
 permalink: /azure-static-webapps-wvd/
-excerpt: "Windows Virtual Desktop presenta un cliente web para poder acceder a las aplicacions/escritorios virtuales, pero este cliente tiene una URL genérica. Aquí es donde entra un nuevo servicio de Azure presentado en el Microsoft Build 2020: Static Web Apps, que nos va a permitir generar un website estático con una URL custom para direccionar a nuestros usuarios al portal de WVD."
+excerpt: "Windows Virtual Desktop presenta un cliente web para poder acceder a las aplicaciones/escritorios virtuales, pero este cliente tiene una URL genérica. Aquí es donde entra un nuevo servicio de Azure presentado en el Microsoft Build 2020: Static Web Apps, que nos va a permitir generar un website estático con una URL custom para direccionar a nuestros usuarios al portal de WVD."
 categories: 
   - Azure
 tags: 
@@ -13,7 +13,7 @@ tags:
 
 ---
 
-Windows Virtual Desktop presenta un cliente web para poder acceder a las aplicacions/escritorios virtuales, pero este cliente tiene una URL genérica. Aquí es donde entra un nuevo servicio de Azure presentado en el Microsoft Build 2020: Static Web Apps, que nos va a permitir generar un website estático con una URL custom para direccionar a nuestros usuarios al portal de WVD.
+Windows Virtual Desktop presenta un cliente web para poder acceder a las aplicaciones/escritorios virtuales, pero este cliente tiene una URL genérica. Aquí es donde entra un nuevo servicio de Azure presentado en el Microsoft Build 2020: Static Web Apps, que nos va a permitir generar un website estático con una URL custom para direccionar a nuestros usuarios al portal de WVD.
 
 ## Website
 
