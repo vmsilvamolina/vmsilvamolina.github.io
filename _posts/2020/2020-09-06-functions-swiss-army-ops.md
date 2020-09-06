@@ -27,3 +27,85 @@ With Azure Functions, you can write code with PowerShell, Python, C#, Java, and 
 How Azure Functions will help with daily tasks or automate the "boring stuff"? In previous lines quote that two of the most popular scripting languages as is PowerShell and Python are available to use and... Did I mention that exists a free plan (with limitations obviously)? Functions created for default use the **Consumption plan** as a hosting plan when billing is based on the number of function executions, execution time, and memory used. In other words, you only pay for the time your functions are running.
 
 ## First step: Create a Function App
+
+We can create an Azure Function App using the Azure Portal selecting PowerShell as the runtime. On the other hand, we can use PowerShell:
+
+{% highlight posh%}
+  #Connect to Azure
+  Connect-AzAccount
+  #Select the subscription
+  Select-AzSubscription xxx
+
+  #Define the function's parameters (using PowerShell splatting)
+  $newFunctionAppParams = @{
+    ResourceType      = 'Microsoft.Web/Sites'
+    ResourceName      = 'FuntionApp-FTW'
+    Kind              = 'functionapp'
+    Location          = 'EastUS'
+    ResourceGroupName = 'FunctionsDemo'
+    Properties        = @{}
+    Force             = $true
+  }
+  #Create the Azure resource
+  $functionApp = New-AzResource @newFunctionAppParams
+{% endhighlight %}
+
+<img src="/assets/images/postsImages/PS_Functions_0.png" class="alignnone">
+
+Azure Functions need a storage account to work correctly. Because storage accounts use a globally unique name, we'll take a section of a GUID and append it to the storage account name.
+
+{% highlight posh%}
+  #Variables
+  $guidPart = (New-Guid).ToString().Split('-')[0]
+  $storageAccountName = "functionapp$guidPart"
+  $storageSku = 'Standard_LRS'
+  #Parameters
+  $newStorageParams = @{
+    ResourceGroupName = 'FunctionsDemo'
+    AccountName       = $storageAccountName
+    Location          = 'EastUS'
+    SkuName           = $storageSku
+  }
+  #Create storage account
+  $storageAccount = New-AzStorageAccount @newStorageParams
+{% endhighlight %}
+
+Now, we take the connection string to finish the configuration:
+
+{% highlight posh%}
+  #Define variables
+  $accountKey = Get-AzStorageAccountKey -ResourceGroupName 'FunctionsDemo' -AccountName $storageAccountName |
+    Where-Object {$_.KeyName -eq 'Key1'} | Select-Object -ExpandProperty Value
+  $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$accountKey"
+  # Set Function App settings
+  $functionAppSettings = @{
+    AzureWebJobDashboard                     = $storageConnectionString
+    AzureWebJobsStorage                      = $storageConnectionString
+    FUNCTIONS_EXTENSION_VERSION              = '~3'
+    WEBSITE_CONTENTAZUREFILECONNECTIONSTRING = $storageConnectionString
+    WEBSITE_CONTENTSHARE                     = $storageAccountName
+  }
+  $setWebAppParams = @{
+    Name = 'FuntionApp-FTW'
+    ResourceGroupName = 'FunctionsDemo'
+    AppSettings = $functionAppSettings
+  }
+  $webApp = Set-AzWebApp @setWebAppParams
+{% endhighlight %}
+
+Perfect! In the Azure portal inside Function App now we see:
+
+<img src="/assets/images/postsImages/PS_Functions_1.png" class="alignnone">
+
+
+### Deploy the function
+
+After the above steps, now we create a function: the Hello World function, why not?
+
+In the Function App (FuntionApp-FTW), select **Functions**, and then select **+ Add**:
+
+<img src="/assets/images/postsImages/PS_Functions_2.png" class="alignnone">
+
+For this example, we use the **Timer trigger** template. Select that.
+
+
