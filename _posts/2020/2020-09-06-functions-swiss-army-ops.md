@@ -28,70 +28,68 @@ How Azure Functions will help with daily tasks or automate the "boring stuff"? I
 
 ## First step: Create a Function App
 
-We can create an Azure Function App using the Azure Portal selecting PowerShell as the runtime. On the other hand, we can use PowerShell:
+We can create an Azure Function App using the Azure Portal selecting PowerShell as the runtime. On the other hand, we can use PowerShell.
+
+`Az.Functions` is the module relased at the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Functions/1.0.1) for Microsoft to provide cmdlets to manage Azure Functions.
+
+As I explained here, to install the module you need to run:
+
+{% highlight posh%}
+  Install-Module Az.Functions
+{% endhighlight %}
+
+The following is connect to Azure:
 
 {% highlight posh%}
   #Connect to Azure
   Connect-AzAccount
   #Select the subscription
   Select-AzSubscription xxx
-
-  #Define the function's parameters (using PowerShell splatting)
-  $newFunctionAppParams = @{
-    ResourceType      = 'Microsoft.Web/Sites'
-    ResourceName      = 'FuntionApp-FTW'
-    Kind              = 'functionapp'
-    Location          = 'EastUS'
-    ResourceGroupName = 'FunctionsDemo'
-    Properties        = @{}
-    Force             = $true
-  }
-  #Create the Azure resource
-  $functionApp = New-AzResource @newFunctionAppParams
 {% endhighlight %}
 
-<img src="/assets/images/postsImages/PS_Functions_0.png" class="alignnone">
+I'll use an existing Resource Group but I need to create the Storage Account running the following:
+
+{% highlight posh%}
+  #Variables
+  $ResourceGroupName = "FunctionsDemo"
+  $FunctionAppName = "FuntionApp-FTW"
+  $Location = "EastUS"
+  $guidPart = (New-Guid).ToString().Split('-')[0]
+  $storageAccountName = "functionapp$guidPart"
+  $storageSku = "Standard_LRS"
+{% endhighlight %}
 
 Azure Functions need a storage account to work correctly. Because storage accounts use a globally unique name, we'll take a section of a GUID and append it to the storage account name.
 
 {% highlight posh%}
-  #Variables
-  $guidPart = (New-Guid).ToString().Split('-')[0]
-  $storageAccountName = "functionapp$guidPart"
-  $storageSku = 'Standard_LRS'
   #Parameters
   $newStorageParams = @{
-    ResourceGroupName = 'FunctionsDemo'
+    ResourceGroupName = $ResourceGroupName
     AccountName       = $storageAccountName
-    Location          = 'EastUS'
+    Location          = $Location
     SkuName           = $storageSku
   }
   #Create storage account
-  $storageAccount = New-AzStorageAccount @newStorageParams
+  New-AzStorageAccount @newStorageParams
 {% endhighlight %}
 
-Now, we take the connection string to finish the configuration:
+Lastly, we can use the `New-AzFunctionApp` to deploy the function app:
 
 {% highlight posh%}
-  #Define variables
-  $accountKey = Get-AzStorageAccountKey -ResourceGroupName 'FunctionsDemo' -AccountName $storageAccountName |
-    Where-Object {$_.KeyName -eq 'Key1'} | Select-Object -ExpandProperty Value
-  $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$storageAccountName;AccountKey=$accountKey"
-  # Set Function App settings
-  $functionAppSettings = @{
-    AzureWebJobDashboard                     = $storageConnectionString
-    AzureWebJobsStorage                      = $storageConnectionString
-    FUNCTIONS_EXTENSION_VERSION              = '~3'
-    WEBSITE_CONTENTAZUREFILECONNECTIONSTRING = $storageConnectionString
-    WEBSITE_CONTENTSHARE                     = $storageAccountName
-  }
-  $setWebAppParams = @{
-    Name = 'FuntionApp-FTW'
-    ResourceGroupName = 'FunctionsDemo'
-    AppSettings = $functionAppSettings
-  }
-  $webApp = Set-AzWebApp @setWebAppParams
+#Parameters
+$newFunctionParams = @{
+  Name              = $FunctionAppName
+  ResourceGroupName = $ResourceGroupName
+  StorageAccount    = $storageAccountName
+  Location          = $Location
+  Runtime           = "PowerShell"
+  RuntimeVersion    = "7.0"
+}
+#Create Function App
+New-AzFunctionApp @newFunctionParams
 {% endhighlight %}
+
+<img src="/assets/images/postsImages/PS_Functions_0.png" class="alignnone">
 
 Perfect! In the Azure portal inside Function App now we see:
 
@@ -106,6 +104,56 @@ In the Function App (FuntionApp-FTW), select **Functions**, and then select **+ 
 
 <img src="/assets/images/postsImages/PS_Functions_2.png" class="alignnone">
 
-For this example, we use the **Timer trigger** template. Select that.
+For this example, we use the **HTTP trigger** template. Select that and **Create Function**.
 
+<img src="/assets/images/postsImages/PS_Functions_3.png" class="alignnone">
 
+Inside the function, selecting the **Code + Test** option, we can access to the code and tools for troubleshoot and test the function.
+
+## What kind of problems can solve?
+
+At this moment, we start to solve some challenges/problems with Azure Functions and Azure Services.
+
+### Scenario 1 - Read web content for updates
+
+Suppose that I have to check the Azure Stack Hub release notes for new updates. The site is: [https://docs.microsoft.com/en-us/azure-stack/operator/release-notes](https://docs.microsoft.com/en-us/azure-stack/operator/release-notes) and we need to pay attention to the **build reference** and **build type**, because if we had a new version we should receive a mail with the number and the type (full or express):
+
+<img src="/assets/images/postsImages/PS_Functions_4.png" class="alignnone">
+
+This function must be executed periodically since it is necessary to check for new updates of the site regularly. Therefore, the function has to **Timer trigger** (another type of function that runs periodically).
+
+When we create a Timer trigger function, we need to define a schedule, like a cron expression:
+
+>0 0 13 * * *
+
+What does it mean: Run every day at 13:00hs UTC.
+
+How do we obtain the information indicated on the image before? With PowerShell and the following code:
+
+{% highlight posh%}
+  $web = Invoke-WebRequest -Uri https://docs.microsoft.com/en-us/azure-stack/operator/release-notes -UseBasicParsing
+  $buildReferenceRaw = ($web.Content `
+    | Select-String -AllMatches -Pattern '(\<h2.*\>)(.*)( build.*\<\/h2\>)' `
+    | Select-Object -ExpandProperty Matches)
+  $buildReference = $buildReferenceRaw[0].Groups[2].Value
+  $updateTypeRaw = ($web.Content `
+    | Select-String -AllMatches -Pattern '(The Azure Stack Hub .* update build type is <strong>)(.*)<\/strong>.' `
+    | Select-Object -ExpandProperty Matches)
+  $updateType = $updateTypeRaw[0].Groups[2].Value
+{% endhighlight %}
+
+Now we need to paste this code into the function:
+
+<img src="/assets/images/postsImages/" class="alignnone">
+
+Ok, now we have the values and it's time to create a message to join the info. We'll test the function using the 
+
+{% highlight posh%}
+  Write-Host "New update! The last update is ${$updateNumber} and the build type is ${$updateType}."
+{% endhighlight %}
+
+<img src="/assets/images/postsImages/PS_Functions_5.png" class="alignnone">
+
+Awesome! The nexts steps are send to email that info using for example `SendGrid`.
+
+Happy scripting!
