@@ -142,9 +142,7 @@ How do we obtain the information indicated on the image before? With PowerShell 
   $updateType = $updateTypeRaw[0].Groups[2].Value
 {% endhighlight %}
 
-Now we need to paste this code into the function:
-
-<img src="/assets/images/postsImages/" class="alignnone">
+Now we need to paste this code into the function, using the code editor embedded.
 
 Ok, now we have the values and it's time to create a message to join the info. We'll test the function using the 
 
@@ -154,6 +152,6 @@ Ok, now we have the values and it's time to create a message to join the info. W
 
 <img src="/assets/images/postsImages/PS_Functions_5.png" class="alignnone">
 
-Awesome! The nexts steps are send to email that info using for example `SendGrid`.
+Awesome! The next step is to send an email with that info using for example `SendGrid` (an SMTP solution offered in the Azure marketplace, with a free tier), but that will part of a new post ;)
 
 Happy scripting!
