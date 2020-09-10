@@ -1,7 +1,7 @@
 --- 
 title: "Azure Functions with PowerShell: Swiss army knife for Ops [English]"
 author: Victor Silva
-date: 2020-09-06T007:45:00+00:00 
+date: 2020-09-06T07:45:00+00:00 
 layout: single 
 permalink: /functions-swiss-army-ops/
 excerpt: "Nowadays, infrastructure tasks have reached a new level with the help of devs tools (like control version system) but, operations teams take all of the advantages of 'new world'? Serverless computing enables ways to build and create applications without concern about managing the infrastructure."
@@ -24,7 +24,7 @@ Nowadays, infrastructure tasks have reached a new level with the help of devs to
 
 With Azure Functions, you can write code with PowerShell, Python, C#, Java, and Javascript to publish these blocks of code as functions. Those functions are hosted in Azure in a container called a **Function App**. How does it work? Functions run when they are "triggered" and you'll see that in action in this post-guide. Though functions can run for a longer time under the premium and app service plans, the ultimate purpose of a function should be to do a particular task and do that task as efficiently as possible.
 
-How Azure Functions will help with daily tasks or automate the "boring stuff"? In previous lines quote that two of the most popular scripting languages as is PowerShell and Python are available to use and... Did I mention that exists a free plan (with limitations obviously)? Functions created for default use the **Consumption plan** as a hosting plan when billing is based on the number of function executions, execution time, and memory used. In other words, you only pay for the time your functions are running.
+How will Azure Functions help with daily tasks or automate the "boring stuff"? In previous lines I quoted that two of the most popular scripting languages such as PowerShell and Python are available to use and... Did I mention that there is a free plan (with limitations obviously)? Functions created for default use the **Consumption plan** as a hosting plan when billing is based on the number of function executions, execution time, and memory used. In other words, you only pay for the time your functions are running.
 
 ## First step: Create a Function App
 
@@ -110,7 +110,7 @@ For this example, we use the **HTTP trigger** template. Select that and **Create
 
 Inside the function, selecting the **Code + Test** option, we can access to the code and tools for troubleshoot and test the function.
 
-## What kind of problems can solve?
+## What kind of problems can it solve?
 
 At this moment, we start to solve some challenges/problems with Azure Functions and Azure Services.
 
