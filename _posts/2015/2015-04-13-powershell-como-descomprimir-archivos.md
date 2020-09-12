@@ -20,11 +20,12 @@ No necesitamos ningún requerimiento extra, asi que paso a detallar el procedimi
 
 {% highlight posh %}
 # Ubicación del archivo .zip
-Set-Location C:\Scripts\UnzipFiles $Unzip = New-Object -ComObject Shell.Application
+Set-Location C:\Scripts\UnzipFiles
+$Unzip = New-Object -ComObject Shell.Application
 # Nombre del archivo
 $FileName = "Prueba.zip" 
 $ZipFile = $Unzip.NameSpace((Get-Location).Path + "\$FileName") 
-$Destination = $Unzip.namespace((Get-Location).Path) 
+$Destination = $Unzip.NameSpace((Get-Location).Path) 
 $Destination.Copyhere($ZipFile.items())
 {% endhighlight %}
 

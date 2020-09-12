@@ -112,7 +112,7 @@ Inside the function, selecting the **Code + Test** option, we can access to the 
 
 ## What kind of problems can it solve?
 
-At this moment, we start to solve some challenges/problems with Azure Functions and Azure Services.
+At this moment, we start to solve some challenges/problems associated with commom requirements or daily tasks, like scheduled actions, with Azure Functions and Azure Services.
 
 ### Scenario 1 - Read web content for updates
 
@@ -152,6 +152,9 @@ Ok, now we have the values and it's time to create a message to join the info. W
 
 <img src="/assets/images/postsImages/PS_Functions_5.png" class="alignnone">
 
+Perfect! An improving for that is read the previous value from a 
+
 Awesome! The next step is to send an email with that info using for example `SendGrid` (an SMTP solution offered in the Azure marketplace, with a free tier), but that will part of a new post ;)
+
 
 Happy scripting!
