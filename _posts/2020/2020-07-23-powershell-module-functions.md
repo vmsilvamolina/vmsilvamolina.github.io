@@ -95,7 +95,13 @@ And get the value to use in future commands:
   Get-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName
 {% endhighlight %}
 
-Or select only the previous setting created, named "Test":
+How about if I need to select only the previous setting created, named "Test"?:
+
+{% highlight posh%}
+  (Get-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName)["Test"]
+{% endhighlight %}
+
+An alternative to achieve that:
 
 {% highlight posh%}
   (Get-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName).get_Item("Test")
