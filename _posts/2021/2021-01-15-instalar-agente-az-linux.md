@@ -35,7 +35,7 @@ Being an administrative task, since it is required to modify components and add 
 
 ### Installation
 
-To get the package to install exist a GitHub repository where the agent was packed and published. The repository URL is [https://github.com/Azure/WALinuxAgent/releases/latest](https://github.com/Azure/WALinuxAgent/releases/latest). You need to go to the Releases section and find the list of the version published (the last version figuring at the top). Now, we are ready to choose the file to download because exist two options to use: one with the `zip` extension and the other with `tar.gz` extension. 
+To get the package to install, exist a GitHub repository where the agent was packed and published. The repository URL is [https://github.com/Azure/WALinuxAgent/releases/latest](https://github.com/Azure/WALinuxAgent/releases/latest). You need to go to the Releases section and find the list of the version published (the last version figuring at the top). Now, we are ready to choose the file to download. Exist two options to use: one with the `zip` extension and the other with `tar.gz` extension. 
 
 > We will select the zip file for this explanation.
 
@@ -44,30 +44,40 @@ Linux had the command `wget` used to download files from the internet in moments
 
 Copy the URL from the Source code.zip file and use it:
 
-`wget https://github.com/Azure/WALinuxAgent/archive/refs/tags/v2.2.53.zip`
+{% highlight posh%}
+wget https://github.com/Azure/WALinuxAgent/archive/refs/tags/v2.2.53.zip
+{% endhighlight %}
 
-Paying attention to the previous command, the URL was changed to adding the **/releases/latest** because it referred to the release section commented before and selecting the latest version of the agent.
 
-Next, we need to unzip the file downloaded. How? Easy, running the next command:
+Paying attention to the previous command: the URL changed to adding the **/releases/latest** because it referred to the release section commented before and selecting the latest version of the agent.
 
-`unzip v2.2.53.zip`
+Next, we need to unzip the file downloaded. How? Easy, running the command:
+
+{% highlight posh%}
+unzip v2.2.53.zip
+{% endhighlight %}
+
 
 Where are the people that say work with Linux is difficult? XD
 
 Continuing with our steps to install the agent let's move to the folder previously created after unzipping the file running the super-powerful cd and perform the installation:
 
-```
+{% highlight posh%}
 cd WALinuxAgent-2.53
 sudo python setup.py install
-```
+{% endhighlight %}
 
 Perfect! If you are reading this, your goal task is done and I have an action to check that:
 
-`systemctl status waagent`
+{% highlight posh%}
+systemctl status waagent
+{% endhighlight %}
 
 Before going to the Azure portal to assume that the agent is reporting correctly, I recommend restarting the agent using another option of systemctl:
 
-`sudo systemctl restart waagent`
+{% highlight posh%}
+sudo systemctl restart waagent
+{% endhighlight %}
 
 At this point, you already have your Azure VM with the agent installed and working properly. 
 
