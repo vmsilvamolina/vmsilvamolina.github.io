@@ -24,19 +24,19 @@ Ya con el repositorio creado, el siguiente paso es genenar el sitio a publicar. 
 Así quedaría el código HTML:
 
 {% highlight HTML%}
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>WVD - HomePage</title>
-        <script type = "text/javascript">
-            window.location = "https://rdweb.wvd.microsoft.com/webclient/index.html";
-        </script>
-    </head>
-    <body>
-    </body>
-    </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WVD - HomePage</title>
+  <script type = "text/javascript">
+    window.location = "https://rdweb.wvd.microsoft.com/webclient/index.html";
+  </script>
+</head>
+<body>
+</body>
+</html>
 {% endhighlight %}
 
 Si guardamos el código anterior y lo ejecutamos en un navegador nos redireccionará al cliente web tal como necesitamos. Ahora tenemos que publicarlo en Azure y acá es donde entra en acción, Azure Static Web Apps...
@@ -64,10 +64,10 @@ Está el código, la web app y el repositorio, ahora resta unir todas las partes
 Lo primero que debemos hacer es volcar nuestro fantástico HTML al repositorio. Para ello:
 
 {% highlight posh%}
-  cd \rutaDondeEstáElHTML
-  git add .
-  git commit -m "add index.html"
-  git push
+cd \rutaDondeEstáElHTML
+git add .
+git commit -m "add index.html"
+git push
 {% endhighlight %}
 
 Listo! Código en repo. Y Ahora, si nos fijamos en el repositorio, dentro de la sección **Actions**. Vamos a ver que existe un workflow ya creado: el CI/CD para publicar nuestros cambios.

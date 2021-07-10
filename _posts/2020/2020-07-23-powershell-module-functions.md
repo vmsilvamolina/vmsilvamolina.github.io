@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2020-07-23T21:25:00+00:00 
 layout: single 
 permalink: /powershell-module-functions/
-excerpt: ""
+excerpt: "I'll take a look at some of the cmdlets that are included in this initial release of the new Azure Functions module for PowerShell. The detailed tasks on this post using the module include: deploy a new function app, modify some of the settings using the Update cmdlets, and then clean-up-the-house by deleting the resources at the end."
 categories: 
   - Azure
   - PowerShell
@@ -15,7 +15,7 @@ tags:
   - Gallery
 ---
 
-I’ll take a look at some of the cmdlets that are included in this initial release of the new Azure Functions module for PowerShell. The detailed tasks on this post using the module include: deploy a new function app, modify some of the settings using the Update cmdlets, and then clean-up-the-house by deleting the resources at the end.
+I'll take a look at some of the cmdlets that are included in this initial release of the new Azure Functions module for PowerShell. The detailed tasks on this post using the module include: deploy a new function app, modify some of the settings using the Update cmdlets, and then clean-up-the-house by deleting the resources at the end.
 
 Microsoft recently released on the PowerShell Gallery a module named `Az.Functions`, offering cmdlets to manage the Azure Functions service. According to the [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Functions/1.0.0), version 1.0.0 was released on the 19th of May (the last version is 1.0.1, released on the 23rd of June).
 
@@ -36,13 +36,13 @@ If you just want only the **Az.Functions** module, run the following cmdlet:
 On the other hand, if you prefer to get all the Azure modules is required run:
 
 {% highlight posh%}
-  Install-Module -Name Az
+Install-Module -Name Az
 {% endhighlight %}
 
-Easy right? Now we let’s take a look at the cmdlets that are part of this module, so will execute:
+Easy right? Now we let's take a look at the cmdlets that are part of this module, so will execute:
 
 {% highlight posh%}
-  Get-Command -Module Az.Functions
+Get-Command -Module Az.Functions
 {% endhighlight %}
 
 Perfect! There are a lot of commands to work with Azure Functions from the comfort of the command line...
@@ -52,23 +52,23 @@ Perfect! There are a lot of commands to work with Azure Functions from the comfo
 Before we start creating a new function app, we must specify one of the supported locations based on the type of the function app. For example, if we like to create a Function App in a Consumption plan, we need to run the following command:
 
 {% highlight posh%}
-  Get-AzFunctionAppAvailableLocation -PlanType Consumption -OSType Windows
+Get-AzFunctionAppAvailableLocation -PlanType Consumption -OSType Windows
 {% endhighlight %}
 
 After choosing the location, we'll create the required Azure resources for publish my function:
 
 {% highlight posh%}
-  #Variables
-  $ResourceGroupName = "FunctionAppPOSH"
-  $FunctionAppName = "FunctionApp-POSH"
-  $Location = "EastUS"
-  $guidPart = (New-Guid).ToString().Split('-')[0]
-  $StorageAccountName = "functionapp$guidPart"
-  $StorageSku = "Standard_LRS"
-  #Creación de recursos
-  New-AzResourceGroup -Name $ResourceGroupName -Location $Location
-  New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -SkuName Standard_LRS -Location $Location
-  New-AzFunctionApp -Name $FunctionAppName -ResourceGroupName $ResourceGroupName -StorageAccount $StorageAccountName -Location $Location -Runtime "PowerShell" -RuntimeVersion "7.0"
+#Variables
+$ResourceGroupName = "FunctionAppPOSH"
+$FunctionAppName = "FunctionApp-POSH"
+$Location = "EastUS"
+$guidPart = (New-Guid).ToString().Split('-')[0]
+$StorageAccountName = "functionapp$guidPart"
+$StorageSku = "Standard_LRS"
+#Creación de recursos
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -SkuName Standard_LRS -Location $Location
+New-AzFunctionApp -Name $FunctionAppName -ResourceGroupName $ResourceGroupName -StorageAccount $StorageAccountName -Location $Location -Runtime "PowerShell" -RuntimeVersion "7.0"
 {% endhighlight %}
 
 If the commands finish correctly, we received a confirmation on the console about the resource created.
@@ -78,7 +78,7 @@ If the commands finish correctly, we received a confirmation on the console abou
 We can use the `Get-AzFunctionApp` function to check existent functions, filtering for subscriptions, resource group or names like this:
 
 {% highlight posh%}
-  Get-AzFunctionApp -ResourceGroupName $ResourceGroupName
+Get-AzFunctionApp -ResourceGroupName $ResourceGroupName
 {% endhighlight %}
 
 <img src="/assets/images/postsImages/PS_FunctionModule_0.png" class="alignnone">
@@ -86,25 +86,25 @@ We can use the `Get-AzFunctionApp` function to check existent functions, filteri
 With the function app identified, we can manage settings or add news:
 
 {% highlight posh%}
-  Update-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName -AppSetting @{"Test" = "SuperValue"}
+Update-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName -AppSetting @{"Test" = "SuperValue"}
 {% endhighlight %}
 
 And get the value to use in future commands:
 
 {% highlight posh%}
-  Get-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName
+Get-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName
 {% endhighlight %}
 
 How about if I need to select only the previous setting created, named "Test"?:
 
 {% highlight posh%}
-  (Get-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName)["Test"]
+(Get-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName)["Test"]
 {% endhighlight %}
 
 An alternative to achieve that:
 
 {% highlight posh%}
-  (Get-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName).get_Item("Test")
+(Get-AzFunctionAppSetting -Name $FunctionAppName -ResourceGroupName $ResourceGroupName).get_Item("Test")
 {% endhighlight %}
 
 <img src="/assets/images/postsImages/PS_FunctionModule_1.png" class="alignnone">

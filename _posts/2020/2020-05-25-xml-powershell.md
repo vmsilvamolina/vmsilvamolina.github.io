@@ -28,14 +28,14 @@ Ese contenido vamos a guardarlo y vamos a nombrarlo `books.xml`, para este post 
 Ya con el archivo listo el siguiente paso es obtener la información del mismo dentro de PowerShell, donde existen varios caminos para tal fin:
 
 {% highlight posh%}
-    # Método 1
-    $xDoc = New-Object System.Xml.XmlDocument
-    $file = Resolve-Path(".\books.xml")
-    $xDoc.load($file)
-    # Método 2
-    [xml] $xDoc = Get-Content ".\books.xml"
-    # Método 3
-    $xDoc = [xml] (Get-Content ".\books.xml")
+# Método 1
+$xDoc = New-Object System.Xml.XmlDocument
+$file = Resolve-Path(".\books.xml")
+$xDoc.load($file)
+# Método 2
+[xml] $xDoc = Get-Content ".\books.xml"
+# Método 3
+$xDoc = [xml] (Get-Content ".\books.xml")
 {% endhighlight %}
 
 Fácil, no? 
@@ -49,7 +49,7 @@ Ahoa veamos que nos devuelve al invocar la variable `$xDoc`, así como también 
 Con el archivo cargado en un objeto **XmlDocument**, es posible navegar por el árbol XML utilizando [XPath](https://www.w3.org/TR/xpath/all/). Para seleccionar un conjunto de nodos, use el método `SelectNodes`:
 
 {% highlight posh%}
-    $xdoc.SelectNodes("//author")
+$xdoc.SelectNodes("//author")
 {% endhighlight %}
 
 <img src="/assets/images/postsImages/PS_XML_1.png" class="alignnone">
@@ -57,16 +57,16 @@ Con el archivo cargado en un objeto **XmlDocument**, es posible navegar por el �
 Donde el resultado es una lista de todos los autores disponibles. Pero hay un pequeño problema: existen repetidos. ¿Cómo sería la mejor manera de poder filtrar con los valores únicos? PowerShell tiene un cmdlet llamado [Select-Xml](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-xml?view=powershell-7), que permite realizar esto de la siguiente manera:
 
 {% highlight posh%}
-  $xdoc | Select-Xml "//author" | % { $_.Node.InnerText } | select -Unique
+$xdoc | Select-Xml "//author" | % { $_.Node.InnerText } | select -Unique
 {% endhighlight %}
 
 O también se encuentra a disposición `SelectingleNode`, para retornr un único nodo:
 
 {% highlight posh%}
-  #Toda la info del libro
-  $xdoc.SelectSingleNode("//book[2]")
-  #Solamente el título
-  $xdoc.SelectSingleNode("//book[2]/title")
+#Toda la info del libro
+$xdoc.SelectSingleNode("//book[2]")
+#Solamente el título
+$xdoc.SelectSingleNode("//book[2]/title")
 {% endhighlight %}
 
 <img src="/assets/images/postsImages/PS_XML_2.png" class="alignnone">
@@ -92,16 +92,16 @@ Vale la pena destacar que todos los XML nodes del documento se convierten en pro
 Para poder trabajar correctamente con el formato XML debemos tener en cuenta el procedimiento para actualizar valores, por ejemplo. Para ello el siguiente bloque de código ejemplifica el procedimiento para ello:
 
 {% highlight posh%}
-  $item = Select-XML -Xml $xDoc -XPath '//book[title="Midnight Rain"]'
-  $item.Node
-  $item.Node.price = 4.95
-  $xDoc.Save(".\booksNewPrice.xml")
+$item = Select-XML -Xml $xDoc -XPath '//book[title="Midnight Rain"]'
+$item.Node
+$item.Node.price = 4.95
+$xDoc.Save(".\booksNewPrice.xml")
 {% endhighlight %}
 
 Donde al revisar el archivo anterior obtenemos el precio del libro actualizado, según nuestra modificación:
 
 {% highlight posh%}
-  Get-Content .\booksNewPrice.xml | Select-String "Midnight Rain" -Context 2,7
+Get-Content .\booksNewPrice.xml | Select-String "Midnight Rain" -Context 2,7
 {% endhighlight %}
 
 <img src="/assets/images/postsImages/PS_XML_6.png" class="alignnone">

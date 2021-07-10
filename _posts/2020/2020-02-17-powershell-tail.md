@@ -29,16 +29,16 @@ El cmdlet ofrece varios parámetros, pero nos vamos a detener en 3 principalment
 Para generar un log, a usar como escenario para ver el funcionamiento, vamos a usar el siguiente código:
 
 {% highlight posh%}
-    1..100 | Foreach-Object -Process {
-    Add-Content -Value $("[Information][{0}] Log important message number {1}" -f $(Get-Date),$PSItem) -Path file.log
-    Start-Sleep -Milliseconds 1000
+1..100 | Foreach-Object -Process {
+Add-Content -Value $("[Information][{0}] Log important message number {1}" -f $(Get-Date),$PSItem) -Path file.log
+Start-Sleep -Milliseconds 1000
 }
 {% endhighlight %}
 
 Ya generando el "log", vamos a leer el contenido en tiempo real de la siguiente manera:
 
 {% highlight posh%}
-    Get-Content -Path .\file.log -Wait
+Get-Content -Path .\file.log -Wait
 {% endhighlight %}
 
 Comparto un GIF para ver mejor el comportamiento:
@@ -50,13 +50,13 @@ Donde se puede apreciar las líneas que van escribiendose en el log se reflejan 
 Para el caso de obtener las primeras líneas de código, por ejemplo: las 5 primeras, podemos usar el parámetro First (alias del parámetro **TotalCount**, que para gusto personal es más difícil de asociar):
 
 {% highlight posh%}
-    Get-Content -Path .\file.log -First 5
+Get-Content -Path .\file.log -First 5
 {% endhighlight %}
 
 De forma contraria, si queremos obtener las últimas líneas, usamos **-Tail** (o su alias **Last**):
 
 {% highlight posh%}
-    Get-Content -Path .\file.log -Tail 5
+Get-Content -Path .\file.log -Tail 5
 {% endhighlight %}
 
 <img src="/assets/images/postsImages/PS_Tail_2.png" class="alignnone">

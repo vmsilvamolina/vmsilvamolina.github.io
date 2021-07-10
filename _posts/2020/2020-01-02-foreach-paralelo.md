@@ -31,12 +31,12 @@ Aunque el título parece un juego de palabras, es necesario aclarar las disimili
 Tal como se mencionó en el párrafo anterior, `ForEach-Object` está diseñado para iterar a través de objetos en un pipeline. Para demostrar esto, se define un loop sobre una colección de 10 objetos y su impresión en la consola, y midamos cuánto tiempo lleva.
 
 {% highlight posh%}
-  (Measure-Command {
-    1..10 | ForEach-Object {
-      Start-Sleep -Seconds 1
-      Write-Host $_ -ForegroundColor Yellow
-    }
-  }).TotalMilliseconds
+(Measure-Command {
+  1..10 | ForEach-Object {
+    Start-Sleep -Seconds 1
+    Write-Host $_ -ForegroundColor Yellow
+  }
+}).TotalMilliseconds
 {% endhighlight %}
 
 <img src="/assets/images/postsImages/PS_7_Parallel_0.png" class="alignnone">
@@ -46,12 +46,12 @@ Tal como se mencionó en el párrafo anterior, `ForEach-Object` está diseñado 
 ¿Cómo se comportaría el mismo código utilizando ejecuciones en paralelo?
 
 {% highlight posh%}
-  (Measure-Command {
-    1..10 | ForEach-Object -Parallel {
-      Start-Sleep -Seconds 1
-      Write-Host $_ -ForegroundColor Yellow
-    }
-  }).TotalMilliseconds
+(Measure-Command {
+  1..10 | ForEach-Object -Parallel {
+    Start-Sleep -Seconds 1
+    Write-Host $_ -ForegroundColor Yellow
+  }
+}).TotalMilliseconds
 {% endhighlight %}
 
 <img src="/assets/images/postsImages/PS_7_Parallel_1.png" class="alignnone">

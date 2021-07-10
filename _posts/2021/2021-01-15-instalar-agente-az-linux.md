@@ -1,5 +1,5 @@
 --- 
-title: "How to install Azure VM agent on Linux"
+title: "How to install Azure VM agent on Linux [English]"
 author: Victor Silva
 date: 2021-01-15T15:34:00+00:00 
 layout: single 
@@ -10,6 +10,7 @@ categories:
 tags: 
   - Bash
   - Azure
+  - Azure Virtual Machines
   - WALinuxAgent
 ---
 

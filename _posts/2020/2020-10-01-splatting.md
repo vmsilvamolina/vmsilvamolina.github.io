@@ -24,21 +24,21 @@ El formato de los cmdlets en PowerShell hace que el uso sea muy fácil, a pesar 
 Vamos a utilizar el comando `New-AzFunctionApp` que nos permite crear una Function App en Azure, tal como comentamos en el post (en inglés) [Azure Functions with PowerShell: Swiss army knife for Ops](https://blog.victorsilva.com.uy/functions-swiss-army-ops/) y que por defecto vamos a tener que pasarle varios comandos con información variada:
 
 {% highlight posh%}
-    New-AzFunctionApp -Name $FunctionAppName -ResourceGroupName $ResourceGroupName -StorageAccount $storageAccountName -Location $Location -Runtime "PowerShell" -RuntimeVersion "7.0"
+New-AzFunctionApp -Name $FunctionAppName -ResourceGroupName $ResourceGroupName -StorageAccount $storageAccountName -Location $Location -Runtime "PowerShell" -RuntimeVersion "7.0"
 {% endhighlight %}
 
 Un ejemplo interesante, ya que tenemos 7 parámetros y sus correspondientes valores. ¿Y cómo sería el formato utilizando Splatting? De la siguiente manera:
 
 {% highlight posh%}
-    $newFunctionParams = @{
-        Name              = $FunctionAppName
-        ResourceGroupName = $ResourceGroupName
-        StorageAccount    = $storageAccountName
-        Location          = $Location
-        Runtime           = "PowerShell"
-        RuntimeVersion    = "7.0"
-    }
-    New-AzFunctionApp @newFunctionParams
+$newFunctionParams = @{
+  Name              = $FunctionAppName
+  ResourceGroupName = $ResourceGroupName
+  StorageAccount    = $storageAccountName
+  Location          = $Location
+  Runtime           = "PowerShell"
+  RuntimeVersion    = "7.0"
+}
+New-AzFunctionApp @newFunctionParams
 {% endhighlight %}
 
 De todas formas, esta no es la única forma de organizar la información.
@@ -58,7 +58,7 @@ En la documentación del cmdlet `Get-ItemProperty` se detalla que los parámetro
 Por lo que la sentencia para ejecutar el comando sin dejar explícitos los parámetros (simplemente utilizando "*positional parameters*") tendríamos lo siguiente:
 
 {% highlight posh%}
-  Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion ProgramFilesDir
+Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion ProgramFilesDir
 {% endhighlight %}
 
 Se puede usar una matriz si los parámetros son posicionales, lo que significa que no es necesario especificar un nombre de parámetro. 
@@ -66,9 +66,9 @@ Se puede usar una matriz si los parámetros son posicionales, lo que significa q
 Para la función anterior, usar splatting con un array tendría la siguiente estructura:
 
 {% highlight posh%}
-  $Params = @("HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion",
-  "ProgramFilesDir")
-  Get-ItemProperty @Params
+$Params = @("HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion",
+"ProgramFilesDir")
+Get-ItemProperty @Params
 {% endhighlight %}
 
 <div><b>Nota:</b> Prestar atención a que en el llamado de la variable <b>Params</b> se hace uso del <b>@</b> en lugar de <b>$</b>, para que sea tratada como tal dentro de splatting.</div>{: .notice--success}
@@ -81,11 +81,11 @@ El segundo tipo de formato es por medio de hashtables, que permiten declarar los
 Esta manera es la utilizada en el primer ejemplo (usando la función New-AzFunctionApp), por lo que para el ejemplo con la función Get-ItemProperty sería de la siguiente manera:
 
 {% highlight posh%}
-  $Params = @{
-    Path = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion";
-    Name = "ProgramFilesDir";
-  }
-  Get-ItemProperty @Params
+$Params = @{
+  Path = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion";
+  Name = "ProgramFilesDir";
+}
+Get-ItemProperty @Params
 {% endhighlight %}
 
 Como último comentario destacar que es posible utilizar **;** para finalizar cada key/value de los parámetros o no, es a gusto del consumidor.

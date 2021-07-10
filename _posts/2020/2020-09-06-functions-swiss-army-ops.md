@@ -35,42 +35,42 @@ We can create an Azure Function App using the Azure Portal selecting PowerShell 
 As I explained here, to install the module you need to run:
 
 {% highlight posh%}
-  Install-Module Az.Functions
+Install-Module Az.Functions
 {% endhighlight %}
 
 The following is connect to Azure:
 
 {% highlight posh%}
-  #Connect to Azure
-  Connect-AzAccount
-  #Select the subscription
-  Select-AzSubscription xxx
+#Connect to Azure
+Connect-AzAccount
+#Select the subscription
+Select-AzSubscription xxx
 {% endhighlight %}
 
 I'll use an existing Resource Group but I need to create the Storage Account running the following:
 
 {% highlight posh%}
-  #Variables
-  $ResourceGroupName = "FunctionsDemo"
-  $FunctionAppName = "FuntionApp-FTW"
-  $Location = "EastUS"
-  $guidPart = (New-Guid).ToString().Split('-')[0]
-  $storageAccountName = "functionapp$guidPart"
-  $storageSku = "Standard_LRS"
+#Variables
+$ResourceGroupName = "FunctionsDemo"
+$FunctionAppName = "FuntionApp-FTW"
+$Location = "EastUS"
+$guidPart = (New-Guid).ToString().Split('-')[0]
+$storageAccountName = "functionapp$guidPart"
+$storageSku = "Standard_LRS"
 {% endhighlight %}
 
 Azure Functions need a storage account to work correctly. Because storage accounts use a globally unique name, we'll take a section of a GUID and append it to the storage account name.
 
 {% highlight posh%}
-  #Parameters
-  $newStorageParams = @{
-    ResourceGroupName = $ResourceGroupName
-    AccountName       = $storageAccountName
-    Location          = $Location
-    SkuName           = $storageSku
-  }
-  #Create storage account
-  New-AzStorageAccount @newStorageParams
+#Parameters
+$newStorageParams = @{
+  ResourceGroupName = $ResourceGroupName
+  AccountName       = $storageAccountName
+  Location          = $Location
+  SkuName           = $storageSku
+}
+#Create storage account
+New-AzStorageAccount @newStorageParams
 {% endhighlight %}
 
 Lastly, we can use the `New-AzFunctionApp` to deploy the function app:
