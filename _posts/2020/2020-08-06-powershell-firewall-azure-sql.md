@@ -48,46 +48,47 @@ De nuevo en lo que estábamos, como PowerShell trabaja con objetos, vamos a hace
 Listo! Ya tenemos nuestra IP pública haciendo una asignación:
 
 {% highlight posh%}
-  $NuevaIP = (curl https://ifconfig.io/ip).content
+$NuevaIP = (curl https://ifconfig.io/ip).content
 {% endhighlight %}
 
 Lo siguiente que vamos a hacer es importar el módulo de azure en PowerShell:
 
 {% highlight posh%}
-    Import-Module az
+Import-Module az
 {% endhighlight %}
 
 Y autenticarnos con nuestro usuario (idealmente el usuario y la clave podría ser almacenado en alguna suerte de value, almacén seguro como Azure Key Vault o al menos cifrado para que no se pueda leer en el script). Para este caso vamos a poner valores doomies:
 
 {% highlight posh%}
-  Write-Host -ForegroundColor Green "Creamos las credenciales para autenticar"
-  $secpasswd = ConvertTo-SecureString "MiClaveSuperSeguraAca” -AsPlainText -Force
-  $mycreds = New-Object System.Management.Automation.PSCredential ("miUsuario@miCompania.com", $secpasswd)
-  Connect-AzAccount -Credential $mycreds
+Write-Host -ForegroundColor Green "Creamos las credenciales para autenticar"
+$secpasswd = ConvertTo-SecureString "MiClaveSuperSeguraAca” -AsPlainText -Force
+$mycreds = New-Object System.Management.Automation.PSCredential ("miUsuario@miCompania.com", $secpasswd)
+Connect-AzAccount -Credential $mycreds
 {% endhighlight %}
 
 Una vez que estamos autenticados debemos cambiarnos al contexto de nuestra suscripción para poder acceder a los recursos de la misma:
 
 {% highlight posh%}
-  $subId = "miIdDeSubscripcion"
-  Write-Host -ForegroundColor Green "Seleccionamos la subscripcion."
-  Select-AzSubscription -SubscriptionId $subId
+$subId = "miIdDeSubscripcion"
+Write-Host -ForegroundColor Green "Seleccionamos la subscripcion."
+Select-AzSubscription -SubscriptionId $subId
 {% endhighlight %}
 
 Lo siguiente que tenemos que hacer es obtener el objeto, en este caso como yo ya se sus datos solo los tengo que cargar (de nuevo, esto podría ser hecho desde un `archivo.config`, por ejemplo):
 
 {% highlight posh%}
-  $dbName = "nombreBaseDatos"
-  $serverName = "nombreServidor"
-  $resourceGroupName = "nombreResourceGroup"
-  $ruleName = "nombreDeReglaQueVoyAActualizar" 
+$dbName = "nombreBaseDatos"
+$serverName = "nombreServidor"
+$resourceGroupName = "nombreResourceGroup"
+$ruleName = "nombreDeReglaQueVoyAActualizar" 
 {% endhighlight %}
 
 Por último, una vez que tenemos todos los datos cargados, vamos a actualizar nuestra regla con la nueva IP:
 
 {% highlight posh%}
-  Write-Host -ForegroundColor Green "Actualizamos la regla"
-  Set-AzSqlServerFirewallRule -ServerName $serverName -ResourceGroupName $resourceGroupName -Name $ruleName -StartIpAddress $NuevaIP -EndIpAddress $NuevaIP
+Write-Host -ForegroundColor Green "Actualizamos la regla"
+Set-AzSqlServerFirewallRule -ServerName $serverName -ResourceGroupName $resourceGroupName `
+  -Name $ruleName -StartIpAddress $NuevaIP -EndIpAddress $NuevaIP
 {% endhighlight %}
 
 Y ya está, ahora este script lo podemos configurar para que corra como tarea programada cada X cantidad de horas y poder acceder a nuestro azure SQL de forma directa.
@@ -101,7 +102,7 @@ Para corregir y hacer que ande en este cliente hicimos lo que se detalla a conti
 Primero corregimos el perfil de PowerShell para eliminar el alias y poder usar el cURL de forma nativa, para esto simplemente ejecutamos en un PowerShell el siguiente comando:
 
 {% highlight posh%}
-  echo "Remove-Item alias:curl" > $PROFILE
+echo "Remove-Item alias:curl" > $PROFILE
 {% endhighlight %}
 
 Tener en cuenta que si ya tenemos modificado el perfil, la línea anterior nos va a sobrescribir todo el contenido.
@@ -111,16 +112,16 @@ Después debemos hacer una llamada al FortiGate para que nos de una cookie de au
 Antes de seguir adelante debo comentar que esto es posible solo si el FortiGate tiene permitida la administración desde afuera, sino el script debe correr dentro de la red LAN para poder acceder la GUI de administración.
 
 {% highlight posh%}
-  Write-Host -ForegroundColor Green "Vamos a autenticar contra el Forti para obtener la nueva IP"
-  curl -k -i -X POST https://NuestroNombre.fortiddns.com/logincheck -d "username=miUsuarioAdmin&secretkey=miClaveSuperSegura" --dump-header headers.txt -c cookies.txt
+Write-Host -ForegroundColor Green "Vamos a autenticar contra el Forti para obtener la nueva IP"
+curl -k -i -X POST https://NuestroNombre.fortiddns.com/logincheck -d "username=miUsuarioAdmin&secretkey=miClaveSuperSegura" --dump-header headers.txt -c cookies.txt
 {% endhighlight %}
 
 Una vez que tenemos nuestros cabezales con la autorización y nuestra cookie de sesión vamos a llamar a la API de FortiGate y consultar todas las interfaces (de nuevo esto podría ser mejorado a futuro teniendo alguna forma de acceder del estilo infeface/WAN1 o algo similar). Como no es posible, tuve que hacer la llamada y analizar el JSON que nos devuelve, una vez comprendido y porque no soy muy ducho con JSON es que se hace el `findstr= "ip"` para obtener las IPs de todas las inferfaces y sabiendo que el valor que busco está en la opción 3 hacer el `Split` (se podría hacer mejor, sin duda, pero anda y nada más permanente que lo que funciona):
 
 {% highlight posh%}
-  Write-Host -ForegroundColor Green "Vamos a obtener ls IP para actualizar"
-  $ip = curl -k -i -X GET https:// NuestroNombre.fortiddns.com/api/v2/monitor/system/interface -b headers.txt | findstr "ip"
-  $NuevaIP = $ip[0].Split('"')[3]
+Write-Host -ForegroundColor Green "Vamos a obtener ls IP para actualizar"
+$ip = curl -k -i -X GET https:// NuestroNombre.fortiddns.com/api/v2/monitor/system/interface -b headers.txt | findstr "ip"
+$NuevaIP = $ip[0].Split('"')[3]
 {% endhighlight %}
 
 Una vez que temenos el valor de **$NuevaIP**, retomamos el script anterior en la sección de importación del modulo de azure.
