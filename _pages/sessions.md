@@ -38,3 +38,7 @@ https://www.youtube.com/watch?v=6d6tK5CzxP8
 **Securing your secrets using Azure Key Vault**
 In this session, we'll dive into the Azure Key vault service, a cloud service for securely storing and accessing secrets. And of course, we will show you how to use it and how to start the adoption correctly.
 
+## vOpen 2021 (2021-11-20)
+https://vopen.tech/conference
+**Chaos Engineering 101**
+
