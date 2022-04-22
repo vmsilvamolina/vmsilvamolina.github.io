@@ -69,7 +69,11 @@ Para ello vamos a trabajar con los siguientes comandos:
   2. Luego ejecutar y escribir **cmd**, pulsar enter para ejecutar una consola.
   3. Desde la consola, escribir:
 
-> **dcdiag /s:<nombredelservidor> /u:<nombredeusuario> /p:<password>** y pulsar enter.
+{% highlight posh%}
+dcdiag /s:<nombredelservidor> /u:<nombredeusuario> /p:<password>
+{% endhighlight %}
+
+Y pulsar enter.
 
 
 **_Para corroborar el estado de la replicación_**
