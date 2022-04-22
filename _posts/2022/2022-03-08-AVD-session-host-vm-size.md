@@ -4,7 +4,8 @@ author: Victor Silva
 date: 2022-03-08T15:36:14+00:00
 layout: single
 permalink: /change-vm-size-avd/
-excerpt: ''
+excerpt: 'Azure Virtual Desktop is a cloud-based virtual desktop experience that allows you to connect to Azure Virtual Machines and virtualized applications. This desktops are organized in pools named Host Pools. Each pool has a set of virtual machines that serve as the desktops or sessions and wen you add a new VM, the default size is taken from the Host Pool info.
+How about to change the default size of the VM? In this article, we will use the PowerShell power to change that.'
 categories:
   - Azure
   - PowerShell
