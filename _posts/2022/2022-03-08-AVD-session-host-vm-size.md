@@ -1,5 +1,5 @@
 ---
-title: 'Change Session Host VM size in Azure Virtual Desktop'
+title: 'Change Session Host VM size in Azure Virtual Desktop [English]'
 author: Victor Silva
 date: 2022-03-08T15:36:14+00:00
 layout: single
