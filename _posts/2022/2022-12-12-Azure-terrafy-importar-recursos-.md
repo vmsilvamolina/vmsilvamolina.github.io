@@ -1,7 +1,7 @@
 ---
 title: 'Usando Azure Terrafy para importar recursos en Terraform'
 author: Victor Silva
-date: 2022-11-22T19:23:56+00:00
+date: 2022-12-12T07:23:56+00:00
 layout: single
 permalink: /azure-terrafy-importar-recursos/
 excerpt: 'ado el uso de Terraform para la definición de recursos, una necesidad que ha surgido en las tareas de gestión de los mismos, es la posibilidad de importar recursos de Azure que se encuentran fuera del estado que terraform mantiene al día. Gracias a esta necesidad llegamos a "Azure Terrafy".'
@@ -189,9 +189,9 @@ terraform plan -out "plan"
 terraform apply "plan"
 {% endhighlight %}
 
-<img src="/assets/images/postsImages/AZ_TERRAFY_01" class="alignnone">
+<img src="/assets/images/postsImages/AZ_TERRAFY_01.png" class="alignnone">
 
-<img src="/assets/images/postsImages/AZ_TERRAFY_02" class="alignnone">
+<img src="/assets/images/postsImages/AZ_TERRAFY_02.png" class="alignnone">
 
 Al final el comando en cuestión se desplegará un output que reflejará el estado de la implementación.
 
