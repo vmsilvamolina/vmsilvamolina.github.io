@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2022-12-12T07:23:56+00:00
 layout: single
 permalink: /azure-terrafy-importar-recursos/
-excerpt: 'ado el uso de Terraform para la definición de recursos, una necesidad que ha surgido en las tareas de gestión de los mismos, es la posibilidad de importar recursos de Azure que se encuentran fuera del estado que terraform mantiene al día. Gracias a esta necesidad llegamos a "Azure Terrafy".'
+excerpt: 'Dado el uso de Terraform para la definición de recursos, una necesidad que ha surgido en las tareas de gestión de los mismos, es la posibilidad de importar recursos de Azure que se encuentran fuera del estado que terraform mantiene al día. Gracias a esta necesidad llegamos a "Azure Terrafy".'
 categories:
   - Terraform
   - IaC
@@ -20,7 +20,7 @@ tags:
 
 Dado el uso de Terraform para la definición de recursos, una necesidad que ha surgido en las tareas de gestión de los mismos, es la posibilidad de importar recursos de Azure que se encuentran fuera del estado que terraform mantiene al día. Gracias a esta necesidad llegamos a `Azure Terrafy`.
 
-[Terraform AzureRM provider](https://github.com/hashicorp/terraform-provider-azurerm)
+Los recursos que son contemplados dentro de Terrafy son los que hacen parte de [Terraform AzureRM provider](https://github.com/hashicorp/terraform-provider-azurerm)
 
 ## Instalación de terraform y aztfy
 
