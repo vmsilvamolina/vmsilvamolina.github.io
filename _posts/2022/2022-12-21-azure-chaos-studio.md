@@ -23,11 +23,7 @@ One of the key benefits of using Azure Chaos Studio is that it allows users to i
 
 In addition to simulating failures, Azure Chaos Studio also provides users with the ability to monitor the performance of their systems during and after a test. This allows users to see how their systems are affected by the disruptions being introduced and identify any issues that may need to be addressed.
 
-One of the key features of Azure Chaos Studio is its flexibility. Users have the ability to customize their tests to simulate a wide range of scenarios, including network outages, server crashes, and other types of disruptions. This enables users to test the resilience of their systems in a variety of different scenarios, ensuring that they are prepared for any type of disruption that may occur.
-
 Another important aspect of Azure Chaos Studio is the ability to run tests on a regular basis. By setting up regular tests, users can ensure that their systems are constantly being tested and evaluated for resilience and reliability. This helps to ensure that systems are always operating at their best, and enables users to identify and address any issues that may arise over time.
-
-In addition to the testing and monitoring capabilities of Azure Chaos Studio, it also provides users with a range of tools and resources to help them improve the resilience and reliability of their systems. This includes access to best practices and guidance on how to design and build resilient systems, as well as access to a community of experts who can provide support and guidance as needed.
 
 Overall, Azure Chaos Studio is an important tool for any organization that relies on cloud-based applications and systems. By using it to test the resilience and reliability of their systems, organizations can be confident that their systems will be able to withstand the unexpected and continue to operate even in the face of disruptions. Whether you are looking to improve the resilience of your systems or simply ensure that they are operating at their best, Azure Chaos Studio is an invaluable resource that can help you achieve your goals.
 
