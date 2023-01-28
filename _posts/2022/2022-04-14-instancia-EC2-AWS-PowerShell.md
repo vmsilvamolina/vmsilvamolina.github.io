@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2022-04-14T01:03:56+00:00
 layout: single
 permalink: /instancia-EC2-AWS-PowerShell/
-excerpt: ''
+excerpt: 'Todo el mundo sabe que este blog está a favor de las línea de comando. Con la CLI, los administradores pueden controlar los recursos de AWS desde la consola y escribir scripts de automatización. AWS tiene sus comandos para poder integrarse a PowerShell y poder sacarle jugo a la consola.'
 categories:
   - AWS
   - EC2
