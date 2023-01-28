@@ -24,7 +24,7 @@ A modo de ejemplo, vamos a desplegar una instancia de EC2 mediante PowerShell, d
 
 Lo primero, y fundamental, es contar con una cuenta de AWS para poder desplegar los recursos necesarios. En caso de no contar con ninguna, desde el siguiente enlace se puede generar una gratuita: [AWS Free Tier](https://aws.amazon.com/free/)
 
-Debemos generar un usuario con privilegios, que vamos a usar durante el procedimiento. Para ello se encuentra el siguiente link a la documentación: [Create an admin - AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-set-up.html#create-an-admin)
+Debemos generar un usuario con privilegios, que vamos a usar durante el procedimiento. Para ello se encuentra el siguiente link a la documentación: [Create an administrative user - AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-set-up.html#create-an-admin)
 
 Ya habiendo generado el usuario, vamos a crearle una key de acceso. Desde el portal web (https://aws.amazon.com/console), seleccionamos el usuario creado en **IAM** y luego vamos a la sección `Create access key`.
 
@@ -168,7 +168,7 @@ O podemos mirar las imágenes de Amazon Linux disponibles también:
 Get-SSMLatestEC2Image -Path ami-amazon-linux-latest -Region us-east-1
 {% endhighlight %}
 
-Para este ejemplo, seleccionamos Linux 2022 de Amazon con el kernel 5.15:
+Para este ejemplo, seleccionamos _Amazon Linux 2022_ con el kernel _5.15_:
 
 {% highlight posh%}
 $ami = Get-SSMLatestEC2Image -Path ami-amazon-linux-latest -Region us-east-1 -ImageName 'al2022-ami-minimal-kernel-5.15-x86_64'
@@ -179,9 +179,9 @@ Es posible filtrar por memoria y CPU. Como ejemplo, así es como puede encontrar
 
 {% highlight posh%}
 Get-Ec2InstanceType -Region us-east-1 | `
-  Select-Object InstanceType, @{Name = 'CPUs'; Expression = { $_.VCpuInfo.DefaultVCpus } } `
+  Select-Object InstanceType, @{Name = 'CPUs'; Expression = { $_.VCpuInfo.DefaultVCpus } }, `
   @{Name = 'MemoryGB'; Expression = { $_.MemoryInfo.SizeInMiB / 1024 } } | `
-    Where-Object { $_.CPUs -le 2 -and $_.MemoryGB -le 4 } | `
+    Where-Object { $_.CPUs -lt 2 -and $_.MemoryGB -lt 4 } | `
     Sort-Object InstanceType | `
     Format-Table InstanceType,CPUs,MemoryGB
 {% endhighlight %}
@@ -200,17 +200,29 @@ $newEC2Sparams = @{
 New-Ec2Instance @newEC2Sparams
 {% endhighlight %}
 
+<img src="/assets/images/postsImages/AWS_POSH_EC2_5.png" class="alignnone">
+
 Ahora, ya es posible encontrar la instancia con `Get-Ec2InstanceStatus`:
 
 {% highlight posh%}
 Get-Ec2InstanceStatus
 {% endhighlight %}
 
+<img src="/assets/images/postsImages/AWS_POSH_EC2_6.png" class="alignnone">
+
 Para eliminar esa instancia, recupere el ID de la instancia con el comando anterior y luego use Remove-EC2Instance:
 
 {% highlight posh%}
-Remove-EC2Instance -InstanceId i-XXXXXXXX -Región us-east-1
+$instanceId = (Get-Ec2InstanceStatus).InstanceId
+Remove-EC2Instance -InstanceId $instanceId -Region us-east-1
 {% endhighlight %}
+
+
+> Esto podemos hacerlo de esa manera ya que solo hay UNA ÚNICA instancia de EC2.
+
+Ingresamos la letra "A" para confirmar todo y que proceda a eliminar la instancia creada anteriormente.
+
+<img src="/assets/images/postsImages/AWS_POSH_EC2_7.png" class="alignnone">
 
 Listo! Hemos borrado la instancia de EC2. Resta borrar el resto de los recursos o seguir explorando AWS hasta dominarlo!
 
