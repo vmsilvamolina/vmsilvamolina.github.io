@@ -1,7 +1,7 @@
 ---
 title: 'Leveraging Terraform outputs in your build pipeline with Python [English]'
 author: Victor Silva
-date: 2024-03-13T19:25:47+00:00
+date: 2023-05-09T06:43:26+00:00
 layout: post
 permalink: /terraform-outputs-python/
 excerpt: 'After working with Terraform for several years, I recently encountered a scenario where I needed to access Terraform outputs within my CI/CD pipeline. Despite my extensive experience with infrastructure as code, I had never needed to programmatically consume Terraform outputs until now.'
