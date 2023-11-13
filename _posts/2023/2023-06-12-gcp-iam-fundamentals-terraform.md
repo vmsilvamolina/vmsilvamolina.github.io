@@ -1,7 +1,7 @@
 ---
 title: 'GCP IAM Terraform: roles, service accounts, and WIF'
 author: Victor Silva
-date: 2023-06-12T10:00:00+00:00
+date: 2023-06-12T22:14:25+00:00
 layout: post
 permalink: /gcp-iam-fundamentals-terraform/
 excerpt: "IAM misconfiguration is the top GCP breach vector. Learn the IAM model, iam_member vs iam_binding semantics, and Workload Identity Federation with Terraform."
