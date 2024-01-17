@@ -17,9 +17,9 @@ As artificial intelligence (AI) continues to transform the way we work and live,
 
 Fortunately, PowerShell offers a straightforward and convenient way to interact with Azure OpenAI, making it easy to incorporate AI capabilities into your PowerShell scripts and workflows. In this blog post, we'll explore how to use Azure OpenAI from PowerShell, including how to set up your environment, authenticate with the Azure API, and make requests to the OpenAI API.
 
-This post is focusing on text completion endpoint (different endpoints are available. (Here)[https://learn.microsoft.com/en-us/azure/cognitive-services/openai/reference] the list), similar to ChatGPT.
+This post is focusing on text completion endpoint (different endpoints are available. [Here](https://learn.microsoft.com/en-us/azure/cognitive-services/openai/reference) the list), similar to ChatGPT.
 
-Go to (https://oai.azure.com/)[https://oai.azure.com/]. If you already have access to Azure OpenAI, click **Create a resource**.
+Go to [https://oai.azure.com/](https://oai.azure.com/). If you already have access to Azure OpenAI, click **Create a resource**.
 
 The previous action move you to your Azure Portal and open a wizard to fill the needed fields to create the resource.
 
