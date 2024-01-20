@@ -1,5 +1,5 @@
 ---
-title: 'Exchange &#8211; Como cambiar el banner SMTP'
+title: 'Exchange Server - Como cambiar el banner SMTP'
 date: 2015-07-12T22:12:37+00:00
 author: Victor Silva
 layout: single
@@ -24,7 +24,7 @@ Para modificar este mensaje (por seguridad, para ofrecer menos información de l
 Conectados al servidor de Exchange, o remotamente con el módulo de administración de Exchange ya cargado, ejecutamos:
 
 {% highlight posh%}
-  Set-ReceiveConnector -Identity "Nombre del conector" -Banner "Mensaje"
+Set-ReceiveConnector -Identity "Nombre del conector" -Banner "Mensaje"
 {% endhighlight %}
 
 Lo recomendado para definir el mensaje del banner es un texto similar a: "**220 NombreDelServidor**"

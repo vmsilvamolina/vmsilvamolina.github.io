@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Definiendo mejores funciones!'
+title: 'PowerShell - Definiendo mejores funciones!'
 date: 2015-03-05T11:58:16+00:00
 author: Victor Silva
 layout: single
@@ -16,7 +16,9 @@ tags:
 ---
 Si bien el tema funciones ya lo tratamos, me gustaría hacer énfasis en la definición de funciones de una manera mas avanzada, desarrollada y estilizada.
 
-Existen muchas maneras de poder definir visualmente una función; utilizando tabulaciones para mantener la estructura visual del texto, definiendo los parámetros ordenados, agregando información de ayuda comentada, etc. A partir de PowerShell v2.0 se introdujo el concepto de funciones avanzadas, lo que permite (a grandes rasgos) definir **Cmdlets** del tipo &#8220;reales&#8221;; o sea, como las funciones que vienen definidas ya en PowerShell. Si bien, no todas las funciones que definamos pueden ser útiles para otros proyectos, nos sirve para mantener más ordenado, con mas información y con más acciones que si definimos funciones de manera tradicional.
+Existen muchas maneras de poder definir visualmente una función; utilizando tabulaciones para mantener la estructura visual del texto, definiendo los parámetros ordenados, agregando información de ayuda comentada, etc. A partir de PowerShell v2.0 se introdujo el concepto de funciones avanzadas, lo que permite (a grandes rasgos) definir **Cmdlets** del tipo "
+reales"
+; o sea, como las funciones que vienen definidas ya en PowerShell. Si bien, no todas las funciones que definamos pueden ser útiles para otros proyectos, nos sirve para mantener más ordenado, con mas información y con más acciones que si definimos funciones de manera tradicional.
 
 ## Información de las funciones
 
@@ -28,7 +30,7 @@ El bloque de código anterior, define la información adicional de la función. 
 
 <img src="https://lh6.googleusercontent.com/-OpbOAqXZ9Ko/VPhnvSpQo0I/AAAAAAAAG2E/aCXdlo-Gtg8/w490-h336-no/PS_Adv_Function_1.png" width="490" height="336" class="alignnone" />
 
-A modo de aclaración, se modificaron los valores para que devuelva información &#8220;mas real&#8221;.
+A modo de aclaración, se modificaron los valores para que devuelva información "mas real".
 
 Dejamos de lado la parte de la información en sí del Cmdlet, y vamos a pasar a la parte de parámetros.
 
@@ -42,8 +44,8 @@ Para definir los parámetros vamos a hacer lo siguiente:
 
 {% highlight posh %}
 Param(
-    [string]$ComputerName,
-    [string]$FilePath
+  [string]$ComputerName,
+  [string]$FilePath
 )
 {% endhighlight %}
 
@@ -72,7 +74,7 @@ En caso de querer forzar valores predefinidos en los parámetros, podemos hacer 
 
 param(
   [parameter(Mandatory=$true)]
-  [ValidateSet(&#8220;Memoria&#8221;, &#8220;CPU&#8221;)]
+  [ValidateSet("Memoria", "CPU")]
   [String[]]$Object, 
   [string]$ChartType, 
   $Values, 

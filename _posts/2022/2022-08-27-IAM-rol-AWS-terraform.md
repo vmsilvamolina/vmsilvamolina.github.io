@@ -1,7 +1,7 @@
 ---
 title: 'AWS IAM rol con Terraform'
 author: Victor Silva
-date: 2022-04-14T01:03:56+00:00
+date: 2022-08-27T01:03:56+00:00
 layout: single
 permalink: /IAM-rol-AWS-terraform/
 excerpt: 'En esta entrada, vamos a ver tres formas de crear una política y un rol de IAM en la nube de AWS utilizando Terraform. También proporciona una forma sencilla de conectar la política seleccionada a un rol de IAM. Supongo que ya conoces un poco de terraform y la nube de AWS, por lo que no explicaré los conceptos básicos.'
@@ -15,8 +15,7 @@ tags:
   - Terraform
 ---
 
-
-En esta entrada, vamos a ver tres formas de crear una política y un rol de IAM en la nube de AWS utilizando Terraform. También proporciona una forma sencilla de conectar la política seleccionada a un rol de IAM. Supongo que ya conoces un poco de terraform y la nube de AWS, por lo que no explicaré los conceptos básicos.
+En esta entrada, vamos a ver tres formas de crear una política y un rol de IAM en AWS utilizando Terraform. También veremos una forma sencilla de conectar la política seleccionada a un rol de IAM en particular. Supongo que ya conoces un poco de Terraform y la nube de AWS, por lo que no explicaré los conceptos básicos.
 
 ## Método 1: `aws_iam_policy_document`
 

@@ -32,25 +32,25 @@ Antes de comenzar el live migration, necesitamos asegurarnos de que el host dest
 Un ejemplo del mismo:
 
 {% highlight posh %}
-  Get-VMMemory -VMName Server01 -ComputerName HOST2
+Get-VMMemory -VMName Server01 -ComputerName HOST2
 {% endhighlight %}
 
 Donde HOST2 es el nombre del host destino.
 
 ## Procesador
 
-Que pasa si nuestros hosts tienen procesadores de diferente proveedor? No se puede hacer Live Migration por defecto. Lo que debemos hacer es habilitar una opción llamada &#8220;Processor Compatibility &#8211; Migrate to a Physical computer with a different processor versión&#8221; en la configuración de la VM. Es tan simple como ejecutar los siguientes comandos:
+Que pasa si nuestros hosts tienen procesadores de diferente proveedor? No se puede hacer Live Migration por defecto. Lo que debemos hacer es habilitar una opción llamada "Processor Compatibility - Migrate to a Physical computer with a different processor versión" en la configuración de la VM. Es tan simple como ejecutar los siguientes comandos:
 
 Lo primero, detener la maquina virtual para aplicar los cambios:
 
 {% highlight posh %}
-  Stop-VM –Name VM1
+Stop-VM –Name VM1
 {% endhighlight %}
 
 Ahora, habilitar el modo de compatibilidad:
 
 {% highlight posh %}
-  Set-VMProcessor VM1 -CompatibilityForMigrationEnabled $true
+Set-VMProcessor VM1 -CompatibilityForMigrationEnabled $true
 {% endhighlight %}
 
 ## Lectora
@@ -68,19 +68,19 @@ Ahora debemos ejecutar el siguiente comando para remover la ISO o DVD de la VM:
 Un ejemplo de como sería:
 
 {% highlight posh %}
-  Set-VMDvdDrive -VMName VM1 -ControllerNumber 1 -ControllerLocation 0 -Path $null
+Set-VMDvdDrive -VMName VM1 -ControllerNumber 1 -ControllerLocation 0 -Path $null
 {% endhighlight %}
 
 ## Todo junto!
 
 Ahora con lo que pudimos ver vamos a crear un script simple para poder migrar nuestras maquinas!
-  
+
 Partimos de la base que la memoria es suficiente para poder migrar las maquinas.
 
 Lo primero que vamos a hacer es abrir la consola Windows PowerShell ISE y escribir:
 
 {% highlight posh %}
-  Get-VM -ComputerName Host1 | Out-GridView -Title "Seleccionar una o mas VMs para migrar" -PassThru | Get-VMDvdDrive | where DVDMediaType -ne None | Set-VMDvdDrive -Path $null | Move-VM -DestinationHost Host2 -DestinationStoragePath C:VHDs
+Get-VM -ComputerName Host1 | Out-GridView -Title "Seleccionar una o mas VMs para migrar" -PassThru | Get-VMDvdDrive | where DVDMediaType -ne None | Set-VMDvdDrive -Path $null | Move-VM -DestinationHost Host2 -DestinationStoragePath C:VHDs
 {% endhighlight %}
 
 Lo vamos a guardar y al ejecutarlo nos va a desplegar una ventana interactiva que nos permite elegir entre la lista de VMs dentro del Host1 y a su vez de esas maquinas seleccionadas, si tienen algo montado, lo va a desmontar o extraer.

@@ -50,7 +50,9 @@ Podemos obtener una lista con todas las clases ejecutando:
     Get-WmiObject -list
     
 
-O podemos filtrar en caso de necesitar algo más específico, como podría llegar a ser &#8220;Disk&#8221;, para obtener información de los discos:
+O podemos filtrar en caso de necesitar algo más específico, como podría llegar a ser "
+Disk"
+, para obtener información de los discos:
 
     Get-WmiObject -list | where {$_.Name -like "*Disk*"}
     

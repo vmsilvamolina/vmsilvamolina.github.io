@@ -1,5 +1,5 @@
 ---
-title: Cambiar contraseña a Switch HP 1910
+title: 'Cambiar contraseña a Switch HP 1910'
 date: 2014-10-04T01:45:09+00:00
 author: Victor Silva
 layout: single
@@ -56,9 +56,13 @@ Ya reiniciado, nos va a loguear automaticamente y desde la consola vamos a poder
   
 Después de ingresar el comando nos va a pedir una clave, si no la modificamos, por defecto es **512900**.
   
-El comando anterior nos va a habilitar una lista &#8220;secreta&#8221; de comandos para poder realizar mas acciones, entre ellas levantar un archivo de configuración nuevo. El comando que va a ejecutar lo que necesitamos es restore.
+El comando anterior nos va a habilitar una lista "
+secreta"
+ de comandos para poder realizar mas acciones, entre ellas levantar un archivo de configuración nuevo. El comando que va a ejecutar lo que necesitamos es restore.
   
-Antes de ejecutar el comando restore, debemos modificar en el archivo de configuración (lo abrimos con un notepad, así de fácil) la contraseña del usuario correspondiente. Para ello buscamos la línea que indica este dato y la modificamos. Si la contraseña esta cifrada (va a aparecer como cipher) debemos cambiar esta palabra por &#8220;simple&#8221; y escribir la contraseña tal cual queremos que sea (por ejemplo **Pa$$w0rd.2015**). Guardamos este cambio en el archivo de configuración y vamos a situarlo en la carpeta que el software de TFTP nos indique para que quede disponible para realizar la transferencia.
+Antes de ejecutar el comando restore, debemos modificar en el archivo de configuración (lo abrimos con un notepad, así de fácil) la contraseña del usuario correspondiente. Para ello buscamos la línea que indica este dato y la modificamos. Si la contraseña esta cifrada (va a aparecer como cipher) debemos cambiar esta palabra por "
+simple"
+ y escribir la contraseña tal cual queremos que sea (por ejemplo **Pa$$w0rd.2015**). Guardamos este cambio en el archivo de configuración y vamos a situarlo en la carpeta que el software de TFTP nos indique para que quede disponible para realizar la transferencia.
   
 Ahora sí, con todo listo, vamos a ejecutar el comando restore aclarando que la sintaxis del comando para restaurar el archivo de configuración anterior (.cfg) es la siguiente:
 

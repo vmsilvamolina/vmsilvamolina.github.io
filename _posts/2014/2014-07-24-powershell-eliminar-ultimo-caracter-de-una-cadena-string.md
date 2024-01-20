@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Eliminar último caracter de una cadena (String)'
+title: 'PowerShell - Eliminar último caracter de una cadena (String)'
 date: 2014-07-24T19:40:57+00:00
 author: Victor Silva
 layout: single
@@ -20,7 +20,7 @@ Para los que trabajan manipulando texto en los scripts, este truco es bastante �
 El objetivo es mostrar con una procedimiento bien simple como eliminar el último caracter de una cadena (string). Vamos a mostrar la manera desde un ejemplo bien básico:
 
 {% highlight posh %}
-  #Defino una cadena de caracteres
+#Defino una cadena de caracteres
   $Variable = "Texto que quiero modificar"
   #Aplico la "magia"
   $Varible = $Variable -replace ".$"

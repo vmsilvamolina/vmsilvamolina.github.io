@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Crear un módulo binario'
+title: 'PowerShell - Crear un módulo binario'
 date: 2015-08-14T15:43:22+00:00
 author: Victor Silva
 layout: single
@@ -77,9 +77,15 @@ Empezamos escribiendo:
     }
     
 
-Donde declaramos el verbo que vamos a utilizar en el nombre de nuestro Cmdlet (para los que no se acuerdan, la mayoría de los Cmdlets tienen la estructura de &#8220;_Verbo**_&#8211;_**Sustantivo_&#8220;). En este ejemplo el sustantivo es &#8220;O365Domain&#8221;. Luego definimos la clase que hace referencia a este Cmdlet, para ello simplemente escribimos el verbo y sustantivo todo junto.
+Donde declaramos el verbo que vamos a utilizar en el nombre de nuestro Cmdlet (para los que no se acuerdan, la mayoría de los Cmdlets tienen la estructura de "
+_Verbo**_-_**Sustantivo_"
+). En este ejemplo el sustantivo es "
+O365Domain"
+. Luego definimos la clase que hace referencia a este Cmdlet, para ello simplemente escribimos el verbo y sustantivo todo junto.
 
-Esta función va a tener un único parámetro, llamado &#8220;Domain&#8221;, para declararlo, generamos una variable auxiliar
+Esta función va a tener un único parámetro, llamado "
+Domain"
+, para declararlo, generamos una variable auxiliar
 
     private string[] domainName;
     
@@ -101,7 +107,9 @@ Y luego el parámetro de la siguiente forma:
         }
     
 
-Ok, hasta ahora declaramos el parámetro &#8220;Domain&#8221; (con el alias _Tenant_) y obligatorio.
+Ok, hasta ahora declaramos el parámetro "
+Domain"
+ (con el alias _Tenant_) y obligatorio.
 
 Simplemente antes de escribir el cuerpo del comando, vamos a recordar que para nosotros saber si un nombre de dominio para Office365 se encuentra utilizado, tendríamos que acceder a la siguiente dirección y obtener de respuesta un archivo xml:
 

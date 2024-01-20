@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Drivers en Windows'
+title: 'PowerShell - Drivers en Windows'
 date: 2015-09-25T21:42:01+00:00
 author: Victor Silva
 layout: single
@@ -35,12 +35,14 @@ La sintaxis es bien simple:
     Export-WindowsDriver -Online -Destination C:\Drivers
     
 
-Debemos de declarar el parámetro &#8220;Online&#8221;, ya que se debe a la imagen que está corriendo. En caso de que nos encontremos en una situación donde la imagen se encuentre offline, debemos de modificar la sintaxis a algo por el estilo:
+Debemos de declarar el parámetro "
+Online"
+, ya que se debe a la imagen que está corriendo. En caso de que nos encontremos en una situación donde la imagen se encuentre offline, debemos de modificar la sintaxis a algo por el estilo:
 
     Export-WindowsDriver -Path C:\OfflineImage -Destination C:\Drivers
     
 
-Para los que quieran investigar un poco más sobre este CMdlet, les comparto un enlace a la documentación de Microsoft en la que se habla sobre este comando: [TechNet &#8211; Export-WindowsDriver](https://technet.microsoft.com/en-us/library/dn614084.aspx)
+Para los que quieran investigar un poco más sobre este CMdlet, les comparto un enlace a la documentación de Microsoft en la que se habla sobre este comando: [TechNet - Export-WindowsDriver](https://technet.microsoft.com/en-us/library/dn614084.aspx)
 
 ## Get-WindowsDriver
 

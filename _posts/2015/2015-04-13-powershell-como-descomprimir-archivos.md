@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Cómo descomprimir archivos?'
+title: 'PowerShell - Cómo descomprimir archivos?'
 date: 2015-04-13T16:50:36+00:00
 author: Victor Silva
 layout: single
@@ -37,10 +37,10 @@ Podemos darle una vuelta mas de rosca y generar una función de la siguiente man
 
 {% highlight posh %}
 function Expand-Zip ($FileName, $Destination) {
-    $Unzip = New-Object -ComObject Shell.Application
-    $ZipFile = $Unzip.NameSpace($FileName)
-    $Final = $Unzip.namespace($Destination)
-    $Final.Copyhere($ZipFile.items())
+  $Unzip = New-Object -ComObject Shell.Application
+  $ZipFile = $Unzip.NameSpace($FileName)
+  $Final = $Unzip.namespace($Destination)
+  $Final.Copyhere($ZipFile.items())
 }
 {% endhighlight %}
 

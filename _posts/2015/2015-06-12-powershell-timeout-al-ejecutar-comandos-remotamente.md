@@ -1,5 +1,5 @@
 ---
-title: Timeout al ejecutar comandos remotamente
+title: 'Timeout al ejecutar comandos remotamente'
 date: 2015-06-12T23:49:02+00:00
 author: Victor Silva
 layout: single

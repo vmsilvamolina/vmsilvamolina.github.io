@@ -56,7 +56,7 @@ Así que resumiendo los pasos, serían los siguientes:
   * Para instalar, basta con ejecutar lo siguiente:
 
 {% highlight bash %}
-  setup.exe /configure configuration.xml
+setup.exe /configure configuration.xml
 {% endhighlight %}
 
 Espero les sirva (lo van a utilizar cuando no tengan buena conexión a internet) :)

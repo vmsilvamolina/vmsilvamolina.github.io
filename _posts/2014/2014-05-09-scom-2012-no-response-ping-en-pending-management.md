@@ -24,10 +24,10 @@ Estos mismos dispositivos que aparecían con la notificación de que no respond�
 
 El problema radica en las reglas habilitadas en el Firewall.
 
-Acceder al Firewall de Windows con seguridad avanzada y debemos revisar que las reglas que comienzan con Operations Manager estén habilitadas. Por sobre todo revisar que las que dicen ICMP estén habilitadas (dentro de las reglas de salida y entrada) y las de SNMP (para este escenario no vienen al caso pero ya quedan configuradas.
+Acceder al Firewall de Windows con seguridad avanzada y debemos revisar que las reglas que comienzan con Operations Manager estén habilitadas. Por sobre todo revisar que las que dicen ICMP estén habilitadas (dentro de las reglas de salida y entrada) y las de SNMP (para este escenario no vienen al caso pero ya quedan configuradas).
 
 Luego de habilitarlas esperar unos segundos y volver a ejecutar la regla de detección correspondiente. Si todo va bien aparecerán los dispositivos de red respondiendo correctamente las solicitudes de ping.
-  
+
 A continuación les adjunto las reglas correspondientes que se deben habilitar:
 
 <img class="alignnone" src="https://lh6.googleusercontent.com/9_oDyzFzCYu0_arqawTSDAQHRdqAAdJMQNh29Ww9ukU=w760-h303-no" alt="" width="760" height="303" />

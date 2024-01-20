@@ -16,7 +16,9 @@ tags:
   - Uninstall app
   - Windows Store
 ---
-Todos sabemos que Windows 8/8.1 viene con aplicaciones ya instaladas del tipo &#8220;metro&#8221;. La mayoría no nos interesan. También tenemos el store que nos permite acceder a miles de aplicaciones para poder probar y ver cual nos gusta y/o sirve más.
+Todos sabemos que Windows 8/8.1 viene con aplicaciones ya instaladas del tipo "
+metro"
+. La mayoría no nos interesan. También tenemos el store que nos permite acceder a miles de aplicaciones para poder probar y ver cual nos gusta y/o sirve más.
 
 Hoy quiero compartir como podemos hacer desde PowerShell para poder desinstalar aplicaciones instaladas del store de Windows.
 

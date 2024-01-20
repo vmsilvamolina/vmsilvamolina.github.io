@@ -1,5 +1,5 @@
 ---
-title: 'Skype for Business: Eventos con ID 1000/1026 y servicios detenidos'
+title: 'Skype for Business - Eventos con ID 1000/1026 y servicios detenidos'
 date: 2015-06-30T23:31:32+00:00
 author: Victor Silva
 layout: single
@@ -27,9 +27,9 @@ Ok, no tenía muchas pistas pero me sonaba familiar con la versión anterior: **
 Si bien no tengo una buena memoria, a veces me sorprendo a mí mismo. Recordé un cmdlet para corroborar el estado de la replicación, por lo que ejecuté:
 
 {% highlight posh%}
-  Get-CSManagementReplicationStatus
+Get-CSManagementReplicationStatus
 {% endhighlight %}
-    
+
 El resultado fue **false**. Era el esperado, pero por las dudas lo ejecuté igual.
 
 Apoyando a mi memoria nuevamente, recordé una serie de pasos para reconstruir la replica.
@@ -49,15 +49,15 @@ El procedimiento es el siguiente:
 Ejecutar desde una consola de PowerShell:
 
 {% highlight posh%}
-  Invoke-CsManagementStoreReplication
+Invoke-CsManagementStoreReplication
 {% endhighlight %}
-    
+
 Esperar un par de minutos y ejecutar:
 
 {% highlight posh%}
-  Get-CsManagementStoreReplicationStatus
+Get-CsManagementStoreReplicationStatus
 {% endhighlight %}
-    
+
 Perfecto! Ahora el resultado es true en la replicación. Si abrimos el panel de control de Skype for Business vamos a tener todo en verde, indicando que todo se encuentra funcional.
 
 Happy scripting!

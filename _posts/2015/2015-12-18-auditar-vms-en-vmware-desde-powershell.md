@@ -1,5 +1,5 @@
 ---
-title: Auditar VMs en VMware desde PowerShell
+title: 'Auditar VMs en VMware desde PowerShell'
 date: 2015-12-18T23:49:18+00:00
 author: Victor Silva
 layout: single

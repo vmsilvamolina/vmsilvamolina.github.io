@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Tip: Cómo cambiar la configuración del OWA en Exchange?'
+title: 'PowerShell - Tip: Cómo cambiar la configuración del OWA en Exchange?'
 date: 2015-10-13T01:37:54+00:00
 author: Victor Silva
 layout: single

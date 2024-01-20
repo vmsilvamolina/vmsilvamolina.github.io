@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Obtener tamaño de las bases de datos de Exchange 2010'
+title: 'PowerShell - Obtener tamaño de las bases de datos de Exchange 2010'
 date: 2014-07-04T11:15:50+00:00
 author: Victor Silva
 layout: single
@@ -22,7 +22,7 @@ Normalmente estamos preocupados por el tamaño de nuestras bases de datos y mas 
 Simplemente desde la Exchange Management Shell, debemos ejecutar la siguiente linea:
 
 {% highlight posh %}
-  Get-MailboxDatabase -Status | fl name, databasesize
+Get-MailboxDatabase -Status | fl name, databasesize
 {% endhighlight %}
 
 Devolviendo lo siguiente por ejemplo:

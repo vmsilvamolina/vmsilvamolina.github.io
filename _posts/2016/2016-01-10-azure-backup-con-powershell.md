@@ -1,5 +1,5 @@
 ---
-title: Azure Backup con PowerShell
+title: 'Azure Backup con PowerShell'
 date: 2016-01-10T22:55:25+00:00
 author: Victor Silva
 layout: single
@@ -114,7 +114,7 @@ Para otorgar una mayor medida de seguridad, se debe definir una **_passphrase_**
 
 Todos los backups están governados por una política, que consta de tres partes fundamentales:
 
-**BackUp schedule** &#8211; Se define el período en el que se ejecuta la sincronización **Retention schedule** &#8211; Define el tiempo que se va a mantener un punto de restauración **File inclusion/exclusion specification** &#8211; Determina que archivos (o carpetas) se van a respaldar
+**BackUp schedule** - Se define el período en el que se ejecuta la sincronización **Retention schedule** - Define el tiempo que se va a mantener un punto de restauración **File inclusion/exclusion specification** - Determina que archivos (o carpetas) se van a respaldar
 
 Para crear la política que vamos a utilizar, ejecutamos:
 

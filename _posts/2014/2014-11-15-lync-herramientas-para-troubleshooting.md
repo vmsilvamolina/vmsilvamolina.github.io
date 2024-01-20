@@ -1,5 +1,5 @@
 ---
-title: 'Herramientas para troubleshooting en Lync'
+title: 'Herramientas para troubleshooting en Lync Server'
 date: 2014-11-15T14:04:26+00:00
 author: Victor Silva
 layout: single
@@ -9,7 +9,7 @@ dsq_thread_id:
 categories:
   - Skype for Business Server
 tags:
-  - LyncServer
+  - Lync Server
   - OCSLogger
   - Remote Conectivity Analyzer
   - Snooper

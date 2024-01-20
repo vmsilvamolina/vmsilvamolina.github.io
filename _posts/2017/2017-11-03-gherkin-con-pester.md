@@ -43,7 +43,7 @@ El bloque anterior lo vamos a guardar como ***CopyItem.feature***. Ya con este a
 Ahora para tener un resultado de lo que generamos, a pesar de que faltan definir componentes, podemos ubicarnos en la ruta donde se encuentra el archivo que acabamos de generar y ejecutamos:
 
 {% highlight posh %}
-  Invoke-Gherkin
+Invoke-Gherkin
 {% endhighlight %}
 
 > Comprobar que se encuentre instalada la última versión de Pester, ya que la compatibilidad con Gherkin no estaba presente en todas las versiones. Para actualizar el módulo basta con ejecutar 'Update-Module -Name Pester'.
@@ -61,7 +61,7 @@ Todas las comprobaciones que se definen para una función de Gherkin se llaman p
 Ahora que tenemos definido el concepto de "steps", vamos a definirlos como indica el siguiente archivo, guardándolo bajo el nombre ***CopyItem.Steps.ps1***:
 
 {% highlight posh %}
-  Given 'we have a source file' {
+Given 'we have a source file' {
     mkdir C:\source -ErrorAction SilentlyContinue
     Set-Content 'C:\source\something.txt' -Value 'Data'
     'C:\source\something.txt' | Should Exist

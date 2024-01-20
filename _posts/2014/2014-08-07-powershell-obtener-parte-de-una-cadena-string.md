@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Obtener parte de una cadena (string)'
+title: 'PowerShell - Obtener parte de una cadena (string)'
 date: 2014-08-07T20:28:45+00:00
 author: Victor Silva
 layout: single

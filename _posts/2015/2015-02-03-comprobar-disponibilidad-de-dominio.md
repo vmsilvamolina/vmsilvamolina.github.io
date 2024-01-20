@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell y Office 365- Script para comprobar disponibilidad de dominio'
+title: 'PowerShell y Office 365 - Script para comprobar disponibilidad de dominio'
 date: 2015-02-03T19:46:16+00:00
 author: Victor Silva
 layout: single
@@ -55,17 +55,17 @@ $URL = "https://login.windows.net/" + $TextBoxDominio.Text + ".onmicrosoft.com/F
 $Solicitud = $null
 
 try {
-    Measure-Command {$Solicitud = Invoke-WebRequest -Uri $URL}
+  Measure-Command {$Solicitud = Invoke-WebRequest -Uri $URL}
 } catch {
-    $Solicitud = $_.Exception.Response 
+  $Solicitud = $_.Exception.Response 
 }
 
 $Status = $Solicitud.StatusCode
-    If ($Status -eq 200) {
-        $LabelDomain.Text = "Dominio utilizado, por favor seleccionar otro."
-    } else {
-        $LabelDomain.Text = "Dominio disponible para usar en Office 365"
-    }
+  If ($Status -eq 200) {
+    $LabelDomain.Text = "Dominio utilizado, por favor seleccionar otro."
+  } else {
+    $LabelDomain.Text = "Dominio disponible para usar en Office 365"
+  }
 }
 
 ########### Formulario Principal ###########
@@ -99,7 +99,7 @@ $ButtonApply.Location = New-Object System.Drawing.Size(90,100)
 $ButtonApply.Size = New-Object System.Drawing.Size(200,30)
 $ButtonApply.Text = "Chequear disponibilidad del dominio"
 $ButtonApply.Add_Click({
-    DomainCheck
+  DomainCheck
 })
 $Form.Controls.Add($ButtonApply)
 
@@ -107,7 +107,7 @@ $ButtonExit = New-Object System.Windows.Forms.Button
 $ButtonExit.Location = New-Object System.Drawing.Size(280,220)
 $ButtonExit.Text = "Salir"
 $ButtonExit.Add_Click({
-    $Form.Close()
+  $Form.Close()
 })
 $Form.Controls.Add($ButtonExit)
 

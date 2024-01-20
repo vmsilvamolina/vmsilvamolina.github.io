@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Obtener el alias de un cmdlet'
+title: 'PowerShell - Obtener el alias de un cmdlet'
 date: 2015-08-11T02:10:10+00:00
 author: Victor Silva
 layout: single
@@ -30,11 +30,11 @@ El Tip es el siguiente: Utilizar el comando `Get-Alias`! Fácil, no?
 Detallemos un ejemplo: Quiero saber el alias del comando **Get-Alias** (no tiene nombre mi capacidad creativa). Vamos a la consola de PowerShell y ejecutamos:
 
 {% highlight posh%}
-  Get-Alias -Definition Get-Alias  
+Get-Alias -Definition Get-Alias  
 {% endhighlight %}
 
 Listo, obtenemos el nombre recortado del comando, que en este caso es **gal**.
 
 Espero no haberlos mareado con tanta información 🙂
 
-Saludos,
+Happy scripting!

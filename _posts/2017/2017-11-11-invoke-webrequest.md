@@ -24,7 +24,7 @@ Trasladando esta situación a entornos Windows, podemos encontrar mayor aplicaci
 Por ejemplo uno de los usos de este comando es descargar elementos de una web. Si queremos descargar una imagen del sitio _dominio.com_, llamada _imagen.jpg_, simplemente debemos ejecutar el comando:
 
 {% highlight posh %}
-  Invoke-WebRequest -Uri http://dominio.com/ -OutFile C:\ImagenDescargada.jpg
+Invoke-WebRequest -Uri http://dominio.com/ -OutFile C:\ImagenDescargada.jpg
 {% endhighlight %}
 
 Descargando la imagen en la raíz del disco _C:_ con el nombre de _ImagenDescargada.jpg_
@@ -32,7 +32,7 @@ Descargando la imagen en la raíz del disco _C:_ con el nombre de _ImagenDescarg
 Ahora bien, si ejecutamos lo siguiente:
 
 {% highlight posh %}
-  Invoke-WebRequest -Uri http://blog.victorsilva.com.uy | select StatusCode
+Invoke-WebRequest -Uri http://blog.victorsilva.com.uy | select StatusCode
 {% endhighlight %}    
 
 Nos va a devolver el estado de la web, es decir, si nos devuelve el valor 200, esto indica que la web esta funcionando correctamente. Esto puede ser muy útil a la hora de monitorear varias paginas web, para ver el estado de respuesta, considerando la respuesta anterior de forma similar al "ping".
@@ -40,7 +40,7 @@ Nos va a devolver el estado de la web, es decir, si nos devuelve el valor 200, e
 Una forma más estilizada de presentar estos datos puede ser de la siguiente manera:
 
 {% highlight posh %}
-  $url = "http://blog.victorsilva.com.uy"
+$url = "http://blog.victorsilva.com.uy"
 
   function Get-WebStatus {
   param(

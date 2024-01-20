@@ -1,5 +1,5 @@
 ---
-title: 'Using Azure OpenAI from PowerShell'
+title: 'Using Azure OpenAI from PowerShell [English]'
 author: Victor Silva
 date: 2023-03-04T23:26:51+00:00
 layout: single

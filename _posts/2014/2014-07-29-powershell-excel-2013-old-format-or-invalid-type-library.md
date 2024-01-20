@@ -17,7 +17,9 @@ tags:
 ---
 Si al intentar trabajar con scripts en Excel desde PowerShell , nos aparece un mensaje de error de este estilo:
 
->   &#8220;Old format or invalid type library&#8221;
+>   "
+Old format or invalid type library"
+
 
 O para ser mas específico, el siguiente error:
 

@@ -1,3 +1,4 @@
 {
-    "cSpell.language": ",es,en"
+    "cSpell.language": ",es,en",
+    "python.analysis.typeCheckingMode": "basic"
 }

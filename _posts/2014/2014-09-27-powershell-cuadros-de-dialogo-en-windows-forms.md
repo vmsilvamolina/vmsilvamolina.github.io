@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Cuadros de diálogo en Windows Forms'
+title: 'PowerShell - Cuadros de diálogo en Windows Forms'
 date: 2014-09-27T20:23:43+00:00
 author: Victor Silva
 layout: single

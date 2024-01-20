@@ -1,5 +1,5 @@
 ---
-title: PowerShell DSC
+title: 'PowerShell DSC'
 date: 2016-01-05T00:52:27+00:00
 author: Victor Silva
 layout: single
@@ -44,7 +44,9 @@ Al ejecutar la configuración, PowerShell genera un archivo del tipo Management 
 
 Para una configuración de DSC para ser consumido , debe declararlo primero. DSC consume archivos MOF (Management Object Format), un estándar DMTF, que en realidad se puede crear con cualquier editor de texto (por ejemplo _notepad_).
 
-La versión 4 de PowerShell añadió extensiones de sintaxis declarativas e IntelliSense que permiten que sea mucho mas fácil la creación de archivos MOF y también, de las validaciones de esquema. La extensión también agrega una palabra clave para utilizar, llamada &#8220;_Configuration_&#8220;. Con esta palabra clave, que en realidad es una _función_, se define la configuración de DSC de la siguiente manera:
+La versión 4 de PowerShell añadió extensiones de sintaxis declarativas e IntelliSense que permiten que sea mucho mas fácil la creación de archivos MOF y también, de las validaciones de esquema. La extensión también agrega una palabra clave para utilizar, llamada "
+_Configuration_"
+. Con esta palabra clave, que en realidad es una _función_, se define la configuración de DSC de la siguiente manera:
 
     Configuration DemoDSC {
     

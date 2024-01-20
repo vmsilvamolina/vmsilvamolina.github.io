@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Comprobar el estado de Windows Defender'
+title: 'PowerShell - Comprobar el estado de Windows Defender'
 date: 2015-02-04T23:37:17+00:00
 author: Victor Silva
 layout: single
@@ -47,7 +47,7 @@ $Web = Invoke-WebRequest –Uri http://www.microsoft.com/security/portal/definit
 $Lista = $Web.ParsedHTML.getElementsByTagName("option") | select InnerText
 {% endhighlight %}
 
-Seleccione la etiqueta &#8220;option&#8221;, ya que es la que enlista la sversiones seguún el código fuente de la web (pulsar _Ctrl + U_ o clic derecho / _Inspeccionar elemento_ ).
+Seleccione la etiqueta "option", ya que es la que enlista la sversiones seguún el código fuente de la web (pulsar _Ctrl + U_ o clic derecho / _Inspeccionar elemento_ ).
 
 Con las líneas anteriores, obtengo una variable llamada $Lista que contiene las últimas 20 definiciones de Virus de Windows Defender.
 
@@ -74,16 +74,16 @@ Solo falta la función condicional según los valores, si son mayores o menores 
 
 {% highlight posh %}
 If ($LocalDefinition -ge $LastDefinition) {
-    Write-Host "Windows Defender acutlaizado al último update" -ForegroundColor Green
-    Write-Host ""
+	Write-Host "Windows Defender acutlaizado al último update" -ForegroundColor Green
+	Write-Host ""
 } else {
-    If ($LocalDefinition -gt $UmbralDefinition) {
-        Write-Host "WindowsDefender hay nuevas definiciones" -ForegroundColor Yellow
-        Write-Host ""
-    } else {
-        Write-Host "WindowsDefender desactualizado" -ForegroundColor Red
-        Write-Host ""
-    }
+	If ($LocalDefinition -gt $UmbralDefinition) {
+		Write-Host "WindowsDefender hay nuevas definiciones" -ForegroundColor Yellow
+		Write-Host ""
+	} else {
+		Write-Host "WindowsDefender desactualizado" -ForegroundColor Red
+		Write-Host ""
+	}
 }
 {% endhighlight %}
 
@@ -108,16 +108,16 @@ $UmbralDefinition = $Lista[2].innerText
 $LocalDefinition = Get-ItemProperty -Path 'Registry::HKLM\SOFTWARE\Microsoft\Windows Defender\Signature Updates' -Name AVSignatureVersion | Select-Object -ExpandProperty AVSignatureVersion 
 
 If ($LocalDefinition -ge $LastDefinition) { 
-    Write-Host "Windows Defender acutlaizado al último update" -ForegroundColor Green 
-    Write-Host "" 
+  Write-Host "Windows Defender acutlaizado al último update" -ForegroundColor Green 
+  Write-Host "" 
 } else { 
-    If ($LocalDefinition -gt $UmbralDefinition) { 
-        Write-Host "WindowsDefender hay nuevas definiciones" -ForegroundColor Yellow 
-        Write-Host "" 
-    } else { 
-        Write-Host "WindowsDefender desactualizado" -ForegroundColor Red 
-        Write-Host "" 
-    } 
+  If ($LocalDefinition -gt $UmbralDefinition) { 
+    Write-Host "WindowsDefender hay nuevas definiciones" -ForegroundColor Yellow 
+    Write-Host "" 
+  } else { 
+    Write-Host "WindowsDefender desactualizado" -ForegroundColor Red 
+    Write-Host "" 
+  } 
 }
 {% endhighlight %}   
 

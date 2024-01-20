@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Montar imagen ISO'
+title: 'PowerShell - Montar imagen ISO'
 date: 2015-03-12T21:02:46+00:00
 author: Victor Silva
 layout: single

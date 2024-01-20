@@ -1,5 +1,5 @@
 ---
-title: 'SCCM &#8211; Reportes: No se encontraron elementos'
+title: 'SCCM - Reportes: No se encontraron elementos'
 date: 2015-06-04T12:54:19+00:00
 author: Victor Silva
 layout: single
@@ -36,7 +36,7 @@ La ruta por defecto es **_C:\Program Files\Microsoft Configuration Manager\Logs\
 <img src="https://lh6.googleusercontent.com/-YajMD7AmF6Q/VXBgfIAeqLI/AAAAAAAAG_U/mvc4_pGjinI/w1044-h548-no/SCCM_Reporting_3.png" width="1044" height="548" class="alignnone" />
 
 > Could not retrieve the reporting service name for instance &#8216;SCCM&#8217;
-    
+
 > Clase no válida
 
 Investigando un poco me encontré con un comando en particular que permite registrar nuevamente el proveedor WMI (en teoría al desinstalar una instancia de SQL).

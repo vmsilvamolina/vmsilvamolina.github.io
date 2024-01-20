@@ -1,5 +1,5 @@
 ---
-title: 'Windows Server 2012: Failure configuring Windows updates. Reverting changes&#8230;'
+title: 'Windows Server 2012 - Failure configuring Windows updates. Reverting changes...'
 date: 2015-08-06T22:58:33+00:00
 author: Victor Silva
 layout: single
@@ -19,11 +19,11 @@ En Windows Server 2012, luego de que se instalaran los updates correspondientes,
 
 Pocos segundos antes de que termine el proceso de instalación, me encuentro con un cartel que indica lo siguiente:
 
-> Failure configuring Windows updates. Reverting changes&#8230;
+> Failure configuring Windows updates. Reverting changes...
 
-Y empieza a revertir los cambios&#8230; así de la nada.
+Y empieza a revertir los cambios... así de la nada.
 
-Espero que termine el proceso de vuelta atrás, inicio sesión y reviso los logs. Poca info&#8230;
+Espero que termine el proceso de vuelta atrás, inicio sesión y reviso los logs. Poca info...
   
 Revisando por varios blogs, encuentro un dato importante en el blog de la TechNet ([enlace](https://social.technet.microsoft.com/Forums/windowsserver/en-US/70219bcb-36a8-466e-900b-cbf390db38d2/failure-configuring-windows-updates-reverting-changes-postreboot-status-0x800f0922?forum=winserver8gen)). La solución: Eliminar una clave del registro de Windows.
 
@@ -35,4 +35,4 @@ Perfecto!
 
 Espero que les sirva el dato.
 
-Saludos,
+Happy scripting!

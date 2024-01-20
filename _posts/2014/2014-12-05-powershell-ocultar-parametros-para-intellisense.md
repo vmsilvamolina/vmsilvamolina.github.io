@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Ocultar parámetros para IntelliSense'
+title: 'PowerShell - Ocultar parámetros para IntelliSense'
 date: 2014-12-05T20:03:25+00:00
 author: Victor Silva
 layout: single

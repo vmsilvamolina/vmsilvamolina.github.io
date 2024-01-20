@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Ejecutar script de manera programada'
+title: 'PowerShell - Ejecutar script de manera programada'
 date: 2015-09-01T10:07:38+00:00
 author: Victor Silva
 layout: single

@@ -1,5 +1,5 @@
 ---
-title: 'Lync Server 2013 &#8211; SIP/2.0 504 Server time-out'
+title: 'Lync Server 2013 - SIP/2.0 504 Server time-out'
 date: 2015-01-29T17:21:17+00:00
 author: Victor Silva
 layout: single
@@ -19,11 +19,13 @@ tags:
 ---
 Como dice el título, implementando un Edge Server podemos encontrarnos con este error en los logs, pero con algunas particularidades.
 
-Mayoritariamente estos errores se presentan a la hora de realizar una federación. Agregar también que otro sintoma presentado en estas situaciones es ver en la presencia del usuario, luego de agregarlo a nuestros contactos, como &#8220;Presence unknown&#8221; (presencia desconocida).
+Mayoritariamente estos errores se presentan a la hora de realizar una federación. Agregar también que otro sintoma presentado en estas situaciones es ver en la presencia del usuario, luego de agregarlo a nuestros contactos, como "Presence unknown" (presencia desconocida).
 
 Si el error que se presenta en los logs del cliente de Lync 2013 es de este estilo:
 
-> SIP/2.0 504 Server time-out &#8230; ms-diagnostics=1008;&#8221;Unable to resolve DNS SRV Record&#8221; &#8230;
+> SIP/2.0 504 Server time-out &#8230; ms-diagnostics=1008;"
+Unable to resolve DNS SRV Record"
+ &#8230;
 
 Acá les comparto una captura correspondiente:
 
@@ -37,7 +39,7 @@ Por más información sobre los puertos requeridos ingresar al siguiente [enlace
 
 El error SIP/2.0 504 Server time-out no es el único tipo, puede presentarse esto mismo pero con otro diagnostico:
 
-> SIP/2.0 504 Server time-out &#8230; ms-diagnostics=1009;&#8221;No match for domain in DNS SRV results&#8221; &#8230;
+> SIP/2.0 504 Server time-out ... ms-diagnostics=1009;"No match for domain in DNS SRV results" ...
 
 Lo primero que deberíamos revisar en este caso es que se encuentren los registros DNS correctos para el dominio en cuestión; al ser una federación el escenario en que se presenta debemos chequear que estén creados correctamente los siguientes registros:
 

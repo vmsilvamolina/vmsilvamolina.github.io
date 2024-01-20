@@ -99,7 +99,9 @@ Vamos a definir la configuración de la sesión para que cuando inicie el usuari
 
 ### Usando JEA con un usuario que no es administrador
 
-Para demostrar JEA en acción, vamos a necesitar usar PowerShell remoto como un usuario &#8220;no-administrador&#8221;. Para realizar esta acción hay que definir un usuario con el siguiente código:
+Para demostrar JEA en acción, vamos a necesitar usar PowerShell remoto como un usuario "
+no-administrador"
+. Para realizar esta acción hay que definir un usuario con el siguiente código:
 
     $NonAdminCred = Get-Credential
     
@@ -109,7 +111,9 @@ Ingresar las credenciales de la cuenta sin permisos de administrador cuando lo s
     Enter-PSSession -ComputerName . -ConfigurationName JEA_Demo -Credential $NonAdminCred
     
 
-Si prestan atención, el prompt cambió ya que nos encontramos dentro de la sesión con el usuario &#8220;no-administrador&#8221;. Ahora, vamos a ejecutar el Cmdlet:
+Si prestan atención, el prompt cambió ya que nos encontramos dentro de la sesión con el usuario "
+no-administrador"
+. Ahora, vamos a ejecutar el Cmdlet:
 
     Get-Command
     
@@ -125,7 +129,13 @@ En este punto, vamos a ejecutar un comando:
 
 <img src="https://lh3.googleusercontent.com/x1MIviFVOw3XOVxkhi-gOkAN5yAt-GDxP_gGmYpeRswoMaKEICHcKQMkcCSPsU6Ysyq2cNsAsp9JYz_LBQqjGWtH1Uff3GsvNoqV6ZcWzjU7pSd_3iReaGld47GEtY_i0DDT6jY5SnYp1hsubQm931j2KI0M3gMB9SgtIADE3VeerH4xjf41OeE9MgS04Sz5YulAj7riUyDR4lBaP74dZ_ZLa5dE1AEjgEbB0ggAvswXmhCKtDVFx8paYkML7w0zuHatY4gUnlTi-VfcJi4A1C0PvwY_3zwHad43AE_r9fzZPLMmx_yP3Rn1SiSRnHWdqv8iWsUAgpt8hhHBIKPw75rTNDdFXZS-mARszjS-Cqs_2mdJRx1gKFTxG3HVyDj5aS4iBLE4FrTYsUhVbBROq-dgWfeZoLOpNvT-5KtjSr2qu8TDEwjE3P6q_OaCw5K5rovpFZa5oSIqY8Buj76Zhh19Ugm0M806asIDrGW66iL1UXYuYjbBzzifD6nQVmVsTNX44F3gZ9J1ubildZlI-IdyDNI96UedBgq4KbAfjGGCujnv9rcz5QZxJyaObe6vrCTM=w658-h169-no" width="658" height="169" alt="Get-UserInfo" class="alignnone" />
 
-Este Cmdlet custom, muestra el &#8220;ConnectedUser&#8221; como si fuera &#8220;RunAsUser&#8221;. El _ConnectedUser_ es la cuenta de dominio connectada a la sesión remota que no tiene privilegios. La cuenta &#8220;Run As&#8221; es la que realiza las acciones con privilegios. Ahora usando los permisos concedidos en la sesión vamos a ejecutar el Cmdlet _Restart-Service_:
+Este Cmdlet custom, muestra el "
+ConnectedUser"
+ como si fuera "
+RunAsUser"
+. El _ConnectedUser_ es la cuenta de dominio connectada a la sesión remota que no tiene privilegios. La cuenta "
+Run As"
+ es la que realiza las acciones con privilegios. Ahora usando los permisos concedidos en la sesión vamos a ejecutar el Cmdlet _Restart-Service_:
 
     Restart-Service -Name Spooler -Verbose
     

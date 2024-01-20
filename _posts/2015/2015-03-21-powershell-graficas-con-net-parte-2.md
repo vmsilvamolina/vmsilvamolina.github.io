@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Gráficas con .Net (Parte 2)'
+title: 'PowerShell - Gráficas con .Net (Parte 2)'
 date: 2015-03-21T11:08:35+00:00
 author: Victor Silva
 layout: single
@@ -107,7 +107,7 @@ $Chart.Series["Data"].ChartType = [System.Windows.Forms.DataVisualization.Charti
 
 Hay que tener cuidado cuando estamos probando de cambiar las formas de las gráficas ya que no todas soportan el mismo tipo de datos iniciales, por lo que es recomendable leer el siguiente enlace a la documentación oficial, para obtener más información:
 
-[Tipos de gráficas &#8211; MSDN (Chart Types)](https://msdn.microsoft.com/en-us/library/dd489233%28v=vs.140%29.aspx)
+[Tipos de gráficas - MSDN (Chart Types)](https://msdn.microsoft.com/en-us/library/dd489233%28v=vs.140%29.aspx)
 
 ## Color
 
@@ -130,7 +130,9 @@ Otra variante es eliminar la leyenda de la gráfica e introducir los valores den
 
 {% highlight posh %}
 $Legend = New-Object system.Windows.Forms.DataVisualization.Charting.Legend
-$Legend.name = &#8220;Leyenda&#8221;  
+$Legend.name = "
+Leyenda"
+  
 $Chart.Legends.Add($Legend)
 {% endhighlight %}
 
@@ -142,6 +144,6 @@ Por último detallar la manera mas simple para guardar nuestras gráficas como a
 $Chart.SaveImage($ImageFile,"png")
 {% endhighlight %}
 
-Como habrán podido imaginar, la variable **_ImageFile_** corresponde al nombre con el que se guardará la gráfica. En caso de no querer utilizar una variable, ingresamos el nombre dentro de comillas dobles (&#8220;&#8221;).
+Como habrán podido imaginar, la variable **_ImageFile_** corresponde al nombre con el que se guardará la gráfica. En caso de no querer utilizar una variable, ingresamos el nombre dentro de comillas dobles ("").
 
 Happy scripting!

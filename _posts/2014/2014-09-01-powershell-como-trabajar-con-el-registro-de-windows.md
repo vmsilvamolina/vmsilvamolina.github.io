@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Como trabajar con el registro de Windows'
+title: 'PowerShell - Como trabajar con el registro de Windows'
 date: 2014-09-01T20:57:18+00:00
 author: Victor Silva
 layout: single

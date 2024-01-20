@@ -51,7 +51,9 @@ En primer lugar, tenemos que tener definidas las direcciones que necesitamos con
 
 Éstas URL necesitan direccionarse de los puertos 80 y 443 al 8080 y 4443 respectivamente.
 
-En el siguiente ejemplo vamos a configurar el **farm** que va a manipular la URL **sip.dominio.com** tomando como destino el &#8220;server&#8221; **PoolSfB.dominio.local**.
+En el siguiente ejemplo vamos a configurar el **farm** que va a manipular la URL **sip.dominio.com** tomando como destino el "
+server"
+ **PoolSfB.dominio.local**.
 
 Ahora tenemos que repetir lo anterior para cada sitio que necesitemos configurar en nuestro IIS ARR desde PowerShell para finalizar la configuración del Reverse Proxy.
 

@@ -112,7 +112,9 @@ Como dato adicional se recomienda usar el tipo de conversión dinámica que ofre
 
 ## Método adicional
 
-A su vez existe un parámetro adicional que puede ser utilizado dentro del método ::round() y es un tipo de redondeo llamado &#8220;Away from zero&#8221;. Consiste en agregar el tipo de enumeración [system.midpointrounding] como tercer parámetro de la siguiente forma:
+A su vez existe un parámetro adicional que puede ser utilizado dentro del método ::round() y es un tipo de redondeo llamado "
+Away from zero"
+. Consiste en agregar el tipo de enumeración [system.midpointrounding] como tercer parámetro de la siguiente forma:
 
 {% highlight posh %}
 [math]::round(123.456,2,[system.midpointrounding]::AwayFromZero)
@@ -131,7 +133,9 @@ Existen otras maneras más practicas de declarar lo anterior (ya que recordar to
 
 <img src="https://do2vww-ch3302.files.1drv.com/y4mM9nDc-7OWVhqENoIEhMuERuoXe_OHAjKAT-sqZC2ydbzD0DrXZ3sAeJUZAyB5P772j-yvINRMK7h1k3ebH4DQgNV5NqqAbZ2jtXi2AIuZBa08Ugy6JEM2pfB5sP3kMrDcO3Vc3AivSCpj-mP3nDZDjldUb0-KVT9cWVkw1UTvSWpIGA-fTZH9uriKF4aCO7z8dyNAWqKcW6B3FlpnSv8TA?width=859&#038;height=222&#038;cropmode=none" width="859" height="222" alt="Ejemplos de uso del tipo de redondeo Away from zero" class="alignnone size-medium" />
 
-En el ejemplo se muestra con amarillo que siempre se usó el mismo número decimal y que los resultados cambian dependiendo de los parámetros que se utilizan: con Rojo se resalta el resultado de redondear como veníamos trabajando y con Verde se resaltan los resultados de utilizar el tipo de redondeo &#8220;Away from zero&#8221;.
+En el ejemplo se muestra con amarillo que siempre se usó el mismo número decimal y que los resultados cambian dependiendo de los parámetros que se utilizan: con Rojo se resalta el resultado de redondear como veníamos trabajando y con Verde se resaltan los resultados de utilizar el tipo de redondeo "
+Away from zero"
+.
 
 Para obtener un mayor detalle de los métodos que ofrece la clase _Math_, adjunto el enlace de la documentación oficial que hace referencia a los diferentes métodos existentes en mayor profundidad:
 

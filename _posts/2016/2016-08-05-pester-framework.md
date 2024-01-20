@@ -80,7 +80,9 @@ function PesterExample($value) {
 
 Un función muy muy simple que solo retorna el valor ingresado.
 
-Ahora con nuestro &#8220;script&#8221;, vamos a modificar nuestro test, de la siguiente manera:
+Ahora con nuestro "
+script"
+, vamos a modificar nuestro test, de la siguiente manera:
 
 {% highlight posh %}
 #PesterExample.Tests.ps1

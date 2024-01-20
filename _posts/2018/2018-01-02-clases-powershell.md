@@ -30,7 +30,7 @@ El otro gran punto para usar clases es al momento de trabajar con DSC. Ya en el 
 Para definir una clase es necesario utilizar la keyword ***class***:
 
 {% highlight posh %}
-  class Alien {
+class Alien {
 
   }
 {% endhighlight %}
@@ -38,13 +38,13 @@ Para definir una clase es necesario utilizar la keyword ***class***:
 Como mencionamos anteriormente, ahora que tenemos nuestra clase definida, podemos crear instancias de ella. Tenemos a disposición varias maneras diferentes de hacer esto. La primera es usar *New-Object* con el parámetro _-TypeName_.
 
 {% highlight posh %}
-  $greenMan = New-Object -TypeName Alien
+$greenMan = New-Object -TypeName Alien
 {% endhighlight %}
 
 La segunda manera de instanciar una clase es llamar al constructor estático de la clase. Por más información sobre constructores y los tipos existentes acceder al siguiente [enlace](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming)). Para invocarlo es necesario utilizar los dos puntos de la siguiente manera:
 
 {% highlight posh %}
-  $greenMan = [Alien]::New()
+$greenMan = [Alien]::New()
 {% endhighlight %}
 
 ## Describiendo las clases
@@ -54,7 +54,7 @@ La segunda manera de instanciar una clase es llamar al constructor estático de 
 Las propiedades son cosas sobre un objeto, cosas que lo representan y definen. Si describiéramos un alien como el ejemplo, las propiedades podrían ser altura y peso. Agregamos propiedades a una clase agregando variables dentro de la clase. Si bien no es obligatorio, es una buena idea definir el tipo de variable para determinar el tipo de dato a ingresar:
 
 {% highlight posh %}
-  class Alien {
+class Alien {
     [string]$Nombre
     
     [int]$Altura
@@ -68,7 +68,7 @@ Las propiedades son cosas sobre un objeto, cosas que lo representan y definen. S
 Como indica el título, PowerShell permite la validación de las propiedades. Esto permite que los datos que se ingresan cumplan con lo que se requiere para cada propiedad:
 
 {% highlight posh %}
-  class Alien {
+class Alien {
     [ValidatePattern('^[a-z]')][ValidateLength(3,15)][string]$Nombre
     
     [ValidateRange(0,200)][int]$Altura
@@ -82,7 +82,7 @@ Como indica el título, PowerShell permite la validación de las propiedades. Es
 Las clases de PowerShell también admiten propiedades ocultas. Para ocultar una propiedad, se debe usar la keyword *hidden* justo antes del nombre de la propiedad. Para el siguiente ejemplo vamos a ocultar la propiedad ID sea del tipo GUID y esté oculta para el usuario.
 
 {% highlight posh %}
-  class Alien {
+class Alien {
     [Guid]hidden $ID
 
     [ValidatePattern('^[a-z]')][ValidateLength(3,15)][string]$Nombre
@@ -100,7 +100,7 @@ Y para comprobar esto vamos a ejecutar el código que genera la clase, junto una
 En donde se utilizó:
 
 {% highlight posh %}
-  $greenMan | Get-Member -MemberType Properties
+$greenMan | Get-Member -MemberType Properties
 {% endhighlight %}
 
 Para ver las propiedades disponibles dentro del objeto generado.

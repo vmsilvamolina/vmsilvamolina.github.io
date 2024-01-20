@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; RunOnce'
+title: 'PowerShell - RunOnce'
 date: 2015-04-01T16:20:37+00:00
 author: Victor Silva
 layout: single
@@ -24,7 +24,7 @@ Esta clave se encuentra en dos rutas particulares:
 
 Por lo que podemos definir si queremos que el código se ejecute luego de reiniciar la maquina utilizando la ruta correspondiente a **HKEY\_LOCAL\_MACHINE**, sin importar que usuario inicia sesión. O tenemos la ruta de **HKEY\_CURRENT\_USER** que permite ejecutar las acciones necesarias sólo con el usuario que crea la clave en el momento de estar iniciada la sesión.
 
-Un ejemplo de uso, podría ser la necesidad de ejecutar un script ya guardado en la ruta **_C:\Scripts\Parte2.ps1_** para poder completar un procedimiento en particular. Para ello vamos a agregar una línea de código en nuestro script &#8220;Parte1.ps1&#8221;:
+Un ejemplo de uso, podría ser la necesidad de ejecutar un script ya guardado en la ruta **_C:\Scripts\Parte2.ps1_** para poder completar un procedimiento en particular. Para ello vamos a agregar una línea de código en nuestro script "Parte1.ps1":
 
 {% highlight posh %}
 New-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce -Name "Parte2" -Value "powershell.exe -ExecutionPolicy Unrestricted -Command `"C:\Scripts\Parte2.ps1`""

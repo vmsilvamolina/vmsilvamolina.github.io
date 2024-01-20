@@ -1,5 +1,5 @@
 ---
-title: 'Skype for Business &#8211; Solicitud de credenciales en el Control Panel'
+title: 'Skype for Business - Solicitud de credenciales en el Control Panel'
 date: 2015-07-16T16:18:44+00:00
 author: Victor Silva
 layout: single
@@ -31,7 +31,7 @@ Con este pequeño truco, ya no va a ser necesario ingresar nuevamente las creden
 ## Solución desde PowerShell
 
 Ya explicado el Tip, voy a pasar a detallar la solución por medio de PowerShell. Para agregar un sitio dentro de la zona de Intranet local, debemos acudir al registro de Windows.
-  
+
 La ruta que almacena esta información es la siguiente:
 
 > HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap
@@ -45,19 +45,19 @@ Supongamos que mi el FQDN de mi Front End es _Servidor01.victorsilva.interno_. S
 Entonces, para generar lo anterior, tenemos que ejecutar lo siguiente:
 
 {% highlight posh%}
-  Function Set-IntranetSite {
-    Param (
-      [Parameter(Mandatory=$true)][ValidateNotNullOrEmpty()][string]$ServerFQDN
-    )
-    $ServerName = $ServerFQDN.Split(".")[0]
-    $Domain = $ServerFQDN.Split(".",2)[1]
-    $RegPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains"
-    New-Item $RegPath -Name $Domain
-    $RegPath += "\" + $Domain
-    New-Item $RegPath -Name $ServerName
-    $RegPath += "\" + $ServerName
-    New-ItemProperty $RegPath -Name "https" -Value 1 -PropertyType "DWord"
-  }
+Function Set-IntranetSite {
+  Param (
+    [Parameter(Mandatory=$true)][ValidateNotNullOrEmpty()][string]$ServerFQDN
+  )
+  $ServerName = $ServerFQDN.Split(".")[0]
+  $Domain = $ServerFQDN.Split(".",2)[1]
+  $RegPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains"
+  New-Item $RegPath -Name $Domain
+  $RegPath += "\" + $Domain
+  New-Item $RegPath -Name $ServerName
+  $RegPath += "\" + $ServerName
+  New-ItemProperty $RegPath -Name "https" -Value 1 -PropertyType "DWord"
+}
 {% endhighlight %}
 
 Es una función bastante simple y rústica, simplemente quería reflejar como poder resolver la situación desde la consola.

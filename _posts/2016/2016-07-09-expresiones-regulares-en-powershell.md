@@ -17,7 +17,9 @@ Para los que piensan en que situación vamos a depender de usar o no expresiones
 
 Sobre algunos casos es necesario buscar cierta información, la cual cumple ciertos patrones. En PowerShell tenemos el operador **_-match_** que podemos utilizar como muestra el siguiente ejemplo:
 
-En nuestra empresa nombramos nuestros servidores comenzando con SRV y continuando con algunas letras que determinen el rol del servidor y 2 número al final: &#8220;SRVEXCH01&#8221;, puede ser un caso de servidor. Para encontrar nombres de servidores dentro de un texto en particular, vamos a definir el siguiente patrón:
+En nuestra empresa nombramos nuestros servidores comenzando con SRV y continuando con algunas letras que determinen el rol del servidor y 2 número al final: "
+SRVEXCH01"
+, puede ser un caso de servidor. Para encontrar nombres de servidores dentro de un texto en particular, vamos a definir el siguiente patrón:
 
 > $pattern = &#8216;SRV[A-Z]{2,4}\d{2}&#8217;
 

@@ -98,123 +98,123 @@ Y pulsar enter.
 Debemos obtener como resultados de los test ejecutados por la herramienta **dcdiag** valores equivalentes al siguiente ejemplo:
 
 {% highlight plaintext %}
-  Domain Controller Diagnosis
+Domain Controller Diagnosis
 
-  Performing initial setup:
+Performing initial setup:
 
-  Done gathering initial info.
-
-  
-  Doing initial required tests
+Done gathering initial info.
 
 
-  Testing server: Default-First-Site-NameRESKIT-DC1
-
-  Starting test: Connectivity
-
-  ......................... RESKIT-DC1 passed test Connectivity
+Doing initial required tests
 
 
-  Doing primary tests
+Testing server: Default-First-Site-NameRESKIT-DC1
+
+Starting test: Connectivity
+
+......................... RESKIT-DC1 passed test Connectivity
 
 
-  Testing server: Default-First-Site-NameRESKIT-DC1
+Doing primary tests
 
-  Starting test: Replications
 
-  ......................... RESKIT-DC1 passed test Replications
+Testing server: Default-First-Site-NameRESKIT-DC1
 
-  Starting test: NCSecDesc
+Starting test: Replications
 
-  ......................... RESKIT-DC1 passed test NCSecDesc
+......................... RESKIT-DC1 passed test Replications
 
-  Starting test: NetLogons
+Starting test: NCSecDesc
 
-  ......................... RESKIT-DC1 passed test NetLogons
+......................... RESKIT-DC1 passed test NCSecDesc
 
-  Starting test: Advertising
+Starting test: NetLogons
 
-  ......................... RESKIT-DC1 passed test Advertising
+......................... RESKIT-DC1 passed test NetLogons
 
-  Starting test: KnowsOfRoleHolders
+Starting test: Advertising
 
-  ......................... RESKIT-DC1 passed test KnowsOfRoleHolders
+......................... RESKIT-DC1 passed test Advertising
 
-  Starting test: RidManager
+Starting test: KnowsOfRoleHolders
 
-  ......................... RESKIT-DC1 passed test RidManager
+......................... RESKIT-DC1 passed test KnowsOfRoleHolders
 
-  Starting test: MachineAccount
+Starting test: RidManager
 
-  ......................... RESKIT-DC1 passed test MachineAccount
+......................... RESKIT-DC1 passed test RidManager
 
-  Starting test: Services
+Starting test: MachineAccount
 
-  ......................... RESKIT-DC1 passed test Services
+......................... RESKIT-DC1 passed test MachineAccount
 
-  Starting test: ObjectsReplicated
+Starting test: Services
 
-  ......................... RESKIT-DC1 passed test ObjectsReplicated
+......................... RESKIT-DC1 passed test Services
 
-  Starting test: frssysvol
+Starting test: ObjectsReplicated
 
-  ......................... RESKIT-DC1 passed test frssysvol
+......................... RESKIT-DC1 passed test ObjectsReplicated
 
-  Starting test: kccevent
+Starting test: frssysvol
 
-  ......................... RESKIT-DC1 passed test kccevent
+......................... RESKIT-DC1 passed test frssysvol
 
-  Starting test: systemlog
+Starting test: kccevent
 
-  ......................... RESKIT-DC1 passed test systemlog
+......................... RESKIT-DC1 passed test kccevent
 
-  
+Starting test: systemlog
 
-  Running partition tests on : Schema
+......................... RESKIT-DC1 passed test systemlog
 
-  Starting test: DeadCRTest
 
-  ......................... Schema passed test DeadCRTest
 
-  Starting test: CheckSDRefDom
+Running partition tests on : Schema
 
-  ......................... Schema passed test CheckSDRefDom
+Starting test: DeadCRTest
 
-  
+......................... Schema passed test DeadCRTest
 
-  Running partition tests on : Configuration
+Starting test: CheckSDRefDom
 
-  Starting test: DeadCRTest
+......................... Schema passed test CheckSDRefDom
 
-  ......................... Configuration passed test DeadCRTest
 
-  Starting test: CheckSDRefDom
 
-  ......................... Configuration passed test CheckSDRefDom
+Running partition tests on : Configuration
 
-  
+Starting test: DeadCRTest
 
-  Running partition tests on : RESKIT-DOM
+......................... Configuration passed test DeadCRTest
 
-  Starting test: DeadCRTest
+Starting test: CheckSDRefDom
 
-  ......................... RESKIT-DOM passed test DeadCRTest
+......................... Configuration passed test CheckSDRefDom
 
-  Starting test: CheckSDRefDom
 
-  ......................... RESKIT-DOM passed test CheckSDRefDom
 
-  
+Running partition tests on : RESKIT-DOM
 
-  Running enterprise tests on : RESKIT-DOM.reskit.com
+Starting test: DeadCRTest
 
-  Starting test: Intersite
+......................... RESKIT-DOM passed test DeadCRTest
 
-  ......................... RESKIT-DOM.reskit.com passed test Intersite
+Starting test: CheckSDRefDom
 
-  Starting test: FsmoCheck
+......................... RESKIT-DOM passed test CheckSDRefDom
 
-  ......................... RESKIT-DOM.reskit.com passed test FsmoCheck
+
+
+Running enterprise tests on : RESKIT-DOM.reskit.com
+
+Starting test: Intersite
+
+......................... RESKIT-DOM.reskit.com passed test Intersite
+
+Starting test: FsmoCheck
+
+......................... RESKIT-DOM.reskit.com passed test FsmoCheck
 {% endhighlight %}
 
 
@@ -223,33 +223,33 @@ Debemos obtener como resultados de los test ejecutados por la herramienta **dcdi
 Debemos obtener como resultados de los test ejecutados por la herramienta **repadmin** valores equivalentes al siguiente ejemplo:
 
 {% highlight plaintext %}
-  C:\>repadmin /showrepl server1.microsoft.com
-  Building7aserver1
-  DC Options : IS_GC
-  Site OPtions: (none)
-  DC object GUID : 405db077-le28-4825-b225-c5bb9af6f50b
-  DC invocationID: 405db077-le28-4825-b225-c5bb9af6f50b
+C:\>repadmin /showrepl server1.microsoft.com
+Building7aserver1
+DC Options : IS_GC
+Site OPtions: (none)
+DC object GUID : 405db077-le28-4825-b225-c5bb9af6f50b
+DC invocationID: 405db077-le28-4825-b225-c5bb9af6f50b
 
-  ==== INBOUND NEIGHBORS ======================================
+==== INBOUND NEIGHBORS ======================================
 
-  CN=Schema,CN=Configuration,DC=microsoft,Dc=com
-  Building7bserver2 via RPC
-  objectGuid: e55c6c75-75bb-485a-a0d3-020a44c3afe7
-  last attempt @ 2002-09-09 12:25.35 was successful.
+CN=Schema,CN=Configuration,DC=microsoft,Dc=com
+Building7bserver2 via RPC
+objectGuid: e55c6c75-75bb-485a-a0d3-020a44c3afe7
+last attempt @ 2002-09-09 12:25.35 was successful.
 
-  
 
-  CN=Configuration,DC=microsoft,Dc=com
-  Building7bserver2 via RPC
-  objectGuid: e55c6c75-75bb-485a-a0d3-020a44c3afe7
-  last attempt @ 2002-09-09 12:25.10 was successful.
 
-  
+CN=Configuration,DC=microsoft,Dc=com
+Building7bserver2 via RPC
+objectGuid: e55c6c75-75bb-485a-a0d3-020a44c3afe7
+last attempt @ 2002-09-09 12:25.10 was successful.
 
-  DC=microsoft,Dc=com
-  Building7bserver2 via RPC
-  objectGuid: e55c6c75-75bb-485a-a0d3-020a44c3afe7
-  last attempt @ 2001-09-09 12:25.11 was successful
+
+
+DC=microsoft,Dc=com
+Building7bserver2 via RPC
+objectGuid: e55c6c75-75bb-485a-a0d3-020a44c3afe7
+last attempt @ 2001-09-09 12:25.11 was successful
 {% endhighlight %}
 
 **_Para corroborar el estado de la resolución de nombres_**
@@ -257,24 +257,24 @@ Debemos obtener como resultados de los test ejecutados por la herramienta **repa
 Debemos obtener como resultados de los test ejecutados por la herramienta **nslookup** valores equivalentes al siguiente ejemplo:
 
 {% highlight plaintext %}
-  Default Server:  dc1.example.microsoft.com
-  Address:  10.0.0.14
-  set type=srv
-  _ldap._tcp.dc._msdcs.example.microsoft.com
-  Server:  dc1.example.microsoft.com
-  Address:  10.0.0.14
-  _ldap._tcp.dc._msdcs.example.microsoft.com   SRV service location:
-  priority       = 0
-  weight         = 0
-  port           = 389
-  svr hostname   = dc1.example.microsoft.com
-  _ldap._tcp.dc._msdcs.example.microsoft.com   SRV service location:
-  priority       = 0
-  weight         = 0
-  port           = 389
-  svr hostname   = dc2.example.microsoft.com
-  dc1.example.microsoft.com     internet address = 10.0.0.14
-  dc2.example.microsoft.com     internet address = 10.0.0.15
+Default Server:  dc1.example.microsoft.com
+Address:  10.0.0.14
+set type=srv
+_ldap._tcp.dc._msdcs.example.microsoft.com
+Server:  dc1.example.microsoft.com
+Address:  10.0.0.14
+_ldap._tcp.dc._msdcs.example.microsoft.com   SRV service location:
+priority       = 0
+weight         = 0
+port           = 389
+svr hostname   = dc1.example.microsoft.com
+_ldap._tcp.dc._msdcs.example.microsoft.com   SRV service location:
+priority       = 0
+weight         = 0
+port           = 389
+svr hostname   = dc2.example.microsoft.com
+dc1.example.microsoft.com     internet address = 10.0.0.14
+dc2.example.microsoft.com     internet address = 10.0.0.15
 {% endhighlight %}
 
 ## Etapa 3: Sincronización de cambios

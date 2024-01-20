@@ -82,7 +82,9 @@ docker images
 
 Es obvio que el resultado de ambos comandos es en blanco, ya nos encontramos sobre una instalación limpia. Así que vamos a comenzar a creando un container para comprobar el funcionamiento correcto de la plataforma y de los endpoints que configuramos.
 
-En cuestión, vamos a hacer el &#8220;Hola mundo!&#8221; de los containers:
+En cuestión, vamos a hacer el "
+Hola mundo!"
+ de los containers:
 
 {% highlight posh %}
 docker run ubuntu /bin/echo 'Hello world'

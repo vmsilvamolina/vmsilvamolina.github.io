@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Como borrar las carpetas vacías de una unidad?'
+title: 'PowerShell - Como borrar las carpetas vacías de una unidad?'
 date: 2014-09-04T20:02:35+00:00
 author: Victor Silva
 layout: single

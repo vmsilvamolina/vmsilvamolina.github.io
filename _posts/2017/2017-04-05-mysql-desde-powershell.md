@@ -15,7 +15,9 @@ tags:
   - PowerShell
   - PowerShell Scripting
 ---
-Hace unos días me surgió la necesidad de trabajar con una base de datos con **_MySQL_**, en un servidor Ubuntu, generado desde el marketplace de Azure. Por ello es que estoy compartiendo este post, para dejar accesible estos &#8220;apuntes&#8221; de lo que sería lo necesario para poder acceder a una base de datos MySQL desde PowerShell.
+Hace unos días me surgió la necesidad de trabajar con una base de datos con **_MySQL_**, en un servidor Ubuntu, generado desde el marketplace de Azure. Por ello es que estoy compartiendo este post, para dejar accesible estos "
+apuntes"
+ de lo que sería lo necesario para poder acceder a una base de datos MySQL desde PowerShell.
 
 Para los administradores de sistemas que trabajan en estos tiempos modernos no es nuevo el tener que tomar el control de plataformas heterogéneas. Hoy es común tener ambientes con Windows y Linux conviviendo en el mismo datacenter, así como soluciones que se interconectan entre sí. Por ello es necesario conocer como interactuar con cada sistema en particular.
 

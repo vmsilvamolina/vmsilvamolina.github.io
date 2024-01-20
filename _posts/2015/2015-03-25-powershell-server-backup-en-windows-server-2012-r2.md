@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Server Backup en Windows Server 2012 R2'
+title: 'PowerShell - Server Backup en Windows Server 2012 R2'
 date: 2015-03-25T15:41:21+00:00
 author: Victor Silva
 layout: single
@@ -57,7 +57,7 @@ $Volumes = Get-WBVolume -CriticalVolumes
 Add-WBVolume -Policy $Policy -Volume $Volumes
 {% endhighlight %}
 
-Defino el destino de los respaldos, en este caso voy a utilizar un recurso compartido de red (el servidor &#8220;Server&#8221; y la carpeta compartida &#8220;BKP&#8221;):
+Defino el destino de los respaldos, en este caso voy a utilizar un recurso compartido de red (el servidor "Server" y la carpeta compartida "BKP"):
 
 {% highlight posh %}
 $BackupLocation = New-WBBackupTarget -NetworkPath "\\Server\BKP" -Credential

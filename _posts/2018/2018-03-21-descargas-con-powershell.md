@@ -17,7 +17,7 @@ En la oficina he adquirido una fama particular con la automatización de proceso
 Desglosando el problema tenemos que primero se debe hacer una comprobación local de si el archivo a descargar se encuentra en cierta ruta. Para ello:
 
 {% highlight posh %}
-  $URL = "https://www.dominio.com/archivo.zip"
+$URL = "https://www.dominio.com/archivo.zip"
   $FilePath = "C:\users\vmsilvamolina\Desktop\Archivos\archivo.zip"
   if (!(Test-Path $FilePath) ) {
       #Descargar
@@ -30,7 +30,7 @@ Desglosando el problema tenemos que primero se debe hacer una comprobación loca
 Ahora debemos definir como comprobar si el archivo es igual o diferente, utilizando **HttpWebRequest** de la siguiente manera:
 
 {% highlight posh %}
-  try {
+try {
     $webRequest = [System.Net.HttpWebRequest]::Create($URL);
     $webRequest.IfModifiedSince = ([System.IO.FileInfo]$FilePath).LastWriteTime
     $webRequest.Method = "GET";

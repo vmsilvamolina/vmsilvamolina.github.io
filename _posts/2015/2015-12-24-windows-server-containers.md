@@ -1,5 +1,5 @@
 ---
-title: Windows Server Containers
+title: 'Windows Server Containers'
 date: 2015-12-24T09:16:32+00:00
 author: Victor Silva
 layout: single
@@ -44,13 +44,15 @@ Existen dos tipos de contenedores en Windows Server:
 
 Los Windows Server Containers se pueden utilizar para desplegar rápidamente muchas aplicaciones aisladas de un único sistema. Este post pretende demostrar el despliegue y la gestión de los containers utilizando PowerShell como herramienta principal.
 
-Vamos a ver como crear una app desde cero, siendo ésta, el clásico &#8220;hola mundo&#8221;, mostrando todos los elementos del proceso; crear imagenes de contenedores, trabajar con carpetas compartidas, y gestionar el ciclo de vida para poder tener una comprensión básica del despliegue y gestión de los mismos.
+Vamos a ver como crear una app desde cero, siendo ésta, el clásico "
+hola mundo"
+, mostrando todos los elementos del proceso; crear imagenes de contenedores, trabajar con carpetas compartidas, y gestionar el ciclo de vida para poder tener una comprensión básica del despliegue y gestión de los mismos.
 
 Este tutorial detalla la gestión de ambos tipos de containers, considerando que cada tipo de container tiene sus requisitos propios:
 
-**Windows Server Containers &#8211;** Un Windows Container Host corriendo Windows Server 2016 Core.
+**Windows Server Containers -** Un Windows Container Host corriendo Windows Server 2016 Core.
 
-**Hyper-V Containers &#8211;** Un Windows Container Host con Nested Virtualization habilitado. Windows Server 2016 ([enlace de descarga](https://aka.ms/tp4/serveriso))
+**Hyper-V Containers -** Un Windows Container Host con Nested Virtualization habilitado. Windows Server 2016 ([enlace de descarga](https://aka.ms/tp4/serveriso))
 
 ### Primeros pasos
 
@@ -85,7 +87,9 @@ Al ejecutar lo anterior, vamos a tener que ingresar la contraseña del administr
 
 Después de pasar el paso anterior, la secuencia anterior va a comenzar a descargar achivos y configurar los componentes necesarios. Este proceso puede tardar un tiempo considerable debido a la descarga.
 
-Si ya tienen la ISO de Windows Server Technical Preview 4 descargada, es posible &#8220;obviar&#8221; la descarga situando la ISO con el nombre **_WindowsServerTP4.ISO_** en la ruta **_C:\Users\Public\Documents\Hyper-V\Virtual hard disks_**.
+Si ya tienen la ISO de Windows Server Technical Preview 4 descargada, es posible "
+obviar"
+ la descarga situando la ISO con el nombre **_WindowsServerTP4.ISO_** en la ruta **_C:\Users\Public\Documents\Hyper-V\Virtual hard disks_**.
 
 <img src="https://lh3.googleusercontent.com/rJBjnV0B-Myld911x708GRNfjKTJEkeVmaxq3Al8v7cQjYCrOhaHVdVqlg8Af2S2MuSrdWTJzyIKo2_ZPiKFnqIESdxopqRlzaBzWC2tW8iLAjbG20QT4wTQMrjbf7882JsxcPjfGhoSDdKPtBN-wiY8-2csxN3eQCDaLoq6T9Do9v36arduocUImAJ1XSmpeb9TKVR-kI-rk8ElHHRQrmXlRRJjC3SyMG8Mvh4CXlr8TUZtMUPNSmMUCyUnEehaDLB4bK16JhGQOyQdlbgMqURRqLDMrjge3zUgwZ1SyjX9yN-uW8rNl0P3gy2hUwi6giHEzHWx-KaHHZjh0PgbEaU8FRpYFFGNjCDiuBQ_EEETnFWWdzU-BFmF9aJQFMGWMKiJWntNZuL4LdMo9e61kToJRt81ZNrQoizFXIzrb25hCReQCBoK9Zpd5S5uKfmJBEI6ApndUmxkeZXsOYAZJr9cVc3_tZ4Ns7SQsBUm7bBqgkCLKYlnOY3ie0Vwt1lsHuIKHAKoekIXUy2sjG2ltBEarUMFTuPkFG5WkCmwEInm1A2bkb_8Obso1Ar4k1nAf7fF=w1039-h635-no" width="1039" height="635" alt="Ejecutando New-ContainerHost.ps1" class="alignnone" />
 

@@ -28,7 +28,7 @@ Marvel had publish a REST API which allows you to gather data regarding the enti
 The module can be installed from the PowerShell Gallery using the following complex command:
 
 {% highlight posh %}
-  Install-Module -Name PSMarvel
+Install-Module -Name PSMarvel
 {% endhighlight %}
 
 
@@ -43,7 +43,7 @@ First, setup a Marvel API key (create an account): [link](https://developer.marv
 With the keys, you can start to consume the API using the cmdlet [Invoke-RestMethod](). I wrote the following function to start accessing information:
 
 {% highlight posh %}
-  #API Keys and TS
+#API Keys and TS
   $MarvelPublic = "baXXXXXXXXXXXXXXXXXXXXXXXX38"
   $MarvelPrivate = "62fXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX41"
   $MarvelTS = New-TimeSpan -End (Get-Date -Year 2018 -Month 1 -Day 1)
@@ -60,7 +60,7 @@ With the keys, you can start to consume the API using the cmdlet [Invoke-RestMet
 How can you search any character? We'll use the parameter **nameStartsWith** with the URL and the apikey like this:
 
 {% highlight posh %}
-  #Call the API gateway
+#Call the API gateway
   $StartWith = "Spider"
   $Url = "https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=$StartWith&apikey=$MarvelPublic&hash=$MD5&ts=$MarvelTS"
 {% endhighlight %}
@@ -68,7 +68,7 @@ How can you search any character? We'll use the parameter **nameStartsWith** wit
 And manipulate the data:
 
 {% highlight posh %}
-  $Results = Invoke-WebRequest $Url
+$Results = Invoke-WebRequest $Url
   $Content = $results.Content
   $Output = ConvertFrom-Json $Content
   #Display only the name list
@@ -84,7 +84,7 @@ The result:
 The module has the following commands:
 
 {% highlight posh %}
-  Get-Command -Module PSMarvel
+Get-Command -Module PSMarvel
 {% endhighlight %}
 
 {% highlight plaintext %}
