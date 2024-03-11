@@ -29,7 +29,7 @@ De todas formas, ARM juega un papel fundamental en los despliegues y hoy vamos a
 Desde hace un tiempo tenemos disponible en los templates ARM la key llamada **condition**, que se puede aplicar a un recurso para determinar si se ejecuta o no. Tomemos como ejemplo el caso donde deseamos implementar una tarjeta de red y queremos determinar si esta NIC va a tener una IP pública o no, a través de un parámetro. En el siguiente template, proporcionamos un parámetro llamado "**NetworkInterfaceType**" que puede ser "*Public*" o "*Privado*". Solo queremos que esta IP pública exista si el "*Tipo de interfaz de red*" es "*Público*", por lo que agregamos una condición al recurso de IP pública, de la siguiente manera:
 
 {% highlight posh %}
-  {
+{
     "apiVersion": "2017-04-01",
     "condition": "[equals(parameters('NetworkInterfaceType'),'Public')]",
     "type": "Microsoft.Network/publicIPAddresses",

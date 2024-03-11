@@ -1,5 +1,5 @@
 ---
-title: Crear Hyper-V Containers
+title: 'Crear Hyper-V Containers'
 date: 2016-01-01T10:31:54+00:00
 author: Victor Silva
 layout: single
@@ -55,7 +55,9 @@ Para hacer la conversión, vamos a usar el comando **_Set-Container_**, ingresan
 
 <img src="https://lh3.googleusercontent.com/u18VPRYbwt925vtLxSDtQeb2YyWMoFCq4Wc1WLpJBoy8QpOG4Ms-6Q6NXCrADNw04eHCXmC-xj6xMLT4uKajwYHvRL8E8DcC4hHnZYlzGXUjYo0vpXVvRCMLK-Erb7hL01nuh8-5ILDjILdVJvD673-lANqyBpa3rDCoctnC3BERAkPnZ27GC8kxEOW51p1jb5RNiozTpgchA_eFUX7s5XHiqlN1fUDPViGcDSDuEkAJ-vS-JzqJ3cT6IgSEHcidnBioVmGf5IbRbJaDGMTY8gS3OD1MWdjsrOu1tiVrKxpX7GaXKCASCbGk7tyXTSDPYRlrGu8cwd9g375BzZQDwtlU4RVW6HPHVy2vhNvbv3zJ7DqrRAMQYkId6f3a2r8ojkIOA21eFqklgSXxGr0m-eG5vJtaURAjysASIwtz5yW2AZsy8FzI87EPDLcd2VixWjbXXDEgurem0U6JfnijCKyMbORzVAaqmaUgmDJ69OQRDT0YQBHav4_In593HHgNuG4jrjaBTqw2Btik_I6lW-DFvN3ataNo1gcPzni7RVv0DR18h8w_6vJ4xtfz4-z1nKTX=w1004-h544-no" width="1004" height="544" alt="Hyper-V Container - Conversión" class="alignnone" />
 
-En el post anterior ([Crear Windows Server Containers](http://blog.victorsilva.com.uy/crear-windows-server-containers/)) dejo un ejemplo de cómo crear una &#8220;web&#8221; y ejecutarla en el container.
+En el post anterior ([Crear Windows Server Containers](http://blog.victorsilva.com.uy/crear-windows-server-containers/)) dejo un ejemplo de cómo crear una "
+web"
+ y ejecutarla en el container.
 
 Ahora queda en ustedes seguir probando funcionalidades y quedar a la espera de las nuevas características que van a ir surgiendo.
 

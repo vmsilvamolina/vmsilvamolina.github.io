@@ -106,7 +106,9 @@ Configuration LinuxConfiguration{
 LinuxConfiguration -OutputPath:"C:\DSC"
 {% endhighlight %}    
 
-En el bloque anterior detallamos el uso del módulo de DSC para Linux y también en que nodo vamos a estar trabajando (en mi caso solamente ingresé la IP del server con CentOS). Luego se describe un archivo de prueba, con la ruta donde se va a generar y el texto que va a tener &#8220;Hello PoSh World&#8221;.
+En el bloque anterior detallamos el uso del módulo de DSC para Linux y también en que nodo vamos a estar trabajando (en mi caso solamente ingresé la IP del server con CentOS). Luego se describe un archivo de prueba, con la ruta donde se va a generar y el texto que va a tener "
+Hello PoSh World"
+.
 
 Si bien todo se encuentra controlado, tenemos que habilitar en el Firewall del servidor de Linux el puerto que vamos a utilizar para poder acceder, ejecutando:
 

@@ -20,7 +20,9 @@ tags:
 
 Hoy vengo a compartir que en Windows hoy contamos con el proyecto [Chocolatey](https://chocolatey.org), que utiliza la infraestructura de paquetería NuGet para lograr este objetivo, que como he leído por ahí, es el apt-get de Windows.
 
-Todos los que trabajan con Windows conocen que el proceso de instalar Software está atado a ejecutar asistentes de forma tediosa y se reducen simplemente a pulsar &#8220;siguiente&#8221; para intentar completar el proceso lo antes posible. Esto obviamente en la mayoría de los casos.
+Todos los que trabajan con Windows conocen que el proceso de instalar Software está atado a ejecutar asistentes de forma tediosa y se reducen simplemente a pulsar "
+siguiente"
+ para intentar completar el proceso lo antes posible. Esto obviamente en la mayoría de los casos.
 
 Ahora bien, todos aquellos que trabajan con Windows pero manejan Linux (o al menos tienen algunos conocimientos) saben que cuentan con gestores de paquetes, que básicamente son repositorios de software que permiten instalar software por medio de la consola. Esto simplifica no solo el proceso de instalación, si no que los que deben instalar software bastante a menudo o de forma repetitiva valoran, y mucho, este tipo de herramientas.
 

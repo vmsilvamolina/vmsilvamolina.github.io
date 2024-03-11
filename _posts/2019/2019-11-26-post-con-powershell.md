@@ -48,7 +48,7 @@ Para optimizar tiempos de edición y escritura vamos a generar una función que 
 Lo primero que hay que hacer es empezar a definir la función:
 
 {% highlight posh %}
-  function New-JekyllPost {
+function New-JekyllPost {
 
   }
 {% endhighlight %}
@@ -58,7 +58,7 @@ Lo segundo es definir los parámetros que vamos a utilizar para desplegar los ar
 Ya que la mayoría de las veces escribimos y publicamos el post sobre el mismo día, por lo que podemos definir el parámetro *$Date = (get-Date)*, en donde al momento de invocar la función, si obviamos definir el valor del parámetro **$Date** automáticamente nos ingresa la fecha corriente:
 
 {% highlight posh %}
-  function New-JekyllPost {
+function New-JekyllPost {
     [CmdletBinding()]
     param ( 
       [Parameter(Position=0, ValueFromPipeline=$true)][PSObject[]]$Date = (Get-Date),
@@ -75,7 +75,7 @@ Ya con los parámetros podemos comenzar a trabajar sobre el cuerpo de la funció
 Definimos las siguientes variables ya manipuladas:
 
 {% highlight posh %}
-  if ($Date.GetType() -eq [string]) {
+if ($Date.GetType() -eq [string]) {
     $Date = [datetime]$Date
   }
   $DatePost = $Date | Get-Date -Format s
@@ -85,7 +85,7 @@ Definimos las siguientes variables ya manipuladas:
 Luego viene el formato del nombre del archivo con extensión *.md* y del formato de la URL. Para ello pasamos el valor ingresado en el parámetro todo a minúscula con el método *.ToLower()*. También es requerido separar las palabras con guiones, ya que en las URL no se permiten espacios vacíos. Luego de tener eso formateado, generamos el archivo en cuestión:
 
 {% highlight posh %}
-  $TitlePost = $Title.Replace(" ","-").ToLower()
+$TitlePost = $Title.Replace(" ","-").ToLower()
   $PostName = [string]$DatePostName + "-" + $TitlePost + ".md"
   New-Item -Path $PostPath -ItemType File -Name $PostName | Out-Null
   [string]$PostFileName = $PostPath + "\" + $PostName
@@ -94,7 +94,7 @@ Luego viene el formato del nombre del archivo con extensión *.md* y del formato
 Hasta acá, ya podríamos comenzar a editar el archivo para luego publicarlo. Pero podemos avanzar un poco más... vamos a agregarle el encabezado del que hablamos, utilizando las variables que definimos anteriormente:
 
 {% highlight posh %}
-  $Values = @"
+$Values = @"
   ---
   title: $Title
   date: $DatePost
@@ -111,7 +111,7 @@ Hasta acá, ya podríamos comenzar a editar el archivo para luego publicarlo. Pe
 Y ahora sí, juntando todas las partes, obtendremos la función que nos va a permitir crear posts para Jekyll usando PowerShell:
 
 {% highlight posh %}
-  function New-JekyllPost {
+function New-JekyllPost {
     [CmdletBinding()]
     param ( 
       [Parameter(Position=0, ValueFromPipeline=$true)][PSObject[]]$Date = (Get-Date),

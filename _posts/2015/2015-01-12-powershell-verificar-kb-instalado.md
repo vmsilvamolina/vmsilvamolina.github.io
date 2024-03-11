@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Verificar KB instalado'
+title: 'PowerShell - Verificar KB instalado'
 date: 2015-01-12T10:22:05+00:00
 author: Victor Silva
 layout: single
@@ -23,7 +23,7 @@ Si necesitamos saber el total de hotfixs instalados en nuestro equipo, simplemen
 {% highlight posh %}
 Get-Hotfix
 {% endhighlight %}
-    
+
 
 Si en cambio, sabemos que HotFix estamos buscando, el comando cambia agregando lo siguiente:
 

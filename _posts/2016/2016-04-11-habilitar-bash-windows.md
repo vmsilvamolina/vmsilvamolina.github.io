@@ -20,7 +20,9 @@ Dentro de las cosas que se presentaron en el [Build 2016](https://build.microsof
 
 Esta update ha sido liberado para el Fast Ring del programa Windows Insider dentro del build 14316, encargados de recibir las últimas características de Windows 10. Esto no es una VM de Linux, son **ELF Linux Binaries** reales.
 
-Para acceder a este build que contiene esta gran feature, lo primero que debemos hacer es &#8220;convertirnos&#8221; en **Insiders** (los que todavía no lo son, obviamente). Para ellos basta con acceder a **Settings** / **Updates**.
+Para acceder a este build que contiene esta gran feature, lo primero que debemos hacer es "
+convertirnos"
+ en **Insiders** (los que todavía no lo son, obviamente). Para ellos basta con acceder a **Settings** / **Updates**.
 
 Dentro de Updates, vamos a la sección _For Developers_ y dentro de _Use developers features_, seleccionames **_Developer Mode_**:
 
@@ -45,7 +47,9 @@ Al ejecutar bash, nos va a aparecer el siguiente mensaje:
 
 <img src="https://lh3.googleusercontent.com/RKqVp7v1n52Kvom7FNJcxQVoelYX5SRIkpsxfEs2rFGqCqTTNo2UIM3lLSJot5HRROeGW6UrGNhXpZTJIB_Do91t4XFdkiDloSECVCUmVmt3_HKk7d0xsAxkASXX2XbeXyTZmgCN5yB0Etsfc590KZAjV8cXhYO1GF-WwEWbEjAN2H9btgK6NE_tUnzrFJVXwtfGOZglfORIYSZ9OtgRREiQ722N8-eKr7ObKBJ0gKTQ1cM1ox1zzWgqGrk2itK01RFLab0BcLvTQmzZZ5BCf7mFVrtpXribdgAtTknf7F5CvIaI__k5hg8xuIavDkaUV2ZRSs9_lcuxTaTw27Fl75Iy2YuG-otSXuDUyQFKJamkxdGsvL9mEdy_QMpWbVSQ-Lc56SpJDbZ4cGPglkQscpFDW-8uuSfs8Lwbp4KxAXZzV8juOhrhpsyYZGCR3BH6PtTHMTBNuJ9V8Zd3llfZKKqM0wEXWWWTw_nd8nBYN_jZwnkP_jNSYG0DNKh0wTuITzGyo9sTaaXc9_TsHIqZv0_gFMrnTSJq0viHrwmgaUKOHPlI0eS8hn1ZjKujF8201hO_=w706-h280-no" width="706" height="280" alt="bash - Instalación" class="alignnone" />
 
-Vamos a pulsar la &#8220;y&#8221; para comenzar la instalación. Si prestan atención indica que es una feature en estado _beta_.
+Vamos a pulsar la "
+y"
+ para comenzar la instalación. Si prestan atención indica que es una feature en estado _beta_.
 
 Finalizada la instalación:
 

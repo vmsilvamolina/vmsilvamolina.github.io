@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Renombrar una computadora'
+title: 'PowerShell - Renombrar una computadora'
 date: 2015-04-14T16:30:44+00:00
 author: Victor Silva
 layout: single

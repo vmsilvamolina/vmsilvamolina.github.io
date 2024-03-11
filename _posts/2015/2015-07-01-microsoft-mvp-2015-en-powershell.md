@@ -1,5 +1,5 @@
 ---
-title: Microsoft MVP 2015 en PowerShell
+title: 'Microsoft MVP 2015 en PowerShell'
 date: 2015-07-01T22:14:48+00:00
 author: Victor Silva
 layout: single
@@ -24,7 +24,7 @@ Que decir, toda la mañana esperando a ver si aparecía el mail o no&#8230; Hast
 
 Un mail de Microsoft felicitándome porque había sino seleccionado como MVP en este 2015 en la tecnología **PowerShell**.
 
-Simplemente quería expresar mi felicidad al respecto,por el reconocimiento. Ahora queda seguir por este camino, tratando siempre de desarrollarme cada día un poco más.
+Simplemente quería expresar mi felicidad al respecto, por el reconocimiento. Ahora queda seguir por este camino, tratando siempre de desarrollarme cada día un poco más.
 
 Muchas gracias por el apoyo a todos los que siempre lo hicieron y motivaron a que continuara trabajando.
 

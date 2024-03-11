@@ -18,7 +18,9 @@ tags:
   - WIndows 10 IoT
   - Windows IoT
 ---
-Hace un tiempo que existe una gran demanda e interés por **_IoT_**. Microsoft apostó a integrar dentro de su gama de servicios esta nueva ola de &#8220;el internet de las cosas&#8221;. Como lo hizo? Lanzando una versión de Windows especifica para trabajar sobre dispositivos de esta índole, otorgando la posibilidad de crear soluciones mezclando el uso de software y hardware. Hoy quiero compartir como administrar Windows 10 IoT usando PowerShell.
+Hace un tiempo que existe una gran demanda e interés por **_IoT_**. Microsoft apostó a integrar dentro de su gama de servicios esta nueva ola de "
+el internet de las cosas"
+. Como lo hizo? Lanzando una versión de Windows especifica para trabajar sobre dispositivos de esta índole, otorgando la posibilidad de crear soluciones mezclando el uso de software y hardware. Hoy quiero compartir como administrar Windows 10 IoT usando PowerShell.
 
 Windows 10 IoT es un SO específico para utilizar en ciertos dispositivos, como por ejemplo Raspberry Pi.
 

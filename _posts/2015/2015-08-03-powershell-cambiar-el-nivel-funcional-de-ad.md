@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Cambiar el nivel funcional de AD'
+title: 'PowerShell - Cambiar el nivel funcional de AD'
 date: 2015-08-03T21:56:59+00:00
 author: Victor Silva
 layout: single
@@ -27,14 +27,16 @@ Por ello es que quiero comentarles brevemente como es que por medio de PowerShel
 
 Lo que debemos ejecutar, sería lo siguiente:
 
-    Get-ADForest | Set-ADForestMode -ForestMode windows2012R2Forest –Confirm:$false
-    
+{% highlight posh%}
+Get-ADForest | Set-ADForestMode -ForestMode windows2012R2Forest –Confirm:$false
+{% endhighlight %}
 
 Con el primer cmdlet obtenemos el nombre para posteriormente ejecutar Set-ADForest y seleccionar el nivel funcional correspondiente.
 
 Si tenemos el nombre NetBIOS del dominio, perfectamente podemos ejecutar lo siguiente:
 
-    Set-ADForestMode –Identity "NetBIOSname windows2012R2Forest –Confirm:$false
-    
+{% highlight posh%}
+Set-ADForestMode –Identity "NetBIOSname windows2012R2Forest –Confirm:$false
+{% endhighlight %}
 
-Saludos,
+Happy scripting!

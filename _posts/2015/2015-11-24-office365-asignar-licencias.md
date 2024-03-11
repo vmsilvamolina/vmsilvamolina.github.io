@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Office365 asignar licencias'
+title: 'PowerShell - Office365 asignar licencias'
 date: 2015-11-24T22:47:37+00:00
 author: Victor Silva
 layout: single

@@ -19,7 +19,9 @@ tags:
 ---
 En el post anterior (Chef y Azure) vimos como implementar un servidor de Chef en Azure, usando el marketplace de Azure para facilitar la instalación de Chef.
 
-Hoy quier compartir como facilitar la administración y configuración de nuestros servidores usando Chef en Azure. Algunas de los ejemplos van a ser como definir algunas recetas y &#8220;cookbooks&#8221; para poder empezar a entender como trabaja esta herramienta y como nos puede facilitar el trabajo del día a día.
+Hoy quier compartir como facilitar la administración y configuración de nuestros servidores usando Chef en Azure. Algunas de los ejemplos van a ser como definir algunas recetas y "
+cookbooks"
+ para poder empezar a entender como trabaja esta herramienta y como nos puede facilitar el trabajo del día a día.
 
 Vamos a comenzar ingresando a nuestra consola de administración de Azure, ingresando como URL la dirección que nos indica Azure en los settings del cloud service.
 
@@ -78,7 +80,9 @@ Vamos a agregar la siguientes líneas:
     ssl_verify_mode :verify_none
     
 
-Donde &#8220;siteurl&#8221; es el nombre de nuestro server (que conforma la URL del sitio). Vamos a guardar este archivo con el nombre:
+Donde "
+siteurl"
+ es el nombre de nuestro server (que conforma la URL del sitio). Vamos a guardar este archivo con el nombre:
 
 **_client.rb_**
 

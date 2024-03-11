@@ -1,5 +1,5 @@
 ---
-title: 'Customizar la web de ADFS &#8211; Parte 1'
+title: 'Customizar la web de ADFS - Parte 1'
 date: 2016-02-20T21:45:22+00:00
 author: Victor Silva
 layout: single

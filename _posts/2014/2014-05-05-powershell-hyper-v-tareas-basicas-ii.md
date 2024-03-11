@@ -39,7 +39,7 @@ Donde HOST2 es el nombre del host destino.
 
 ## Procesador
 
-Que pasa si nuestros hosts tienen procesadores de diferente proveedor? No se puede hacer Live Migration por defecto. Lo que debemos hacer es habilitar una opción llamada &#8220;Processor Compatibility &#8211; Migrate to a Physical computer with a different processor versión&#8221; en la configuración de la VM. Es tan simple como ejecutar los siguientes comandos:
+Que pasa si nuestros hosts tienen procesadores de diferente proveedor? No se puede hacer Live Migration por defecto. Lo que debemos hacer es habilitar una opción llamada "Processor Compatibility - Migrate to a Physical computer with a different processor versión" en la configuración de la VM. Es tan simple como ejecutar los siguientes comandos:
 
 Lo primero, detener la maquina virtual para aplicar los cambios:
 

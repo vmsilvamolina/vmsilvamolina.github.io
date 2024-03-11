@@ -1,5 +1,5 @@
 ---
-title: Charla en la .Net MeetUp UY
+title: 'Charla en la .Net MeetUp UY'
 date: 2015-07-23T12:22:30+00:00
 author: Victor Silva
 layout: single

@@ -1,5 +1,5 @@
 ---
-title: 'SQL: Does not support the language of the OS'
+title: 'SQL Server - Does not support the language of the OS'
 date: 2015-07-08T21:56:26+00:00
 author: Victor Silva
 layout: single
@@ -32,12 +32,12 @@ Volvemos a intentar... y todo de maravilla!
 Y como no puede ser de otra manera, desde PowerShell podemos hacer una función bien simple para hacer el cambio correctamente:
 
 {% highlight posh%}
-    Function Change-Language {            
-    param ($Language)            
-    Set-ItemProperty "HKCU:\Control Panel\International" -Name "LocaleName" -Value $Language 
-    }            
-    
-    Change-Language -Language "es-ES"
+Function Change-Language {            
+  param ($Language)            
+  Set-ItemProperty "HKCU:\Control Panel\International" -Name "LocaleName" -Value $Language 
+}            
+
+Change-Language -Language "es-ES"
 {% endhighlight %}
 
 Happy scripting!

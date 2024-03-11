@@ -19,7 +19,9 @@ Su principal uso o por lo que la mayoría de las personas utilizan el parámetro
 
 ## Usando el parámetro passthru
 
-Todos conocemos varios cmdlets que devuelven &#8220;cosas&#8221; por defecto: los que empiezan con Get, New, Set de los módulos que manejamos a diario de seguro nos arrojan información a la consola de manera predeterminada. Pero como comentamos anteriormente, en otros no ocurren acciones de salida. Cumple lo anterior el cmdlet **_Copy-Item_**, simplemente copia el o los objetos desde el origen al destino sin acusar nada luego de finalizado, veamos un pequeño ejemplo:
+Todos conocemos varios cmdlets que devuelven "
+cosas"
+ por defecto: los que empiezan con Get, New, Set de los módulos que manejamos a diario de seguro nos arrojan información a la consola de manera predeterminada. Pero como comentamos anteriormente, en otros no ocurren acciones de salida. Cumple lo anterior el cmdlet **_Copy-Item_**, simplemente copia el o los objetos desde el origen al destino sin acusar nada luego de finalizado, veamos un pequeño ejemplo:
 
 {% highlight posh %}
 Copy-Item -Path C:\Temp\File.txt -Destination .\Desktop

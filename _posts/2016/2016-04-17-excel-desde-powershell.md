@@ -20,7 +20,9 @@ A continuación vamos a ver como usar Excel desde PowerShell, como crear archivo
 
 Manipular datos hoy es uno de los tareas fundamentales dentro de las áreas de sistemas, en especial dentro de los departamentos de infraestrucutra y administración de sistemas. A su vez, Excel es uno de esos programas que nunca pasa de moda, por lo que nunca está de más conocer como sacarle provecho a nuestras tareas diarias.
 
-Para manipular la aplicación Excel, vamos a utilizar plataforma COM ([COM interface](https://msdn.microsoft.com/en-us/library/windows/desktop/ff485850%28v=vs.85%29.aspx)), que básicamente es un conjunto definido de métodos soportados por un objeto, para &#8220;llamar&#8221; a la aplicación en sí de la siguiente manera:
+Para manipular la aplicación Excel, vamos a utilizar plataforma COM ([COM interface](https://msdn.microsoft.com/en-us/library/windows/desktop/ff485850%28v=vs.85%29.aspx)), que básicamente es un conjunto definido de métodos soportados por un objeto, para "
+llamar"
+ a la aplicación en sí de la siguiente manera:
 
     $Excel = New-Object -ComObject Excel.Application
     
@@ -54,7 +56,9 @@ Ya con el archivo abierto (libro) vamos a nombrar la hoja de nuestro _WorkBook_,
 
 ### Insertar datos
 
-Ahora que tenemos un archivo para manipular, vamos a insertar datos dentro de la planilla. Con la siguiente línea de código vamos a modificar el valor de la celda A1, insertando el texto &#8220;Hola mundo!&#8221;:
+Ahora que tenemos un archivo para manipular, vamos a insertar datos dentro de la planilla. Con la siguiente línea de código vamos a modificar el valor de la celda A1, insertando el texto "
+Hola mundo!"
+:
 
     $WorkSheet.Cells.Item(1,1) = 'Hola mundo!'
     

@@ -31,7 +31,9 @@ Luego debemos ir a la pestaña navegación:
 
 <img src="https://lh3.googleusercontent.com/-Gki_TrNDDRE/VJhY56XHlOI/AAAAAAAAGVM/CN8j9M-r-9c/w414-h521-no/PS_START_MENU_3.png" width="414" height="521" class="alignnone" />
 
-Y dentro de las opciones de la pestaña, seleccionar la que dice: &#8220;Reemplazar el símbolo del sistema por Windows PowerShell en el menú&#8230;&#8221;
+Y dentro de las opciones de la pestaña, seleccionar la que dice: "
+Reemplazar el símbolo del sistema por Windows PowerShell en el menú&#8230;"
+
 
 <img src="https://lh6.googleusercontent.com/-AWyQAEFiJ_U/VJhY5zTU50I/AAAAAAAAGVQ/ytSVlHVP1hM/w414-h521-no/PS_START_MENU_4.png" width="414" height="521" class="alignnone" />
 

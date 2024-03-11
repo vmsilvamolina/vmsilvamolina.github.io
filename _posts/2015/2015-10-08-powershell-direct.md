@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell Direct &#8211; Ejecutar PowerShell en una VM desde el Hyper-V host'
+title: 'PowerShell Direct - Ejecutar PowerShell en una VM desde el Hyper-V host'
 date: 2015-10-08T12:47:04+00:00
 author: Victor Silva
 layout: single
@@ -51,7 +51,9 @@ Para usar este método, simplemente tenemos que realizar lo siguiente:
 
 ## Por qué es tan genial?
 
-Honestamente, creo que es algo realmente útil y maravilloso! Los que trabajamos creando POCs, demos, probando productos y armando escenarios es bastante tedioso hacerlo, ya que si bien siempre desarrollamos &#8220;parches&#8221; para estas situaciones, hay casos en los que realmente PowerShell Direct saca ventaja.
+Honestamente, creo que es algo realmente útil y maravilloso! Los que trabajamos creando POCs, demos, probando productos y armando escenarios es bastante tedioso hacerlo, ya que si bien siempre desarrollamos "
+parches"
+ para estas situaciones, hay casos en los que realmente PowerShell Direct saca ventaja.
 
 Por ejemplo, cuando hacemos cambios a nivel de redes, si la cosa sale mal, si osí tenemos que conectarnos a la VM desde el cliente de Hyper-V, ya que de otra manera no vamos a tener acceso. Lo mismo sucede cuando se aplican políticas de dominio, en las que se modifican, por ejemplo, las relgas de Firewall y ya no podemos administrar remotamente con PowerShell las VMs.
 

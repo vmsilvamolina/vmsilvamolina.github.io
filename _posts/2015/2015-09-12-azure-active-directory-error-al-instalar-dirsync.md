@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory &#8211; Error al instalar DirSync'
+title: 'Azure Active Directory - Error al instalar DirSync'
 date: 2015-09-12T21:42:25+00:00
 author: Victor Silva
 layout: single
@@ -34,7 +34,7 @@ Me decidí a revisar los eventos de Windows desde el Visor de Eventos, para ver 
 
 <img src="https://lh3.googleusercontent.com/6TYDuW_M9F0jpNZXrGbnGOQGpwTcpiGEEY24VGLEjtq12ge9iiHILPo2yf4EWttNavrbgA7h9jDNFZXj0JCs7TbV7lY7fUV4LuPP1g0pdJKu-6ey4cJwzynIgt5yB9EGAivofWe7891eXnWPIxba_5xTJLXCVIHPLxmKlWx9Mvhti9SflboMno77BN5attQg7wvkH94wfjv4i62Q8ePRpZsZL3zr4qYNRS3UyMeCyHzEEPlWgzy3auoVSktcTL9rsM2eD1UWtZTAdFBvhR4AXezhOqj-E2WO5I0klCcA6a82tBjQmzkycSfqkIcoLuYC1uClVOpxUyY3AIfSEzVQjPNnnwe6UQhTS5ZSZsS6Ho5ceyG6CZvJlL--5eRd9kv6GkGqRpplU6jEWguACxUhC0648_5KjCLtk44SBqWsE2GsJ9ulgl6SwAPlyL8uUQaBQCYU7p1LxVUfamNB4-8kNzCWmcX3RFI8TA6cstXm0dK2rPPXJcq8IVclfE7uK31_1ozrN_qLlOn-Do3jGil-8T4bLH5ZJNGZi01xr_Hfjw8=w908-h502-no" width="908" height="502" alt="error al instalar DirSync" class="alignnone" />
 
-La desinstalación del servicio de **Microsoft Online Services &#8211; Ayudante para el inicio de sesión** devolvió el código de error 1605. Intente desinstalar y, si el error persiste, póngase en contacto con el administrador.
+La desinstalación del servicio de **Microsoft Online Services - Ayudante para el inicio de sesión** devolvió el código de error 1605. Intente desinstalar y, si el error persiste, póngase en contacto con el administrador.
 
 Bueno, tenemos un código de error. Luego de buscar por unos minutos el error, pude encontrar el siguiente KB:
 
@@ -42,7 +42,7 @@ Bueno, tenemos un código de error. Luego de buscar por unos minutos el error, p
 
 En el se detalla el siguiente procedimiento:
 
-  1. Desinstalar: Microsoft Online Services &#8211; Ayudante para el inicio de
+  1. Desinstalar: Microsoft Online Services - Ayudante para el inicio de
   2. sesión Desinstalar: Azure Active Directory Sync tool (DirSync)
   3. Instalar: Azure Active Directory Sync tool (DirSync)
 

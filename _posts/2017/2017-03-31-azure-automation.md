@@ -46,20 +46,24 @@ Luego de haber creado la cuenta, vamos a ir a nuestros recurso y vamos a selecci
 
 <img src="https://ctflrw-ch3302.files.1drv.com/y4mD5ZpruNWOv3SWg3f9WbG-ADG7TEFIfgF-F-UGkJDqSfcckt09J0VYZCvhvYx8KqFRtK3aYCRe6t6TzZEKzq_t_avX-qsGvOysSNWYQ9q4EyziWRO2D0v9qCAkB-gq2yDG9OXJdzBQExFWdsI4dyOh-ZoiafCPSLDFVHalTRXBYJCiFL8Rn3SDA5l9CvRfM4eIzrhEU1UvQXfJ2wh0aE-YQ?width=824&#038;height=484&#038;cropmode=none" width="824" height="484" alt="New runbook" class="alignnone size-medium" />
 
-Para este primer ejemplo vamos a crear un Runbook muy simple. Básicamente lo que va a hacer al ejecutarse es imprimir como salida un &#8220;Hola Mundo&#8221;. Para llevar a cabo lo anterior, seleccionamos un nombre y marcamos el **_Runbook type_** como _PowerShell workflow_:
+Para este primer ejemplo vamos a crear un Runbook muy simple. Básicamente lo que va a hacer al ejecutarse es imprimir como salida un "
+Hola Mundo"
+. Para llevar a cabo lo anterior, seleccionamos un nombre y marcamos el **_Runbook type_** como _PowerShell workflow_:
 
 <img src="https://ctfkrw-ch3302.files.1drv.com/y4m_RuB9S53TZXVYoQDmobS-nGqH_LSE9pdDK_-rpV2uBuVqVTRzMsJmZSc6uoz816lLf2shYthoIiBQmSyXPUYx7dgpHyXuWcR-Bd57ljUz2jioRdCuO-ehD38B7n45aVS9Ry3zSVJ4QF7fdAk5h-EWJ5uPHbwfnbNOyYqCWXZ9bQCwGR6RvL_rXsRzLgEJrJqmbV3aLsMhRZEaK-6aH5Gdw?width=815&#038;height=639&#038;cropmode=none" width="815" height="639" alt="PowerShell workflow" class="alignnone size-medium" />
 
 Posteriormente ingresamos el siguiente código, para que retorne el string definido:
 
 {% highlight posh %}
-  workflow HelloWorld {
+workflow HelloWorld {
       Write-Output "Hello world!"
   }
 {% endhighlight %}
     
 
-Y con lo anterior, vamos a guardar nuestro Runbook y como último seleccionamos **Start** para iniciar la ejecución del mismo. Seleccionando el tile Output podemos observar lo devuelto por el script, el famoso &#8220;Hola mundo&#8221;:
+Y con lo anterior, vamos a guardar nuestro Runbook y como último seleccionamos **Start** para iniciar la ejecución del mismo. Seleccionando el tile Output podemos observar lo devuelto por el script, el famoso "
+Hola mundo"
+:
 
 <img src="https://ctfjrw-ch3302.files.1drv.com/y4mNJkoG4dYb_r4PiT9qfEuBXI_kjz-ffcf644mtmirpshXiyAWb7Q2igV-g5l5_bDWgHNjeff5QfNnN-uGhQBbcWvlS8FgIFFn99EvvMwd0ofz-hJ6Mtgroh0Nb0hVsZTqP5IREtPFCKqZNslPXXjmpCDYkL78Wp5anvBkN42sOXwestFocg79Oq7kfTtbYJqO5nElqfOOyiKl2M0egCsqVg?width=879&#038;height=540&#038;cropmode=none" width="879" height="540" alt="Runbook output" class="alignnone size-medium" />
 

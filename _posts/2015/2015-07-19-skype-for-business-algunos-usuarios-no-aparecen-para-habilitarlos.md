@@ -1,5 +1,5 @@
 ---
-title: 'Skype for Business &#8211; Algunos usuarios no aparecen para habilitarlos'
+title: 'Skype for Business - Algunos usuarios no aparecen para habilitarlos'
 date: 2015-07-19T21:04:13+00:00
 author: Victor Silva
 layout: single
@@ -36,20 +36,20 @@ El amigo Terence, nos recomienda limpiar los valores de éstos atributos, y que 
 
 Por eso es que armé esta _mini-función-reducida_, que permite con solo ingresar el usuario en cuestión limpiar los atributos para que quede listo para integrarse a la nueva implementación :).
 
-    Function Clean-ADUsers {
-    Param
-    (
-        [Parameter(Mandatory=$true)][ValidateNotNullOrEmpty()][string]$Name
-    )
-        $user = Get-ADUser $Name
-        $ldapDN = "LDAP://" + $user.distinguishedName
-        $adUser = New-Object DirectoryServices.DirectoryEntry $ldapDN
-        $adUser.PutEx(1, "msRTCSIP-PrimaryUserAddress", $null)
-        $adUser.PutEx(1, "msRTCSIP-ArchivingEnabled", $null)
-        $adUser.PutEx(1, "msRTCSIP-OptionFlags", $null)
-        $adUser.PutEx(1, "msRTCSIP-PrimaryHomeServer", $null)
-        $adUser.SetInfo()
-    }
-    
+{% highlight posh%}
+Function Clean-ADUsers {
+  Param (
+    [Parameter(Mandatory=$true)][ValidateNotNullOrEmpty()][string]$Name
+  )
+  $user = Get-ADUser $Name
+  $ldapDN = "LDAP://" + $user.distinguishedName
+  $adUser = New-Object DirectoryServices.DirectoryEntry $ldapDN
+  $adUser.PutEx(1, "msRTCSIP-PrimaryUserAddress", $null)
+  $adUser.PutEx(1, "msRTCSIP-ArchivingEnabled", $null)
+  $adUser.PutEx(1, "msRTCSIP-OptionFlags", $null)
+  $adUser.PutEx(1, "msRTCSIP-PrimaryHomeServer", $null)
+  $adUser.SetInfo()
+}
+{% endhighlight %}
 
-Saludos,
+Happy scripting!

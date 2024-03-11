@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Show-Command'
+title: 'PowerShell - Show-Command'
 date: 2015-04-24T10:29:46+00:00
 author: Victor Silva
 layout: single

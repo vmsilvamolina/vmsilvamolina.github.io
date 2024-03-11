@@ -17,7 +17,7 @@ tags:
   - PowerShell
   - Serverless
 ---
-## Serverless Computing &#8211; Azure Functions
+## Serverless Computing - Azure Functions
 
 Aunque suene un poco contradictorio, el concepto de Serverless no significa que no hay un servidor, en realidad hace referencia a que no hay ningún servidor del que debemos preocuparnos. Ésta idea se asemeja bastante a lo que es **_Paas_**, aunque en realidad es un nuevo concepto que lo lleva a otro nivel.
 

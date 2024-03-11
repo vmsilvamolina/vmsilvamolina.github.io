@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Network
+title: 'Azure Virtual Network'
 date: 2015-05-15T23:16:02+00:00
 author: Victor Silva
 layout: single

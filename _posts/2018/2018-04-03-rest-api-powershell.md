@@ -47,7 +47,7 @@ $files = $response.items
 ### GET + "custom headers"
 
 {% highlight posh %}
-  $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
+$headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
   $headers.Add("X-DATE", '9/29/2018')
   $headers.Add("X-SIGNATURE", 'xxxxxxxxxxxxxxxxxxx')
   $headers.Add("X-API-KEY", 'testUser')
@@ -57,7 +57,7 @@ $files = $response.items
 ### PUT/POST
 
 {% highlight posh %}
-  $person = @{
+$person = @{
     title='TituloDelArchivo'
     author='Victor Silva'
   }
@@ -68,7 +68,7 @@ $files = $response.items
 ### DELETE
 
 {% highlight posh %}
-  $response = Invoke-RestMethod 'http://example.com/api/files/1' -Method Delete
+$response = Invoke-RestMethod 'http://example.com/api/files/1' -Method Delete
 {% endhighlight %}
 
 Happy scripting!

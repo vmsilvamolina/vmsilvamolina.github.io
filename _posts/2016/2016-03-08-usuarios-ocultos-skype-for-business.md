@@ -25,7 +25,9 @@ Luego de buscar información por un rato, me comentan que ellos habían realizad
 
 Empece a revisar los atributos de Active Directory y encontré varios cambios que estaban siendo utilizados con información y configuración que no era la actual.
 
-Es por ello que quiero compartir una pequeña función para poder &#8220;habilitar&#8221; (o limpiar) esos usuarios para las nuevas implementaciones:
+Es por ello que quiero compartir una pequeña función para poder "
+habilitar"
+ (o limpiar) esos usuarios para las nuevas implementaciones:
 
     Function Clean-SFBUsers {
         <#

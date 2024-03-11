@@ -29,7 +29,7 @@ Abro una consola de PowerShell, ejecuto **_Get-History_**. Como resultado no voy
 
 <img src="https://lh4.googleusercontent.com/--ph76iNadg0/VQnVI5SCpmI/AAAAAAAAG3o/ROMmtYkBWmA/w530-h206-no/PS_History_1.png" width="530" height="206" class="alignnone" />
 
-Podemos uttilizar el comando para que solo nos muestre los comandos que contenga un texto especifico, por ejemplo la cadena &#8220;Get&#8221; ejecutando:
+Podemos uttilizar el comando para que solo nos muestre los comandos que contenga un texto especifico, por ejemplo la cadena "Get" ejecutando:
 
 {% highlight posh %}
 Get-History | Where-Object {$_.CommandLine -like "*Get*"}

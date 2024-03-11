@@ -23,7 +23,7 @@ Lo primero de lo que voy a hablar es sobre como trabajar directamente con Intern
 Adicional a esto, es posible utilizar el método **Navigate2** para definir la URL a la que queremos navegar y definimos el valor de la propiedad **Visible** en *$True* para que la aplicación sea visible:
 
 {% highlight posh %}
-  $ie = New-Object -ComObject "InternetExplorer.Application"
+$ie = New-Object -ComObject "InternetExplorer.Application"
   $ie.navigate2("https://www.youtube.com/?hl=es&gl=ES")
   $ie.visible = $True
 {% endhighlight %}
@@ -34,7 +34,7 @@ Adicional a esto, es posible utilizar el método **Navigate2** para definir la U
 A pesar de tener ya el navegador junto con el acceso a la web que nos interesa, debemos implementar un mecanismo que nos permita esperar a que termine de cargar la página antes de seguir trabajando. Lo anterior podemos resolverlo utilizando un simple **while** y **Start-Sleep** mientras se encuentre el estado *Busy*:
 
 {% highlight posh %}
-  while($ie.Busy) {Start-Sleep -Milliseconds 100}
+while($ie.Busy) {Start-Sleep -Milliseconds 100}
 {% endhighlight %}
 
 Ahora que tenemos este gran avance, debemos conocer como hay que hacer para interactuar con los campos de búsqueda; el campo donde ingresamos el valor de la búsqueda y el botón para realizarla. Esto lo vamos a realizar por medio de las herramientas de desarrollador. Accedemos a ellas desde el navegador con la tecla F12:
@@ -48,7 +48,7 @@ Usando las Dev Tools vamos a poder encontrar la información que necesitamos sob
 Ese valor resaltado en verde es el **Id** del elemento, el cuál es único. Nos sirve para poder identificarlo dentro de la página web, de la siguiente manera:
 
 {% highlight posh %}
-  $doc = $ie.Document
+$doc = $ie.Document
   $searchBarId = "masthead-search-term"
   $doc.getElementById($searchBarId)
 {% endhighlight %}
@@ -56,7 +56,7 @@ Ese valor resaltado en verde es el **Id** del elemento, el cuál es único. Nos 
 Ahora vamos a hacer lo mismo para el botón de búsqueda y adicionamos, al bloque anterior, el valor que nos interesa buscar en Youtube:
 
 {% highlight posh %}
-  $doc = $ie.Document
+$doc = $ie.Document
   $searchBarId = "masthead-search-term"
   $doc.getElementById($searchBarId).value = "PowerShell"
   $buttonId = "search-btn"
@@ -67,7 +67,7 @@ Ahora vamos a hacer lo mismo para el botón de búsqueda y adicionamos, al bloqu
 Y listo! Resta sumar todo en una función e invocar el método *click()* como se detalla en el siguiente bloque para que todo funcione correctamente:
 
 {% highlight posh %}
-  function Search-Youtube {
+function Search-Youtube {
     param(
       [string]$Search
     )
@@ -86,7 +86,7 @@ Y listo! Resta sumar todo en una función e invocar el método *click()* como se
 Al ejecutar la función e invocarla de la siguiente manera:
 
 {% highlight posh %}
-  Search-Youtube -Search "Trailer de la casa de papel"
+Search-Youtube -Search "Trailer de la casa de papel"
 {% endhighlight %}
 
 Vamos a obtener lo siguiente:

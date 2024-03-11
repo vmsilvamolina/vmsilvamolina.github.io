@@ -1,5 +1,5 @@
 ---
-title: Crear Windows Server Containers
+title: 'Crear Windows Server Containers'
 date: 2015-12-28T14:39:13+00:00
 author: Victor Silva
 layout: single
@@ -126,7 +126,9 @@ Con el mapeo creado, vamos a configurar lo necesario en el Firewall, para ello:
 
 <img src="https://lh3.googleusercontent.com/_BjQXZfhItRF8m_HkOkcK7TTU7ugUVM47Xo7QhhREe6pqmyzULM4QVWpob7CiazoiwVo9CAmfhUSCBXQjB6pSpyBRs9gnpP6Y9ypcd9KUEafnMtcRNuiFCzpsjCXbGq8Do6CgPIjPBQqt_J1TWetnJrP3_kugyL5pbfstcPGjeMmuyuoR9kCgPtrDcPPAF-RVzXi-xhHz4iuniui-9xJX2U5jfnX5bC4Oax0eqlfR9PIA1Qt1lF6rqGb1qKIDoiql1DYBWCUvQ6bwbB9aanpvHrX78xAl2k8ycFFxPRr30W41GxxVOm8rlc9hAOrNwlIaVTHKsD_MQfWrOPoBz79hip09s1UM3oz_MA06DYLTYsr94P_Q4wMTaQJJzRBAaCeBBel_ysegNFhrPhPsUPv9Df-xxTfAJ0RxJYmQ9L1pNiwoqzdqaqVaXhHON02ykCxAQxY-a_aSMNU8Cgbwl9u-EJee7aOI5roBPvkzpMEMbPYNoxE5dXPoPVvW8Lx28-Lcv8Pdd-_NsdM3zi0HBo4BHf5GiwZoptMujKScQrsw-zxabdzrV27w9vEjzuGqQ_mC5TL=w1003-h536-no" width="1003" height="536" alt="Crear Windows Server Container" class="alignnone" />
 
-### Creando la aplicación &#8220;Hola Mundo!&#8221;
+### Creando la aplicación "
+Hola Mundo!"
+
 
 En este momento, podemos ejecutar un navegador y accediendo a la IP de nuestro _container host_ vamos a poder ver lo siguiente:
 
@@ -144,7 +146,9 @@ Ahora podemos ejecutar lo siguiente para borrar la imagen por defecto (splash sc
     del C:\inetpub\wwwroot\iisstart.htm
     
 
-Y vamos a generar un archivo .html personalizado que sea nuestra &#8220;aplicación&#8221;:
+Y vamos a generar un archivo .html personalizado que sea nuestra "
+aplicación"
+:
 
     @" 
     <!doctype html>

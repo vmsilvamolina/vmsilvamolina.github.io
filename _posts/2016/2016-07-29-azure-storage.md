@@ -35,7 +35,9 @@ Azure Storage ofrece 4 tipos de servicios de almacenamiento:
   * **Blob Storage:** Utilizado para almacenar información datos de objetos no estructurado. Un blob puede ser un documento, archivo multimedia o un instalador de algún software. También es conocido como _Object storage_.
   * **Table Storage:** Es un almacén de datos del tipo _NoSQL key-attribute_, permitiendo un rápido desarrollo y acceso a grandes cantidades de información.
   * **Queue Storage:** Ofrece un canal de messaging (puede manipular hasta 2000 message transaction por segundo) para el procesamiento de workflow y para comunicar componentes cloud.
-  * **File Storage:** Proporciona almacenamiento compartido para aplicaciones &#8220;legacy&#8221;, que utilizan el protocolo SMB estándar. Las VMs de Azure y los servicios pueden compartir archivos entre sí. Adicionalmente, las aplicaciones locales pueden acceder a datos en un recurso compartido a través de la API REST.
+  * **File Storage:** Proporciona almacenamiento compartido para aplicaciones "
+legacy"
+, que utilizan el protocolo SMB estándar. Las VMs de Azure y los servicios pueden compartir archivos entre sí. Adicionalmente, las aplicaciones locales pueden acceder a datos en un recurso compartido a través de la API REST.
 
 Para poder consumir los servicios de Azure Storage de forma segura y controlada, existen 2 tipos de cuentas disponibles para utilizar según nuestros requerimientos de funcionalidad:
 
@@ -79,7 +81,9 @@ En donde debemos seleccionar para este ejemplo los siguientes valores:
 
 Al finalizar el asistente, vamos a descargar el [Storage Explorer](http://storageexplorer.com/). Software que básicamente permite utilizar una interfaz visual como el explorador de Windows para acceder a nuestros containers y blobs de información de nuestras cuentas de Azure Storage.
 
-También puede descargarse desde el portal de Azure, utilizando el botón &#8220;Open in Explorer&#8221; (al no encontrarlo instalado, preguntará para descargarlo).
+También puede descargarse desde el portal de Azure, utilizando el botón "
+Open in Explorer"
+ (al no encontrarlo instalado, preguntará para descargarlo).
 
 <img src="https://q15fmq-ch3302.files.1drv.com/y4mF3h9Cod5KE-fzh3r8TeucnmmkB4gof62Na8KJ_ITpdNfKiG8ADDOvejsmF8ExarATM7-lNO9NWO4qX_A3yRNgwvJPVLDRVbCxNvuAZRFsD0fkzJ9v_l2GIa40s2CHkKf44cplZ1E-h1V4mECmy5AlhKeZ5JQRxao0QgR5zBQxuM2aDrXuAtAoRTaA4IyAdFlDiG1nboWpCgj4nXg1_5a2Q?width=854&#038;height=436&#038;cropmode=none" width="854" height="436" alt="Azure Storage Explorer" class="alignnone size-medium" />
 
@@ -143,7 +147,11 @@ Ahora que hemos creado la cuenta de almacenamiento, necesitamos comenzar a comun
 
 En primer lugar, obtendremos las claves de la cuenta de almacenamiento utilizando ARM y, a continuación, crearemos un Storage Context Object utilizando una de las claves. El Storage Context Object en sí es lo que nos permite autenticar a la API REST de almacenamiento de Azure de PowerShell.
 
-> Los comandos ya no tienen &#8220;AzureRm&#8221; en el nombre, simplemente tienen el prefijo &#8220;Azure&#8221;. Esto se debe a que los >comandos Azure Storage no forman parte de la interfaz de Azure Resource Manager.
+> Los comandos ya no tienen "
+AzureRm"
+ en el nombre, simplemente tienen el prefijo "
+Azure"
+. Esto se debe a que los >comandos Azure Storage no forman parte de la interfaz de Azure Resource Manager.
 
 {% highlight posh %}
 ### Obtenemos la Storage Account authentication keys con ARM
@@ -153,7 +161,9 @@ $Keys = Get-AzureRmStorageAccountKey -ResourceGroupName AzureStoragePoSh -Name S
 $StorageContext = New-AzureStorageContext -StorageAccountName AzureStoragePoSh -StorageAccountKey $Keys[0].Value
 {% endhighlight %}
 
-Teniendo lo mencionado anteriormente, vamos a crear un Blob Container para alojar nuestros &#8220;blobs&#8221; de almacenamiento. Para ello:
+Teniendo lo mencionado anteriormente, vamos a crear un Blob Container para alojar nuestros "
+blobs"
+ de almacenamiento. Para ello:
 
 {% highlight posh %}
 ### Crear un Blob Container en la Storage Account

@@ -35,7 +35,7 @@ La instalación de PowerShell Polaris es bastante sencilla, simplemente hay cump
 Y los pasos a seguir son:
 
 {% highlight posh %}
-  git clone https://github.com/PowerShell/Polaris.git
+git clone https://github.com/PowerShell/Polaris.git
   cd Polaris/PolarisCore
 {% endhighlight %}
     
@@ -45,7 +45,7 @@ Y los pasos a seguir son:
 Posteriormente ejecutar para finalizar la instalación:
 
 {% highlight posh %}
-  dotnet restore
+dotnet restore
   dotnet build
   cd ..
   Import-Module ./Polaris.psm1
@@ -60,7 +60,7 @@ Al momento de comenzar a utilizar este framework no comprendía realmente el alc
 Lo primero que vamos a hacer es ver los cmdlets que vienen en el módulo ejecutando:
 
 {% highlight posh %}
-  Get-Command -Module Polaris
+Get-Command -Module Polaris
 {% endhighlight %}
 
 <img src="https://pbppow-ch3302.files.1drv.com/y4mFB_R2YIvtw0JnsksjNwsXboL5_YVth3WQSRW79y1umkEzD7Lf2fI3OYT7mmDa-Y65uxl297oLb4_OubK04YmQt77aGo12foPzNkBN8lif1433xAohd7ImZfbRbL8m4RC0rztev5PwS4Qyl2AHpD4er9IIr_P-NGW9aKJa8ToK5gX13i-YhdwnV7aHYEPDD2E3__-lkAdeIOORFawfs3edQ?width=979&#038;height=433&#038;cropmode=none" width="979" height="433" alt="Cmdlets de PowerShell Polaris" class="alignnone size-full" />
@@ -72,7 +72,7 @@ Como parte del ejemplo, nos resta comentar que comando tenemos para iniciar el s
 Así que vamos a crear el "Hola Mundo!" en nuestro flamante servidor de la siguiente manera:
 
 {% highlight posh %}
-  #Primero definimos la ruta con el método
+#Primero definimos la ruta con el método
   New-GetRoute -Path "/helloworld" -ScriptBlock {
     $response.Send('Hello World!');
   }
@@ -87,7 +87,7 @@ Para comprobar lo que realizamos, accedemos desde un navegador a la siguiente di
 En caso de querer finalizar el servidor, debemos ejecutar:
 
 {% highlight posh %}
-  Stop-Polaris -ServerContext $app
+Stop-Polaris -ServerContext $app
 {% endhighlight %}
 
 ## Un ejemplo más funcional…
@@ -97,7 +97,7 @@ Ahora vamos a ver un ejemplo un poco más divertido, que nos demuestra el potenc
 La demostración más sencilla que se me ocurrió es consultar la hora, ya que es un valor que va cambiando constantemente. Así que vamos a construir lo siguiente:
 
 {% highlight posh %}
-  New-GetRoute -Path "/time" -ScriptBlock {
+New-GetRoute -Path "/time" -ScriptBlock {
     $time = Get-Date -DisplayHint Time
     $response.Send("Que hora es?: $time");
   }
@@ -106,13 +106,13 @@ La demostración más sencilla que se me ocurrió es consultar la hora, ya que e
 Posteriormente iniciamos la instancia:
 
 {% highlight posh %}
-  $app = Start-Polaris -Port 8088
+$app = Start-Polaris -Port 8088
 {% endhighlight %}
 
 Y luego consultamos el resultado, ya sea desde la web (accediendo a la URL con el puerto y la ruta) o utilizando el cmdlet Invoke-RestMethod, de la siguiente manera:
 
 {% highlight posh %}
-  Invoke-RestMethod -Uri http://localhost:8088/time -Method GET
+Invoke-RestMethod -Uri http://localhost:8088/time -Method GET
 {% endhighlight %}
 
 <img src="https://fo1cxg-ch3302.files.1drv.com/y4mIEWgXZAETvWwRd-JDjWqjci-HjgZKQMQnjH6D6dtdUBwyyFzas9IpLcsTxOvwajQbagFj238Q5m_i10-yiGkGkajqCzQtjB3ZqkygwKOJZNrp96N124K998NVXZdyyntAy0dp5FH086Qvp7j6udV5zbtokIUNF7I0ZhLqHM8zim26XR8-LUD8hy6-rAvdzkP7f3W4WeeYePz7ujabi61PA?width=861&height=223&cropmode=none" width="861" height="223" alt="Invoke-RestMethod" class="alignnone size-full" />

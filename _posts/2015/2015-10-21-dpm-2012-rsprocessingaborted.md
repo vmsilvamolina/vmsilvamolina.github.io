@@ -1,5 +1,5 @@
 ---
-title: 'DPM 2012 R2: Error al procesar el informe. (rsProcessingAborted)'
+title: 'DPM 2012 R2 - Error al procesar el informe. (rsProcessingAborted)'
 date: 2015-10-21T21:32:53+00:00
 author: Victor Silva
 layout: single

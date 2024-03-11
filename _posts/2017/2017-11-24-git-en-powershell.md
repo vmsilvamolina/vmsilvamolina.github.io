@@ -26,7 +26,7 @@ Para descargar Git for Windows es necesario acceder al siguiente enlace: [Git fo
 Luego de la instalación, vamos a ejecutar lo siguiente:
 
 {% highlight posh %}
-  git config --global user.name 'nombre'
+git config --global user.name 'nombre'
   git config --global user.email 'email address'
 {% endhighlight %}
 
@@ -36,7 +36,7 @@ Con lo anterior definimos el usuario y mail que vamos a utilizar en nuestros rep
 En el caso de Posh-Git, debemos considerar que es un módulo de PowerShell, por lo que podemos descargarlo e instalarlo desde la gallery. Para ello vamos a ejecutar:
 
 {% highlight posh %}
-  Install-Module -Name posh-git -Force
+Install-Module -Name posh-git -Force
 {% endhighlight %}
 
 ## PowerShell profile
@@ -46,7 +46,7 @@ Ya tenemos todos los requisitos para utilizar Git desde PowerShell, aunque resta
 Antes de ver que es lo que vamos a agregar en el perfil, es necesario saber si ya tenemos el archivo creado o no. Para ello ejecutamos:
 
 {% highlight posh %}
-  Test-Path $profile
+Test-Path $profile
 {% endhighlight %}
 
 Si la salida en consola es "False", entonces debemos crear el archivo, en vez de editarlo. 
@@ -56,14 +56,14 @@ Si la salida en consola es "False", entonces debemos crear el archivo, en vez de
 En caso de contar con Visual Studio Code instalado en el equipo, ejecutamos lo siguiente:
 
 {% highlight posh %}
-  code $profile
+code $profile
 {% endhighlight %}
 
 Así podemos editar el archivo existente o comenzar a trabajar sobre él en caso que no exista aún.
 Ahora sí, debemos agregar lo siguiente para poder importar el módulo en cada nueva ejecución de la consola:
 
 {% highlight posh %}
-  cd $home
+cd $home
   Import-Module -Name posh-git -ErrorAction SilentlyContinue
 {% endhighlight %}
 

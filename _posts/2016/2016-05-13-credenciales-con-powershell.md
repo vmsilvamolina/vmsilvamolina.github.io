@@ -41,7 +41,9 @@ Para que nos devuelva el nombre ingresado en las credenciales, por ejemplo.
 
 ## Crear un objecto SecureSctring
 
-Básicament existen 2 maneras de crear un objecto &#8220;SecureString&#8221;:
+Básicament existen 2 maneras de crear un objecto "
+SecureString"
+:
 
     #Primera opción
     $SecureString = Read-Host -AsSecureString
@@ -51,7 +53,9 @@ Básicament existen 2 maneras de crear un objecto &#8220;SecureString&#8221;:
 
 En el primer caso si comparamos con Get-Credential, vemos que solamente podemos proveer la contraseña. Este ejemplo va a solicitarnos que ingresemos la contraseña con un prompt en la consola misma de PowerShell.
 
-Obviamente que la segunda opción no es muy practica en el caso de utilizarlo en un script, ya que la contraseña queda a la vista de todos, por ello es que vamos a ver como guardar las contraseñas ya encriptadas y no en forma de &#8220;texto plano&#8221;
+Obviamente que la segunda opción no es muy practica en el caso de utilizarlo en un script, ya que la contraseña queda a la vista de todos, por ello es que vamos a ver como guardar las contraseñas ya encriptadas y no en forma de "
+texto plano"
+
 
 ## Guardar una contraseña encriptada
 

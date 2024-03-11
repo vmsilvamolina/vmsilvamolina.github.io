@@ -28,7 +28,7 @@ Así que, sin tener mayor fundamento que lo expuesto anteriormente me dispuse a 
 Tomando en cuenta mi acotado conocimiento sobre WMI, es posible que exista alguna clase que pueda ser mi punto de partida para empezar a recolectar datos. Efectivamente existe una clase que se llama **[Win32_Battery](https://msdn.microsoft.com/en-us/library/aa394074%28v=vs.85%29.aspx)** que nos comparte información sobre la batería. Ejecutando _Get-WmiObjet_ obtenemos lo siguiente:
 
 {% highlight posh %}
-  Get-WmiObject Win32_Battery
+Get-WmiObject Win32_Battery
 {% endhighlight %}
     
 
@@ -43,7 +43,7 @@ Tener en cuenta que el otro indicador que tenemos que prestar atención es **Bat
 Frente a la información anterior, podemos armar un simple script para comprobar la batería:
 
 {% highlight posh %}
-  if ((Get-WmiObject Win32_Battery).BatteryStatus -ne 1) {
+if ((Get-WmiObject Win32_Battery).BatteryStatus -ne 1) {
     if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -gt 80) {
       Write-host "Desconectar de la corriente!"
     }
@@ -57,7 +57,7 @@ Frente a la información anterior, podemos armar un simple script para comprobar
 Debido al objetivo del post, vamos a continuar resolviendo el problema de los pop-ups Para ello existen varias maneras de resolver esto. En este post voy a compartir la que para mí es la más fácil:
 
 {% highlight posh %}
-  $wshell = New-Object -ComObject Wscript.Shell
+$wshell = New-Object -ComObject Wscript.Shell
   $wshell.Popup("Desconectar la notebook",0,"Alerta",0x0 + 0x30)
 {% endhighlight %}
 
@@ -66,7 +66,7 @@ Debido al objetivo del post, vamos a continuar resolviendo el problema de los po
 Finalmente vamos a tener el siguiente script:
 
 {% highlight posh %}
-  if ((Get-WmiObject Win32_Battery).BatteryStatus -ne 1) {
+if ((Get-WmiObject Win32_Battery).BatteryStatus -ne 1) {
     if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -gt 80) {
       $wshell = New-Object -ComObject Wscript.Shell
       $wshell.Popup("Desconectar de la corriente!",0,"Alerta",0x0 + 0x30)
@@ -85,7 +85,7 @@ En conclusión resta programar para que se ejecute según el tiempo que consider
 También podríamos generar una función para simplificar la ejecución:
 
 {% highlight posh %}
-  function Check-BatteryPercentage {
+function Check-BatteryPercentage {
     if ((Get-WmiObject Win32_Battery).BatteryStatus -ne 1) {
       if ((Get-WmiObject win32_battery).EstimatedChargeRemaining -gt 80) {
         $wshell = New-Object -ComObject Wscript.Shell

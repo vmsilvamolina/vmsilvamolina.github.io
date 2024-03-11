@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Administrar Azure: Parte 1'
+title: 'PowerShell - Administrar Azure: Parte 1'
 date: 2015-05-02T10:46:49+00:00
 author: Victor Silva
 layout: single
@@ -28,7 +28,7 @@ Luego de tener una suscripción debemos tener las herramientas de administració
 
 Ahora sí, con todas las herramientas necesarias, podemos empezar a trabajar.
 
-Como vengo del palo de infraestructura, lo primero que voy a mostrar es como crear una máquina virtual. Existen varios tipos predefinidos; con cierta capacidad de CPU y memoria, que facilitan el proceso de creación. Estos tipos ya definidos se llaman sizes. Y también tenemos la &#8220;familia&#8221; de donde proviene la máquina; esto simplemente es una categoría del sistema operativo. Estos datos los vamos a ir definiendo mas adelante.
+Como vengo del palo de infraestructura, lo primero que voy a mostrar es como crear una máquina virtual. Existen varios tipos predefinidos; con cierta capacidad de CPU y memoria, que facilitan el proceso de creación. Estos tipos ya definidos se llaman sizes. Y también tenemos la "familia" de donde proviene la máquina; esto simplemente es una categoría del sistema operativo. Estos datos los vamos a ir definiendo mas adelante.
 
 Luego de tener lo necesario, debemos empezar a configurar nuestros datos de suscripción para poder conectarnos desde powershell a Microsoft Azure.
 
@@ -88,7 +88,7 @@ Posteriormente tenemos que definir el tamaño de la VM, existen varias configura
 <img src="https://lh5.googleusercontent.com/-gpmebIIvbsE/VUDir-_-P5I/AAAAAAAAG58/Ld-XI0-7amk/w279-h429-no/PS_Azure_VMsizes.png" width="279" height="429" class="alignnone" />
 
 Para este ejemplo vamos a seleccionar la A1 que corresponde según la lista de Sizes a **_Small_**.
-  
+
 Por mas información, ingresar al siguiente enlace:
 
 https://msdn.microsoft.com/library/azure/dn197896.aspx

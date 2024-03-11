@@ -1,5 +1,5 @@
 ---
-title: Chef y Azure
+title: 'Chef y Azure'
 date: 2016-01-15T19:30:39+00:00
 author: Victor Silva
 layout: single
@@ -26,7 +26,9 @@ _Chef_ es una plataforma de automatización, de gran alcance, que transforma inf
 
 ## Forma de trabajo
 
-En primer lugar el ciclo de funcionamiento de Chef lo desencadena el usuario escribiendo &#8220;recetas&#8221; que especifican como Chef gestiona las aplicaciones de servidor y los servicios (como IIS, SQL, etc.), y de que manera se pretenden configurar.
+En primer lugar el ciclo de funcionamiento de Chef lo desencadena el usuario escribiendo "
+recetas"
+ que especifican como Chef gestiona las aplicaciones de servidor y los servicios (como IIS, SQL, etc.), y de que manera se pretenden configurar.
 
 Estas recetas, que pueden agruparse para facilitar la gestión en **_cookbooks_** (libros de cocina), describen una serie de instrucciones que deben ejecutarse: que paquetes se deben instalar, que servicios deben estar en ejecución, o que archivos tienen que ser modificados. Todas estas instrucciones diversas pueden configurarse para versiones específicas de software y pueden asegurar que el software va a estar instalado de forma correcta, basado en las dependencias establecidas.
 

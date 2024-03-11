@@ -24,7 +24,9 @@ Pester permite utilizar un montón de palabras clave, pero no todas son necesari
 
 Éstas no son las únicas palabras que podemos utilizar en Pester, pero si las más usadas. Dependiendo del código que estemos dispuestos a probar, tendremos que usar algunas otras palabras clave adicionales, pero probablemente serán un reemplazo para la palabra clave &#8216;be&#8217;.
 
-En la imagen anterior, la estructura de palabras clave es &#8220;jerárquica&#8221; simplemente porque estas palabras clave son en realidad bloques de secuencias de comandos, y deben estar ubicadas una dentro de la otra. Vemos que un _PowerShell Pester script_ comienza con un bloque **_Describe_**, y que todo está ubicado en ese bloque de descripción.
+En la imagen anterior, la estructura de palabras clave es "
+jerárquica"
+ simplemente porque estas palabras clave son en realidad bloques de secuencias de comandos, y deben estar ubicadas una dentro de la otra. Vemos que un _PowerShell Pester script_ comienza con un bloque **_Describe_**, y que todo está ubicado en ese bloque de descripción.
 
 ## Una función para la demostración
 
@@ -58,7 +60,9 @@ function Get-Pizza {
 {% endhighlight %}
     
 
-La función anterior simplemente genera un objeto con el &#8220;sabor&#8221; de nuestra pizza (el sabor es la propiedad PizzaTopping).
+La función anterior simplemente genera un objeto con el "
+sabor"
+ de nuestra pizza (el sabor es la propiedad PizzaTopping).
 
 ## Script de Pester
 

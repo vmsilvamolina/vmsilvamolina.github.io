@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Como crear una gráfica con .Net Framework'
+title: 'PowerShell - Cómo crear una gráfica con .Net Framework'
 date: 2015-02-15T09:21:46+00:00
 author: Victor Silva
 layout: single
@@ -52,7 +52,7 @@ Fácil,no? Ahora debemos de agregar los datos. Primero tenemos que saber que vam
 $DiskInfo = Get-WMIObject -ComputerName "vsilva" Win32_LogicalDisk | Where-Object {$_.DeviceID -eq "C:"}
 $UsedPer = [math]::Round((($DiskInfo.Size - $DiskInfo.Freespace)/$DiskInfo.Size)*100)
 {% endhighlight %}
-    
+
 
 La variable **$UsedPer** me indica el porcentaje usado de nuestro disco _C:_ Defino otra variable que contenga el valor del porcentaje libre:
 
@@ -100,7 +100,7 @@ También vamos a agregarle un título:
 [void]$Chart.Titles.Add("Gráfica de espacio en disco C:")
 {% endhighlight %}
 
-Ya tenemos casi todo listo, ahora debemos de &#8220;exportarla&#8221; de alguna manera. Para continuar con el ejemplo, vamos a generar la gráfica en un formulario de Windows, debemos escribir:
+Ya tenemos casi todo listo, ahora debemos de "exportarla" de alguna manera. Para continuar con el ejemplo, vamos a generar la gráfica en un formulario de Windows, debemos escribir:
 
 {% highlight posh %}
 #Creo el formulario e invoco

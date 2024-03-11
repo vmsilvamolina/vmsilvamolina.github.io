@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Random-ColorHex'
+title: 'PowerShell - Random-ColorHex'
 date: 2015-09-05T16:00:20+00:00
 author: Victor Silva
 layout: single
@@ -17,7 +17,9 @@ tags:
   - Hexadecimal
   - RGB
 ---
-Hace poco estuve necesitando generar documentos con HTML y CSS, por lo que tuve que recurrir a, en los casos de formato, los colores hexadecimales. Como PowerShell me permite hacer casi todo lo que necesito la mayoría de las veces, me decidí a crear una función simple para poder generar colores de forma &#8220;random&#8221;.
+Hace poco estuve necesitando generar documentos con HTML y CSS, por lo que tuve que recurrir a, en los casos de formato, los colores hexadecimales. Como PowerShell me permite hacer casi todo lo que necesito la mayoría de las veces, me decidí a crear una función simple para poder generar colores de forma "
+random"
+.
 
 Existe la función [Get-Random](https://technet.microsoft.com/en-us/library/hh849905.aspx) que me permite obtener valores sin ningún criterio aparente. Dentro de las opciones que tenemos en esta función, existe un parámetro que nos permite definir el máximo valor que puede llegar a obtener la función.
 
