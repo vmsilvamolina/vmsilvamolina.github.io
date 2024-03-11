@@ -12,5 +12,3 @@ group :jekyll_plugins do
 end
 
 gem "webrick", "~> 1.7"
-
-gem "whiteblog-theme", "~> 0.0.6"
