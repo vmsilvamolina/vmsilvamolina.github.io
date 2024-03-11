@@ -34,8 +34,8 @@ Si intentamos añadir un elemento o borrarlo nos aparece un mensaje de error:
 
 {% highlight posh %}
 $Frutas.Add("Kiwi")
-  $Frutas.Remove("Manzana")
-  $Frutas.IsFixedSize
+$Frutas.Remove("Manzana")
+$Frutas.IsFixedSize
 {% endhighlight %}
 
 <img class="alignnone" src="https://lh6.googleusercontent.com/-U4AY7zL22L4/VAUMk1NVZiI/AAAAAAAAFms/fo9qEqohhlc/w877-h351-no/PS_Arrays_2.png" alt="" width="877" height="351" />
@@ -50,7 +50,7 @@ Y de esta manera vamos a poder modificar los elementos del _Array:_
 
 {% highlight posh %}
 $Matriz.Add("Kiwi")
-  $Matriz
+$Matriz
 {% endhighlight %}
 
 Otra manera de agregar elementos a un nuevo array sumando los de otro ya definido es:

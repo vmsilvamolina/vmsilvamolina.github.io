@@ -21,11 +21,11 @@ El objetivo es mostrar con una procedimiento bien simple como eliminar el últim
 
 {% highlight posh %}
 #Defino una cadena de caracteres
-  $Variable = "Texto que quiero modificar"
-  #Aplico la "magia"
-  $Varible = $Variable -replace ".$"
-  #Llamo a la variable
-  $Variable
+$Variable = "Texto que quiero modificar"
+#Aplico la "magia"
+$Varible = $Variable -replace ".$"
+#Llamo a la variable
+$Variable
 {% endhighlight %}
 
 <img class="alignnone" src="https://lh5.googleusercontent.com/-gJNkMoyRWqM/VAY3AgeVtaI/AAAAAAAAFnc/gVO1mEWWL1o/w877-h211-no/PS_EliminarCaracter.png" alt="" width="877" height="211" />

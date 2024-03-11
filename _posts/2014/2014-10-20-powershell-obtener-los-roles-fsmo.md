@@ -16,7 +16,7 @@ tags:
 Los experimentados en Active Directory, recordarán que para obtener los controladores de dominio que tienen en su haber los roles FSMO deberíamos ejecutar lo siguiente:
 
 {% highlight posh%}
-  NETDOM QUERY FSMO
+NETDOM QUERY FSMO
 {% endhighlight %}
 
 Y con esto obtendremos una lista con los controladores y sus roles efectivamente.

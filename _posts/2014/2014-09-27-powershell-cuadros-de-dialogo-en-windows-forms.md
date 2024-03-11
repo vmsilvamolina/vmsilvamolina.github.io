@@ -20,14 +20,13 @@ La función que hace esta maravilla es la siguiente:
 
 {% highlight posh %}
 Function Mostrar-MensajeCuadroDialogo {
-Param
-(
-[string]$Mensaje, 
-[string]$Titulo, 
-[System.Windows.Forms.MessageBoxButtons]$Botones, 
-[System.Windows.Forms.MessageBoxIcon]$Icono
-)
-    return [System.Windows.Forms.MessageBox]::Show($Mensaje, $Titulo, $Botones, $Icono)
+  Param (
+    [string]$Mensaje, 
+    [string]$Titulo, 
+    [System.Windows.Forms.MessageBoxButtons]$Botones, 
+    [System.Windows.Forms.MessageBoxIcon]$Icono
+  )
+  return [System.Windows.Forms.MessageBox]::Show($Mensaje, $Titulo, $Botones, $Icono)
 }
 {% endhighlight %}
 

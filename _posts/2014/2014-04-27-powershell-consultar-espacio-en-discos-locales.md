@@ -38,7 +38,7 @@ Vamos a guardar este archivo con el nombre, por ejemplo, de *DiskInfo.ps1*.
 Ahora ejecutamos una consola de PowerShell, vamos a la ruta donde guardamos el archivo (en caso de guardarlo en la raíz del disco <b>C:\</b> sería:
 
 {% highlight posh %}
-cd C:\ 
+cd C:\
 {% endhighlight %}
 
 Y escribimos:

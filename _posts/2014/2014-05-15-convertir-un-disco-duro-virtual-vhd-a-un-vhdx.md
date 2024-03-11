@@ -1,5 +1,5 @@
 ---
-title: Convertir un disco duro virtual VHD a un VHDX
+title: 'Convertir un disco duro virtual VHD a un VHDX'
 date: 2014-05-15T22:08:48+00:00
 author: Victor Silva
 layout: single

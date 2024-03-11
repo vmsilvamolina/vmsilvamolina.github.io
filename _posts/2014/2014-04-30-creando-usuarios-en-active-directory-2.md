@@ -18,7 +18,7 @@ tags:
 A menudo en los dominios los usuarios comparten muchas propiedades similares. Por ejemplo: los representantes del sector ventas pueden pertenecer a los mismos grupos de seguridad, iniciar sesión en el mismo rango de horas y tener carpetas de inicio y perfiles (como también carpetas compartidas) en el mismo servidor. Cuando se crea un nuevo usuario, simplemente se puede copiar de uno ya existente, en lugar de crear una cuenta en blanco y rellenar cada propiedad.
 
 Ahora, que es una plantilla de usuario (template)? Es una cuenta de usuario genérica (previamente completada con propiedades comunes). Solamente alcanza con rellenar las propiedades comunes al sector y listo. Se recomienda que al crear un template de usuario, se configure el nombre con un guion bajo al principio (\_), quedando por ejemplo de esta manera: \_Marketing. Esto hará que queden todos los templates creados en la parte superior de la lista de usuarios de una OU.
-  
+
 >No se debe iniciar sesión con las plantillas. Por lo que se recomienda que se deshabilite el usuario.
 
 ## Usando comandos de AD y Excel
@@ -59,7 +59,7 @@ En la siguiente hoja vamos a especificar los datos que necesitamos para poder ar
 Lo que hace esta función es armar el nombre de inicio de cada usuario, tomando la primer letra del nombre y el apellido.
 
   * En la columna OU Secundaria va la función:
-    
+
 {% highlight plaintext %}
 =CONCATENAR("ou=";InfoDeUsuarios!C2;",")
 {% endhighlight %}

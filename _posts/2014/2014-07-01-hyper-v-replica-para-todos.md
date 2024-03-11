@@ -1,5 +1,5 @@
 ---
-title: Hyper-V Replica para todos!!!
+title: 'Hyper-V Replica para todos!!!'
 date: 2014-07-01T21:43:55+00:00
 author: Victor Silva
 layout: single

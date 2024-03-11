@@ -1,5 +1,5 @@
 ---
-title: 'SCOM 2012: No response ping en Pending Management'
+title: 'SCOM 2012 - No response ping en Pending Management'
 date: 2014-05-09T19:44:21+00:00
 author: Victor Silva
 layout: single

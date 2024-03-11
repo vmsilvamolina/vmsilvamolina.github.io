@@ -75,7 +75,6 @@ dcdiag /s:<nombredelservidor> /u:<nombredeusuario> /p:<password>
 
 Y pulsar enter.
 
-
 **_Para corroborar el estado de la replicación_**
 
   1. Desde un controlador de dominio (logueado como administrador del dominio), ir a **Inicio**.

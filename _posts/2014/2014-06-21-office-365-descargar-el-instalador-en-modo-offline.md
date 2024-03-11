@@ -1,5 +1,5 @@
 ---
-title: 'Office 365: Descargar el instalador en modo offline'
+title: 'Office 365 - Descargar el instalador en modo offline'
 date: 2014-06-21T23:14:44+00:00
 author: Victor Silva
 layout: single
@@ -29,26 +29,26 @@ Así que resumiendo los pasos, serían los siguientes:
   * Modificar el archivo ***configuration.xml***, sustituir el SourcePath y UpdatePath según corresponda en su caso:
 
 {% highlight xml %}
-  <Configuration>
-    <Add SourcePath="PATH_TO_YOUR_DOWNLOAD_FOLDER, e.g. E:Downloads" OfficeClientEdition="32" >
-      <Product ID="O365ProPlusRetail">
-        <Language ID="en-us" />
-      </Product>
-      <Product ID="VisioProRetail">
-        <Language ID="en-us" />
-      </Product>
-    </Add>
-    <Updates Enabled="TRUE" UpdatePath="PATH_TO_YOUR_DOWNLOAD_FOLDER, e.g. E:Downloads" />
-    <Display Level="None" AcceptEULA="TRUE" />
-    <!--  <Logging Name="OfficeSetup.txt" Path="%temp%" />  -->
-    <!--  <Property Name="AUTOACTIVATE" Value="1" />  -->
-  </Configuration>
+<Configuration>
+  <Add SourcePath="PATH_TO_YOUR_DOWNLOAD_FOLDER, e.g. E:Downloads" OfficeClientEdition="32" >
+    <Product ID="O365ProPlusRetail">
+      <Language ID="en-us" />
+    </Product>
+    <Product ID="VisioProRetail">
+      <Language ID="en-us" />
+    </Product>
+  </Add>
+  <Updates Enabled="TRUE" UpdatePath="PATH_TO_YOUR_DOWNLOAD_FOLDER, e.g. E:Downloads" />
+  <Display Level="None" AcceptEULA="TRUE" />
+  <!--  <Logging Name="OfficeSetup.txt" Path="%temp%" />  -->
+  <!--  <Property Name="AUTOACTIVATE" Value="1" />  -->
+</Configuration>
 {% endhighlight %}
 
   * Finalmente, ejecutar desde una consola CMD el siguiente comando:
 
 {% highlight bash %}
-  setup.exe /download configuration.xml
+setup.exe /download configuration.xml
 {% endhighlight %}
 
   * Esperar a que finalice la descarga (puede demorar dependiendo de la velocidad de descarga)
