@@ -1,5 +1,5 @@
 ---
-title: Convertir un disco duro virtual VHD a un VHDX
+title: 'Convertir un disco duro virtual VHD a un VHDX'
 date: 2014-05-15T22:08:48+00:00
 author: Victor Silva
 layout: single
@@ -70,7 +70,7 @@ Para eso tenemos al maravilloso mundo del PowerShell!!
 Acá es bastante más rápido, simplemente vamos a tener que ejecutar el comando
 
 {% highlight posh %}
-  Convert-VHD
+Convert-VHD
 {% endhighlight %}
 
 Donde la sintaxis para este comando básicamente va a ser la siguiente:
@@ -80,7 +80,7 @@ Donde la sintaxis para este comando básicamente va a ser la siguiente:
 Como ejemplo vamos a poner que queremos convertir el disco **Test.vhd** que se encuentra en la carpeta **C:VMS** y lo queremos guardar en el mismo lugar pero con el nombre **Test-final** y que sea un disco** Dinámico**. Vamos a tener que ejecutar lo siguiente:
 
 {% highlight posh %}
-  Convert-vhd -Path C:VMSTest.vhd -DestinationPath C:VMSTest-final.vhdx -VHDType Dynamic
+Convert-vhd -Path C:VMSTest.vhd -DestinationPath C:VMSTest-final.vhdx -VHDType Dynamic
 {% endhighlight %}
 
 Espero que les sea de utilidad.

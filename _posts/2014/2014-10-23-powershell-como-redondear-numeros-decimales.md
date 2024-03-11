@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Cómo redondear números decimales'
+title: 'PowerShell - Cómo redondear números decimales'
 date: 2014-10-23T19:09:16+00:00
 author: Victor Silva
 layout: single

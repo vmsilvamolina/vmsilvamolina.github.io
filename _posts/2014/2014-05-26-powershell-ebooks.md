@@ -1,5 +1,5 @@
 ---
-title: PowerShell eBooks
+title: 'PowerShell eBooks'
 date: 2014-05-26T17:56:43+00:00
 author: Victor Silva
 layout: single

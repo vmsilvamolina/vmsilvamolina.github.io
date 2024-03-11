@@ -31,31 +31,31 @@ Para este primer ejemplo, vamos a describir los pasos para poder crear un formul
 A continuación dejo el código comentado para que pueda entender cada paso y cada línea de comandos:
 
 {% highlight posh %}
-  #Cargo los Assemblies (necesario para definir el form)
-  [void][reflection.assembly]::loadwithpartialname("System.Windows.Forms")
-  [void][reflection.assembly]::loadwithpartialname("System.Drawing")
-  #Creo el objeto Form
-  $Form = New-Object System.Windows.Forms.Form
-  #Defino el tamaño del formulario
-  $Form.Size = New-Object Drawing.Size(400,200)
-  #Defino la posición inicial
-  $Form.StartPosition = "CenterScreen"
-  #Defino el titulo del formulario
-  $Form.Text = "Mi primer formulario"
+#Cargo los Assemblies (necesario para definir el form)
+[void][reflection.assembly]::loadwithpartialname("System.Windows.Forms")
+[void][reflection.assembly]::loadwithpartialname("System.Drawing")
+#Creo el objeto Form
+$Form = New-Object System.Windows.Forms.Form
+#Defino el tamaño del formulario
+$Form.Size = New-Object Drawing.Size(400,200)
+#Defino la posición inicial
+$Form.StartPosition = "CenterScreen"
+#Defino el titulo del formulario
+$Form.Text = "Mi primer formulario"
 
-  #Defino el botón
-  $Button = New-Object System.Windows.Forms.Button
-  #Defino la posición del botón
-  $Button.Location = New-Object System.Drawing.Size(150,100)
-  #Defino el texto del botón
-  $Button.Text = "Salir"
-  #Defino el evento al hacer el clic
-  $Button.Add_Click({$Form.Close()})
-  #Cargo el botón al formulario
-  $Form.Controls.Add($Button)
+#Defino el botón
+$Button = New-Object System.Windows.Forms.Button
+#Defino la posición del botón
+$Button.Location = New-Object System.Drawing.Size(150,100)
+#Defino el texto del botón
+$Button.Text = "Salir"
+#Defino el evento al hacer el clic
+$Button.Add_Click({$Form.Close()})
+#Cargo el botón al formulario
+$Form.Controls.Add($Button)
 
-  #Ejecuto el formulario
-  [void]$Form.ShowDialog()
+#Ejecuto el formulario
+[void]$Form.ShowDialog()
 {% endhighlight %}
 
 Fácil no? Bien, ahora podemos seguir agregando elementos y otro tipo de eventos a nuestro formulario.
@@ -67,43 +67,43 @@ Otro elemento muy usado aparte del botón, son las etiquetas (labels) que permit
 El código actualizado con la etiqueta agregada es:
 
 {% highlight posh %}
-  #Cargo los Assemblies (necesario para definir el form)
-  [void][reflection.assembly]::loadwithpartialname("System.Windows.Forms")
-  [void][reflection.assembly]::loadwithpartialname("System.Drawing")
-  #Creo el objeto Form
-  $Form = New-Object System.Windows.Forms.Form
-  #Defino el tamaño del formulario
-  $Form.Size = New-Object Drawing.Size(400,200)
-  #Defino la posición inicial
-  $Form.StartPosition = "CenterScreen"
-  #Defino el titulo del formulario
-  $Form.Text = "Mi primer formulario"
+#Cargo los Assemblies (necesario para definir el form)
+[void][reflection.assembly]::loadwithpartialname("System.Windows.Forms")
+[void][reflection.assembly]::loadwithpartialname("System.Drawing")
+#Creo el objeto Form
+$Form = New-Object System.Windows.Forms.Form
+#Defino el tamaño del formulario
+$Form.Size = New-Object Drawing.Size(400,200)
+#Defino la posición inicial
+$Form.StartPosition = "CenterScreen"
+#Defino el titulo del formulario
+$Form.Text = "Mi primer formulario"
 
-  #Defino la etiqueta
-  $Label = New-Object System.Windows.Forms.Label
-  #Defino el tamaño de la etiqueta
-  $Label.Size = New-Object System.Drawing.Size(200,20)
-  #Defino la posición de la etiqueta
-  $Label.Location = New-Object System.Drawing.Size(110,50)
-  #Defino el texto de la etiqueta
-  $Label.Text = "Esto es el texto de la etiqueta"
-  #Cargo la etiqueta en el formulario
-  $Form.Controls.Add($Label)
+#Defino la etiqueta
+$Label = New-Object System.Windows.Forms.Label
+#Defino el tamaño de la etiqueta
+$Label.Size = New-Object System.Drawing.Size(200,20)
+#Defino la posición de la etiqueta
+$Label.Location = New-Object System.Drawing.Size(110,50)
+#Defino el texto de la etiqueta
+$Label.Text = "Esto es el texto de la etiqueta"
+#Cargo la etiqueta en el formulario
+$Form.Controls.Add($Label)
 
-  #Defino el botón
-  $Button = New-Object System.Windows.Forms.Button
-  #Defino la posición del botón
-  $Button.Location = New-Object System.Drawing.Size(150,100)
-  #Defino el texto del botón
-  $Button.Text = "Salir"
-  #Defino el evento al hacer el clic
-  $Button.Add_Click({$Form.Close()})
+#Defino el botón
+$Button = New-Object System.Windows.Forms.Button
+#Defino la posición del botón
+$Button.Location = New-Object System.Drawing.Size(150,100)
+#Defino el texto del botón
+$Button.Text = "Salir"
+#Defino el evento al hacer el clic
+$Button.Add_Click({$Form.Close()})
 
-  #Cargo el botón al formulario
-  $Form.Controls.Add($Button)
+#Cargo el botón al formulario
+$Form.Controls.Add($Button)
 
-  #Ejecuto el formulario
-  [void]$Form.ShowDialog()
+#Ejecuto el formulario
+[void]$Form.ShowDialog()
 {% endhighlight %}
 
 Si prestan atención se creó un nuevo párrafo que define a nuestro nuevo elemento: **Label**
@@ -115,14 +115,14 @@ El cuadro de texto es un elemento gráfico que nos permite insertar texto para p
 Vamos a ver como se crea un cuadro de texto, las propiedades son muy parecidas a las de las etiquetas:
 
 {% highlight posh %}
-  #Defino la caja de texto
-  $TextBox = New-Object System.Windows.Forms.TextBox
-  #Defino la posición
-  $TextBox.Location = New-Object System.Drawing.Size(135,70)
-  #Defino el texto que viene por defecto
-  $TextBox.Text = ""
-  #Cargo en el formulario
-  $Form.Controls.Add($TextBox)
+#Defino la caja de texto
+$TextBox = New-Object System.Windows.Forms.TextBox
+#Defino la posición
+$TextBox.Location = New-Object System.Drawing.Size(135,70)
+#Defino el texto que viene por defecto
+$TextBox.Text = ""
+#Cargo en el formulario
+$Form.Controls.Add($TextBox)
 {% endhighlight %}
 
 Ok, ya tenemos varios elementos de un formulario. Vamos a modificar algunas propiedades y metodos para que cuando hagamos clic con el botón izquierdo sobre el botón, en vez de cerrar el form, nos actualice la etiqueta con el texto ingresado en el cuadro de texto.
@@ -130,8 +130,8 @@ Ok, ya tenemos varios elementos de un formulario. Vamos a modificar algunas prop
 Lo primero que vamos a modificar es la etiqueta, para que no nos muestre texto ninguno, para ello vamos a la propiedad Text y modificamos el valor de la siguiente manera:
 
 {% highlight posh %}
-  #Defino el texto de la etiqueta
-  $Label.Text = ""
+#Defino el texto de la etiqueta
+$Label.Text = ""
 {% endhighlight %}
 
 Esto hará que nuestra etiqueta no muestre texto alguno.
@@ -139,8 +139,8 @@ Esto hará que nuestra etiqueta no muestre texto alguno.
 Luego deberemos de modificar el evento del botón, para ello ingresamos las siguientes líneas de código correspondientes al evento *Add_Click*:
 
 {% highlight posh %}
-  #Defino el evento al hacer el clic
-  $Button.Add_Click({$Label.Text = $TextBox.Text})
+#Defino el evento al hacer el clic
+$Button.Add_Click({$Label.Text = $TextBox.Text})
 {% endhighlight %}
 
 Con estos ejemplos tenemos muchas posibilidades y cosas para poder probar.

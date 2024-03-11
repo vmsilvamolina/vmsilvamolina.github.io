@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Cuadros de diálogo en Windows Forms'
+title: 'PowerShell - Cuadros de diálogo en Windows Forms'
 date: 2014-09-27T20:23:43+00:00
 author: Victor Silva
 layout: single
@@ -20,14 +20,13 @@ La función que hace esta maravilla es la siguiente:
 
 {% highlight posh %}
 Function Mostrar-MensajeCuadroDialogo {
-Param
-(
-[string]$Mensaje, 
-[string]$Titulo, 
-[System.Windows.Forms.MessageBoxButtons]$Botones, 
-[System.Windows.Forms.MessageBoxIcon]$Icono
-)
-    return [System.Windows.Forms.MessageBox]::Show($Mensaje, $Titulo, $Botones, $Icono)
+  Param (
+    [string]$Mensaje, 
+    [string]$Titulo, 
+    [System.Windows.Forms.MessageBoxButtons]$Botones, 
+    [System.Windows.Forms.MessageBoxIcon]$Icono
+  )
+  return [System.Windows.Forms.MessageBox]::Show($Mensaje, $Titulo, $Botones, $Icono)
 }
 {% endhighlight %}
 

@@ -1,5 +1,5 @@
 ---
-title: 'Lync 2013 &#8211; Error del cliente (vdpsrc.dll)'
+title: 'Lync 2013 - Error del cliente (vdpsrc.dll)'
 date: 2014-08-15T14:39:48+00:00
 author: Victor Silva
 layout: single

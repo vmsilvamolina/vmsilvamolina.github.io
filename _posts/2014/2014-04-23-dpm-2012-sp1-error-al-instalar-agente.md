@@ -1,5 +1,5 @@
 ---
-title: 'DPM 2012 SP1: Error al instalar agente'
+title: 'DPM 2012 SP1 - Error al instalar agente'
 date: 2014-04-23T21:22:20+00:00
 author: Victor Silva
 layout: single

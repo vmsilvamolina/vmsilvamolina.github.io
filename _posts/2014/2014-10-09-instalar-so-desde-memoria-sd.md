@@ -1,5 +1,5 @@
 ---
-title: Instalar SO desde memoria SD
+title: 'Instalar SO desde memoria SD'
 date: 2014-10-09T11:34:46+00:00
 author: Victor Silva
 layout: single

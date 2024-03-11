@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Obtener el directorio donde nos encontramos'
+title: 'PowerShell - Obtener el directorio donde nos encontramos'
 date: 2014-09-17T19:54:47+00:00
 author: Victor Silva
 layout: single

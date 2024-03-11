@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell &#8211; Ocultar parámetros para IntelliSense'
+title: 'PowerShell - Ocultar parámetros para IntelliSense'
 date: 2014-12-05T20:03:25+00:00
 author: Victor Silva
 layout: single
@@ -24,18 +24,18 @@ Primero definimos una función:
 
 {% highlight posh %}
 Function Test-OcultarParametro {
-    [cmdletbinding()]
-    Param (
-        [parameter(DontShow)]
-        $ParametroOculto,
-        [parameter()]
-        $ComputerName,
-        [parameter()]
-        $NuevoValor
-    )
+  [cmdletbinding()]
+  Param (
+    [parameter(DontShow)]
+    $ParametroOculto,
+    [parameter()]
+    $ComputerName,
+    [parameter()]
+    $NuevoValor
+  )
 }
 {% endhighlight %}
 
-Ya con la función definida, resta tipear la función, dejar un espacio, tipear el signo <b>"-"</b> y pulsar tabulador para poder corroborar que el parámetro **_$ParametroOculto_** no aparece en las opciones 🙂
+Ya con la función definida, resta tipear la función, dejar un espacio, tipear el signo **"-"** y pulsar tabulador para poder corroborar que el parámetro **_$ParametroOculto_** no aparece en las opciones 🙂
 
 Happy scripting!

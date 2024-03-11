@@ -1,5 +1,5 @@
 ---
-title: 'Powershell &#8211; Como crear un certificado SelfSigned?'
+title: 'Powershell - Cómo crear un certificado SelfSigned?'
 date: 2014-07-15T13:41:52+00:00
 author: Victor Silva
 layout: single
@@ -21,7 +21,7 @@ El cmdlet **New-SelfSignedCertificate** crea un certificado auto-firmado (SelfSi
 En este ejemplo se crea un certificado de servidor SSL SelfSigned alojado en el servidor <em>Server01</em>, con el Subject Alternative Name, Subject e Issuer <em>blog.victorsilva.com.uy</em>:
 
 {% highlight posh %}
-  New-SelfSignedCertificate -DnsName blog.victorsilva.com.uy -CertStoreLocation cert:LocalMachineServer01
+New-SelfSignedCertificate -DnsName blog.victorsilva.com.uy -CertStoreLocation cert:LocalMachineServer01
 {% endhighlight %}
 
 Happy scripting!

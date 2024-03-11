@@ -22,7 +22,7 @@ Un caso en el que puede aplicar y aparecer este error se debe a que el entorno d
 Este error se soluciona de la siguiente manera:
 
 Dentro de las opciones de Internet Explorer, vamos a acceder al menú Herramientas y luego seleccionar la opción Opciones de Internet.
-  
+
 Dentro de este cuadro de dialogo, debemos seleccionar la solapa Opciones Avanzadas.
 
 Y dentro de la solapa Opciones Avanzadas, buscar y destildar la opción _Comprobar la revocación del certificado del servidor*_

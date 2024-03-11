@@ -1,5 +1,5 @@
 ---
-title: Hyper-V Replica para todos!!!
+title: 'Hyper-V Replica para todos!!!'
 date: 2014-07-01T21:43:55+00:00
 author: Victor Silva
 layout: single
@@ -97,7 +97,7 @@ En nuestro escenario de ejemplo, vamos a considerar como servidor principal al S
 Para poder llevar a cabo la replicación de la VM01 debemos habilitar la funcionalidad a esta maquina virtual:
 
 {% highlight posh %}
-  Enable-VMReplication -VMName VM01 -ReplicaServerName ServerHV02 -ReplicaServerPort 80 -AuthenticationType Kerberos -CompressionEnabled $true -RecoveryHistory 5
+Enable-VMReplication -VMName VM01 -ReplicaServerName ServerHV02 -ReplicaServerPort 80 -AuthenticationType Kerberos -CompressionEnabled $true -RecoveryHistory 5
 {% endhighlight %}
 
 Si prestamos especial atención al parametro RecoveryHistory, le asignamos el valor 5. Lo que indica que esta VM va a contar con 5 puntos de restauración, es decir, vamos a poder tener 5 "momentos" de los estados de la maquina virtual.

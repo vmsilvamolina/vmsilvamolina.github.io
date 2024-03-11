@@ -1,5 +1,5 @@
 ---
-title: 'Lync Server 2013: Certificate chain is invalid'
+title: 'Lync Server 2013 - Certificate chain is invalid'
 date: 2014-06-03T20:09:17+00:00
 author: Victor Silva
 layout: single
