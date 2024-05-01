@@ -1,4 +1,5 @@
 {
     "cSpell.language": ",es,en",
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    "cmake.configureOnOpen": false
 }
