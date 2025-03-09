@@ -1,0 +1,39 @@
+---
+layout: default
+permalink: /categories/
+title: Categories
+---
+<div class="container">
+  <article class="post">
+    <div id="navigation-space" class="row">
+    </div>
+    <header>
+      <h1>
+        <span class="underline">Categories</span>
+      </h1>
+    </header>
+    <div>
+      {% for category in site.categories %}
+      <div class="archive-group">
+        {% capture category_name %}{{ category | first }}{% endcapture %}
+        <div id="#{{ category_name | slugize }}"></div>
+        <p></p>
+        <h5 style='color:white !important;'><a class="badge badge-{{ category_name }}">{{ category_name }}</a></h5>
+        <a name="{{ category_name | slugize }}"></a>
+        <table>
+        {% for post in site.categories[category_name] %}
+          <tr>
+            <th>
+              (<time datetime="{{ post.date | date_to_xmlschema }}" class="post-date">{{ post.date | date: "%b %-d, %Y" }}</time>)
+            </th>
+          <th>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>
+          </th>
+        </tr>
+        {% endfor %}
+      </table>
+      </div>
+  {% endfor %}
+    </div>
+  </article>
+</div>

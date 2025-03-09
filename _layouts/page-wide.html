@@ -1,0 +1,38 @@
+---
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+<title>{{ site.title }}</title>
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+{% include head.html %}
+
+<body>
+  {% include header.html %}
+
+  <div class="main-wrapper">    
+    <main>
+      <div class="container">
+        <div id="navigation-space" class="row">
+        </div>
+        <article class="post">
+          <header>
+            <h1>
+              <span class="underline">{{ page.title }}</span>
+            </h1>
+          </header>
+          <div id="content">
+            {{ content }}
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+
+  {% include footer.html %}
+
+  {% include scripts.html %}
+
+</body>
+
+</html>

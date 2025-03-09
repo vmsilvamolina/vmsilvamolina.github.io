@@ -1,0 +1,22 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="twitter:card"
+    content="summary_large_image">
+  <meta name="twitter:image"
+    content="{{ site.url }}/assets/images/previews/{{ page.slug }}.png">
+  <meta property="og:image"
+    content="{{ site.url }}/assets/images/previews/{{ page.slug }}.png">
+
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+  {% if page.head_inline %}
+    {{ page.head_inline }}
+  {% endif %}
+
+</head>

@@ -1,0 +1,64 @@
+﻿# Site Settings
+title: Victor Silva's Blog
+
+theme: whiteblog-theme
+
+
+# Site Author
+author:
+  name             : "Victor Silva"
+  avatar           : "/assets/images/bio-photo.jpg"
+  bio              : 
+  location         : "Montevideo, Uruguay"
+  email            : "info@victorsilva.com.uy"
+  uri              :
+  bitbucket        :
+  codepen          :
+  github           : "vmsilvamolina"
+  gitlab           :
+  instagram        :
+  linkedin         : "vmsilvamolina" # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
+  stackoverflow    : "4905856/victor-silva" # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
+  x                : "vmsilvamolina"
+  youtube          : # "https://youtube.com/c/xxxxx"
+
+plugins:
+  - jekyll-redirect-from
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-feed
+
+addons:
+  back_to_top            : true                  # true (default), false
+  share_post             : true                  # true (default), false
+
+
+header_pages:
+  # - _pages/contact.md
+  # - _pages/setup.md
+  # - _pages/github.md
+  - _pages/about.md
+  - _pages/search.md
+  - _pages/categories.md
+
+include:
+  - _pages
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - whiteblogtheme.gemspec
+
+comments:
+  provider               : "disqus"              # false (default), "disqus"
+  disqus:
+    shortname            : "vmsilvamolina"
+
+analytics:
+  google:
+    tracking_id          :                       # false (default), "G-XXXXXXXXXX"
+
+# Outputting
+permalink: /:title/ #/:categories/:title/
+paginate: 5 # amount of posts to show
+paginate_path: /page:num/

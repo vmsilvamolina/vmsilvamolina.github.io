@@ -1,0 +1,75 @@
+---
+layout: default
+---
+<div class="container">
+  <article class="post">
+
+    <div id="navigation-space" class="row">
+      <div class="previous">
+        {% if page.previous.url %}
+          <a href="{{page.previous.url}}" class="nav-btn prev-btn" title="{{page.previous.title}}">
+            <span class="chevron left"></span>
+
+          </a>
+        {% endif %}
+      </div>
+      <div class="next">  
+        {% if page.next.url %}
+          <a href="{{page.next.url}}" class="nav-btn next-btn" title="{{page.next.title}}">
+            <span class="chevron right"></span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <header>
+      <h1>
+        <span class="underline">{{ page.title | escape }}</span>
+      </h1>
+      <p class="text-secondary">
+        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {% assign date_format = site.theme.date_format | default: "%b %-d, %Y" %}
+          {{ page.date | date: date_format }}
+        </time><span style="display:inline-block; width: 6px;"></span>
+        {% if post %}
+          {% assign categories = post.categories %}
+        {% else %}
+          {% assign categories = page.categories %}
+        {% endif %}
+        <h5 id="category-badge">
+        {% for category in categories %}
+          <a href="{{site.baseurl}}/categories/#{{category|slugize}}" class="badge" >{{category}}</a>
+          {% unless forloop.last %}&nbsp;{% endunless %}
+        {% endfor %}
+        </h5>
+      </p>
+    </header>
+
+    <div class="text-justify" id="content">
+      {{ content }}
+    </div>
+
+    <div class="row">
+      {% if site.comments.provider%}
+        {% include comments.html %}
+      {% endif %}
+    </div>
+    
+    <div class="row">
+      {% if site.addons.share_post %}
+        {% include sharepost.html %}
+      {% endif %}
+
+      {% if site.addons.back_to_top %}
+        {% include backtotop.html %}
+      {% endif %}
+
+      {% if site.comments.provider%}
+        {% if site.comments.provider == "disqus" %}
+          {% include comments-providers/disqus.html %}
+        {% endif %}
+      {% endif %}
+    </div>
+
+  </article>
+</div>

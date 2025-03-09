@@ -1,0 +1,7 @@
+<div class="text-final">
+    {% case site.comments.provider %}
+        {% when "disqus" %}
+        <h4>Comments</h4>
+        <section id="disqus_thread"></section>
+    {% endcase %}
+</div>

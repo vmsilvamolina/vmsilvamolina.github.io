@@ -1,0 +1,35 @@
+---
+layout: page
+---
+
+{{ content }}
+
+{% for post in site.posts %}
+
+  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+
+  {% if forloop.first %}
+    <h2>{{ year }}</h2>
+    <table>
+  {% elsif year != prev_year %}
+    </table>
+    <h2>{{ year }}</h2>
+    <table>
+  {% endif %}
+
+  {% assign date_format = default: "%b %-d" %}
+  <tr>
+    <td><time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date: date_format }}</time></td>
+    <td>|</td>
+    <td><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></td>
+  </tr>
+
+  {% if forloop.last %}
+    </table>
+  {% endif %}
+
+  {% capture prev_year %}{{ year }}{% endcapture %}
+
+{% endfor %}
+
+<div></div>
