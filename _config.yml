@@ -56,7 +56,7 @@ comments:
 
 analytics:
   google:
-    tracking_id          :                       # false (default), "G-XXXXXXXXXX"
+    tracking_id          : "G-PY9VSRJ6KW"        # false (default), "G-XXXXXXXXXX"
 
 # Outputting
 permalink: /:title/ #/:categories/:title/

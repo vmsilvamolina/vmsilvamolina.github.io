@@ -1,5 +1,6 @@
 Gemfile.lock
 .DS_Store
 .vscode
+.jekyll-cache/
 _site
 _drafts/
