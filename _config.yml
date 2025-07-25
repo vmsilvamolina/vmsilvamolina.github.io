@@ -1,5 +1,5 @@
 ﻿# Site Settings
-title: Victor Silva's Blog
+title: $blogTopics | % {echo $_}
 
 theme: whiteblog-theme
 
@@ -7,20 +7,16 @@ theme: whiteblog-theme
 # Site Author
 author:
   name             : "Victor Silva"
-  avatar           : "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/avatar.jpg"
+  about-photo      : "/assets/images/bio-photo.jpg"
   bio              : 
   location         : "Montevideo, Uruguay"
-  email            : "info@victorsilva.com.uy"
   uri              :
-  bitbucket        :
-  codepen          :
-  github           : "vmsilvamolina"
-  gitlab           :
-  instagram        :
-  linkedin         : "vmsilvamolina" # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
-  stackoverflow    : "4905856/victor-silva" # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
   x                : "vmsilvamolina"
-  youtube          : # "https://youtube.com/c/xxxxx"
+  linkedin         : "vmsilvamolina" # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
+  email            : "info@victorsilva.com.uy"
+  github           : "vmsilvamolina"
+  stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
 
 plugins:
   - jekyll-redirect-from
@@ -31,7 +27,7 @@ plugins:
 addons:
   back_to_top            : true                  # true (default), false
   share_post             : true                  # true (default), false
-
+  old_post_warning       : true                  # true, false (default)
 
 header_pages:
   # - _pages/contact.md
@@ -53,6 +49,8 @@ comments:
   provider               : "disqus"              # false (default), "disqus"
   disqus:
     shortname            : "vmsilvamolina"
+  cusdis:
+    appId                :
 
 analytics:
   google:

@@ -12,13 +12,24 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                         <path
                             d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            fill="#000000" />
+                            fill="currentColor" />
                     </svg>
                     <p>{{ site.author.location }}</p>
                 </span>
             </li>
             {% endif %}
             <ul class="horizontal">
+                {% if site.author.uri %}
+                <li>
+                    <a class="link" href="{{ site.author.uri }}" target="_blank" rel="noopener"
+                        title="Website">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="social-networks-icons" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" clip-rule="evenodd"  fill="currentColor" d="M8 14.5c.23 0 .843-.226 1.487-1.514.306-.612.563-1.37.742-2.236H5.771c.179.866.436 1.624.742 2.236C7.157 14.274 7.77 14.5 8 14.5ZM5.554 9.25a14.444 14.444 0 0 1 0-2.5h4.892a14.452 14.452 0 0 1 0 2.5H5.554Zm6.203 1.5c-.224 1.224-.593 2.308-1.066 3.168a6.525 6.525 0 0 0 3.2-3.168h-2.134Zm2.623-1.5h-2.43a16.019 16.019 0 0 0 0-2.5h2.429a6.533 6.533 0 0 1 0 2.5Zm-10.331 0H1.62a6.533 6.533 0 0 1 0-2.5h2.43a15.994 15.994 0 0 0 0 2.5Zm-1.94 1.5h2.134c.224 1.224.593 2.308 1.066 3.168a6.525 6.525 0 0 1-3.2-3.168Zm3.662-5.5h4.458c-.179-.866-.436-1.624-.742-2.236C8.843 1.726 8.23 1.5 8 1.5c-.23 0-.843.226-1.487 1.514-.306.612-.563 1.37-.742 2.236Zm5.986 0h2.134a6.526 6.526 0 0 0-3.2-3.168c.473.86.842 1.944 1.066 3.168ZM5.31 2.082c-.473.86-.842 1.944-1.066 3.168H2.109a6.525 6.525 0 0 1 3.2-3.168ZM8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0Z"/>
+                        </svg>
+                    </a>
+                </li>
+                {% endif %}
                 {% if site.author.x %}
                 <li>
                     <a class="link" href="https://x.com/{{ site.author.x }}" target="_blank" rel="noopener"
@@ -47,10 +58,10 @@
                 <li>
                     <a class="link" href="mailto: {{ site.author.email}}" target="_blank" rel="noopener" title="Email">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="social-networks-icons" viewBox="0 0 24 24">
+                            class="social-networks-icons" viewBox="0 0 23 23">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                                fill="none" stroke="#000000" stroke-width="2" />
-                            <path d="M22 6l-10 7L2 6" fill="none" stroke="#000000" stroke-width="2"
+                                fill="none" stroke="currentColor" stroke-width="2" />
+                            <path d="M22 6l-10 7L2 6" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" />
                         </svg>
                     </a>
@@ -59,9 +70,18 @@
                 {% if site.author.github %}
                 <li>
                     <a class="link" href="https://github.com/{{ site.author.github}}" target="_blank" rel="noopener" title="GitHub">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             class="social-networks-icons" viewBox="0 0 24 24">
                             <path d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"></path>
+                        </svg>
+                    </a>
+                </li>
+                {% endif %}
+                {% if site.author.stackoverflow %}
+                <li>
+                    <a class="link" href="https://stackoverflow.com/users/{{ site.author.stackoverflow }}" target="_blank" rel="noopener" title="Stack Overflow">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="25px" height="25px" viewBox="0 0 35 35">
+                            <path d="M 19.59375 2.84375 L 17.96875 3.96875 L 23.5625 12.1875 L 25.1875 11.0625 Z M 15.375 6.53125 L 14.0625 8.03125 L 21.5625 14.53125 L 22.875 13.03125 Z M 12.375 10.90625 L 11.46875 12.6875 L 20.3125 17.1875 L 21.21875 15.40625 Z M 10.65625 15.4375 L 10.21875 17.375 L 19.875 19.65625 L 20.3125 17.71875 Z M 6 18 L 6 29 L 24 29 L 24 18 L 22 18 L 22 27 L 8 27 L 8 18 Z M 10.09375 19.6875 L 9.96875 21.6875 L 19.875 22.25 L 20 20.25 Z M 10 23 L 10 25 L 19.9375 25 L 19.9375 23 Z"/>
                         </svg>
                     </a>
                 </li>

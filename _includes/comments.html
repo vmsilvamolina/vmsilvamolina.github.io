@@ -3,5 +3,8 @@
         {% when "disqus" %}
         <h4>Comments</h4>
         <section id="disqus_thread"></section>
+        {% when "cusdis" %}
+        <h4>Comments</h4>
+        {% include comments-providers/cusdis.html %}
     {% endcase %}
 </div>

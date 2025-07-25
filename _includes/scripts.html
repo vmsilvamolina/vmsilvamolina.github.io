@@ -1,3 +1,12 @@
+<script>
+(function() {
+  const saved = localStorage.getItem('whiteblog-theme');
+  const theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+
+<script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 
 {% if site.analytics %}

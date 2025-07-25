@@ -4,7 +4,7 @@ layout: default
 <div class="container">
   <article class="post">
 
-    <div id="navigation-space" class="row">
+    <div id="navigation-space" class="row-grid">
       <div class="previous">
         {% if page.previous.url %}
           <a href="{{page.previous.url}}" class="nav-btn prev-btn" title="{{page.previous.title}}">
@@ -26,23 +26,39 @@ layout: default
       <h1>
         <span class="underline">{{ page.title | escape }}</span>
       </h1>
-      <p class="text-secondary">
-        <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-          {% assign date_format = site.theme.date_format | default: "%b %-d, %Y" %}
-          {{ page.date | date: date_format }}
-        </time><span style="display:inline-block; width: 6px;"></span>
-        {% if post %}
-          {% assign categories = post.categories %}
-        {% else %}
-          {% assign categories = page.categories %}
-        {% endif %}
-        <h5 id="category-badge">
-        {% for category in categories %}
-          <a href="{{site.baseurl}}/categories/#{{category|slugize}}" class="badge" >{{category}}</a>
-          {% unless forloop.last %}&nbsp;{% endunless %}
-        {% endfor %}
-        </h5>
-      </p>
+<div class="text-secondary">
+  <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+    {% assign date_format = site.theme.date_format | default: "%b %-d, %Y" %}
+    {{ page.date | date: date_format }}
+  </time>
+  {% if site.addons.old_post_warning %}
+    {% assign current_timestamp = 'now' | date: '%s' | plus: 0 %}
+    {% assign one_year_ago = current_timestamp | minus: 31536000 %}
+    {% assign post_date = page.date | date: '%s' | plus: 0 %}
+    {% if post_date < one_year_ago %}
+      <div class="warning-container">
+        <div class="warning-badge">
+          <span class="warning-icon"></span>
+          <span class="warning-text">This post is over a year old and may be outdated.</span>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+</div>
+<div>
+  <!--<span style="display:inline-block; width: 6px;"></span> -->
+  {% if post %}
+    {% assign categories = post.categories %}
+  {% else %}
+    {% assign categories = page.categories %}
+  {% endif %}
+  <h5 id="category-badge">
+  {% for category in categories %}
+    <a href="{{site.baseurl}}/categories/#{{category|slugize}}" class="badge" >{{category}}</a>
+    {% unless forloop.last %}&nbsp;{% endunless %}
+  {% endfor %}
+  </h5>
+</div>
     </header>
 
     <div class="text-justify" id="content">
