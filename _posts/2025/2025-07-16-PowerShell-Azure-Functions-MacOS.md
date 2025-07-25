@@ -1,5 +1,5 @@
 ---
-title: 'Azure Functions development on MacOS [English]'
+title: 'Azure Functions development on macOS [English]'
 author: Victor Silva
 date: 2025-07-16T23:51:48+00:00
 layout: post
