@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2025-07-16T23:51:48+00:00
 layout: post
 permalink: /azure-functions-macos-dev/
-excerpt:
+excerpt: "As cloud development continues to evolve, more developers are embracing cross-platform solutions. While Azure Functions traditionally felt more at home in Windows environments, macOS has become a first-class citizen for serverless development. Whether you're a Mac user diving into Azure or a Windows developer switching platforms, this guide will get you up and running with Azure Functions on macOS."
 categories:
   - Azure
   - PowerShell
@@ -36,8 +36,6 @@ brew install azure-cli
 Yes, PowerShell runs natively on macOS! (since 2018 but don't mind):
 
 ```bash
-```
-```
 brew install --cask powershell
 ```
 

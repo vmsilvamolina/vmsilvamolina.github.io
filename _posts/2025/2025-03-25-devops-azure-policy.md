@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2025-03-25T23:47:37+00:00
 layout: post
 permalink: /devops-azure-policy/
-excerpt:
+excerpt: "In the ever-evolving landscape of cloud infrastructure management, organizations are increasingly seeking more robust, repeatable, and scalable ways to enforce governance and compliance. Azure Policy presents a powerful mechanism for implementing organizational standards, but managing these policies efficiently requires a strategic approach. This article explores a comprehensive methodology for deploying Azure Policies using Infrastructure as Code (IaC) principles."
 categories:
   - Azure
 tags:

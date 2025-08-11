@@ -4,7 +4,7 @@ author: Victor Silva
 date: 2025-03-07T07:35:18+00:00
 layout: post
 permalink: /azure-policy-role-guardian/
-excerpt: 'In the world of cloud security, the principle of least privilege is paramount. However, managing who can assign roles in Azure can become challenging as organizations grow. While Azure RBAC provides granular access control, without proper governance, role assignments can proliferate unchecked. Enter Azure Policy - your gatekeeper for maintaining strict control over who can assign what roles to whom.'
+excerpt: "In the world of cloud security, the principle of least privilege is paramount. However, managing who can assign roles in Azure can become challenging as organizations grow. While Azure RBAC provides granular access control, without proper governance, role assignments can proliferate unchecked. Enter Azure Policy - your gatekeeper for maintaining strict control over who can assign what roles to whom."
 categories:
   - Azure
 tags:
