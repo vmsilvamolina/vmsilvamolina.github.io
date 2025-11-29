@@ -15,7 +15,10 @@ tags:
   - Firewall
 ---
 
-<div>Este es el primer post de invitados :)</div>{: .notice}
+<div>
+<b>Note:</b>
+Este es el primer post de invitados :)
+</div>{: .notice}
 
 Debido a la pandemia que afecta a todos en el mundo, la mayoría de los que trabajamos en TI nos vimos forzados a trabajar desde casa con un montón de desafíos. En esta entrada del blog les quiero comentar un problema que me surgió relacionado con la seguridad del lugar donde trabajo y una posible forma de solucionar ese problema de forma "automática".
 

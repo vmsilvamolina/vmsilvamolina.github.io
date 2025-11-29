@@ -27,7 +27,9 @@ Lo primero que vamos a ver es como comprobar los recursos necesarios, como es el
 
 Antes de comenzar el live migration, necesitamos asegurarnos de que el host destino tiene la memoria suficiente para poder alojar la maquina virtual, con el siguiente comando:
 
-> Get-VMMemory \[-VMName] <String[]> [-ComputerName <String[]> \] \[ <CommonParameters>\]
+{% highlight plaintext %}
+Get-VMMemory \[-VMName] <String[]> [-ComputerName <String[]> \] \[ <CommonParameters>\]
+{% endhighlight %}
 
 Un ejemplo del mismo:
 
@@ -59,11 +61,15 @@ Parece muy básico, pero muchas veces trabajando con nuestras maquinas virtuales
 
 Revisar la lista de ISOS o DVDs conectadas a muestra VM usando:
 
-> Get-VMDvdDrive \[-VMName] <String[]> [-ComputerName <String[]> \] \[-ControllerLocation <Int32> \] \[-ControllerNumber <Int32> \] \[ <CommonParameters>\]
+{% highlight plaintext %}
+Get-VMDvdDrive \[-VMName] <String[]> [-ComputerName <String[]> \] \[-ControllerLocation <Int32> \] \[-ControllerNumber <Int32> \] \[ <CommonParameters>\]
+{% endhighlight %}
 
 Ahora debemos ejecutar el siguiente comando para remover la ISO o DVD de la VM:
 
-> Set-VMDvdDrive \[-VMName] <String> [[-ControllerNumber] <Int32> \] \[[-ControllerLocation\] <Int32> ] \[[-Path] <String> \] \[-AllowUnverifiedPaths\] \[-ComputerName <String[]> \] \[-Passthru\] \[-ResourcePoolName <String> \] \[-ToControllerLocation <Int32> \] \[-ToControllerNumber <Int32> \] \[ <CommonParameters>\]
+{% highlight plaintext %}
+Set-VMDvdDrive \[-VMName] <String> [[-ControllerNumber] <Int32> \] \[[-ControllerLocation\] <Int32> ] \[[-Path] <String> \] \[-AllowUnverifiedPaths\] \[-ComputerName <String[]> \] \[-Passthru\] \[-ResourcePoolName <String> \] \[-ToControllerLocation <Int32> \] \[-ToControllerNumber <Int32> \] \[ <CommonParameters>\]
+{% endhighlight %}
 
 Un ejemplo de como sería:
 

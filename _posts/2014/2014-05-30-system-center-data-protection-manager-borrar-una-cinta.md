@@ -16,9 +16,11 @@ tags:
 ---
 En DPM trabajando con unidades de cinta, en alguna oportunidad nos podemos encontrar con errores de cinta. Uno de los errores puede ser el siguiente:
 
-> The detailed inventory of tape failed for the following reason: (ID: 3316)
-> 
-> The tape in Stand Alone Drive Tape Library Hewlett Packard LTO Ultrium-2 drive at Drive Hewlett Packard LTO Ultrium-2 drive has been written to by another tape backup application using an unsupported physical block size. DPM supports a physical block of 65536 bytes for writing and a physical block size ranging from 1024 bytes to 65536 bytes for reading. So DPM will not be able to read or overwrite the contents of this tape. (ID: 24084)
+{% highlight plaintext %}
+The detailed inventory of tape failed for the following reason: (ID: 3316)
+
+The tape in Stand Alone Drive Tape Library Hewlett Packard LTO Ultrium-2 drive at Drive Hewlett Packard LTO Ultrium-2 drive has been written to by another tape backup application using an unsupported physical block size. DPM supports a physical block of 65536 bytes for writing and a physical block size ranging from 1024 bytes to 65536 bytes for reading. So DPM will not be able to read or overwrite the contents of this tape. (ID: 24084)
+{% endhighlight %}
 
 Como resultado de este error, DPM no puede escribir en la cinta, la cinta no se borra, y por lo tanto, no se puede utilizar para una tarea de respaldo. Buscando en internet, existen varios procedimientos y herramientas que no han funcionado. Incluso *DPMTapeUtil.Ps1*, no funcionó.
 
@@ -44,9 +46,9 @@ Continuando el procedimiento, ya con el archivo descargado y realizada la extrac
 
 Y luego cada uno de estos comandos:
 
-  * **Loadtape**
-  * **Taperewind**
-  * **Erasetape**
+  * `Loadtape`
+  * `Taperewind`
+  * `Erasetape`
 
 Cuando ejecuten este último comando, van a poder elegir 2 opciones: Short Erase o Long Erase, por temas de tiempos les recomiendo elegir Short Erase (s) pero deben de corroborar de que pueden elegir esta opción, para ello chequear lo siguiente:
 

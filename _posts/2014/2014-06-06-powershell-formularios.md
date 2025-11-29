@@ -106,9 +106,9 @@ $Form.Controls.Add($Button)
 [void]$Form.ShowDialog()
 {% endhighlight %}
 
-Si prestan atención se creó un nuevo párrafo que define a nuestro nuevo elemento: **Label**
+Si prestan atención se creó un nuevo párrafo que define a nuestro nuevo elemento: `Label`
 
-Creo que no es necesario explicar que se realizó para crear la etiqueta, por lo que vamos a pasar a ver otro elemento muy útil a la hora de crear nuestras interfaces gráficas para los scripts Este elemento es el: _**TextBox**_ 
+Creo que no es necesario explicar que se realizó para crear la etiqueta, por lo que vamos a pasar a ver otro elemento muy útil a la hora de crear nuestras interfaces gráficas para los scripts Este elemento es el: `TextBox` 
 
 El cuadro de texto es un elemento gráfico que nos permite insertar texto para poder utilizarlo dentro de nuestros scripts.
 
@@ -136,7 +136,7 @@ $Label.Text = ""
 
 Esto hará que nuestra etiqueta no muestre texto alguno.
 
-Luego deberemos de modificar el evento del botón, para ello ingresamos las siguientes líneas de código correspondientes al evento *Add_Click*:
+Luego deberemos de modificar el evento del botón, para ello ingresamos las siguientes líneas de código correspondientes al evento `Add_Click`:
 
 {% highlight posh %}
 #Defino el evento al hacer el clic

@@ -15,10 +15,12 @@ tags:
   - Azure
 ---
 
-<div><b>Note:</b> 
+<div>
+<b>Note:</b> 
 This article is part of <a href="https://aka.ms/ServerlessSeptember2020">#ServerlessSeptember</a>. You'll find other helpful articles, detailed tutorials, and videos in this all-things-Serverless content collection. New articles from community members and cloud advocates are published every week from Monday to Thursday through September. 
  
-Find out more about how Microsoft Azure enables your Serverless functions at <a href="https://docs.microsoft.com/azure/azure-functions/?WT.mc_id=servsept20-devto-cxaall">https://docs.microsoft.com/azure/azure-functions/</a>.</div>{: .notice--success}
+Find out more about how Microsoft Azure enables your Serverless functions at <a href="https://docs.microsoft.com/azure/azure-functions/?WT.mc_id=servsept20-devto-cxaall">https://docs.microsoft.com/azure/azure-functions/</a>.
+</div>{: .notice}
 
 Nowadays, infrastructure tasks have reached a new level with the help of devs tools (like control version system) but, operations teams take all of the advantages of 'new world'? Serverless computing enables ways to build and create applications without concern about managing the infrastructure.
 

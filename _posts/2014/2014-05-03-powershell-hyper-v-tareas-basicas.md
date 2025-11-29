@@ -44,7 +44,9 @@ Lo primero que pensamos cuando hablamos de automatizar tareas en Hyper-V es crea
 
 Vamos a ver que tan fácil es crear uan VM desde PowerShell, con el siguiente comando:
 
-> New-VM \[[-Name] <String>\] \[[-MemoryStartupBytes\] <Int64>] -NewVHDPath <String> -NewVHDSizeBytes <UInt64> \[-AsJob\] \[-BootDevice <String> \] \[-ComputerName <String[]> \] \[-Path <String> \] \[-SwitchName <String> \] \[ <CommonParameters>\]
+{% highlight plaintext %}
+New-VM \[[-Name] <String>\] \[[-MemoryStartupBytes\] <Int64>] -NewVHDPath <String> -NewVHDSizeBytes <UInt64> \[-AsJob\] \[-BootDevice <String> \] \[-ComputerName <String[]> \] \[-Path <String> \] \[-SwitchName <String> \] \[ <CommonParameters>\]
+{% endhighlight %}
 
 Aca tenemos un ejemplo para crear una VM :
 
@@ -54,7 +56,9 @@ New-VM -Name Server01 –MemoryStartupBytes 1GB -NewVHDPath c:Server01.vhd -NewV
 
 De la misma manera podemos crear un Switch Virtual mediante una sola línea de código, con el siguiente comando:
 
-> New-VMSwitch \[-Name] <String> -NetAdapterName <String> [-AllowManagementOS <Boolean> \] \[-ComputerName <String[\]> ] \[-EnableIov <Boolean> \] \[-MinimumBandwidthMode <VMSwitchBandwidthMode> \] \[-Notes <String> \] \[ <CommonParameters>\] 
+{% highlight plaintext %}
+New-VMSwitch \[-Name] <String> -NetAdapterName <String> [-AllowManagementOS <Boolean> \] \[-ComputerName <String[\]> ] \[-EnableIov <Boolean> \] \[-MinimumBandwidthMode <VMSwitchBandwidthMode> \] \[-Notes <String> \] \[ <CommonParameters>\] 
+{% endhighlight %}
 
 Este sería un ejemplo para crear un Switch Virtual:
 
@@ -74,7 +78,9 @@ Enable-VMMigration
 
 Para iniciar una migración de una VM, debemos de ejecutar este comando:
 
-> Move-VM \[-Name] <String> [-DestinationHost] <String> [-AsJob\] \[-ComputerName <String[\]> ] \[-DestinationStoragePath <String> \] \[-IncludeStorage\] \[-Passthru\] \[-ResourcePoolName <String> \] \[-RetainVhdCopiesOnSource\] \[-SmartPagingFilePath <String> \] \[-SnapshotFilePath <String> \] \[-Vhds <Hashtable[\]> ] \[-VirtualMachinePath <String> \] \[-Confirm\] \[-WhatIf\] \[ <CommonParameters>\]
+{% highlight plaintext %}
+Move-VM \[-Name] <String> [-DestinationHost] <String> [-AsJob\] \[-ComputerName <String[\]> ] \[-DestinationStoragePath <String> \] \[-IncludeStorage\] \[-Passthru\] \[-ResourcePoolName <String> \] \[-RetainVhdCopiesOnSource\] \[-SmartPagingFilePath <String> \] \[-SnapshotFilePath <String> \] \[-Vhds <Hashtable[\]> ] \[-VirtualMachinePath <String> \] \[-Confirm\] \[-WhatIf\] \[ <CommonParameters>\]
+{% endhighlight %}
 
 Un ejemplo de uso:
 

@@ -207,7 +207,10 @@ Ahora que se revisó lo más destacable del Playbook, el código completo para g
           version: latest
 {% endhighlight %}
 
-<div><b>Nota:</b> En el parámetro <i>key_data</i> es necesario ingresar el valor completo de la clave pública.</div>{: .notice}
+<div>
+<b>Nota:</b>
+En el parámetro <i>key_data</i> es necesario ingresar el valor completo de la clave pública.
+</div>{: .notice}
 
 ### Instalar Nginx en Linux usando un inventario
 

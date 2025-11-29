@@ -16,7 +16,10 @@ tags:
   - IaC
 ---
 
-<div>Esta publicación es parte del Calendario de Adviento Azure 2022, una iniciativa liderada por Héctor Pérez y Luis Beltrán. Revisa <a href="https://elcamino.dev/calendario-adviento-azure-22/">este enlace</a> para conocer más artículos interesantes sobre Azure publicados por varios miembros de la comunidad.</div>{: .notice}
+<div>
+<b>Note:</b>
+Esta publicación es parte del Calendario de Adviento Azure 2022, una iniciativa liderada por Héctor Pérez y Luis Beltrán. Revisa <a href="https://elcamino.dev/calendario-adviento-azure-22/">este enlace</a> para conocer más artículos interesantes sobre Azure publicados por varios miembros de la comunidad.
+</div>{: .notice}
 
 Dado el uso de Terraform para la definición de recursos, una necesidad que ha surgido en las tareas de gestión de los mismos, es la posibilidad de importar recursos de Azure que se encuentran fuera del estado que terraform mantiene al día. Gracias a esta necesidad llegamos a `Azure Terrafy`.
 

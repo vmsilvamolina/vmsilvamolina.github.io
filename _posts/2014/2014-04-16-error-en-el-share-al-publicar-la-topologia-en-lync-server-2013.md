@@ -26,10 +26,10 @@ Luego seleccionar la solapa sharing,  luego el botón share.
 
 En el asistente "File Sharing", desde el botón **Add** y luego **Find People**, agregar los siguientes grupos con los permisos **Read/Write**:
 
-  * RTCHS Universal Services
-  * RTC Component Universal Services
-  * RTC Universal Server Admins
-  * RTC Universal Config Replicator
+ - RTCHS Universal Services
+ - RTC Component Universal Services
+ - RTC Universal Server Admins
+ - RTC Universal Config Replicator
 
 Luego de realizado lo anterior, volver a publicar la topología y continuar con la instalación de forma normal.
 

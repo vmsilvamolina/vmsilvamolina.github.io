@@ -45,11 +45,7 @@ Si guardamos los cambios y ejecutamos una nueva consola de PowerShell vamos a ve
 
 <img src="https://r2fzaq.ch.files.1drv.com/y4mB-Ka7l1N4ABUE7O-RarZ0mQ3Z4jSfeP0Fr5bdtyl-a4Y8v-oGT_3jsEPecRir7vhCylmswXftxsF3bFiRXT0_LA_uca4w-_NE8Rr0BCIx0kbi_KFblUIDZVq7kIO0SIzuqrcdkFiJoAQaAVl78wvB0LNbrzu4g5prcdSbv3nHp-yL276gKx3RGAiq-XpEZZe93HZZvWlLaU3a4e5SkhneQ?width=859&height=183&cropmode=none" width="859" height="183" alt="Consola con el # como prompt" class="alignnone" />
 
-Ya con esto podemos hacer algunas modificaciones, como: "
->"
- o "
-->"
-
+Ya con esto podemos hacer algunas modificaciones, como: `>` o `->`
 
 O agregar una variable, de la siguiente manera utilizando la hora:
 

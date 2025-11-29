@@ -16,7 +16,7 @@ tags:
   - PowerShell
   - Script
 ---
-**Editado: 13/4/2015**
+**_Editado: 13/4/2015_**
 
 A la persona que le ha tocado administrar Office 365 alguna vez, de seguro tuvo que hacer alguna tarea desde PowerShell. También estoy seguro que las primeras veces, nos parece bastante incomodo, mas que nada la manera de iniciar sesión. Hoy voy a tratar de demostrar que Office 365 y PowerShell son amigos, tratando de automatizar y simplificar algunas tareas.
 

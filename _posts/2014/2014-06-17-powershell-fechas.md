@@ -19,7 +19,7 @@ En algunos casos debemos trabajar con fechas sobre nuestros scripts. Vamos a ver
 
 Lo primero que vamos a mencionar es el comando que realiza estas acciones: **Get-Date**.
 
-Con este comando vamos a poder imprimir nuestra fecha como mas nos guste a nosotros. Pero para darle un formato adecuado a nuestra situación debemos utilizar el parámetro **-Format**.
+Con este comando vamos a poder imprimir nuestra fecha como mas nos guste a nosotros. Pero para darle un formato adecuado a nuestra situación debemos utilizar el parámetro `-Format`.
 
 El primer ejemplo es ver la fecha en formato largo, al estilo: _martes, 17 de junio de 2014_, el comando sería:
 

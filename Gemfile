@@ -14,3 +14,4 @@ end
 
 gem "webrick", "~> 1.7"
 gem "wkhtmltoimage-binary", "~> 0.12.5"
+gem "faraday-retry"

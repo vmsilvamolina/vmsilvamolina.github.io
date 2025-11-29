@@ -22,6 +22,7 @@ tags:
 Automatizar tareas aburridas es una de las cosas más divertidas para los que amamos el scripting, pero... ¿qué sucede si nos detenemos a pensar en la cantidad de scripts de PowerShell que hemos escrito para uso personal o del equipo? Módulos y/o funciones que ayudar a automatizar o solucionar problemas de forma más sencilla son olvidados y/o dejados de lado a pesar del esfuerzo que lleva realizar este tipo de tareas.
 
 <div>
+<b>Note:</b>
 :loudspeaker: ¿Te gustaría enterarte cuando se publique un nuevo post? <a href="https://twitter.com/vmsilvamolina">Follow me on Twitter: @vmsilvamolina</a> :loudspeaker:
 </div>{: .notice}
 

@@ -16,6 +16,7 @@ tags:
 ---
 
 <div>
+<b>Note:</b>
 <p>Este post pertenece a una serie de publicaciones relacionadas:</p>
 <li>Integración de Ansible y Azure - Introducción</li>
 <li><a href="https://blog.victorsilva.com.uy/integracion-ansible-azure-2/">Integración de Ansible y Azure - Hello world!</a></li>

@@ -15,7 +15,10 @@ tags:
   - Azure Chaos Studio
 ---
 
-<div>This blog post is also a contribution to Azure Advent Calendar where during December, experts from the tech community share their knowledge through contributions of a specific technology in the Azure domain. You’re welcome to check out all the contributions here: <a href="">Azure Advent Calendar</a></div>{: .notice}
+<div>
+<b>Note:</b>
+This blog post is also a contribution to Azure Advent Calendar where during December, experts from the tech community share their knowledge through contributions of a specific technology in the Azure domain. You’re welcome to check out all the contributions here: <a href="">Azure Advent Calendar</a>
+</div>{: .notice}
 
 Azure Chaos Studio is a manage service offered by Microsoft as part of its Azure cloud platform that enables users to test the resilience and reliability of their systems by introducing controlled failures and disruptions. In this blog post, we will walk through the steps for using Azure Chaos Studio to test the resilience of your systems.
 

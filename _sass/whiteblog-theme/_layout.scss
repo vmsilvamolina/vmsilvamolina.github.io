@@ -362,17 +362,13 @@ a#blog-title:focus::before {
 }
 
 .notice {
-  background-color: var(--color-notice);
-  border-color: var(--color-notice);
-  border-radius: .5rem;
-  border-top-width: 4px;
+  border-top: 2px solid var(--color-notice);
+  margin: 1rem 0 2rem 0;
   padding: 1rem;
-  margin: 1rem 0;
-  color: var(--color-text);
+  border-bottom: 2px solid var(--color-notice);
+  font-style: italic;
   font-weight: 400;
   font-size: 1rem;
-  font-style: normal;
-  width: 100%;
 }
 
 #navigation-space {
@@ -516,7 +512,6 @@ blockquote {
   font-size: 1.1rem;
   width: 85%;
   margin: 2rem auto;
-  height: 80px;
   display: flex;
   align-items: center;
 }
