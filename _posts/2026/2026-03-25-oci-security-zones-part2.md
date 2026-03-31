@@ -1,7 +1,7 @@
 ---
-title: 'Oracle Cloud Security Zones [English]'
+title: 'Oracle Cloud Security Zones: Custom Recipes, Terraform, and Day-2 Operations'
 author: Victor Silva
-date: 2025-08-05T22:36:18+00:00
+date: 2026-03-25T01:18:34+00:00
 layout: post
 permalink: /oci-security-zones-part2/
 excerpt: "The Maximum Security Recipe is Oracle's nuclear option — it enables every available Security Zone policy simultaneously and cannot be modified. In practice, most production workloads cannot tolerate it without significant architectural changes, because it blocks things like internet gateways, NAT gateways, public load balancers, volume detachment, instance termination, and OKE cluster operations."
