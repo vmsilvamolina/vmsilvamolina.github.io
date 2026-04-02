@@ -5,3 +5,5 @@ Gemfile.lock
 _site
 _drafts/
 Rakefile
+.claude/
+CLAUDE.md
