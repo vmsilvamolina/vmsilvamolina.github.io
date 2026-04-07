@@ -1,10 +1,10 @@
 ---
-title: 'OCI Vault: Secrets Management con Terraform'
+title: 'OCI Vault: Secrets Management with Terraform'
 author: Victor Silva
 date: 2026-04-06T09:00:00+00:00
 layout: post
 permalink: /oci-vault-secrets-management-terraform/
-excerpt: "Aprende a gestionar secretos en OCI Vault con Terraform: vault, keys, políticas IAM y el patrón correcto para evitar que tus secretos terminen en el state file."
+excerpt: "Learn how to manage secrets in OCI Vault with Terraform: vault, keys, IAM policies, and the right pattern to prevent your secrets from ending up in the state file."
 categories:
   - Oracle
   - Terraform
@@ -17,20 +17,20 @@ tags:
   - security
 ---
 
-Si alguna vez abriste un repositorio de Terraform y encontraste algo como `db_password = "Sup3rS3cr3t!"` hardcodeado en un `.tfvars`, o peor aún, en el propio `main.tf`, sabés exactamente de qué problema estamos hablando. Las credenciales hardcodeadas son una de las vulnerabilidades más comunes en proyectos de infraestructura como código, y el riesgo no termina ahí: incluso cuando se pasan correctamente como variables, ciertos data sources de Terraform escriben el valor del secreto directamente en el state file, que muchas veces vive en un bucket S3 o en un backend remoto sin cifrado adicional.
+If you've ever opened a Terraform repository and found something like `db_password = "Sup3rS3cr3t!"` hardcoded in a `.tfvars` file — or worse, in `main.tf` itself — you already know exactly what problem we're talking about. Hardcoded credentials are one of the most common vulnerabilities in infrastructure-as-code projects, and the risk doesn't stop there: even when secrets are passed correctly as variables, certain Terraform data sources write the secret value directly into the state file, which often lives in an S3 bucket or a remote backend without additional encryption.
 
-OCI Vault resuelve este problema de raíz. Es el servicio gestionado de Oracle Cloud para almacenamiento de claves y secretos, respaldado por HSM, con control de acceso granular vía IAM y soporte nativo en el provider de Terraform para OCI. En este post vamos a construir desde cero la infraestructura completa: vault, master encryption key, secretos con reglas de expiración y rotación, políticas IAM para equipos y para workloads mediante Instance Principal, y los comandos de verificación para confirmar que todo funciona antes de confiar en el sistema en producción.
+OCI Vault solves this problem at the root. It's Oracle Cloud's managed service for key and secret storage, backed by HSM, with granular access control via IAM and native support in the Terraform provider for OCI. In this post we'll build the complete infrastructure from scratch: vault, master encryption key, secrets with expiration and rotation rules, IAM policies for teams and for workloads via Instance Principal, and the verification commands to confirm everything works before trusting the system in production.
 
-También vamos a ser explícitos sobre el problema del state file y cómo evitarlo, porque es el gotcha más peligroso de trabajar con secretos en Terraform.
+We'll also be explicit about the state file problem and how to avoid it, because it's the most dangerous gotcha when working with secrets in Terraform.
 
-## Arquitectura y conceptos clave
+## Architecture and key concepts
 
-OCI Vault tiene una arquitectura de dos planos separados:
+OCI Vault has an architecture with two separate planes:
 
-- **Management Endpoint (control plane):** se usa para operaciones administrativas — crear vaults, crear keys, crear secretos, rotar versiones. Las llamadas de Terraform van todas aquí.
-- **Cryptographic Endpoint (data plane):** se usa para operaciones criptográficas reales — cifrar, descifrar, firmar. Las aplicaciones que necesitan cifrado directo apuntan aquí.
+- **Management Endpoint (control plane):** used for administrative operations — creating vaults, keys, and secrets, rotating versions. All Terraform calls go here.
+- **Cryptographic Endpoint (data plane):** used for actual cryptographic operations — encrypt, decrypt, sign. Applications that need direct encryption point here.
 
-Esta separación no es cosmética. Significa que podés restringir el acceso al data plane de forma independiente al control plane, lo que es relevante para el diseño de políticas IAM.
+This separation is not cosmetic. It means you can restrict access to the data plane independently from the control plane, which is relevant for IAM policy design.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -43,7 +43,7 @@ Esta separación no es cosmética. Significa que podés restringir el acceso al 
 │  │  │  ┌───────────┐  │    │   (Instance Principal)    │ │  │
 │  │  │  │  MEK Key  │  │    │                           │ │  │
 │  │  │  └─────┬─────┘  │    │   oci secrets             │ │  │
-│  │  │        │ cifra  │    │   secret-bundle get ───►  │ │  │
+│  │  │        │ encrypts│   │   secret-bundle get ───►  │ │  │
 │  │  │  ┌─────▼─────┐  │◄───┤                           │ │  │
 │  │  │  │  Secrets  │  │    │                           │ │  │
 │  │  │  └───────────┘  │    └───────────────────────────┘ │  │
@@ -54,54 +54,54 @@ Esta separación no es cosmética. Significa que podés restringir el acceso al 
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Tipos de vault: una decisión irreversible
+### Vault types: an irreversible decision
 
-Este es el primer punto donde hay que pensar antes de ejecutar `terraform apply`, porque **el tipo de vault no se puede cambiar después de la creación**. Las opciones son:
+This is the first point where you need to think before running `terraform apply`, because **the vault type cannot be changed after creation**. The options are:
 
-| Tipo | HSM | Auto-rotación de keys | Costo | Uso recomendado |
+| Type | HSM | Key auto-rotation | Cost | Recommended use |
 |---|---|---|---|---|
-| `DEFAULT` | Compartido | No | Menor | Desarrollo, staging |
-| `VIRTUAL_PRIVATE` | Dedicado | Sí (GA desde feb 2024) | Mayor | Producción |
-| `EXTERNAL` | Externo (BYOK) | No | Variable | Regulaciones estrictas |
+| `DEFAULT` | Shared | No | Lower | Development, staging |
+| `VIRTUAL_PRIVATE` | Dedicated | Yes (GA since Feb 2024) | Higher | Production |
+| `EXTERNAL` | External (BYOK) | No | Variable | Strict regulations |
 
-Para producción, `VIRTUAL_PRIVATE` es la respuesta correcta: HSM dedicado, soporte para rotación automática de keys, y aislamiento completo. Para entornos de desarrollo y pruebas, `DEFAULT` funciona bien y es considerablemente más económico.
+For production, `VIRTUAL_PRIVATE` is the right answer: dedicated HSM, support for automatic key rotation, and full isolation. For development and testing environments, `DEFAULT` works well and is considerably more economical.
 
-En este post vamos a usar `DEFAULT` para mantener el ejemplo deployable en cualquier tenancy, pero en la sección de best practices vamos a ver cuándo y cómo migrar a `VIRTUAL_PRIVATE`.
+In this post we'll use `DEFAULT` to keep the example deployable in any tenancy, but in the best practices section we'll look at when and how to migrate to `VIRTUAL_PRIVATE`.
 
-### Keys: AES para secretos, RSA/ECDSA para firma
+### Keys: AES for secrets, RSA/ECDSA for signing
 
-OCI Vault soporta claves simétricas (AES) y asimétricas (RSA, ECDSA). La restricción importante: **solo las keys AES pueden cifrar secretos**. Las keys RSA y ECDSA están para firma y cifrado asimétrico, no para el vault secrets service. Si intentás asociar una key RSA a un secreto, la operación falla.
+OCI Vault supports symmetric keys (AES) and asymmetric keys (RSA, ECDSA). The important constraint: **only AES keys can encrypt secrets**. RSA and ECDSA keys are for signing and asymmetric encryption, not for the vault secrets service. If you try to associate an RSA key with a secret, the operation fails.
 
-El gotcha de Terraform que muerde a casi todos la primera vez: **la longitud de la key se especifica en bytes, no en bits**. AES-256 = `length = 32`. Si ponés `length = 256` estás pidiendo una key de 2048 bits, que ni siquiera es un tamaño válido para AES.
+The Terraform gotcha that bites almost everyone the first time: **key length is specified in bytes, not bits**. AES-256 = `length = 32`. If you set `length = 256` you're requesting a 2048-bit key, which isn't even a valid AES size.
 
-## Prerrequisitos
+## Prerequisites
 
-Para seguir este post necesitás:
+To follow this post you'll need:
 
-- OCI CLI instalado y configurado (`oci setup config` o API key en `~/.oci/config`)
+- OCI CLI installed and configured (`oci setup config` or API key in `~/.oci/config`)
 - Terraform >= 1.3
 - Provider `oracle/oci` >= 8.0
-- Un compartment OCID en el que tengas permisos de `manage vaults`, `manage keys` y `manage secret-family`
-- El OCID de tu tenancy (para crear Dynamic Groups, que van a nivel de tenancy)
+- A compartment OCID where you have `manage vaults`, `manage keys`, and `manage secret-family` permissions
+- Your tenancy OCID (needed to create Dynamic Groups, which are tenancy-level)
 
-Verificá el acceso antes de empezar:
+Verify access before starting:
 
 {% highlight bash %}
-# Verificar que el CLI está configurado correctamente
+# Verify the CLI is configured correctly
 oci iam user get --user-id $(oci iam user list --query 'data[0].id' --raw-output)
 
-# Verificar que tenés acceso al compartment
+# Verify you have access to the compartment
 oci iam compartment get --compartment-id $COMPARTMENT_ID
 
-# Verificar versión del provider en tu proyecto
+# Verify the provider version in your project
 terraform providers
 {% endhighlight %}
 
-## Implementación paso a paso
+## Step-by-step implementation
 
-### Configuración del provider
+### Provider configuration
 
-Empezamos con el bloque de configuración del provider. Nada especial aquí, pero es importante fijar la versión del provider porque el API de OCI Vault cambió entre versiones mayores:
+We start with the provider configuration block. Nothing special here, but it's important to pin the provider version because the OCI Vault API changed between major versions:
 
 {% highlight hcl %}
 terraform {
@@ -118,7 +118,7 @@ provider "oci" {
 }
 {% endhighlight %}
 
-Las variables que vamos a necesitar a lo largo del ejemplo:
+The variables we'll need throughout the example:
 
 {% highlight hcl %}
 variable "region" {
@@ -127,12 +127,12 @@ variable "region" {
 }
 
 variable "compartment_id" {
-  description = "OCID del compartment donde se despliegan los recursos"
+  description = "OCID of the compartment where resources are deployed"
   type        = string
 }
 
 variable "tenancy_ocid" {
-  description = "OCID de la tenancy (requerido para Dynamic Groups)"
+  description = "OCID of the tenancy (required for Dynamic Groups)"
   type        = string
 }
 
@@ -143,9 +143,9 @@ variable "db_password" {
 }
 {% endhighlight %}
 
-### Creando el Vault y la Master Encryption Key
+### Creating the Vault and Master Encryption Key
 
-El vault y la key se crean con dos recursos separados. La relación entre ellos es que `oci_kms_key` requiere el `management_endpoint` del vault — no un endpoint hardcodeado, sino la referencia al atributo del recurso del vault. Si no usás `depends_on`, Terraform puede intentar crear la key antes de que el vault esté completamente provisionado, lo que resulta en un error de endpoint no disponible.
+The vault and key are created with two separate resources. The relationship between them is that `oci_kms_key` requires the `management_endpoint` of the vault — not a hardcoded endpoint, but a reference to the vault resource's attribute. Without `depends_on`, Terraform may try to create the key before the vault is fully provisioned, resulting in an unavailable endpoint error.
 
 {% highlight hcl %}
 resource "oci_kms_vault" "app_vault" {
@@ -166,7 +166,7 @@ resource "oci_kms_key" "app_key" {
 
   key_shape {
     algorithm = "AES"
-    length    = 32   # 32 bytes = AES-256 (Terraform usa bytes, no bits)
+    length    = 32   # 32 bytes = AES-256 (Terraform uses bytes, not bits)
   }
 
   protection_mode = "HSM"
@@ -175,15 +175,15 @@ resource "oci_kms_key" "app_key" {
 }
 {% endhighlight %}
 
-Dos decisiones importantes en este bloque:
+Two important decisions in this block:
 
-`protection_mode = "HSM"` significa que el material de la key nunca sale del HSM — OCI no puede exportarla y vos tampoco podés. Si usás `protection_mode = "SOFTWARE"`, la key puede exportarse, lo que amplía la superficie de ataque. Para producción, siempre HSM.
+`protection_mode = "HSM"` means the key material never leaves the HSM — OCI cannot export it and neither can you. If you use `protection_mode = "SOFTWARE"`, the key can be exported, which expands the attack surface. For production, always HSM.
 
-El `depends_on` explícito no es solo buenas prácticas: es necesario. El vault puede tardar algunos segundos en estar operativo después de que la API reporta el recurso como creado, y la key necesita que el management endpoint esté activo para registrarse.
+The explicit `depends_on` is not just best practice: it's necessary. The vault may take a few seconds to become operational after the API reports the resource as created, and the key needs the management endpoint to be active to register.
 
-### Creando el secreto con reglas de expiración
+### Creating the secret with expiration rules
 
-Ahora viene el secreto en sí. El content del secreto debe estar en base64 — OCI Vault no acepta texto plano en la API. Terraform tiene la función `base64encode()` que hace exactamente eso:
+Now for the secret itself. The secret content must be base64-encoded — OCI Vault does not accept plain text in the API. Terraform has the `base64encode()` function that does exactly that:
 
 {% highlight hcl %}
 resource "oci_vault_secret" "db_password" {
@@ -212,77 +212,77 @@ resource "oci_vault_secret" "db_password" {
 }
 {% endhighlight %}
 
-Los `secret_rules` son el componente que más se pasa por alto en implementaciones básicas y que más diferencia hace en producción:
+The `secret_rules` are the component most often overlooked in basic implementations and that makes the biggest difference in production:
 
-**SECRET_EXPIRY_RULE** con `P90D` hace que el secreto expire a los 90 días. La parte crítica es `is_secret_content_retrieval_blocked_on_expiry = true`. Por defecto este campo es `false`, lo que significa que aunque el secreto expire, las aplicaciones pueden seguir leyéndolo. Eso hace que la expiración sea decorativa. Con `true`, OCI bloquea el acceso al bundle del secreto una vez expirado, forzando la rotación real.
+**SECRET_EXPIRY_RULE** with `P90D` makes the secret expire after 90 days. The critical part is `is_secret_content_retrieval_blocked_on_expiry = true`. By default this field is `false`, meaning that even when the secret expires, applications can still read it. That makes expiration decorative. With `true`, OCI blocks access to the secret bundle once it expires, forcing real rotation.
 
-**SECRET_REUSE_RULE** con `is_enforced_on_deleted_secret_versions = true` impide que se reutilice un valor de secreto previo, incluso en versiones eliminadas. Esto es un control de compliance relevante en entornos regulados.
+**SECRET_REUSE_RULE** with `is_enforced_on_deleted_secret_versions = true` prevents reuse of a previous secret value, even in deleted versions. This is a compliance control relevant in regulated environments.
 
-### Outputs para referencia posterior
+### Outputs for later reference
 
-Los outputs son importantes tanto para la verificación como para que otros módulos de Terraform puedan referenciar estos recursos:
+Outputs are important both for verification and so that other Terraform modules can reference these resources:
 
 {% highlight hcl %}
 output "vault_id" {
-  description = "OCID del vault"
+  description = "Vault OCID"
   value       = oci_kms_vault.app_vault.id
 }
 
 output "vault_management_endpoint" {
-  description = "Management endpoint del vault (requerido para operaciones con keys)"
+  description = "Vault management endpoint (required for key operations)"
   value       = oci_kms_vault.app_vault.management_endpoint
 }
 
 output "key_id" {
-  description = "OCID de la master encryption key"
+  description = "Master encryption key OCID"
   value       = oci_kms_key.app_key.id
 }
 
 output "db_secret_id" {
-  description = "OCID del secreto de base de datos"
+  description = "Database secret OCID"
   value       = oci_vault_secret.db_password.id
 }
 {% endhighlight %}
 
-## El problema del state file
+## The state file problem
 
-Este es el punto donde más proyectos fallan silenciosamente, y vale la pena detenerse.
+This is the point where most projects fail silently, and it's worth pausing.
 
-OCI Vault expone dos data sources para leer secretos en Terraform:
+OCI Vault exposes two data sources for reading secrets in Terraform:
 
-- `oci_vault_secret` — devuelve **solo metadatos** del secreto: OCID, nombre, estado, fechas. El valor del secreto no aparece nunca en el state.
-- `oci_secrets_secretbundle` — devuelve el **contenido real** del secreto, decodificado. **Este valor queda almacenado en el state file.**
+- `oci_vault_secret` — returns **only metadata** about the secret: OCID, name, state, dates. The secret value never appears in the state.
+- `oci_secrets_secretbundle` — returns the **actual content** of the secret, decoded. **This value is stored in the state file.**
 
-El state file de Terraform no está cifrado por defecto. Si tu backend es un bucket S3 de AWS o un OCI Object Storage bucket sin cifrado adicional, el secreto está en texto plano en el estado. Cualquier persona con acceso al backend tiene acceso al secreto.
+The Terraform state file is not encrypted by default. If your backend is an AWS S3 bucket or an OCI Object Storage bucket without additional encryption, the secret is stored in plain text in the state. Anyone with access to the backend has access to the secret.
 
-El patrón más seguro es nunca leer el valor de un secreto desde Terraform. Las aplicaciones deben recuperarlo en runtime usando el OCI SDK o la CLI con Instance Principal, no durante el apply. Si necesitás referenciar el OCID del secreto en otro recurso, usá `oci_vault_secret` (metadata only) o referenciá directamente el output del recurso que lo creó.
+The safest pattern is to never read the secret value from Terraform. Applications should retrieve it at runtime using the OCI SDK or CLI with Instance Principal, not during apply. If you need to reference a secret's OCID in another resource, use `oci_vault_secret` (metadata only) or directly reference the output of the resource that created it.
 
-Si por alguna razón operacional necesitás leer el bundle en Terraform, hay tres mitigaciones:
+If for some operational reason you need to read the bundle in Terraform, there are three mitigations:
 
-**1. Backend cifrado con KMS.** Si usás OCI Object Storage como backend de Terraform, podés configurarlo con una clave de OCI Vault para que el state file quede cifrado en reposo. El secreto sigue estando en el state, pero el state está cifrado con una key cuyo acceso controlás con IAM.
+**1. KMS-encrypted backend.** If you use OCI Object Storage as a Terraform backend, you can configure it with an OCI Vault key so the state file is encrypted at rest. The secret is still in the state, but the state is encrypted with a key whose access you control with IAM.
 
-**2. Generación automática del secreto.** Algunos tipos de secretos soportan `enable_auto_generation = true` en `oci_vault_secret`. En ese caso, OCI genera el valor internamente y nunca pasa por Terraform — el state solo contiene el OCID, nunca el valor. Esto es ideal para passwords de base de datos que no necesitás conocer tú, solo la aplicación.
+**2. Automatic secret generation.** Some secret types support `enable_auto_generation = true` in `oci_vault_secret`. In that case, OCI generates the value internally and it never goes through Terraform — the state only contains the OCID, never the value. This is ideal for database passwords that you don't need to know yourself, only the application does.
 
-**3. Provisioning separado.** El vault y las keys se gestionan con Terraform. Los valores de los secretos se cargan con la CLI o con un pipeline separado con acceso limitado. Terraform gestiona la infraestructura, no los datos sensibles.
+**3. Separate provisioning.** The vault and keys are managed with Terraform. Secret values are loaded with the CLI or a separate pipeline with limited access. Terraform manages the infrastructure, not the sensitive data.
 
-La postura recomendada: usá Terraform para crear la infraestructura del vault (vault, key, recurso de secreto con valor placeholder o con auto-generation), y dejá la inyección del valor real para un paso separado fuera del state de Terraform.
+The recommended posture: use Terraform to create the vault infrastructure (vault, key, secret resource with a placeholder value or with auto-generation), and leave injecting the real value for a separate step outside the Terraform state.
 
-## Políticas IAM: control granular de acceso
+## IAM Policies: granular access control
 
-Este es el componente que más cuesta hacer bien, porque OCI IAM tiene una matriz de verbos que no es obvia.
+This is the component that's hardest to get right, because OCI IAM has a verb matrix that's not immediately obvious.
 
-### La matriz de verbos para secrets
+### The verb matrix for secrets
 
-| Verbo | Operación | Quién lo necesita |
+| Verb | Operation | Who needs it |
 |---|---|---|
-| `read secret-bundles` | GetSecretBundle — recuperar el valor del secreto | App workloads, instancias de producción |
-| `read secrets` | GetSecret — ver metadatos del secreto | Auditoría, pipelines de CI/CD que solo referencian OCIDs |
-| `use secrets` | ListSecretVersions y operaciones de rotación | Herramientas de rotación automatizada |
-| `manage secret-family` | Control total — crear, eliminar, rotar, modificar | Administradores de seguridad únicamente |
+| `read secret-bundles` | GetSecretBundle — retrieve the secret value | App workloads, production instances |
+| `read secrets` | GetSecret — view secret metadata | Audit, CI/CD pipelines that only reference OCIDs |
+| `use secrets` | ListSecretVersions and rotation operations | Automated rotation tools |
+| `manage secret-family` | Full control — create, delete, rotate, modify | Security administrators only |
 
-La regla de oro: **nunca concedas `manage secret-family` a una workload de aplicación**. Con ese verbo, la aplicación puede eliminar secretos, crear versiones con valores arbitrarios, y modificar las reglas de expiración. La superficie de compromiso si la aplicación es vulnerada se extiende a todo el vault.
+The golden rule: **never grant `manage secret-family` to an application workload**. With that verb, the application can delete secrets, create versions with arbitrary values, and modify expiration rules. The blast radius if the application is compromised extends to the entire vault.
 
-### Políticas para el equipo administrador
+### Policies for the administrator team
 
 {% highlight hcl %}
 resource "oci_identity_policy" "vault_admin_policy" {
@@ -298,15 +298,15 @@ resource "oci_identity_policy" "vault_admin_policy" {
 }
 {% endhighlight %}
 
-### Dynamic Groups para Instance Principal
+### Dynamic Groups for Instance Principal
 
-Los Dynamic Groups son el mecanismo de OCI para que las instancias de cómputo se autentiquen con IAM sin credenciales estáticas. La instancia asume una identidad basada en su pertenencia al compartment, y esa identidad tiene las políticas que vos le asignás.
+Dynamic Groups are OCI's mechanism for compute instances to authenticate with IAM without static credentials. The instance assumes an identity based on its compartment membership, and that identity has the policies you assign to it.
 
-Un detalle operativo importante: **los Dynamic Groups se crean a nivel de tenancy, no de compartment**. El `compartment_id` del recurso `oci_identity_dynamic_group` debe ser el OCID de la tenancy, aunque la matching rule filtre instancias de un compartment específico. Si usás el OCID de un compartment hijo, el provider de OCI te va a devolver un error.
+An important operational detail: **Dynamic Groups are created at the tenancy level, not the compartment level**. The `compartment_id` of the `oci_identity_dynamic_group` resource must be the tenancy OCID, even if the matching rule filters instances from a specific compartment. If you use a child compartment OCID, the OCI provider will return an error.
 
 {% highlight hcl %}
 resource "oci_identity_dynamic_group" "app_instances" {
-  compartment_id = var.tenancy_ocid   # Siempre tenancy, no compartment
+  compartment_id = var.tenancy_ocid   # Always tenancy, not compartment
   name           = "app-compute-instances"
   description    = "Compute instances in the app production compartment"
   matching_rule  = "All {instance.compartment.id = '${var.compartment_id}'}"
@@ -323,7 +323,7 @@ resource "oci_identity_policy" "instance_secret_policy" {
 }
 {% endhighlight %}
 
-Si querés afinar el acceso al nivel de un secreto específico en lugar de todo el compartment, OCI soporta condiciones en los statements de IAM:
+If you want to narrow access to a specific secret rather than the entire compartment, OCI supports conditions in IAM statements:
 
 {% highlight hcl %}
 resource "oci_identity_policy" "instance_specific_secret_policy" {
@@ -337,75 +337,59 @@ resource "oci_identity_policy" "instance_specific_secret_policy" {
 }
 {% endhighlight %}
 
-Esta granularidad es particularmente útil en entornos multi-aplicación donde diferentes servicios necesitan acceder a secretos distintos dentro del mismo compartment.
+This granularity is particularly useful in multi-application environments where different services need access to different secrets within the same compartment.
 
-### Política para el equipo de administración del vault
+## Testing and verification
 
-{% highlight hcl %}
-resource "oci_identity_policy" "vault_admin_policy" {
-  compartment_id = var.compartment_id
-  name           = "vault-admin-policy"
-  description    = "Allow SecurityAdmins group to fully manage vault resources"
+With the infrastructure applied, verification has three levels: vault and key state, secret retrieval from your local machine, and retrieval from an instance using Instance Principal.
 
-  statements = [
-    "Allow group SecurityAdmins to manage vaults in compartment id ${var.compartment_id}",
-    "Allow group SecurityAdmins to manage keys in compartment id ${var.compartment_id}",
-    "Allow group SecurityAdmins to manage secret-family in compartment id ${var.compartment_id}",
-  ]
-}
-{% endhighlight %}
-
-## Testing y verificación
-
-Con la infraestructura aplicada, la verificación tiene tres niveles: el estado del vault y la key, la recuperación del secreto desde tu máquina local, y la recuperación desde una instancia usando Instance Principal.
-
-### Verificar estado del vault y la key
+### Verify vault and key state
 
 {% highlight bash %}
-# Verificar que el vault está ACTIVE
+# Verify the vault is ACTIVE
 oci kms management vault get \
   --vault-id "$(terraform output -raw vault_id)" \
   --query 'data."lifecycle-state"' --raw-output
 
-# Verificar que la key está ENABLED
+# Verify the key is ENABLED
 oci kms management key get \
   --key-id "$(terraform output -raw key_id)" \
   --endpoint "$(terraform output -raw vault_management_endpoint)" \
   --query 'data."lifecycle-state"' --raw-output
 {% endhighlight %}
 
-El estado esperado del vault es `ACTIVE`. El estado esperado de la key es `ENABLED`. Si el vault está en `CREATING` o `PROVISIONING`, esperá unos segundos y volvé a consultar.
+The expected vault state is `ACTIVE`. The expected key state is `ENABLED`. If the vault is in `CREATING` or `PROVISIONING`, wait a few seconds and query again.
 
-### Recuperar y verificar el secreto
+### Retrieve and verify the secret
 
 {% highlight bash %}
-# Recuperar el secreto y decodificar el base64
+# Retrieve the secret and decode the base64
 oci secrets secret-bundle get \
   --secret-id "$(terraform output -raw db_secret_id)" \
   --query 'data."secret-bundle-content".content' \
   --raw-output | base64 --decode
 {% endhighlight %}
 
-Si el output coincide con el valor que pasaste en `var.db_password`, el ciclo completo funciona: Terraform creó el secreto, OCI lo cifró con la MEK, y la CLI lo recuperó correctamente.
+If the output matches the value you passed in `var.db_password`, the complete cycle works: Terraform created the secret, OCI encrypted it with the MEK, and the CLI retrieved it correctly.
 
-### Verificar el acceso desde una instancia con Instance Principal
+### Verify access from an instance with Instance Principal
 
-Desde una instancia que pertenezca al compartment configurado en la matching rule del Dynamic Group:
+From an instance that belongs to the compartment configured in the Dynamic Group's matching rule:
 
 {% highlight bash %}
-# En la instancia de cómputo — sin credenciales estáticas
+# On the compute instance — no static credentials needed
 oci secrets secret-bundle get \
   --secret-id "ocid1.vaultsecret.oc1.xxx" \
   --auth instance_principal \
   --query 'data."secret-bundle-content".content' --raw-output | base64 --decode
 {% endhighlight %}
 
-Si este comando devuelve el valor del secreto sin necesidad de configurar API keys en la instancia, Instance Principal está funcionando correctamente. Si devuelve un error de autorización, verificá que la instancia está en el compartment correcto y que el Dynamic Group tiene la matching rule adecuada.
+If this command returns the secret value without needing API keys configured on the instance, Instance Principal is working correctly. If it returns an authorization error, verify that the instance is in the correct compartment and that the Dynamic Group has the appropriate matching rule.
 
-### Verificar las reglas de expiración
+### Verify expiration rules
 
 {% highlight bash %}
-# Ver metadatos del secreto incluyendo reglas y fecha de expiración
+# View secret metadata including rules and expiration date
 oci vault secret get \
   --secret-id "$(terraform output -raw db_secret_id)" \
   --query 'data.{name:"secret-name", state:"lifecycle-state", rules:"secret-rules"}'
@@ -413,26 +397,26 @@ oci vault secret get \
 
 ## Best Practices
 
-**Nunca uses `VIRTUAL_PRIVATE` en la misma apply que los secretos si estás empezando.** El vault `VIRTUAL_PRIVATE` tarda varios minutos en provisionar su HSM dedicado. Si Terraform intenta crear las keys y los secretos antes de que el vault esté completamente operativo, la apply falla. Separar la creación del vault en su propio módulo con un `terraform apply` previo evita este problema.
+**Never use `VIRTUAL_PRIVATE` in the same apply as the secrets if you're just starting.** The `VIRTUAL_PRIVATE` vault takes several minutes to provision its dedicated HSM. If Terraform tries to create keys and secrets before the vault is fully operational, the apply fails. Separating vault creation into its own module with a prior `terraform apply` avoids this problem.
 
-**Usá `protection_mode = "HSM"` en producción, siempre.** Con `SOFTWARE`, el material de la key puede exportarse. Eso significa que con los permisos adecuados, alguien puede extraer la key del vault. Con `HSM`, el material nunca sale del hardware. El costo adicional de HSM es marginal comparado con el riesgo de una key exportable.
+**Use `protection_mode = "HSM"` in production, always.** With `SOFTWARE`, the key material can be exported. That means with the right permissions, someone can extract the key from the vault. With `HSM`, the material never leaves the hardware. The additional cost of HSM is marginal compared to the risk of an exportable key.
 
-**El tipo de vault es inmutable después de la creación.** Si necesitás migrar de `DEFAULT` a `VIRTUAL_PRIVATE`, el proceso es: crear un nuevo vault `VIRTUAL_PRIVATE`, crear nuevas keys, rotar todos los secretos al nuevo vault, y eliminar el anterior. No hay upgrade in-place. Planificá el tipo de vault antes del primer deploy.
+**The vault type is immutable after creation.** If you need to migrate from `DEFAULT` to `VIRTUAL_PRIVATE`, the process is: create a new `VIRTUAL_PRIVATE` vault, create new keys, rotate all secrets to the new vault, and delete the old one. There's no in-place upgrade. Plan your vault type before the first deploy.
 
-**Activá `is_secret_content_retrieval_blocked_on_expiry = true` en todas las reglas de expiración.** El default es `false`, lo que convierte la expiración en una alerta sin dientes. Con `true`, OCI bloquea el acceso al secreto una vez expirado, forzando la rotación. Sin esto, un secreto "expirado" desde hace seis meses sigue siendo accesible.
+**Enable `is_secret_content_retrieval_blocked_on_expiry = true` in all expiration rules.** The default is `false`, which turns expiration into a toothless alert. With `true`, OCI blocks access to the secret once it expires, forcing rotation. Without this, a secret "expired" six months ago is still accessible.
 
-**Separar la gestión de claves de la gestión de secretos.** Las keys (MEK) son responsabilidad del equipo de seguridad. Los secretos individuales pueden ser responsabilidad de los equipos de aplicación, con el constraint de que solo pueden usar keys pre-aprobadas. Esto se modela en IAM separando los grupos y las políticas: `SecurityAdmins` tiene `manage keys`, los equipos de aplicación tienen `use keys` y `manage secret-family` en su compartment.
+**Separate key management from secret management.** Keys (MEK) are the responsibility of the security team. Individual secrets can be the responsibility of application teams, with the constraint that they can only use pre-approved keys. This is modeled in IAM by separating groups and policies: `SecurityAdmins` has `manage keys`, application teams have `use keys` and `manage secret-family` in their compartment.
 
-**Usá backends cifrados para el state de Terraform.** Si tu backend de Terraform está en OCI Object Storage, configurá server-side encryption con una key de OCI Vault. Esto no elimina el riesgo de que los secretos estén en el state, pero agrega una capa de protección en reposo con control de acceso auditable.
+**Use encrypted backends for Terraform state.** If your Terraform backend is in OCI Object Storage, configure server-side encryption with an OCI Vault key. This doesn't eliminate the risk of secrets being in the state, but adds a layer of at-rest protection with auditable access control.
 
-**Preferí auto-generation o provisioning separado sobre leer secretos en Terraform.** El patrón más seguro es que Terraform no conozca nunca el valor real de los secretos que gestiona. Para passwords de base de datos, habilitá `enable_auto_generation`. Para secretos que necesitás controlar, cargalos con la CLI en un paso separado del pipeline con permisos reducidos.
+**Prefer auto-generation or separate provisioning over reading secrets in Terraform.** The safest pattern is for Terraform to never know the actual value of the secrets it manages. For database passwords, enable `enable_auto_generation`. For secrets you need to control, load them with the CLI in a separate pipeline step with reduced permissions.
 
-## Conclusión
+## Conclusion
 
-Construimos la infraestructura completa de OCI Vault con Terraform: vault con tipo y protection mode correctamente configurados, master encryption key AES-256 en HSM, secretos con reglas de expiración que realmente bloquean el acceso, y las políticas IAM correctas tanto para administradores como para workloads mediante Instance Principal.
+We built the complete OCI Vault infrastructure with Terraform: vault with correctly configured type and protection mode, AES-256 master encryption key in HSM, secrets with expiration rules that actually block access, and the correct IAM policies for both administrators and workloads via Instance Principal.
 
-El punto más importante no es el código en sí, sino los gotchas que hay que conocer antes de llegar a producción: el tipo de vault es irreversible, la longitud de la key va en bytes, `oci_secrets_secretbundle` escribe el valor en el state, y `is_secret_content_retrieval_blocked_on_expiry` es `false` por defecto. Con eso claro, el resto es configuración.
+The most important point is not the code itself, but the gotchas you need to know before going to production: the vault type is irreversible, key length is in bytes, `oci_secrets_secretbundle` writes the value to the state, and `is_secret_content_retrieval_blocked_on_expiry` is `false` by default. With that clear, the rest is configuration.
 
-El próximo paso natural es integrar este vault con pipelines de CI/CD usando OCI DevOps o GitHub Actions con OIDC, para que los pipelines recuperen secretos en runtime sin credenciales estáticas. Eso da para otro post.
+The natural next step is integrating this vault with CI/CD pipelines using OCI DevOps or GitHub Actions with OIDC, so pipelines retrieve secrets at runtime without static credentials. That's material for another post.
 
 Happy scripting!
