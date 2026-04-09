@@ -1,5 +1,8 @@
 ﻿# Site Settings
 title: $blogTopics | % {echo $_}
+url: "https://blog.victorsilva.com.uy"
+description: "Technical blog about development, ai, security, and cloud engineering by Victor Silva."
+
 
 theme: whiteblog-theme
 
