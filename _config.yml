@@ -49,11 +49,20 @@ exclude:
   - whiteblogtheme.gemspec
 
 comments:
-  provider               : "disqus"              # false (default), "disqus"
+  provider               : "giscus"
   disqus:
     shortname            : "vmsilvamolina"
   cusdis:
     appId                :
+  giscus:
+    repo                 : "vmsilvamolina/vmsilvamolina.github.io"
+    repo_id              : "R_kgDOOFsMfA"                     # obtener de giscus.app
+    category             : "Comments"
+    category_id          : "DIC_kwDOOFsMfM4C_KQA"                     # obtener de giscus.app
+    mapping              : "pathname"
+    reactions_enabled    : "1"
+    theme                : "light"
+    lang                 : "es"
 
 analytics:
   google:
