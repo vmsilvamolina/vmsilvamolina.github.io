@@ -398,7 +398,7 @@ objectRef.resource: "secrets" AND verb: ("get" OR "list") AND NOT user.username:
 In Loki (LogQL):
 
 {% highlight bash %}
-{job="kubernetes-audit"} | json | objectRef_resource="secrets" and verb=~"get|list" | line_format "{{.user_username}} accessed secret {{.objectRef_name}} in {{.objectRef_namespace}}"
+{% raw %}{job="kubernetes-audit"} | json | objectRef_resource="secrets" and verb=~"get|list" | line_format "{{.user_username}} accessed secret {{.objectRef_name}} in {{.objectRef_namespace}}"{% endraw %}
 {% endhighlight %}
 
 ### 2. Pod exec, attach, and portforward

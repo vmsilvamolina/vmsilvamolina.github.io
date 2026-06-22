@@ -185,7 +185,7 @@ TENANCY_NS="your-tenancy-namespace"
 REGION_KEY="syd"
 
 DIGEST=$(docker inspect \
-  --format='{{index .RepoDigests 0}}' \
+  {% raw %}--format='{{index .RepoDigests 0}}'{% endraw %} \
   ${REGION_KEY}.ocir.io/${TENANCY_NS}/myapp:v1.0.0 | cut -d@ -f2)
 
 echo "Signing digest: $DIGEST"
