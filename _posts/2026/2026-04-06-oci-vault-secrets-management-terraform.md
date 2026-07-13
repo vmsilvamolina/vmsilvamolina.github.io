@@ -1,7 +1,7 @@
 ---
 title: 'OCI Vault: Secrets Management with Terraform'
 author: Victor Silva
-date: 2026-04-06T09:00:00+00:00
+date: 2026-04-06T09:00:28+00:00
 layout: post
 permalink: /oci-vault-secrets-management-terraform/
 excerpt: "Learn how to manage secrets in OCI Vault with Terraform: vault, keys, IAM policies, and the right pattern to prevent your secrets from ending up in the state file."
