@@ -7,3 +7,5 @@ _drafts/
 Rakefile
 .claude/
 CLAUDE.md
+disqus-export.xml
+scripts/
