@@ -14,9 +14,9 @@ tags:
   - Security
 ---
 
-[Part 1 of this series](https://blog.victorsilva.com.uy/oci-security-zones/) covered the conceptual foundation of OCI Security Zones: what they are, how they enforce policy by denying API calls outright, the relationship with Cloud Guard and Security Advisor, and what the Maximum Security Recipe actually blocks. If you haven't read it, start there.
+[Part 1 of this series](https://blog.victorsilva.com.uy/oci-security-zones/) covered the conceptual foundation of OCI Security Zones: what they are, how they enforce policy by denying API calls outright, and what the Maximum Security Recipe actually blocks. Read that first if you haven't.
 
-This post picks up where Part 1 left off. It answers the next set of questions practitioners ask after they understand the concept: *How do I build a custom recipe that fits my workload? How do I automate this with Terraform instead of clicking through the console? And what are the operational surprises waiting on day two?*
+This one is the part that actually matters once you're past the concept: building a custom recipe that fits your workload instead of Oracle's all-or-nothing option, wiring it up in Terraform, and the day-two surprises nobody mentions until you hit them.
 
 ## Custom Recipes vs. Maximum Security: A Decision Framework
 
@@ -27,7 +27,7 @@ Custom recipes let you select which Oracle-authored policies to include. You can
 The most useful mental model for custom recipe construction comes from OCI's own Landing Zone framework, which maps policies to **CIS Benchmark levels**:
 
 | CIS Level | Policies Included | Best For |
-|---|---|---|
+| --- | --- | --- |
 | **Level 1** | Deny public buckets, public subnets, internet gateway; deny databases without backup; require customer-managed encryption keys | Most production workloads |
 | **Level 2** | All Level 1 + data confinement policies, Oracle-approved configurations, port restriction | Regulated data: PHI, PCI, classified |
 
@@ -37,7 +37,7 @@ The categories you most frequently need to reason about when customizing:
 
 **Deny Public Access** — the most operationally impactful category. Blocking `internet_gateway`, `NAT_gateway`, and `public_subnets` means your VCN topology must be private-only. For environments that legitimately need outbound internet access (to pull container images, reach OCI service endpoints, etc.), this either requires a shared services VCN with a NAT gateway outside the zone, or removing the NAT gateway policy from your custom recipe.
 
-**Require Customer-Managed Encryption Keys** — the four vault key policies (`deny block_volume_without_vault_key`, `deny boot_volume_without_vault_key`, `deny file_system_without_vault_key`, `deny buckets_without_vault_key`) require OCI Vault to be set up and a Master Encryption Key provisioned *before* applying the zone. Vault is not part of Always Free — you need a standard or virtual private vault. The vault should be in the same zone or a parent compartment to avoid key access itself violating zone policies.
+**Require Customer-Managed Encryption Keys** — the four vault key policies (`deny block_volume_without_vault_key`, `deny boot_volume_without_vault_key`, `deny file_system_without_vault_key`, `deny buckets_without_vault_key`) require OCI Vault to be set up and a Master Encryption Key provisioned *before* applying the zone. Vault isn't part of Always Free, so budget for it — and the vault itself should live in the same zone or a parent compartment, otherwise the key access can trip the zone's own policies.
 
 **Oracle-Approved Configurations** — this category includes policies that block compute instance termination (`deny terminate_instance`), volume detachment (`deny detach_volume`), and OKE operations (`deny manage_oke_service`). These are frequently too restrictive for teams that use autoscaling or perform routine maintenance. Exclude them from custom recipes unless you have a specific operational reason to include them.
 
@@ -136,6 +136,7 @@ module "security_zones" {
 ```
 
 **Prerequisites before applying:**
+
 - Terraform >= 1.3.0
 - Cloud Guard must be enabled in the tenancy
 - IAM policy: `allow group <SecurityAdmins> to manage cloud-guard-family in tenancy`
@@ -206,7 +207,7 @@ oci cloud-guard security-zone remove \
   --compartment-id $SUBCOMPARTMENT_OCID
 ```
 
-The hard constraint remains: **each compartment can belong to exactly one security zone**. You cannot layer multiple recipes on a single compartment. If your workload needs different policy profiles within the same parent, the answer is separate child compartments with separate zones.
+One thing doesn't bend, though: **each compartment can belong to exactly one security zone**. No layering multiple recipes on a single compartment. Need different policy profiles under the same parent? Separate child compartments, separate zones — there's no other way around it.
 
 You also **cannot move a compartment** using the standard IAM console once it is part of a security zone. Use the Security Zones console for compartment operations.
 

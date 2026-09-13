@@ -582,7 +582,7 @@ In the first, an engineer widens an NSG rule at 03:12 during an incident, fixes 
 
 In the second, the same engineer widens the same rule at 03:12, fixes the problem, and goes back to bed. CIS 4.11 fires exactly **once**, at 03:12, into the same alert channel already saturated with incident traffic, and it is never mentioned again. Drift detection finds that NSG `MODIFIED` at 04:00. And at 04:00 the next day. And every day after that, until somebody fixes it.
 
-That is the asymmetry. Event-based alerting is loudest at the moment you are least able to act on it and goes silent the moment the incident ends. State-based detection is quiet during the incident and stays exactly as loud for as long as the problem persists. The one alert you actually needed and the one alert you were guaranteed to miss are the same alert. Drift detection is what turns a missed notification into a standing finding.
+Event-based alerting is loudest at the moment you are least able to act on it and goes silent the moment the incident ends. State-based detection is quiet during the incident and stays exactly as loud for as long as the problem persists — the one alert you actually needed and the one alert you were guaranteed to miss are the same alert. Drift detection is what turns a missed notification into a standing finding.
 
 Both are real controls. Events give you the timeline and the actor; drift gives you the persistent divergence. Running only one leaves a gap a patient attacker can walk through.
 
@@ -592,7 +592,7 @@ For the paperwork this maps to NIST SP 800-53 **CM-2** (Baseline Configuration),
 
 Everything above is a poller, with detection latency floored by your scan interval. If you genuinely need an event-driven signal, one workaround trades report quality for immediacy.
 
-Plan jobs **do** emit `com.oraclecloud.oracleresourcemanager.createjob.end`. And a plan job with `terraformAdvancedOptions.isRefreshRequired = true` performs a real state refresh against live infrastructure, so the plan output contains the divergence between code and reality. That is drift, reached by a different route — and the chain that does not exist for drift detection *does* exist for plan jobs:
+Plan jobs **do** emit `com.oraclecloud.oracleresourcemanager.createjob.end`. And a plan job with `terraformAdvancedOptions.isRefreshRequired = true` performs a real state refresh against live infrastructure, so the plan output contains the divergence between code and reality — drift, reached by a different route. The chain that does not exist for drift detection *does* exist for plan jobs:
 
 {% highlight text %}
 [Scheduled plan job w/ refresh] ──► createjob.end event ──► [Events rule] ──► [Function] ──► [ONS]
@@ -646,6 +646,6 @@ Resource Manager's drift detection is a good feature with one architectural gap:
 
 The parts worth carrying away: it is a work request, not a job. The OCID is in a response header, not the body. Pass it explicitly to the details call or you will read stale reports under concurrency. `manage orm-stacks` is required to run the check, so your read-only auditor is not read-only — know that going in rather than discovering it in a security review. And `NOT_CHECKED` is not `IN_SYNC`, which has probably caused more false confidence than every other item on the list combined.
 
-Start with one stack. Run the deliberate-drift lab, run both negative tests so you have seen the failure modes rather than read about them, then wire in the Function and let it watch your security-critical stacks for a month before widening scope. What you learn in that month — which stacks drift, how often, and who is doing it — is usually worth more than the alerts themselves.
+Start with one stack. Run the deliberate-drift lab, run both negative tests so you have seen the failure modes rather than read about them, then wire in the Function and let it watch your security-critical stacks for a month before widening scope. Track which stacks drift, how often, and who is doing it — that log is what tells you which stack to scan hourly and which one you were fine ignoring all along.
 
 Happy scripting!
