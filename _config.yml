@@ -45,6 +45,7 @@ include:
 
 exclude:
   - Gemfile
+  - labs/
   - Gemfile.lock
   - whiteblogtheme.gemspec
 

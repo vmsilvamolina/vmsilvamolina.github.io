@@ -33,9 +33,9 @@ Allow group tfstate-operators to manage objects in compartment tfstate
   }
 {% endhighlight %}
 
-Four permissions, one bucket, no `manage object-family in tenancy`. It looks like textbook least privilege. Going by Oracle's own Object Storage policy reference, it should also break on your second `terraform apply`.
+Four permissions, one bucket, no `manage object-family in tenancy`. It looks like textbook least privilege. It also breaks on your second `terraform apply`.
 
-The reason is one line in that reference. `PutObject` on a *new* object needs `OBJECT_CREATE`. `PutObject` on an object that *already exists* needs `OBJECT_OVERWRITE`. The first apply creates `terraform.tfstate`, so it works. Every apply after that overwrites the same object, and `OBJECT_OVERWRITE` is not in HashiCorp's list. I want to be precise about this: I got there by reading the two references side by side, not by watching it fail in a tenancy. It's the first thing I'd test in your lab, and the policies later in this post include the missing permission.
+The reason is one line in that reference. `PutObject` on a *new* object needs `OBJECT_CREATE`. `PutObject` on an object that *already exists* needs `OBJECT_OVERWRITE`. The first apply creates `terraform.tfstate`, so it works. Every apply after that overwrites the same object, and `OBJECT_OVERWRITE` is not in HashiCorp's list. I first spotted it by reading the two references side by side, then ran it on an Always Free tenancy to be sure: the first apply went through, the second one died with `Failed to save state` on a `PutObject`. The policies later in this post include the missing permission.
 
 That gap is a good excuse to go through the whole setup carefully. Terraform 1.12 added a native `backend "oci"` that stores state in Object Storage and handles locking without a second service. Oracle now marks the old S3-compatible approach as deprecated. Everything you need to harden the state bucket (a Vault key, versioning, lifecycle rules, access logs, scoped IAM) fits inside the Always Free tier. This post builds that bucket end to end, migrates a local state into it, and goes through the parts the docs skip.
 
@@ -110,7 +110,7 @@ The bootstrap admin creates the bucket, key and policies. Operators and CI only 
 
 ## Prerequisites
 
-- Terraform **1.12.0 or later**. The examples were written against 1.17.1.
+- Terraform **1.12.0 or later**. The examples were written against 1.17.1 and validated end to end (on 2026-11-11) with Terraform 1.15.5, `oracle/oci` v9.12.1 and OCI CLI 3.86 in `sa-saopaulo-1`.
 - OCI provider `oracle/oci` ~> 9.12.
 - OCI CLI configured, with an identity that can create vaults, keys, buckets, policies in the target compartment *and* a policy in the root compartment (the lifecycle rule needs one there, more on that below).
 - A compartment for state. I use one called `tfstate`. My [OCI IAM with Terraform post]({% link _posts/2026/2026-01-09-oci-iam-terraform.md %}) covers building compartments and groups as code.
@@ -325,7 +325,7 @@ resource "oci_logging_log" "tfstate_write" {
 }
 {% endhighlight %}
 
-The `service` and `resource` values follow the OCI service-log conventions, but I didn't find them in the provider's own example. Confirm them in your tenancy with `oci logging service list` before you trust this block. `retention_duration` goes in 30-day increments up to 180.
+The `service` and `resource` values follow the OCI service-log conventions. The provider's own example doesn't show them, but `oci logging service list` does: service `objectstorage`, resource type `bucket`, categories `read` and `write`. `retention_duration` goes in 30-day increments up to 180.
 
 One caveat if you plan to use these logs as compliance evidence: Oracle delivers Object Storage service logs "on a best effort basis." They're great for detection and investigation. Don't promise an auditor they're complete.
 
@@ -420,13 +420,14 @@ Allow group tfstate-operators to manage objects in compartment tfstate
   }
 {% endhighlight %}
 
-`read buckets` lets the backend look at the bucket without being able to change it, and `manage objects` filtered by `request.permission` gives exactly the five operations the backend uses. Note what's absent: `OBJECT_VERSION_DELETE`, so operators can't purge history, and anything bucket-level, so no PARs. A few weeks after rollout, it's worth [checking which of those permissions nobody actually uses]({% link _posts/2026/2026-08-02-oci-unused-iam-permissions.md %}) and trimming further.
+`manage objects` filtered by `request.permission` gives exactly the five operations the backend uses. The `read buckets` line is optional: in my lab the five-permission statement alone got through init, apply and re-apply. I keep it because it lets an operator run `oci os bucket get` to check the bucket's posture without being able to change it, but drop it if you want the strict minimum. Note what's absent: `OBJECT_VERSION_DELETE`, so operators can't purge history, and anything bucket-level, so no PARs. A few weeks after rollout, it's worth [checking which of those permissions nobody actually uses]({% link _posts/2026/2026-08-02-oci-unused-iam-permissions.md %}) and trimming further.
 
 One thing to watch: `target.bucket.name` matches case-insensitively. If you have `tfstate-prod` and `TFSTATE-PROD` in the same compartment (please don't), this policy covers both.
 
-For CI, I'd go further and scope each runner to one stack's prefix with `target.object.name`:
+For CI, I'd go further and scope each runner to one stack's prefix with `target.object.name`. My first version of this policy looked like the obvious one, a single statement with the prefix condition next to the bucket name:
 
 {% highlight text %}
+# Broken: terraform init fails under this policy
 Allow dynamic-group ci-runners to manage objects in compartment tfstate
   where all {
     target.bucket.name = 'tfstate-prod',
@@ -441,7 +442,50 @@ Allow dynamic-group ci-runners to manage objects in compartment tfstate
   }
 {% endhighlight %}
 
-Two things in this block you should test in your tenancy before trusting it. First, the exact pattern syntax for `target.object.name`. Oracle documents that patterns are supported, but I haven't confirmed whether this form behaves as a prefix match the way it reads. Second, `ListObjects` may not evaluate `target.object.name` at all, in which case workspace listing gets denied under this policy. Run both through the IAM Policy Simulator and a real `terraform workspace list` before you roll it out.
+Half of it works. The pattern does behave as a prefix match: as the runner identity, a PUT to `network/...` went through and a PUT to `apps/...` was denied. `ListObjects` is the half that doesn't. A list call isn't about any single object, so the `target.object.name` condition can't match it, and the whole statement fails for that request. `terraform init` lists workspaces first, so CI never gets past it:
+
+{% highlight text %}
+Error: Failed to get existing workspaces: Error returned by ObjectStorage
+Service. Http Status Code: 404. Error Code: BucketNotFound.
+{% endhighlight %}
+
+The fix is to split listing from everything else. `OBJECT_INSPECT` gets a bucket-only condition, and the four permissions that touch object contents keep the prefix:
+
+{% highlight text %}
+Allow dynamic-group ci-runners to manage objects in compartment tfstate
+  where all {
+    target.bucket.name = 'tfstate-prod',
+    request.permission = 'OBJECT_INSPECT'
+  }
+
+Allow dynamic-group ci-runners to manage objects in compartment tfstate
+  where all {
+    target.bucket.name = 'tfstate-prod',
+    target.object.name = /network\/*/,
+    any {
+      request.permission = 'OBJECT_READ',
+      request.permission = 'OBJECT_CREATE',
+      request.permission = 'OBJECT_OVERWRITE',
+      request.permission = 'OBJECT_DELETE'
+    }
+  }
+{% endhighlight %}
+
+With this pair, the runner could init, apply, overwrite state and create a workspace under `network/`, and it got a 404 on every read, write or delete under `apps/`, including a GET of another stack's state, which is exactly what `terraform_remote_state` would try. The trade-off is that `OBJECT_INSPECT` is bucket-wide, so the runner can *list* every object name in the bucket. It sees that `apps/terraform.tfstate` exists. It can't read it.
+
+The second trap is workspaces. With the default `workspace_key_prefix`, a non-default workspace lives at `tf-state-env/<workspace>/network/terraform.tfstate`, which is outside `network/`. `terraform workspace new staging` fails on the lock PUT to `tf-state-env/staging/network/terraform.tfstate.lock`. Put the prefix under the stack's own path in the backend block:
+
+{% highlight hcl %}
+terraform {
+  backend "oci" {
+    # ...
+    key                  = "network/terraform.tfstate"
+    workspace_key_prefix = "network/env" # workspaces: network/env/<name>/network/terraform.tfstate
+  }
+}
+{% endhighlight %}
+
+I tested this with a user in a group, not with a dynamic group on a real runner. The policy conditions are the same, but run one plan from the actual runner before you rely on it.
 
 ### What About OCI Deny Policies?
 
@@ -506,7 +550,7 @@ The request budget is the one to think about. Going by the calls in `client.go`,
 
 ## Testing the State Bucket, Lock, and IAM Policy
 
-Run these against your own bucket. A couple of the CLI details below are flagged where I couldn't confirm them.
+Run these against your own bucket. Everything in this section is what I got from a lab run on an Always Free tenancy, not what the docs predict.
 
 ### Bucket Posture
 
@@ -526,16 +570,32 @@ You want `NoPublicAccess`, `Enabled`, an `ocid1.key...` value, and `true`.
 }
 {% endhighlight %}
 
-To check encryption on the state object itself, `oci os object head` on the state key should return its metadata. Whether it surfaces the `opc-sse-kms-key-id` header is something to check in your tenancy, since I couldn't confirm it.
+Don't go looking for the key on the state object itself. `oci os object head` on `bootstrap/terraform.tfstate` returns size, MD5, ETag and `version-id`, but no `opc-sse-kms-key-id` header, even with the CMK in place. The `kms-key-id` on the bucket is the evidence you get.
 
 ### The State Lock
 
 Open two terminals. In the first, run `terraform apply` and leave it sitting at the approval prompt. In the second:
 
-{% highlight bash %}
-terraform plan
-# Error acquiring the state lock ... Lock Info: ID, Path, Operation, Who, Created
+{% highlight text %}
+$ terraform plan -lock-timeout=0s
+Error: Error acquiring the state lock
 
+Error message: Error returned by ObjectStorage Service. Http Status Code:
+412. Error Code: IfNoneMatchFailed.
+Message: The If-None-Match header is '*' but there is an existing entity
+Operation Name: PutObject
+Lock Info:
+  ID:        5afec43e-0466-0c26-000f-2bd5e686877a
+  Path:      lock-test/terraform.tfstate
+  Operation: OperationTypeApply
+  Who:       victor@erebor.local
+  Version:   1.15.5
+  Created:   2026-11-11 12:34:22.785106 +0000 UTC
+{% endhighlight %}
+
+That `412 IfNoneMatchFailed` is the conditional create from `client.go` doing its job. List the prefix while the first apply is still waiting and the lock sits next to the state:
+
+{% highlight bash %}
 oci os object list --bucket-name tfstate-prod --prefix bootstrap/
 # bootstrap/terraform.tfstate
 # bootstrap/terraform.tfstate.lock
@@ -545,13 +605,32 @@ Cancel the first apply and the `.lock` object disappears.
 
 ### The OBJECT_OVERWRITE Test
 
-This is the one I'd most like you to run, since the opening of this post depends on it. Create a throwaway group with the four-permission policy from the top of the post, authenticate as a member, then:
+The opening of this post depends on this one, so I ran it. A throwaway user in a throwaway group, a trivial stack (one `terraform_data` resource) pointed at a fresh key, and four policy variants, each given two minutes to propagate:
 
-1. Point a trivial stack (a single `null_resource` is enough) at a fresh key and run `terraform apply`. Per the reference it should succeed, since the state object is being created.
-2. Change something and apply again. If the reference is right, the state PUT fails with an authorization error.
-3. Add `OBJECT_OVERWRITE` to the policy and confirm the second apply goes through.
+| Policy | `read buckets` | `OBJECT_OVERWRITE` | put new object | overwrite object | apply 1 | apply 2 |
+|---|---|---|---|---|---|---|
+| HashiCorp docs | no | no | ok | denied | ok | **denied** |
+| HashiCorp docs + `read buckets` | yes | no | ok | denied | ok | **denied** |
+| five permissions | no | yes | ok | ok | ok | ok |
+| five permissions + `read buckets` | yes | yes | ok | ok | ok | ok |
 
-If step 2 *succeeds* in your tenancy, tell me in the comments.
+The "put" columns are plain `oci os object put` calls as the same user, outside Terraform. `OBJECT_OVERWRITE` is the only variable that matters. Here's what the second apply looks like without it:
+
+{% highlight text %}
+Error: Failed to save state
+
+Error returned by ObjectStorage Service. Http Status Code: 404.
+Error Code: BucketNotFound.
+Message: Either the bucket named 'tfstate-lab' does not exist in the
+namespace '...' or you are not authorized to access it
+Operation Name: PutObject
+
+Error: Failed to persist state to backend
+{% endhighlight %}
+
+Notice it's a 404, not a 403. OCI doesn't tell you that you lack a permission, it tells you the bucket doesn't exist. Terraform keeps the new state in `errored.tfstate` in your working directory when this happens, which is one more plaintext copy to clean up.
+
+If your tenancy behaves differently, tell me in the comments.
 
 ### History and Restore
 
@@ -564,7 +643,7 @@ oci os object get --bucket-name tfstate-prod \
   --version-id <version_id> --file restored.tfstate
 {% endhighlight %}
 
-Check the `--version-id` flag name with `oci os object get --help` on your CLI version. That spelling is from my notes and I didn't verify it.
+Grab the `version-id` of a `terraform.tfstate` entry, not a `.lock` one: with `--prefix` the listing mixes both, and asking for a lock's version ID on the state object returns `ObjectVersionNotFound`.
 
 While you have `restored.tfstate` open, try this on any stack that uses `tls_private_key`:
 
@@ -580,7 +659,7 @@ A non-zero count is your private key in plaintext, CMK and all.
 oci os preauth-request list --bucket-name tfstate-prod --all   # expect empty
 {% endhighlight %}
 
-For the access logs, search the read log for GETs on the bucket. The Object Storage log reference documents the fields `bucketName`, `principalName`, `clientIpAddress`, `requestAction`, `requestResourcePath` and `statusCode`. A query along these lines should work, but adjust the syntax in the Console's Logging Search, because I haven't confirmed the exact `where`/`select` grammar:
+For the access logs, search the read log for GETs on the bucket. The Object Storage log reference documents the fields `bucketName`, `principalName`, `clientIpAddress`, `requestAction`, `requestResourcePath` and `statusCode`, and this query works as written, from `oci logging-search search-logs` or the Console's Logging Search:
 
 {% highlight text %}
 search "<compartment_ocid>/<log_group_ocid>/<log_ocid>"
@@ -588,13 +667,17 @@ search "<compartment_ocid>/<log_group_ocid>/<log_ocid>"
   | select datetime, data.principalName, data.clientIpAddress, data.requestResourcePath, data.statusCode
 {% endhighlight %}
 
-Finally, the negative test: authenticate as a user outside `tfstate-operators` and run `terraform init`. You should get a `NotAuthorizedOrNotFound` / 404.
+After a lab session it came back with every ListObjects from `terraform init`, every lock PUT and every state GET, each with the principal and source IP. The events carry a few more fields worth alerting on: `authenticationType`, `userAgent` and `isPar`. A read on a state bucket with `isPar = true` should never happen if you followed the PAR advice above, so it's a cheap, high-signal alert.
+
+Finally, the negative test: take a user out of `tfstate-operators` and run `terraform init` as them. You get `Failed to get existing workspaces` with a 404 `BucketNotFound`, not a 403. In my tenancy the removal took about two minutes to apply, and the user could still init during that window.
 
 ## Gotchas I'd Want to Know Up Front
 
 **Stale locks.** Ctrl-C at the wrong moment, or a CI runner that gets killed, leaves `<key>.lock` behind. Run `terraform force-unlock <LOCK_ID>` with the ID from the error. Because unlock checks the ID and deletes with `If-Match`, a wrong ID fails cleanly. Your last resort is `oci os object delete --bucket-name tfstate-prod --object-name <key>.lock`, and only after confirming nobody is actually running.
 
-**Lock files pile up as versions.** Every run creates the lock and then deletes it. With versioning on, that delete leaves a previous version behind, so a busy stack accumulates hundreds of tiny noncurrent `.lock` versions. They're small, and the 30-day lifecycle rule eats them, but they make `list-object-versions` output noisy. This is my inference from the code and versioning semantics, so list the versions in your lab after a few runs to see it for yourself.
+**Lock files pile up as versions.** Every run creates the lock and then deletes it. With versioning on, that delete leaves a previous version behind, so a busy stack accumulates hundreds of tiny noncurrent `.lock` versions. They're small, and the 30-day lifecycle rule eats them, but they make `list-object-versions` output noisy. In the lab every plan or apply left one lock version plus one delete marker; a dozen runs on one stack gave me 22 entries for the `.lock` alone.
+
+**IAM changes aren't instant, and denials look like 404s.** A new policy, user or API key needed 90 to 120 seconds before results were stable; at 60 seconds ListObjects was still failing intermittently. And OCI reports every denial in this post as `BucketNotFound`, so a 404 right after a policy change almost never means the bucket is gone. Wait two minutes before you start debugging the policy.
 
 **Region and namespace.** The service policy must name the bucket's region. The key should live in the same region as the bucket. The namespace is the random-looking string from `oci os ns get`, never the tenancy name.
 
@@ -616,6 +699,6 @@ Finally, the negative test: authenticate as a user outside `tfstate-operators` a
 
 You now have a state bucket that's private, versioned with a 30-day rollback window, encrypted with a free software-protected Vault key at the bucket level (so the lock files are covered too), logged for reads as well as writes, and reachable only through policies that grant the five object permissions the backend actually uses. All of it is inside Always Free, and the bootstrap state lives in the bucket it created.
 
-The OBJECT_OVERWRITE discrepancy is the thing I'd verify first, because it's the difference between a least-privilege policy that works and one that fails on the second day. After that, wire an alert on unexpected principals in the read log, and when the OCI provider finally ships write-only arguments, go back through your stacks and pull the secrets out of state for good.
+The OBJECT_OVERWRITE gap is real, and it's the difference between a least-privilege policy that works and one that fails on the second day. After that, wire an alert on unexpected principals in the read log, and when the OCI provider finally ships write-only arguments, go back through your stacks and pull the secrets out of state for good.
 
 Happy scripting!

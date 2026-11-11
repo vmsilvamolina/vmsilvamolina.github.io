@@ -9,3 +9,17 @@ Rakefile
 CLAUDE.md
 disqus-export.xml
 scripts/
+
+# labs: local state, credentials and run output never get committed
+labs/**/.terraform/
+labs/**/.terraform.lock.hcl
+labs/**/terraform.tfstate*
+labs/**/errored.tfstate
+labs/**/*.tfvars
+labs/**/*.tfplan
+labs/**/backend.hcl
+labs/**/lab.env
+labs/**/keys/
+labs/**/results/
+labs/**/bootstrap/backend.tf
+!labs/**/scripts/
