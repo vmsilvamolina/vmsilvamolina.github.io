@@ -1,0 +1,36 @@
+#cloud-config
+# Operator host for the shirudo quickstart, adapted from infra/lima/shirudo.yaml (x86-64, Azure).
+write_files:
+  - path: /etc/security/limits.d/90-shirudo-memlock.conf
+    content: "* - memlock unlimited\n"
+  - path: /etc/systemd/system.conf.d/90-shirudo-memlock.conf
+    content: "[Manager]\nDefaultLimitMEMLOCK=infinity\n"
+  - path: /etc/systemd/user.conf.d/90-shirudo-memlock.conf
+    content: "[Manager]\nDefaultLimitMEMLOCK=infinity\n"
+  - path: /etc/udev/rules.d/90-shirudo-kvm.rules
+    content: 'KERNEL=="kvm", GROUP="kvm", MODE="0660"' 
+runcmd:
+  - |
+    set -eux
+    if [ "$(findmnt -no FSTYPE /tmp)" = tmpfs ]; then systemctl mask tmp.mount; umount -l /tmp; chmod 1777 /tmp; fi
+    udevadm control --reload; udevadm trigger --name-match=kvm || true
+    usermod -aG kvm,docker azureuser || true
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    apt-get install -y --no-install-recommends \
+      build-essential pkg-config python3 git gh curl ca-certificates gpg jq \
+      openssl libssl-dev libcurl4-openssl-dev libelf-dev libluajit-5.1-dev \
+      libtpms-dev libtss2-dev zlib1g-dev libzstd-dev \
+      autoconf autoconf-archive automake libtool libltdl-dev \
+      bc bison flex cpio debhelper dpkg-dev fakeroot kmod libdw-dev \
+      libncurses-dev pahole rsync xz-utils zstd unzip \
+      qemu-system-x86 qemu-utils swtpm swtpm-tools tpm2-tools libtss2-tcti-swtpm0t64 \
+      cloud-image-utils libguestfs-tools dracut-core cryptsetup-bin e2fsprogs file \
+      openssh-client iproute2 isc-dhcp-client docker.io
+    usermod -aG kvm,docker azureuser
+    sudo -u azureuser git clone https://github.com/shirudo-dev/shirudo /home/azureuser/shirudo
+    cd /home/azureuser/shirudo
+    sh .github/scripts/install-clang.sh
+    sh .github/scripts/install-static-libcrypto-deps.sh
+    sudo -u azureuser mkdir -p /home/azureuser/shirudo/build
+    touch /var/log/shirudo-operator.done

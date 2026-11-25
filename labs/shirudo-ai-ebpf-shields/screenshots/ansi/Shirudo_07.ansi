@@ -1,0 +1,14 @@
+[1;33mtarget#[0m id; bash -c 'echo bash outside the service works'
+uid=0(root) gid=0(root) groups=0(root)
+bash outside the service works
+[1;33mtarget#[0m rm -f /run/shirudo/bpffs/upatches/pingsvc-exec-guard/link
+[31mrm: cannot remove '/run/shirudo/bpffs/upatches/pingsvc-exec-guard/link': Operation not permitted[0m
+[1;33mtarget#[0m bpftool link detach id 3
+[31mError: can't get link by id (3): Permission denied[0m
+[1;33mtarget#[0m shirudo status | sed -n "/^Tamper attempts/,/^$/p"
+Tamper attempts (this boot):
+  LoadNotLoader            33  program load that is not a signed loader
+  MapCreate                 1  map creation by another executable
+  BpfCommand               18  detach, update, delete or unclassified bpf() command
+  PinUnlink                 2  unlink of a pin in the private bpffs
+  ObjGet                    9  pin, map or link opened by another executable

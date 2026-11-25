@@ -24,3 +24,4 @@ labs/**/results/
 labs/**/bootstrap/backend.tf
 !labs/**/scripts/
 labs/**/ee/
+labs/**/.known_hosts

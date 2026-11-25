@@ -1,0 +1,20 @@
+[1;32moperator$[0m shirudo attest predict --cert="$KEYS/cert.der" --cert="$OWN" --event=load:basic="$PAYLOAD"
+set_digest: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+init_event: e4c891f8e443a6db7687997ffdb52d5f72043ef23fddc6e9e7aafbc586774dbd
+register_at_boot: d943e8a380bf1084bd7af8494cdc560fa59ec3c34d7381ee673092aaf22b0d5f
+register_after_events: fa46ae3c5f0b2c7765f12407b8bc0fe55ce59816624709248b045e9ffb03f815
+[1;32moperator$[0m shirudo attest verify --evidence="$EV" --nonce="$NONCE" --ak-name="$AK" --expect-chain="$REGISTER_AFTER_EVENTS"
+[2m  ... (31 checks, showing 8)
+[0m  OK    nonce matches the request
+  OK    quote: ECDSA signature by the attestation key
+  OK    quote: carries the nonce
+  OK    register: carries the nonce
+  OK    register: certified contents match the listed value
+  OK    eventlog: 2 records replay to the certified value
+  OK    state: register equals the expected value
+  NOTE  event after boot: upatch_load basic
+verdict: ok
+[1;32moperator$[0m shirudo attest verify ... --expect-chain="0000…0000"   # wrong expectation
+[31m  FAIL  state: register equals the expected value[0m
+  NOTE  event after boot: upatch_load basic
+[31mverdict: fail[0m

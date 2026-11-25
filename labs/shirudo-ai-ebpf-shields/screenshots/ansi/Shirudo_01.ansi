@@ -1,0 +1,29 @@
+[1;33mtarget#[0m shirudo status
+Host:                  quickstart
+Roles:                 target
+Status:                ok
+Version ID:            346a94ea98324a0fdae17d45c306be1c1e4965c4ff962df25bc02748be77f8f8
+
+Conditions:
+  TYPE               STATUS  DETAIL
+  LsmAttached        OK      lsm/bpf link present and pinned
+  KeyringSealed      OK      bpf serial 159973000, dm-verity serial 210977832, pins match
+  ChainIntact        OK      live register equals the eventlog replay
+  UpatchesMeasured   OK      every pinned or archived upatch is in this boot's records
+  TpmMeasured        OK      NV index 0x01818E00 readable
+  ConfigActive       OK      config 363790874a45.. is active
+  XdpCovered         OK      every device an XDP upatch selects runs it
+
+Tamper attempts (this boot):
+  LoadNotLoader            15  program load that is not a signed loader
+  MapCreate                 1  map creation by another executable
+  BpfCommand               12  detach, update, delete or unclassified bpf() command
+  ObjGet                    1  pin, map or link opened by another executable
+
+Integrity attempts (this boot):
+  none
+
+Loaded upatches (0):
+  none
+[1;33mtarget#[0m cat /run/shirudo/bpffs/tamper
+[31mcat: /run/shirudo/bpffs/tamper: Permission denied[0m

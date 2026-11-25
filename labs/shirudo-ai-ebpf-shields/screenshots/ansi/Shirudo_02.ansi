@@ -1,0 +1,12 @@
+[1;32moperator$[0m shirudo build testing/fixtures/basic.bpf.c --keys-dir "$KEYS" --vmlinux vendor/linux/vmlinux.h -o basic.upatch
+wrote basic.upatch (insns=992 sig=4853 data=2400 sections=2 maps=0 progs=1 decoders=0 name=basic)
+[1;33mtarget#[0m shirudo upatch load basic.upatch
+upatch load: signed loader accepted, keyring 159973000, 124 instructions
+upatch load: loader ran, 0 maps and 1 programs
+upatch load: program 0 (fentry) pinned at /run/shirudo/bpffs/upatches/basic/link
+upatch load: basic loaded, 1 programs, keyring 159973000
+upatch load: basic measured, register fa46ae3c5f0b2c7765f12407b8bc0fe55ce59816624709248b045e9ffb03f815
+[1;33mtarget#[0m shirudo upatch list
+Archived upatches (/var/lib/shirudo/upatches):
+  NAME                      LOADED  TYPE    KIND  PAYLOAD
+  basic                     yes     load    bpf   8c3a14136a981657..

@@ -1,0 +1,35 @@
+[1;33mtarget#[0m bash lab/exploit.sh   # shield v2 loaded
+== legitimate
+
+--- host=127.0.0.1
+ping: ok
+
+--- host=localhost
+ping: ok
+== injection
+
+--- host=127.0.0.1; id
+ping: ok
+[31m/bin/sh: 1: id: Operation not permitted[0m
+
+--- host=127.0.0.1; head -2 /etc/shadow
+ping: ok
+[31m/bin/sh: 1: head: Operation not permitted[0m
+
+--- host=127.0.0.1; curl -s http://127.0.0.1:8080/?host=x >/dev/null && echo curl-ran
+ping: ok
+[31m/bin/sh: 1: curl: Operation not permitted[0m
+
+--- host=127.0.0.1; bash -c 'echo reverse-shell-would-start-here'
+ping: ok
+[31m/bin/sh: 1: bash: Operation not permitted[0m
+
+--- host=127.0.0.1; echo builtin-write > /tmp/pwned; echo wrote /tmp/pwned
+ping: ok
+wrote /tmp/pwned
+
+== /tmp/pwned:
+builtin-write
+[1;33mtarget#[0m shirudo upatch map pingsvc-exec-guard guard_stats | grep sum=
+  key=0: sum=16   # allowed: sh + ping
+  key=1: sum=8    # refused

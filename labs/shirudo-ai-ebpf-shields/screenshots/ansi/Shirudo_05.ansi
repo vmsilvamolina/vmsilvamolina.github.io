@@ -1,0 +1,17 @@
+[2m-- shield v1: loads and verifies, but never matches the service's processes
+[0m[1;33mtarget#[0m shirudo upatch load lab/pingsvc-exec-guard.upatch
+upatch load: signed loader accepted, keyring 159973000, 148 instructions
+upatch load: loader ran, 1 maps and 1 programs
+upatch load: program 0 (lsm) pinned at /run/shirudo/bpffs/upatches/pingsvc-exec-guard/link
+upatch load: map 0 (guard_stats) pinned at /run/shirudo/bpffs/upatches/pingsvc-exec-guard/maps/guard_stats
+upatch load: pingsvc-exec-guard loaded, 1 programs, keyring 159973000
+upatch load: pingsvc-exec-guard measured, register 8876e1e0c7851061873e303d7e085abb0ea5b29001c9f8e9c466ec6d22697027
+[1;33mtarget#[0m curl -s --get --data-urlencode 'host=127.0.0.1; id' http://127.0.0.1:8080/ | tail -1
+uid=0(root) gid=0(root) groups=0(root)
+[1;33mtarget#[0m shirudo upatch map pingsvc-exec-guard guard_stats | grep sum=
+  key=0: sum=0
+  key=1: sum=0
+[1;33mtarget#[0m ps -L -o pid,lwp,comm -p $(pgrep -x pingsvc)   # during a request
+    PID     LWP COMMAND
+   4513    4513 pingsvc
+   4513    5525 Thread-20 (proc
